@@ -20,6 +20,7 @@ El registro sobre las reuniones se encuentra en [Discussions](https://github.com
 
 # Retrospectiva
 (Idea Board a realizar)
+https://sprints.zoho.com/team/minidevs#backlog/P1
 
 # Realizado por
 * Franco Lorca
