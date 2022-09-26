@@ -19,7 +19,7 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 El registro sobre las reuniones se encuentra en [Discussions](https://github.com/FrancoGL/ISPC-FullStack/discussions)
 
 # Retrospectiva
-https://ideaboardz.com/for/Restrospectiva/4657648
+SPRINT 0 - https://ideaboardz.com/for/Restrospectiva/4657648
 
 
 # Realizado por
