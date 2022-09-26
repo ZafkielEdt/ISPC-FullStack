@@ -23,13 +23,13 @@ El registro sobre las reuniones se encuentra en [Discussions](https://github.com
 
 
 # Realizado por
-* Franco Lorca
-* Cesar Javier Corzo
-* Priscila Correa
-* Luis Alejo Lucero
-* Lucas Robledo
-* Agustin Fernandez
-* Pedro Tarrago
-* Alan Federico Silva
-* Verónica Ivana Kostich
-* Carlos Gabriel Sucaria
+* [Franco Lorca](https://github.com/FrancoGL)
+* [Cesar Javier Corzo](https://github.com/javiercorzo37)
+* [Priscila Correa](https://github.com/pri1593)
+* [Luis Alejo Lucero](https://github.com/Alejo11Lucero)
+* [Lucas Robledo](https://github.com/Lukill22)
+* [Agustin Fernandez](https://github.com/cheaguz)
+* [Pedro Tarrago](https://github.com/pepi1100)
+* [Alan Federico Silva](https://github.com/federico42o/)
+* [Verónica Ivana Kostich](https://github.com/veroivk)
+* [Carlos Gabriel Sucaria](https://github.com/gabrielsucaria)
