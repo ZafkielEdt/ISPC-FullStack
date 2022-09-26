@@ -5,8 +5,7 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 # Tabla de contenidos
 1. [Funciones](#funciones)
 2. [Características](#características)
-3. [Registro de meetings](#registro-de-meetings)
-4. [Equipo](#realizado-por)
+3. [Equipo](#realizado-por)
 
 
 # Funciones
@@ -14,9 +13,6 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 
 # Características
 
-# Registro de meetings
-
-El registro sobre las reuniones se encuentra en [Discussions](https://github.com/FrancoGL/ISPC-FullStack/discussions)
 
 # Realizado por
 * [Franco Lorca](https://github.com/FrancoGL)
