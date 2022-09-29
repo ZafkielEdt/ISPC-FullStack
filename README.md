@@ -22,6 +22,12 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 * Reservas a restaurantes
 * Descripción de distintas experiencias
 
+# Diseño
+
+En el siguiente enlace se puede visualizar el diseño del sitio así como el Site Map del mismo.
+
+[Diseño del sitio](https://www.figma.com/file/jkY5AN9kUPrdyCY1OtwwUd/Dise%C3%B1o)
+
 # Realizado por
 * [Franco Lorca](https://github.com/FrancoGL)
 * [Cesar Javier Corzo](https://github.com/javiercorzo37)
