@@ -10,9 +10,17 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 
 # Funciones
 
+* Registro
+* Paquetes de destinos
+* Filtro por localidad [En revisión]
+* Busquedá
+* Reservas
 
 # Características
 
+* Compra de paquetes de destinos desde la página
+* Reservas a restaurantes
+* Descripción de distintas experiencias
 
 # Realizado por
 * [Franco Lorca](https://github.com/FrancoGL)
