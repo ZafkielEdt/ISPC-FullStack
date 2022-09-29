@@ -5,7 +5,8 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 # Tabla de contenidos
 1. [Funciones](#funciones)
 2. [Características](#características)
-3. [Equipo](#realizado-por)
+3. [Diseño](#diseño)
+4. [Equipo](#realizado-por)
 
 
 # Funciones
