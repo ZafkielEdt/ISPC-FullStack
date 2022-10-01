@@ -14,7 +14,7 @@ En este repositorio realizaremos un Proyecto Grupal para el Módulo Programador 
 * Registro
 * Paquetes de destinos
 * Filtro por localidad [En revisión]
-* Busquedá
+* Búsqueda
 * Reservas
 
 # Características
