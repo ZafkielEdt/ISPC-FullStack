@@ -58,8 +58,13 @@ nav {
 }
 
 .btn {
+  width: 5.625rem;
   font-weight: 700;
   background-color: var(--primary-color);
+}
+
+.cards {
+  margin-top: 2rem;
 }
 
 .footer{
