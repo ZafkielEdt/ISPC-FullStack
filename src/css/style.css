@@ -53,14 +53,18 @@ nav {
 }
 
 .footer{
-    padding:5px;
-    height: 100px;
+    padding:15px 0 15px 0;
+    /* height: 100px; */
     background-color: var(--secondary-color);
     
 
 }
+.footer ul, .footer p{
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
 
-
+}
 .list-item{
     list-style: none;
     font-size: 1.3rem;
