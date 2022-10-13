@@ -1,55 +1,70 @@
 :root {
-    --primary-color: #C5AFA0;
-    --secondary-color: #A0B6C5;
+  --primary-color: #a0b6c5;
+  --primary-default-color: #fff;
+  --secondary-default-color: #000;
+  --background: #f7f7f7;
+  --nav-link-hover: #2a2c2e;
 }
 
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: #F7F7F7;
-    font-family: 'Quicksand', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+body {
+  background-color: var(--background);
+  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #searchBar {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .navbar {
-    align-items: center;
-    background-color: var(--secondary-color);
+  align-items: center;
+  background-color: var(--primary-color);
 }
 
-.nav-link{
-    color: black;
+.nav-link {
+  color: var(--secondary-default-color);
 }
 
 .nav-link:hover {
-    font-weight: bold;
-    color: rgb(42, 44, 46);
+  font-weight: bold;
+  color: var(--nav-link-hover);
 }
 
-
 .main {
-    min-height: 75vh;
-    padding: 1rem;
-    font-family: "Quicksand", sans-serif;
+  margin: 1rem 0;
+  padding: 1rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.main__title {
+  font-size: 2.5rem;
+}
+
+.main__subtitle {
+  font-size: 0.9rem;
 }
 
 .btn {
-    font-weight: 700;
-    background-color: var(--primary-color);
+  width: 5.625rem;
+  font-weight: 700;
+  background-color: var(--primary-color);
+}
+
+.cards {
+  margin-top: 2rem;
 }
 
 .footer{
@@ -70,6 +85,7 @@ nav {
     font-size: 1.3rem;
     
 }
+
 
 .container{
     width: 100%;
