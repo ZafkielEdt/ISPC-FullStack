@@ -113,6 +113,13 @@ nav {
 
 .carrousell-card {
     margin-right: 5%;
+    background-image: url('../assets/img/example-photo.png');
+    display: flex;
+    color: #F7F7F7;
+    align-items: end;
+    font-weight: bold;
+    width: 350px;
+    
 }
 
 .carrousell-card > img {
@@ -135,17 +142,30 @@ nav {
 
 
 
-.carrousell-card-info > button {
-    
-    
+.carrousell-card-info > div > button {
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: bold;
     border: 1px solid #fff;
-    color:#fff;
-    background-color: rgba(0, 0, 0, 0.781);
-    
+    color: #fff;
+    background-color: rgba(3, 3, 3, 0.781);
+    width: 80px;
+    height: 30px;
 }
 
 .carrousell-card-info {
-    float: initial;
+    display: flex;
+    align-items: flex-end;
+    padding: 4%;
+}
+
+.carrousell-card-info > div > h2 {
+    font-size: 28px;
+   
+}
+
+.carrousell-card-info > div > span {
+    font-size: 11px;
 }
 
 
