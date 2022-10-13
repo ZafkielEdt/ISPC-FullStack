@@ -101,71 +101,82 @@ nav {
 
 /* Destino  */
 
+.main-carrousell {
+    margin-top: 4%;
+}
+
 .carrousell{
-    margin-top: 3%;
+    margin-top: 2%;
     margin-bottom: 3%;
 }
 
-.carrousell-title {
-    font-weight: bold;
-    font-size: 30px;
+.carrousell-title{
+    margin-left: 6%;
+    margin-bottom: 0px;
 }
 
-.carrousell-card {
-    margin-right: 5%;
+.card-img {
+    margin-right: 2%;
     background-image: url('../assets/img/example-photo.png');
+    background-size: cover;
     display: flex;
-    color: #F7F7F7;
-    align-items: end;
-    font-weight: bold;
     width: 350px;
-    
+    height: 300px;
+    font-weight: bold; 
+    color: #F7F7F7;
+    align-items: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.99) 0px -23px 70px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.carrousell-card > img {
-    max-width: 300px;
-}
-
-.carrousell-icon {
+#carrousell-icon {
     display: flex;
     justify-content: center;
     align-items: center;
 } 
 
-.carrousell-icon > button {
-    font-size: 50px;
+#carrousell-icon > button {
+    font-size: 40px;
     border: none;
-    background-color: #F7F7F7
+    background-color: #F7F7F7;
+ 
 }
 
-
-
-
-
-.carrousell-card-info > div > button {
+.card-img > div > .btn {
     border-radius: 24px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     border: 1px solid #fff;
     color: #fff;
-    background-color: rgba(3, 3, 3, 0.781);
-    width: 80px;
-    height: 30px;
+    background-color: rgba(3, 3, 3, 0.644);
+    width: 90px;
+    height: 40px;
+    margin-bottom: 7%;
 }
 
-.carrousell-card-info {
-    display: flex;
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: #fff;
+}
+
+ .card-img-info {
     align-items: flex-end;
     padding: 4%;
-}
+} 
 
-.carrousell-card-info > div > h2 {
+.card-img-btn {
+     padding: 6%; 
+}
+ 
+
+.card-img > div > h5 {
     font-size: 28px;
+    font-weight: bold;
    
 }
 
-.carrousell-card-info > div > span {
-    font-size: 11px;
+.card-img > div > p {
+    font-size: 12px;
+    font-weight: normal;
 }
 
 
