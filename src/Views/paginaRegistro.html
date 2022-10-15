@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Title -->
     <title>Destino Córdoba</title>
 </head>
@@ -20,7 +20,8 @@
     <header>
         <nav class="navbar navbar-expand-lg nav-justified">       
             <ul class="nav nav-fill"> 
-                <li class="nav-item"><a class="nav-link" href="#">Destinos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="destinos.html">Destinos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Experiencias</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Gastronomia</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Sobre Nosotros</a></li> 
@@ -34,36 +35,37 @@
 
     </header>
     <main class="main">
+        <div class="form">
+            <h1>Destino Córdoba</h1>
+            <h2>Formulario de registro</h2>
 
-        <h1>Destino Córdoba</h1>
-        <h2>Formulario de registro</h2>
+            <form action="/my-handling-form-page" method="post">
+                <ul>
+                    <li>
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" name="user_name">
+                    </li>
+                    <li>
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" id="mail" name="user_mail">
+                    </li>
+                    <li>
+                        <label for="password">Contraseña</label>
+                        <input type="text" id="password" name="user_password">
+                    </li>
+                    <li>
+                        <label for="password_repeat">Repetir contraseña:</label>
+                        <input type="text" id="password_repeat" name="user_password_repeat">
+                    </li>
+                    <li>
+                        <label for="nim">Numero de telefono:</label>
+                        <input type="text" id="nim" name="user_nim">
+                    </li>
+                </ul>
+            </form>
 
-        <form action="/my-handling-form-page" method="post">
-            <ul>
-                <li>
-                  <label for="name">Nombre completo:</label>
-                  <input type="text" id="name" name="user_name">
-                </li>
-                <li>
-                  <label for="mail">Correo electrónico:</label>
-                  <input type="email" id="mail" name="user_mail">
-                </li>
-                <li>
-                    <label for="password">Contraseña</label>
-                    <input type="text" id="password" name="user_password">
-                </li>
-                <li>
-                    <label for="password_repeat">Repetir contraseña:</label>
-                    <input type="text" id="password_repeat" name="user_password_repeat">
-                </li>
-                <li>
-                    <label for="nim">Numero de telefono:</label>
-                    <input type="text" id="nim" name="user_nim">
-                  </li>
-               </ul>
-        </form>
-
-        <button type="button" class="btn">Registrarme</button>
+            <button type="button" class="btn">Registrarme</button>
+    </div>
         
     </main>
 
