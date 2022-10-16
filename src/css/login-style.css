@@ -1,11 +1,22 @@
 
+.div {
+    @media only screen and (min-width: 400)
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
 .form_login {
     width: 400px;
     height: 340px;
-    background: #4e4e4e;
+    background-color: #4e4e4e;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     box-shadow: 7px 13px 37px #000;
     padding: 20px 30px;
     border-top: 4px solid #017bab;
@@ -21,12 +32,12 @@
     font-size: 20px;
 } 
 
-.control {
+.user_controls {
     width: 100%;
     border: 1px solid #017bab;
     margin-bottom: 15px;
     padding: 11px 10px;
-    background: #252323;
+    background: #ece8e8;
     font-size: 14px;
     font-weight: bold;
 }
@@ -36,7 +47,7 @@
     height: 40px;
     background: #017bab;
     border: none;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 16px;
 }
 
@@ -54,4 +65,6 @@
 
 .form_login a:hover {
     text-decoration: underline;
+    color: #1420ca
 }
+
