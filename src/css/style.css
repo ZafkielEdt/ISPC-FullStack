@@ -216,9 +216,6 @@ a:link, a:visited, a:active {
   /* Footer */
 
   .footer {
-    position: relative;
-    bottom: 0;
-    right: 0;
     color: var(--primary-default-color);
   }
 
