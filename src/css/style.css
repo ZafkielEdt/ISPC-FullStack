@@ -6,6 +6,7 @@
   --nav-link-hover: #2a2c2e;
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -59,7 +60,7 @@ body {
 }
 
 .btn {
-  width: 5.625rem;
+  width: 7.625rem;
   font-weight: 700;
   background-color: var(--primary-color);
 }
