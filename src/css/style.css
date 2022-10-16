@@ -19,18 +19,18 @@ body {
   font-weight: bold;
 }
 
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+
+/* Header */
 
 #searchBar {
   border-radius: 15px;
 }
 
+#btn-search {
+  background-color: var(--primary-default-color);
+}
+
 .navbar {
-  align-items: center;
   background-color: var(--primary-color);
 }
 
@@ -43,10 +43,11 @@ nav {
   color: var(--nav-link-hover);
 }
 
+/* Main */
+
 .main {
   margin: 1rem 0;
   padding: 1rem;
-  font-family: "Quicksand", sans-serif;
 }
 
 .main__title {
@@ -67,12 +68,11 @@ nav {
   margin-top: 2rem;
 }
 
+/* Footer */
+
 .footer{
     padding:15px 0 15px 0;
-    /* height: 100px; */
     background-color: var(--secondary-color);
-    
-
 }
 .footer ul, .footer p{
     padding-left: 0;
@@ -86,7 +86,7 @@ nav {
     
 }
 
-
+/* Cards */
 .container{
     width: 100%;
     max-width: 1200px;
@@ -197,3 +197,61 @@ a:link, a:visited, a:active {
 
 
 /* fin- Destino  */
+
+@media screen and (min-width: 768px) {
+  body {
+    height: 100vh;
+    background-image: url("../assets/img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Main */
+  .main {
+    margin-top: 1.5rem 0;
+    padding: 2.5rem;
+  }
+
+  /* Footer */
+
+  .footer {
+    color: var(--primary-default-color);
+  }
+
+  /* Card */
+
+  .cards {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .card__header {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  
+  body {
+    height: auto;
+  }
+  /* Main */
+  .main {
+    padding: 2.5rem;
+  }
+
+  .main__title {
+    font-size: 3.5rem;
+  }
+
+  .main__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .btn:hover {
+    color: var(--primary-default-color);
+    background-color: var(--nav-link-hover);
+  }
+}
