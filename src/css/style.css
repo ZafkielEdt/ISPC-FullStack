@@ -240,6 +240,7 @@ a:link, a:visited, a:active {
   body {
     background-image: url("../assets/img/background.png");
     background-size: cover;
+    background-position: unset;
   }
   /* Main */
   .main {
