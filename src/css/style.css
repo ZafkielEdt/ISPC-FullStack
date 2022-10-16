@@ -19,18 +19,18 @@ body {
   font-weight: bold;
 }
 
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+
+/* Header */
 
 #searchBar {
   border-radius: 15px;
 }
 
+#btn-search {
+  background-color: var(--primary-default-color);
+}
+
 .navbar {
-  align-items: center;
   background-color: var(--primary-color);
 }
 
@@ -42,6 +42,8 @@ nav {
   font-weight: bold;
   color: var(--nav-link-hover);
 }
+
+/* Main */
 
 .main {
   margin: 1rem 0;
@@ -67,6 +69,8 @@ nav {
   margin-top: 2rem;
 }
 
+/* Footer */
+
 .footer{
     padding:15px 0 15px 0;
     /* height: 100px; */
@@ -86,7 +90,7 @@ nav {
     
 }
 
-
+/* Cards */
 .container{
     width: 100%;
     max-width: 1200px;
