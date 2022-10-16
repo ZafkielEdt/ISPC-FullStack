@@ -13,6 +13,7 @@
 }
 
 body {
+  height: 100vh;
   background-color: var(--background);
   font-family: "Quicksand", sans-serif;
   font-family: "Roboto", sans-serif;
@@ -48,7 +49,6 @@ body {
 .main {
   margin: 1rem 0;
   padding: 1rem;
-  font-family: "Quicksand", sans-serif;
 }
 
 .main__title {
@@ -73,10 +73,7 @@ body {
 
 .footer{
     padding:15px 0 15px 0;
-    /* height: 100px; */
     background-color: var(--secondary-color);
-    
-
 }
 .footer ul, .footer p{
     padding-left: 0;
@@ -201,3 +198,64 @@ a:link, a:visited, a:active {
 
 
 /* fin- Destino  */
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url("../assets/img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Main */
+  .main {
+    margin-top: 1.5rem 0;
+    padding: 2.5rem;
+  }
+
+  /* Footer */
+
+  .footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    color: var(--primary-default-color);
+  }
+
+  /* Card */
+
+  .cards {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .card__header {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  
+  body {
+    background-image: url("../assets/img/background.png");
+    background-size: cover;
+  }
+  /* Main */
+  .main {
+    padding: 2.5rem;
+  }
+
+  .main__title {
+    font-size: 3.5rem;
+  }
+
+  .main__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .btn:hover {
+    color: var(--primary-default-color);
+    background-color: var(--nav-link-hover);
+  }
+}
