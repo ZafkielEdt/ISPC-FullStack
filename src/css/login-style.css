@@ -1,17 +1,8 @@
-
-.div {
-    @media only screen and (min-width: 400)
-    width: auto;
-    height: auto;
-    margin: auto;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-
-}
 .form_login {
-    width: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 95%;
+    max-width: 400px;
     height: 340px;
     background-color: #4e4e4e;
     margin: auto;
