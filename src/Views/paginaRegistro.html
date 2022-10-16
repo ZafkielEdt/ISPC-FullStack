@@ -38,25 +38,36 @@
         <div class="form">
             <h1>Destino Córdoba</h1>
             <h2>Formulario de registro</h2>
-
+            <br>
             <form action="/my-handling-form-page" method="post">
                 <ul>
                     <li>
                     <label for="name">Nombre completo:</label>
-                    <input type="text" id="name" name="user_name">
+                    <!-- Bootstrap<input type="text" id="name" name="user_name" > -->
+                    <input type="text" id="disabledTextInput">
                     </li>
+                    <br>
                     <li>
                     <label for="mail">Correo electrónico:</label>
                     <input type="email" id="mail" name="user_mail">
                     </li>
+
+                    <br>
+
                     <li>
-                        <label for="password">Contraseña</label>
+                        <label for="password">Contraseña:</label>
                         <input type="text" id="password" name="user_password">
                     </li>
+
+                    <br>
+
                     <li>
                         <label for="password_repeat">Repetir contraseña:</label>
                         <input type="text" id="password_repeat" name="user_password_repeat">
                     </li>
+
+                    <br>
+                    
                     <li>
                         <label for="nim">Numero de telefono:</label>
                         <input type="text" id="nim" name="user_nim">
