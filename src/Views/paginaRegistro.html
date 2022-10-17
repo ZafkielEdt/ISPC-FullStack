@@ -44,46 +44,56 @@
     </header>
     <main class="main">
         <div class="form">
-            <h1>Destino Córdoba</h1>
-            <h2>Formulario de registro</h2>
-            <br>
-            <form action="/my-handling-form-page" method="post">
-                <ul>
-                    <li>
-                    <label for="name">Nombre completo:</label>
+            <h2>Destino Córdoba</h2>
+            <h4>Formulario de registro</h4>
+            <!-- <br> -->
+            <form action="" class="form" method="post">
+                <!-- <ul>
+                    <li> -->
+                        <div class="form-field">
+                    <label for="name">Nombre completo</label>
                     <!-- Bootstrap<input type="text" id="name" name="user_name" > -->
-                    <input type="text" id="disabledTextInput">
-                    </li>
-                    <br>
-                    <li>
-                    <label for="mail">Correo electrónico:</label>
-                    <input type="email" id="mail" name="user_mail">
-                    </li>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                    <!-- </li>
+                    <br> -->
+                    <!-- <li> -->
+                        <div class="form-field">
+                    <label for="mail">Correo electrónico</label>
+                    <input type="email" class="form-control" id="mail" name="user_mail">
+                </div>
+                    <!-- </li>
 
                     <br>
 
-                    <li>
-                        <label for="password">Contraseña:</label>
-                        <input type="text" id="password" name="user_password">
-                    </li>
+                    <li> -->
+                        <div class="form-field">
+                        <label for="password">Contraseña</label>
+                        <input type="text" class="form-control" id="password" name="user_password">
+                    </div>
+                    <!-- </li>
 
                     <br>
 
-                    <li>
-                        <label for="password_repeat">Repetir contraseña:</label>
-                        <input type="text" id="password_repeat" name="user_password_repeat">
-                    </li>
+                    <li> -->
+                        <div class="form-field">
+                        <label for="password_repeat">Repetir contraseña</label>
+                        <input type="text" class="form-control" id="password_repeat" name="user_password_repeat">
+                    </div>
+                    <!-- </li>
 
                     <br>
                     
-                    <li>
-                        <label for="nim">Numero de telefono:</label>
-                        <input type="text" id="nim" name="user_nim">
-                    </li>
-                </ul>
+                    <li> -->
+                        <div class="form-field">
+                        <label for="nim">Numero de telefono</label>
+                        <input type="text" class="form-control" id="nim" name="user_nim">
+                    </div>
+                    <!-- </li>
+                </ul> -->
+                <button type="button" class="btn btn-dark">Registrarme</button>
             </form>
 
-            <button type="button" class="btn">Registrarme</button>
     </div>
         
     </main>
@@ -93,11 +103,11 @@
     <footer class="footer d-flex flex-column">
 
         <ul class="d-flex justify-content-center gap-3 align-items-center">
-            <li class="list-item "><i class="bi bi-facebook"></i></li>
-            <li class="list-item "><i class="bi bi-whatsapp"></i></li>
-            <li class="list-item "><i class="bi bi-instagram"></i></li>
+            <li class="list-item text-dark"><i class="bi bi-facebook"></i></li>
+            <li class="list-item text-dark"><i class="bi bi-whatsapp"></i></li>
+            <li class="list-item text-dark"><i class="bi bi-instagram"></i></li>
         </ul>
-        <p class="align-self-center">2022 - MiniDevs</p>
+        <p class="align-self-center text-dark">2022 - MiniDevs</p>
 
     </footer>
 
