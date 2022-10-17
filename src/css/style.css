@@ -244,7 +244,7 @@ a:link, a:visited, a:active {
 @media screen and (max-width: 1024px) {
   
   .body-background {
-    height: 100vh;
+    height: auto;
   }
 
   /* Main */
