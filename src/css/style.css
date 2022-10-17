@@ -19,10 +19,6 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
-.body-background > header > nav{
-  background-color: rgba(0, 0, 0, 0);
-
-}
 
 /* Header */
 
@@ -245,11 +241,12 @@ a:link, a:visited, a:active {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   
   .body-background {
     height: 100vh;
   }
+
   /* Main */
   .main {
     padding: 2.5rem;
