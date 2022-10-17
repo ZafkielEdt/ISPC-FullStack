@@ -20,16 +20,15 @@ body {
   font-weight: bold;
 }
 
-
 /* Header */
 
 #searchBar {
   border-radius: 15px;
 }
 
-#btn-search {
+/* #btn-search {
   background-color: var(--primary-default-color);
-}
+} */
 
 .navbar {
   background-color: var(--primary-color);
@@ -59,11 +58,11 @@ body {
   font-size: 0.9rem;
 }
 
-.btn {
+/* .btn {
   width: 7.625rem;
   font-weight: 700;
   background-color: var(--primary-color);
-}
+} */
 
 .cards {
   margin-top: 2rem;
@@ -195,12 +194,21 @@ a:link, a:visited, a:active {
     font-size: 12px;
     font-weight: normal;
 }
-
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+  gap: 10px;
+}
+.form-field{
+  max-width: 200px;
+}
 
 /* fin- Destino  */
 
-@media screen and (min-width: 768px) {
-  body {
+@media screen and (min-width: 1268px) {
+  .body-background {
     height: 100vh;
     background-image: url("../assets/img/background.png");
     background-size: cover;
@@ -217,6 +225,7 @@ a:link, a:visited, a:active {
   /* Footer */
 
   .footer {
+    /* background-color: var(--nav-link-hover); */
     color: var(--primary-default-color);
   }
 
@@ -233,11 +242,12 @@ a:link, a:visited, a:active {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   
-  body {
+  .body-background {
     height: auto;
   }
+
   /* Main */
   .main {
     padding: 2.5rem;
@@ -251,8 +261,8 @@ a:link, a:visited, a:active {
     font-size: 1.2rem;
   }
 
-  .btn:hover {
-    color: var(--primary-default-color);
-    background-color: var(--nav-link-hover);
-  }
+  /* .btn:hover {
+    color: var(--secondary-default-color);
+    /* background-color: var(--nav-link-hover); 
+  } */
 }
