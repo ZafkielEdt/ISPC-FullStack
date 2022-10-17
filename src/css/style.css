@@ -207,7 +207,7 @@ a:link, a:visited, a:active {
 
 /* fin- Destino  */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1268px) {
   .body-background {
     height: 100vh;
     background-image: url("../assets/img/background.png");
@@ -225,6 +225,7 @@ a:link, a:visited, a:active {
   /* Footer */
 
   .footer {
+    /* background-color: var(--nav-link-hover); */
     color: var(--primary-default-color);
   }
 
