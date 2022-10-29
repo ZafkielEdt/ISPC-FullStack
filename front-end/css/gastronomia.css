@@ -302,17 +302,6 @@ body {
 	background-color: #f7f7f7;
 }
 
-.card-img > div > .btn {
-	border-radius: 24px;
-	font-size: 14px;
-	font-weight: bold;
-	border: 1px solid #fff;
-	color: #fff;
-	background-color: rgba(3, 3, 3, 0.644);
-	width: 90px;
-	height: 40px;
-	margin-bottom: 7%;
-}
 
 a:link,
 a:visited,
