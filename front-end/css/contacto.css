@@ -1,0 +1,110 @@
+:root {
+	--primary-color: #a0b6c5;
+	--primary-default-color: #fff;
+	--secondary-default-color: #000;
+	--background: #f7f7f7;
+	--nav-link-hover: #2a2c2e;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--background);
+	font-family: "Quicksand", sans-serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+/* Header */
+
+#searchBar {
+	border-radius: 15px;
+}
+
+
+.navbar {
+	background-color: var(--primary-color);
+}
+
+.nav-link {
+	color: var(--secondary-default-color);
+}
+
+.nav-link:hover {
+	font-weight: bold;
+	color: var(--nav-link-hover);
+}
+
+/* form */
+
+main {
+    width: 50%;
+    height: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+    margin-left: 25%;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 0%;
+    margin-bottom: 20px;
+    font-size: 35px;
+
+}
+
+input, textarea {
+    width: 100%;
+    height: 35%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+textarea {
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+#envio {
+    background: #31384A;
+    color: #fff;
+    padding: 20px;
+}
+
+#envio:hover {
+    cursor: pointer;
+}
+
+@media (max-width:480px){
+    from{
+        width: 100%;
+    }
+}
+
+/* footer */
+
+.footer {
+	padding: 15px 0 15px 0;
+	background-color: var(--secondary-color);
+}
+.footer ul,
+.footer p {
+	padding-left: 0;
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+.list-item {
+	list-style: none;
+	font-size: 1.3rem;
+}
