@@ -1,78 +1,39 @@
-:root {
-	--primary-color: #a0b6c5;
-	--primary-default-color: #fff;
-	--secondary-default-color: #000;
-	--background: #f7f7f7;
-	--nav-link-hover: #2a2c2e;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background-color: var(--background);
-	font-family: "Quicksand", sans-serif;
-	font-family: "Roboto", sans-serif;
-	font-weight: bold;
-}
-
-/* Header */
-
-#searchBar {
-	border-radius: 15px;
-}
-
-
-.navbar {
-	background-color: var(--primary-color);
-}
-
-.nav-link {
-	color: var(--secondary-default-color);
-}
-
-.nav-link:hover {
-	font-weight: bold;
-	color: var(--nav-link-hover);
-}
-
-/* form */
-
 main {
     width: 50%;
     height: auto;
     background: rgba(0,0,0,0.4);
-    padding: 10px 30px;
+    padding: 10px 40px;
     box-sizing: border-box;
-    margin-top: 20px;
+    margin-top: 7%;
+    margin-bottom: 7%;
     border-radius: 7px;
     margin-left: 25%;
+    
 }
+
 
 
 h1 {
     text-align: center;
-    margin: 0%;
-    margin-bottom: 20px;
-    font-size: px;
+    margin: 1%;
+    margin-bottom: 5%;
+    font-size: 50px;
 
 }
 
+
 input, textarea {
     width: 100%;
-    height: 35%;
-    margin-bottom: 20px;
-    padding: 7px;
+    height: 45%;
+    margin-bottom: 2%;
+    padding: 1%;
     box-sizing: border-box;
     font-size: 20px;
 }
 
 textarea {
-    min-height: 100px;
-    max-height: 200px;
+    min-height: 200px;
+    max-height: 300px;
     max-width: 100%;
 }
 
@@ -87,25 +48,21 @@ textarea {
     cursor: pointer;
 }
 
-@media (max-width:480px){
+@media (max-width:650px){
     from{
-        width: 100%;
+        width: 90%;
+    }
+    #envio:hover {
+        box-shadow: inset 100vh 0 0 0 #a0b6c5;
+        cursor: pointer;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+
+    input, textarea{
+        font-size: 15px;
     }
 }
 
-/* footer */
-
-.footer {
-	padding: 15px 0 15px 0;
-	background-color: var(--secondary-color);
-}
-.footer ul,
-.footer p {
-	padding-left: 0;
-	margin-bottom: 0;
-	margin-top: 10px;
-}
-.list-item {
-	list-style: none;
-	font-size: 1.3rem;
-}
