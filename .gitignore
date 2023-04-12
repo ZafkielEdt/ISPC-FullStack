@@ -1,1 +1,2 @@
-back-end/Controllers/__pycache__/connection.cpython-39.pyc
+*.pyc
+.env
