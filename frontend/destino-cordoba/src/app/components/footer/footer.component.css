@@ -8,6 +8,7 @@ footer {
     bottom: 0;
     margin: auto ;
     width: 100%;
+    z-index: 100;
   }
   
   .social-icons {

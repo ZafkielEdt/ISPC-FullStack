@@ -1,0 +1,71 @@
+.gallery-container{
+    width: 50%;
+    height: 30rem;
+    margin: 4rem auto;
+    display: flex;
+    gap: .3rem;
+    position: relative;
+}
+.gallery-image-large{
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-image-small{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.image-small-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+.image-small{
+    /* width: 100%; */
+    width: 13rem;
+    height: 10rem;
+    position: relative;
+}
+.image-small > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-small-mask>button{
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.788);
+    color: white;
+}
+
+.travel-duration{
+    position: absolute;
+    display: flex;
+    bottom: -1rem;
+    left: 1rem;
+    z-index: 1;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+
+}
+
+.travel-duration>p{
+    align-self: flex-end;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    
+}

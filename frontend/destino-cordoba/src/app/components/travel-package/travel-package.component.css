@@ -1,0 +1,36 @@
+.package-content{
+    width: 50%;
+    margin: 1rem auto 1rem auto;
+}
+
+.header > h1{
+    font-size: 3.5rem;
+    font-weight: 600;
+    
+
+}
+.description{
+    display: flex;
+    align-items: center;
+    margin: .5rem 0;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.description > i{
+    font-size: 1.2rem;
+}
+
+.content-left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0;
+}
+
+.content-right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0;
+}
