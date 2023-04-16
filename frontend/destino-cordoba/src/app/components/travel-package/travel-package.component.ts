@@ -11,9 +11,9 @@ export interface PackageTravel {
 }
 
 @Component({
-  selector: 'app-package-travel',
-  templateUrl: './package-travel.component.html',
-  styleUrls: ['./package-travel.component.css']
+  selector: 'app-travel-package',
+  templateUrl: './travel-package.component.html',
+  styleUrls: ['./travel-package.component.css']
 })
 export class PackageTravelComponent implements OnInit{
 

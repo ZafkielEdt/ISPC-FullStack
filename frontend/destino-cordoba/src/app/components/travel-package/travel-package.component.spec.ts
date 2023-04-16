@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackageTravelComponent } from './package-travel.component';
+import { PackageTravelComponent } from './travel-package.component';
 
 describe('PackageTravelComponent', () => {
   let component: PackageTravelComponent;

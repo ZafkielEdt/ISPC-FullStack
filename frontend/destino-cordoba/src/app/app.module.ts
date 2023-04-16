@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PackageTravelComponent } from './components/package-travel/package-travel.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PackageTravelComponent } from './components/travel-package/travel-package.component';
 
 @NgModule({
   declarations: [

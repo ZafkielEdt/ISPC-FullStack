@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PackageTravelComponent} from './components/package-travel/package-travel.component';
+import {PackageTravelComponent} from './components/travel-package/travel-package.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
