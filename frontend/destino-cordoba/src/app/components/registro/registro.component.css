@@ -11,20 +11,25 @@
   flex-direction: column;
   padding-top: 5rem;
   align-items: center;
-  height: 110vh;
+  height: 100vh;
   padding-bottom: 5rem;
   background-color: gray;
 }
-.registro,
-.login {
+.registro {
   width: 25%;
   text-align: center;
 }
 
-#registro,
-#sesion {
+#registro {
   display: flex;
   flex-direction: column;
+}
+
+form {
+  background-color: rgb(71, 71, 66);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: aliceblue;
 }
 h1 {
   font-size: 3rem;
@@ -34,9 +39,12 @@ h2 {
 }
 label {
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 input {
   border-radius: 5px;
   line-height: 20px;
   border: none;
+  margin-bottom: 1.5rem;
+  text-indent: 0.2rem;
 }
