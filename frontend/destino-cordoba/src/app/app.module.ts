@@ -20,7 +20,8 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
     FooterComponent,
     PackageTravelComponent,
     GalleryComponent,
-    UserDashboardComponent
+    RegistroComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,6 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
     ReactiveFormsModule,
     LazyLoadImageModule,
     SharedModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent],

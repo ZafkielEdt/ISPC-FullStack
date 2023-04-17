@@ -8,7 +8,20 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-
+$indigo-palette: (
+ 50: #e8eaf6,
+ 100: #c5cae9,
+ 200: #d3461b,
+ 300: #d1271b,
+ // ... continues to 900
+ contrast: (
+   50: rgba(rgb(219, 22, 22), 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   // ... continues to 900
+ )
+);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
