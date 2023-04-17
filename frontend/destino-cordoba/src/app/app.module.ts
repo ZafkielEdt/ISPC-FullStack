@@ -12,13 +12,15 @@ import { PackageTravelComponent } from './components/travel-package/travel-packa
 import { SharedModule } from './components/shared/shared.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     PackageTravelComponent,
-    GalleryComponent
+    GalleryComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
