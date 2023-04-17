@@ -1,0 +1,104 @@
+
+
+
+
+
+
+<div class="travel-package-main">
+<section class="content-left">
+<app-gallery [gallery]="packageTravel.gallery" [totalDuration]="totalDuration"></app-gallery>
+<section class="package-content">
+    <header class="header">
+        <h1>{{packageTravel.description}}</h1>   
+    </header>
+    <div class="description">
+        <i class="fa-sharp fa-solid fa-location-dot" style="color: #ae2d2d;"></i>
+        <p>{{packageTravel.title}}</p>
+    </div>
+</section>
+</section>
+
+
+
+
+    <section class="set-package">
+      <div class="set-package-header">
+        <h2>Listo para vivir esta experiencia?</h2>
+      </div>
+      <mat-horizontal-stepper class="mat-horizontal-stepper">
+        <mat-step>
+        <div class="mat-step-container">
+          <mat-card class="demo-inline-calendar-card">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+          </mat-card>
+          <p class="p-dates">
+            <ng-container *ngIf="selected">
+              Del <strong>{{selected.toLocaleDateString()}}</strong> a <strong>{{endDate.toLocaleDateString()}}</strong>
+            </ng-container>
+          </p>
+          <div class="step-buttons">
+            <button class="step-btn" mat-button matStepperNext>Continuar</button>
+          </div>
+        </div>
+        </mat-step>
+        <mat-step>
+        <div class="mat-step-container">
+          <mat-card class="persons-field">
+            <mat-label>Adultos:</mat-label>
+            <div class="handler-persons-field">
+              <button mat-flat-button class="minus-btn" (click)="decrementValue('adults')">
+                -
+              </button>
+              <div class="persons-quantity">{{packageTravel.adults}}</div>
+              <button mat-flat-button class="plus-button" (click)="incrementValue('adults')">
+                +
+              </button>
+            </div>
+            <mat-label>Niños:</mat-label>
+            <div class="handler-persons-field">
+              <button mat-flat-button class="minus-btn" (click)="decrementValue('childs')">
+                -
+              </button>
+
+              <div class="quantity">{{packageTravel.childs}}</div>
+              <button mat-flat-button class="plus-button" (click)="incrementValue('childs')">
+                +
+              </button>
+            </div>
+          </mat-card>
+          <div class="step-buttons">
+            <button class="step-btn" mat-button matStepperPrevious>Volver</button>
+            <button class="step-btn" mat-button matStepperNext>Continuar</button>
+          </div>
+        </div>
+        </mat-step>
+        <mat-step >
+            <div class="mat-step-container">
+          <div class="card-step-hotel">
+            <div class="toggle-info">
+            <p>¿Incluir Alojamiento?</p>
+            <mat-slide-toggle [(ngModel)]="isChecked"></mat-slide-toggle>
+            </div>
+            <mat-card class="card-step-hotel-true" *ngIf="isChecked">
+            <div class="hotel-header">
+                <i class="fas fa-regular fa-hotel"></i>
+            <p class="hotel-name">Hotel Nombre</p>
+            </div>
+            <div class="badges">
+            <span class="hotel-rating">8.9</span>
+            <span class="hotel-price"> + $ 12.000</span>
+            </div>
+            <p class="info-hotel">Hotel Descripcion</p>
+            <a routerLink="hotel/" class="link-hotel">Ver Alojamiento</a>
+            </mat-card>
+          </div>
+          <div class="step-buttons">
+            <button class="step-btn" mat-button matStepperPrevious>Back</button>
+            <button class="step-btn" mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+
+    </section>
+    </div>
