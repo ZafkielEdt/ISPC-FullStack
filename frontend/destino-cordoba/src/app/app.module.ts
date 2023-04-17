@@ -18,7 +18,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     NavbarComponent,
     FooterComponent,
     PackageTravelComponent,
-    GalleryComponent
+    GalleryComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,6 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     ReactiveFormsModule,
     LazyLoadImageModule,
     SharedModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent],
