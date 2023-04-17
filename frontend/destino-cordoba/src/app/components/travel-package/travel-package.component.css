@@ -1,10 +1,14 @@
+.travel-package-main{
+    display:flex;
+    flex-wrap: wrap;
+}
 .package-content{
     width: 50%;
-    margin: 1rem auto 1rem auto;
+    margin: 1rem auto 0 auto;
 }
 
 .header > h1{
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
     
 
@@ -24,13 +28,172 @@
 .content-left{
     display: flex;
     flex-direction: column;
-    width: 50%;
     margin: 0;
 }
 
-.content-right{
+.set-package{
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin: 0;
+    height: 600px;
+    width: 100%;
+    flex: 1;
+    margin: 4rem 2rem 1rem auto;
 }
+.set-package-header>h2{
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.step-1-date{
+    margin: 1rem;
+}
+.demo-inline-calendar-card {
+    width: 300px;
+    margin: auto;
+  }
+ .p-form{
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    font-weight: 700;
+}
+
+.p-dates{
+    text-align: center;
+    margin: 1rem auto;
+    font: 1.5rem;
+    font-weight: 700;
+}
+
+.p-dates > strong{
+    color: #374d3b;
+}
+
+.persons-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    
+}
+.persons-field > mat-label{
+    width: 4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: left;
+    
+}
+.handler-persons-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    margin: 0 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    height: fit-content;
+    
+}
+.minus-btn, .plus-btn{
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #374d3b;
+}
+.mat-step-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    justify-content: space-between;
+    margin: 1rem 0 4rem 0;
+
+}
+
+.step-buttons{
+    position: relative;
+    bottom: 0;
+    margin: auto;
+    align-self: flex-end;
+}
+.toggle-info{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.card-step-hotel{
+    display: flex;
+    flex-direction: column;
+}
+.card-step-hotel-true{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    padding: 2rem;
+    gap: .8rem;
+}
+
+.hotel-header{
+    display: flex;
+    align-items: center;
+    margin: .5rem 0;
+    gap: .7rem;
+}
+.badges{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+}
+.hotel-rating{
+    background-color: #1c6d1c;
+    color: white;
+    width: fit-content;
+    border-radius: 10px;
+    padding: .3rem .5rem;
+    font-weight: 700;
+}
+.hotel-price{
+    font-weight: 700;
+    background-color: #1c6d1c;
+    color: #fff;
+    width: fit-content;
+    border-radius:10px;
+    padding: .3rem .5rem;
+}
+
+.hotel-name{
+    font-weight: 700;
+}
+
+.link-hotel{
+    text-decoration: none;
+    font-weight: 700;
+    color:  #374d3b;
+    border-radius: 10px;
+    width: fit-content;
+    border-radius:10px;
+    padding: .2rem .5rem;
+    margin: .5rem auto;
+}
+.link-hotel:hover{
+    color: #fff;
+    background-color:  #1c6d1c;
+    border-radius: 10px;
+    width: fit-content;
+    border-radius:10px;
+    padding: .2rem .5rem;
+    transition: .3s ease-in-out;
+}
+
