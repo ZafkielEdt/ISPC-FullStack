@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Bienvenido!</h1>
+  <div class="registro">
+    <h2>Registrate</h2>
+
+    <form id="registro" method="post" action="/endpoint">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        required
+        [formControl]="nombre"
+      />
+
+      <label for="apellido">Apellido:</label>
+      <input
+        type="text"
+        id="apellido"
+        name="apellido"
+        required
+        [formControl]="apellido"
+      />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        [formControl]="email"
+      />
+
+      <label for="contrasena">Contraseña:</label>
+      <input
+        type="password"
+        id="contrasena"
+        name="contrasena"
+        required
+        [formControl]="contrasena"
+      />
+
+      <input class="btn-registro" type="submit" value="Crear Cuenta" />
+    </form>
+  </div>
+</div>

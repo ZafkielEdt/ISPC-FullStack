@@ -1,0 +1,50 @@
+.btn-registro {
+  border-radius: 4px;
+  background-color: #4286f4;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  align-items: center;
+  height: 100vh;
+  padding-bottom: 5rem;
+  background-color: gray;
+}
+.registro {
+  width: 25%;
+  text-align: center;
+}
+
+#registro {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  background-color: rgb(71, 71, 66);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: aliceblue;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+label {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+input {
+  border-radius: 5px;
+  line-height: 20px;
+  border: none;
+  margin-bottom: 1.5rem;
+  text-indent: 0.2rem;
+}
