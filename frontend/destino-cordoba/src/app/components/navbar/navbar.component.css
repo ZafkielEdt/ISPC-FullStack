@@ -5,12 +5,12 @@ nav {
 nav > .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 5rem;
   gap: 3rem;
 }
 
-.container > .nav-brand {
+.container > .nav-logo > .nav-brand  {
   margin-right: auto;
   padding: 1rem;
 }
@@ -30,7 +30,7 @@ nav > .container {
   font-weight: 500;
 }
 
-.container > .nav-login-btn > a {
+.container > div> .nav-links> .nav-login-btn{
   background-color: #fff;
   margin: 0 2rem 0 0;
   color: #1e1e1e;
@@ -38,6 +38,14 @@ nav > .container {
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.nav-links >.nav-login-btn>{
+  text-decoration: none;
+  color: #1e1e1e;
 }
 .is-login {
   background-color: transparent;

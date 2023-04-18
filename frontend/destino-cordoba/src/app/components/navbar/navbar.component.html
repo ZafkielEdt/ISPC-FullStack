@@ -1,18 +1,30 @@
-<nav>
-  <div class="container">
-    <img
-      class="nav-brand"
-      src="../assets/img/logo.svg"
-      alt="logo-destino-cordoba"
-    />
-    <ul class="nav-links">
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-    </ul>
+<nav [ngClass]="{'is-login': screen === '/registro' || screen === '/login'}">
+  <div  class="container">
+    <a routerLink="/" class="nav-logo">
+      <img
+        class="nav-brand"
+        src="../assets/img/logo.svg"
+        alt="logo-destino-cordoba"
+        
+      />
+    </a>
 
-    <div class="nav-login-btn">
-      <a routerLink="/registro">Registro</a>
+    <ul class="nav-links">
+      <!-- <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/contact">Contact</a></li> -->
+    </ul>
+    <div *ngIf="screen !== '/registro'" class="buttons-container">
+      <a class="nav-links" [routerLink]="isLogged ? '/user-dashboard': '/registro'">
+    <button class="nav-login-btn ">
+      {{ isLogged ? 'Perfil' : 'Registrarse' }}
+    </button>
+    </a>
+    <a class="nav-links"[routerLink]="isLogged ? '/logout': '/login'">
+    <button class="nav-login-btn" (click)="onClick()">
+      {{ isLogged ? 'Cerrar Sesión' : 'Iniciar Sesion' }}
+    </button>
+    </a>
     </div>
   </div>
 </nav>
