@@ -6,7 +6,7 @@ import {PackageTravelComponent} from './components/travel-package/travel-package
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'registro', component: RegistroComponent },
   {path : 'travel/:title', component: PackageTravelComponent },
   { path : 'user-dashboard', component: UserDashboardComponent}

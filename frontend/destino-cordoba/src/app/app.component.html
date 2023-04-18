@@ -1,10 +1,7 @@
-<app-navbar></app-navbar>
-
-<main>
-  <router-outlet></router-outlet>
-  <!-- <app-travel-package></app-travel-package> -->
-  <!-- ↓↓↓ metan sus componentes aca  ↓↓↓-->
-
-
-</main>
-<app-footer></app-footer>
+<div class="app-container">
+  <app-navbar [screen]="router.url"></app-navbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  <app-footer *ngIf="router.url !== '/registro' && router.url !== '/login'"></app-footer>
+</div>

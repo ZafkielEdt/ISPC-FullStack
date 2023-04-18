@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(private router: Router) {}
-
-  irAFormulario() {
-    this.router.navigate(['/formulario']);
+  @Input() screen: string = '';
+  isLogged: boolean = true;
+  onClick(): void {
+    this.isLogged ? this.router.navigate(['/logout']) : this.router.navigate(['/login']);
+    this.isLogged = !this.isLogged;
   }
 }

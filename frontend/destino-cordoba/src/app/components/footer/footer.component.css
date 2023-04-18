@@ -2,13 +2,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  background-color: #ffffff;
-  position: fixed;
-  bottom: 0;
-  margin: auto;
   width: 100%;
-  z-index: 100;
+  padding: 2rem 0;
+  background-color: #fff;
 }
 
 .social-icons {
@@ -25,10 +21,12 @@ footer {
   font-size: 20px;
   color: #1e1e1e;
 }
-.is-login > div > a > i {
+
+.is-login>div>a>i {
   color: #fff;
   font-size: 2rem;
 }
+
 .is-login {
   background-color: transparent;
 }
