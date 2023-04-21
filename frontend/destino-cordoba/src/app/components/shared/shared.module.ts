@@ -14,8 +14,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
@@ -33,7 +32,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
     
 
   ],
@@ -51,7 +51,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCardModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
     
   ]
 })

@@ -13,6 +13,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { ModalComponent } from './components/travel-package/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
     GalleryComponent,
     RegistroComponent,
     UserDashboardComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
