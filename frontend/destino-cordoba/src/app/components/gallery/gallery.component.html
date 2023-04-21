@@ -5,7 +5,7 @@
     <div *ngFor="let image of gallery.slice(1, 4); let i = index" class="image-small">
       <img [lazyLoad]="image" alt="">
       <div class="image-small-mask" *ngIf="i == 2">
-        <button>+ {{gallery.length-4}}</button>
+        <button (click)="openDialog()">+ {{gallery.length-4}}</button>
       </div>
     </div>
     <div class="travel-duration">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+
 export interface PackageTravel {
   title: string;
   description: string;
@@ -26,7 +27,7 @@ export class PackageTravelComponent implements OnInit {
 
     price: 1000,
     gallery: [
-      "./assets/img/imagen1.webp", "./assets/img/imagen2.webp", "./assets/img/imagen3.webp", "./assets/img/imagen4.webp", "./assets/img/imagen5.webp", "asdasdasd", "asdasdasd", "asdasdasd"
+      "./assets/img/imagen1.webp", "./assets/img/imagen2.webp", "./assets/img/imagen3.webp", "./assets/img/imagen4.webp", "./assets/img/imagen5.webp", "./assets/img/imagen2.webp","./assets/img/imagen2.webp","./assets/img/imagen1.webp","./assets/img/imagen3.webp",
     ],
     days: 7,
     nights: 6,
@@ -47,7 +48,7 @@ export class PackageTravelComponent implements OnInit {
   
   selected: Date = new Date();
   
-  get endDate(): Date {
+   get endDate(): Date {
     if (this.selected) {
       const endDate = new Date(this.selected);
       endDate.setDate(endDate.getDate() + this.packageTravel.days - 1);
@@ -75,6 +76,9 @@ export class PackageTravelComponent implements OnInit {
     }
     
   }
+
+
+
 
   ngOnInit(): void {
 
