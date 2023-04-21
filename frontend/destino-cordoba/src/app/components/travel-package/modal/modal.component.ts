@@ -20,7 +20,6 @@ export class ModalComponent implements OnInit {
     }else{
       this.activeIndex = this.gallery.length - 1;
     }
-    console.log({'activeIndex': this.activeIndex});
   }
   nextImage() : void{
     if(this.activeIndex < this.gallery.length - 1){
@@ -29,8 +28,6 @@ export class ModalComponent implements OnInit {
     }else{
       this.activeIndex = 0;
     }
-    console.log(this.gallery)
-    console.log(this.activeIndex);
   }
 
 }

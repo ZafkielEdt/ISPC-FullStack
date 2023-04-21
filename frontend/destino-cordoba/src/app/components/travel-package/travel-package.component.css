@@ -1,11 +1,14 @@
 .travel-package-main {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 3rem;
 }
 
 .package-content {
   width: 50%;
-  margin: 1rem auto 0 auto;
+  margin:auto;
+  
+
 }
 
 .header>h1 {
@@ -14,7 +17,11 @@
 
 
 }
+.gallery-box{ 
+  width: 50%;
+  margin: auto;
 
+}
 .description {
   display: flex;
   align-items: center;
@@ -30,6 +37,7 @@
 .content-left {
   display: flex;
   flex-direction: column;
+  gap: 4rem;
   margin: auto;
 }
 
@@ -37,9 +45,22 @@
   display: flex;
   flex-direction: column;
   height: 600px;
-  width: 100%;
+  width: 50%;
   flex: 1;
-  margin: 4rem 2rem 1rem auto;
+}
+::ng-deep .mat-step-header{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+.mat-horizontal-stepper{
+  width: 70%;
+  margin: 0 auto;
+}
+.stepper-label{
+  font-size: 12px;
 }
 
 .set-package-header>h2 {
@@ -49,9 +70,8 @@
   margin: 0;
   text-align: center;
 }
-
 .step-1-date {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .demo-inline-calendar-card {
@@ -79,19 +99,24 @@
 
 .persons-field {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  width: 50%;
   gap: 1rem;
 
 
 }
+.controls{
+  display: flex;
+  align-items: center;
+}
 
-.persons-field>mat-label {
+.persons-field-mat-label {
   width: 4rem;
   font-size: 1.2rem;
   font-weight: 700;
   text-align: left;
+  flex: 1;
 
 }
 
@@ -101,7 +126,6 @@
   align-items: center;
   justify-content: center;
   gap: .4rem;
-  margin: 0 3rem;
   font-size: 1.2rem;
   font-weight: 700;
   height: fit-content;
@@ -170,29 +194,23 @@
   margin-bottom: 1rem;
 }
 
-.hotel-rating {
+.badge-rating,
+.badge-price
+ {
   background-color: #1c6d1c;
   color: white;
   width: fit-content;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: .3rem .5rem;
   font-weight: 700;
 }
 
-.hotel-price {
-  font-weight: 700;
-  background-color: #1c6d1c;
-  color: #fff;
-  width: fit-content;
-  border-radius: 10px;
-  padding: .3rem .5rem;
-}
 
 .hotel-name {
   font-weight: 700;
 }
 
-.link-hotel {
+.btn-info {
   text-decoration: none;
   font-weight: 700;
   color: #374d3b;
@@ -203,12 +221,42 @@
   margin: .5rem auto;
 }
 
-.link-hotel:hover {
+
+.btn-info:hover {
   color: #fff;
   background-color: #1c6d1c;
   border-radius: 10px;
   width: fit-content;
   border-radius: 10px;
   padding: .2rem .5rem;
-  transition: .3s ease-in-out;
+  transition: .3s ease-out;
+}
+
+
+.card-step-experience{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  font-size: 1.2rem;
+
+
+}
+
+
+.exp-header{
+  display: flex;
+  gap:.5rem;
+}
+
+.exp-header button{
+  background-color: #7e47c7b7;
+  color: white;
+  border-radius: 8px;
+  padding: .2rem .5rem;
+  font-weight: 700;
+  font-size: .8rem;
+  border: none;
+  cursor: pointer;
 }
