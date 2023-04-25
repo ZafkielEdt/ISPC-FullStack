@@ -38,7 +38,7 @@ La nueva arquitectura del proyecto está construida con Angular en el lado del c
 
 En el siguiente enlace se puede visualizar el diseño del sitio así como el Site Map del mismo.
 
-[Diseño del sitio](https://www.figma.com/file/jkY5AN9kUPrdyCY1OtwwUd/Dise%C3%B1o)
+[Diseño del sitio](https://www.figma.com/file/ucHqquK0Ue7pyBw74ActHG/Destino-Cordoba-prototype?node-id=0%3A1&t=qUxxpcP2ZVVpHCUi-1)
 
 # Realizado por
 * [Franco Lorca](https://github.com/FrancoGL)
