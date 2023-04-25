@@ -6,7 +6,7 @@
 
 <div class="travel-package-main">
 <section class="content-left">
-<app-gallery [gallery]="packageTravel.gallery" [totalDuration]="totalDuration"></app-gallery>
+<app-gallery class="gallery-box" [gallery]="packageTravel.gallery" [totalDuration]="totalDuration"></app-gallery>
 <section class="package-content">
     <header class="header">
         <h1>{{packageTravel.description}}</h1>   
@@ -26,7 +26,10 @@
         <h2>Listo para vivir esta experiencia?</h2>
       </div>
       <mat-horizontal-stepper class="mat-horizontal-stepper">
-        <mat-step>
+        <mat-step class="mat-stepp">
+          <ng-template matStepLabel>
+            <label class="stepper-label">Elegir fecha</label>
+          </ng-template>
         <div class="mat-step-container">
           <mat-card class="demo-inline-calendar-card">
             <mat-calendar [(selected)]="selected"></mat-calendar>
@@ -36,16 +39,26 @@
               Del <strong>{{selected.toLocaleDateString()}}</strong> a <strong>{{endDate.toLocaleDateString()}}</strong>
             </ng-container>
           </p>
+          <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+          
           <div class="step-buttons">
-            <button class="step-btn" mat-button matStepperNext>Continuar</button>
+            <button *ngIf="!dateValid" (click)="checkAvailability()"  class="step-btn" mat-button>Comprobar disponibilidad</button>
+            <button *ngIf="dateValid" class="step-btn" mat-button matStepperNext>
+              Continuar
+              <mat-icon *ngIf="dateValid" color="primary">check</mat-icon>
+            </button>
           </div>
         </div>
         </mat-step>
-        <mat-step>
-        <div class="mat-step-container">
+        <mat-step >
+          <ng-template matStepLabel>
+            <label class="stepper-label">Personas</label>
+          </ng-template>
+        <div class="mat-step-container" style="padding: 0">
           <mat-card class="persons-field">
-            <mat-label>Adultos:</mat-label>
             <div class="handler-persons-field">
+              <mat-label class="persons-field-mat-label">Adultos:</mat-label>
+              <div class="controls">
               <button mat-flat-button class="minus-btn" (click)="decrementValue('adults')">
                 -
               </button>
@@ -54,8 +67,10 @@
                 +
               </button>
             </div>
-            <mat-label>Niños:</mat-label>
+            </div>
             <div class="handler-persons-field">
+              <mat-label class="persons-field-mat-label">Niños:</mat-label>
+              <div class="controls">
               <button mat-flat-button class="minus-btn" (click)="decrementValue('childs')">
                 -
               </button>
@@ -64,6 +79,7 @@
               <button mat-flat-button class="plus-button" (click)="incrementValue('childs')">
                 +
               </button>
+              </div>
             </div>
           </mat-card>
           <div class="step-buttons">
@@ -73,6 +89,9 @@
         </div>
         </mat-step>
         <mat-step >
+          <ng-template matStepLabel>
+            <label class="stepper-label">Alojamiento</label>  
+          </ng-template>
             <div class="mat-step-container">
           <div class="card-step-hotel">
             <div class="toggle-info">
@@ -85,11 +104,11 @@
             <p class="hotel-name">Hotel Nombre</p>
             </div>
             <div class="badges">
-            <span class="hotel-rating">8.9</span>
-            <span class="hotel-price"> + $ 12.000</span>
+            <span class="badge-rating">8.9</span>
+            <span class="badge-price"> + $ 12.000</span>
             </div>
             <p class="info-hotel">Hotel Descripcion</p>
-            <a routerLink="hotel/" class="link-hotel">Ver Alojamiento</a>
+            <a routerLink="hotel/" class="btn-info">Ver Alojamiento</a>
             </mat-card>
           </div>
           <div class="step-buttons">
@@ -97,6 +116,52 @@
             <button class="step-btn" mat-button matStepperNext>Next</button>
           </div>
         </div>
+        </mat-step>
+        <mat-step >
+          <ng-template matStepLabel>
+            <label class="stepper-label">Experiencias</label>
+          </ng-template>
+
+
+        <div *ngIf="packageTravel.experiences" class="mat-step-container">
+              <div *ngFor="let experience of packageTravel.experiences; let i = index" class="card-step-experience">
+                <mat-card [ngClass]="{'exp-selected': true}">
+                <div class="exp-header">
+                <p class="experience-title">{{experience.title}}</p>
+                <button> ver detalle</button>
+                </div>
+                <div class="badges">
+                  <span class="badge-price">${{experience.price}}</span>
+                  <span class="badge-rating">${{experience.price}}</span>
+                </div>
+                <p>
+                  {{experience.description}}
+                </p>
+
+                <button mat-button class="btn-info">
+                    Agregar
+                </button>
+              </mat-card>
+              
+            </div>
+            
+
+          </div>
+          
+          
+          
+          
+          
+          <div class="step-buttons">
+            <button class="step-btn" mat-button matStepperPrevious>Back</button>
+            <button class="step-btn" mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>
+            <label class="stepper-label">Ir a pagar</label>
+          </ng-template>
+
         </mat-step>
       </mat-horizontal-stepper>
 

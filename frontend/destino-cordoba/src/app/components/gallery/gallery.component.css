@@ -1,7 +1,6 @@
 .gallery-container{
-    width: 50%;
     height: 30rem;
-    margin: 4rem auto;
+    margin:auto;
     display: flex;
     gap: .3rem;
     position: relative;

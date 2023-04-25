@@ -14,6 +14,9 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { ModalComponent } from './components/travel-package/modal/modal.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,8 @@ import { ModalComponent } from './components/travel-package/modal/modal.componen
     RegistroComponent,
     UserDashboardComponent,
     ModalComponent,
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { ModalComponent } from './components/travel-package/modal/modal.componen
     LazyLoadImageModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
