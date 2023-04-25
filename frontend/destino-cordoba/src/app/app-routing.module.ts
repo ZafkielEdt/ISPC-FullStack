@@ -4,12 +4,15 @@ import { RegistroComponent } from './components/registro/registro.component';
 
 import {PackageTravelComponent} from './components/travel-package/travel-package.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path:'',component : HomeComponent},
   { path: 'registro', component: RegistroComponent },
   {path : 'travel/:title', component: PackageTravelComponent },
-  { path : 'user-dashboard', component: UserDashboardComponent}
+  { path : 'user-dashboard', component: UserDashboardComponent},
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

@@ -15,6 +15,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { ModalComponent } from './components/travel-package/modal/modal.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     RegistroComponent,
     UserDashboardComponent,
     ModalComponent,
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
