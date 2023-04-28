@@ -1,55 +1,48 @@
 nav {
-  width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  padding: 0.8rem;
   background-color: #1e1e1e;
 }
-nav > .container {
+
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5rem;
-  gap: 3rem;
 }
 
-.container > .nav-logo > .nav-brand  {
-  margin-right: auto;
-  padding: 1rem;
-}
-
-.container > .nav-links {
+.buttons-container {
+  width: 50%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-  list-style: none;
 }
 
-.nav-links > li > a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.container > div> .nav-links> .nav-login-btn{
-  background-color: #fff;
-  margin: 0 2rem 0 0;
-  color: #1e1e1e;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
+.nav-login-btn {
+  padding: 0.5rem;
   font-weight: 700;
-  text-decoration: none;
+  background-color: #fff;
+  color: #1e1e1e;
   border-radius: 0.2rem;
   border: none;
   outline: none;
-  cursor: pointer;
 }
-.nav-links >.nav-login-btn>{
-  text-decoration: none;
-  color: #1e1e1e;
-}
-.is-login {
-  background-color: transparent;
-}
-.is-login > div > ul > li > a {
-  display: none;
+
+@media screen and (min-width: 1024px) {
+  .buttons-container {
+    width: 20%;
+    justify-content: space-between;
+  }
+
+  .nav-login-btn {
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+  }
+
+  .is-login {
+    background-color: transparent;
+  }
+
+  .is-login > div > ul > li > a {
+    display: none;
+  }
 }
