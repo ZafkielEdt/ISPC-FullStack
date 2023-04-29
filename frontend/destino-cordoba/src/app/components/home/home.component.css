@@ -27,7 +27,7 @@
 }
 
 .buttons {
-  width: 100%;
+  width: 21.094rem;
   display: flex;
   justify-content: space-around;
 }
@@ -86,16 +86,12 @@
     background-position: center center;
     background-attachment: fixed;
     flex-flow: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100%;
   }
 
   .hero-text {
-    width: 50%;
-  }
-
-  .buttons {
     width: 50%;
   }
 
@@ -105,12 +101,12 @@
   }
 
   .hero-images {
-    width: 40%;
+    width: 50%;
   }
 
   .hero-images img {
     height: 20rem;
-    width: 12rem;
+    width: 25%;
   }
   .hero-images img:hover {
     box-shadow: 0px 5px 15px 0px rgba(252, 246, 246, 0.35);
@@ -124,7 +120,7 @@
 
   .hero-images img:nth-child(2) {
     height: 25rem;
-    width: 12rem;
+    width: 30%;
     object-fit: cover;
   }
 }
