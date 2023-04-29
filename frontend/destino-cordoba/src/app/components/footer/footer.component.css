@@ -21,17 +21,17 @@ footer {
   color: #1e1e1e;
 }
 
+.is-login > div > a > i {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.is-login {
+  background-color: transparent;
+}
+
 @media screen and (min-width: 1024px) {
   .social-icons {
     width: 20%;
-  }
-
-  .is-login > div > a > i {
-    color: #fff;
-    font-size: 2rem;
-  }
-
-  .is-login {
-    background-color: transparent;
   }
 }

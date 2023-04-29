@@ -27,6 +27,14 @@ nav {
   outline: none;
 }
 
+.is-login {
+  background-color: transparent;
+}
+
+.is-login > div > ul > li > a {
+  display: none;
+}
+
 @media screen and (min-width: 1024px) {
   .buttons-container {
     width: 20%;
@@ -36,13 +44,5 @@ nav {
   .nav-login-btn {
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-  }
-
-  .is-login {
-    background-color: transparent;
-  }
-
-  .is-login > div > ul > li > a {
-    display: none;
   }
 }
