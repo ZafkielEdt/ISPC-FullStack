@@ -1,7 +1,8 @@
 .travel-package-main {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin: 2rem auto;
+
 }
 
 .package-content {
@@ -44,7 +45,6 @@
 .set-package {
   display: flex;
   flex-direction: column;
-  height: 600px;
   width: 50%;
   flex: 1;
 }
@@ -260,3 +260,4 @@
   border: none;
   cursor: pointer;
 }
+
