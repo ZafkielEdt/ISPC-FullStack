@@ -6,12 +6,14 @@ import {PackageTravelComponent} from './components/travel-package/travel-package
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CardsComponent } from './components/destinations/cards/cards.component';
 
 const routes: Routes = [
   {path:'',component : HomeComponent},
   { path: 'registro', component: RegistroComponent },
   {path : 'travel/:title', component: PackageTravelComponent },
   { path : 'user-dashboard', component: UserDashboardComponent},
+
   { path: '**', component: NotFoundComponent },
 ];
 

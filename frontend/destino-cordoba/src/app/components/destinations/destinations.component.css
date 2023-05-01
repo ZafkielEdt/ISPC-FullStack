@@ -1,0 +1,28 @@
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border: 1px solid lime;
+    justify-content: center;
+    height: 100vh;
+    margin-bottom: 3%;
+    
+}
+
+.container {
+    display: flex;
+}
+
+.borderRed {
+    border : 1px solid red;
+    display: flex;
+}
+.borderBlue {
+  
+    justify-self : center;  
+    align-self : center;  
+}
+
+.borderYellow {
+    border : 1px solid yellow;
+    
+}
