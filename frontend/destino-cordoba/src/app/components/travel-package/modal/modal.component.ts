@@ -12,7 +12,7 @@ export class ModalComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: {gallery: string[]}) { }
   gallery = this.data.gallery;
   activeIndex:number = 0;
-  currentImage = this.gallery[this.activeIndex];
+  currentImage = '';
   previousImage() : void{
     if(this.activeIndex > 0){
       this.activeIndex--;
@@ -20,14 +20,17 @@ export class ModalComponent implements OnInit {
     }else{
       this.activeIndex = this.gallery.length - 1;
     }
+    this.currentImage = this.gallery[this.activeIndex]
   }
   nextImage() : void{
     if(this.activeIndex < this.gallery.length - 1){
       this.activeIndex++;
+      console.log(this.currentImage)
 
     }else{
       this.activeIndex = 0;
     }
+    this.currentImage = this.gallery[this.activeIndex]
   }
 
 }
