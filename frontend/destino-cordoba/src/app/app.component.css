@@ -1,8 +1,16 @@
+/* .app-container {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+main {
+  flex: 1;
+} */
 .app-container {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 5.787rem 1fr 3.313rem;
-  height: 100vh;
 }
 
 main {

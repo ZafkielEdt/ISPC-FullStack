@@ -68,3 +68,37 @@
     color: #fff;
     
 }
+
+
+
+@media screen and (max-width: 768px){
+    .gallery-container{
+        flex-direction: column;
+    }
+    .gallery-image-large{
+        width: 100%;
+    }
+    .gallery-image-small{
+        flex-direction: row;
+    }
+    .image-small-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+    }
+    .image-small{
+        height: 10rem;
+    }
+    .image-small-mask>button{
+        font-size: 1.5rem;
+    }
+    .travel-duration{
+        bottom: -4rem;
+        left: 0;
+    }
+    .travel-duration>p{
+        font-size: 1rem;
+    }
+}
