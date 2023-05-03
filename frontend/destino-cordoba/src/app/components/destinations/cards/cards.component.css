@@ -1,12 +1,13 @@
 .container{
     display: flex;
     transition:all .5s ease-in-out;
+    
 }
 
 .wrapper {
    margin-left: 2%;
    margin-top: 2%;
-    max-width: 220px;
+    max-width: 280px;
     border-radius: 4%;
     box-shadow: 1px 1px 6px 1px rgba(115,111,111,0.51);
 -webkit-box-shadow: 1px 1px 6px 1px rgba(115,111,111,0.51);
@@ -24,14 +25,14 @@ color: #999999;
 
 
 .wrapper img {
-    max-width: 219px;
+    max-width: 279px;
     border-radius: 4% 4% 0 0;
 }
 
 .wrapper .btn {
     position: relative;
     left: 20px;
-    top: -210px;
+    top: -260px;
     width: 120px;
     height: 30px;
     background-color: #89AE69;
