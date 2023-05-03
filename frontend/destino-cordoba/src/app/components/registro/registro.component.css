@@ -1,38 +1,11 @@
-.btn-registro {
-  border-radius: 4px;
-  background-color: #4286f4;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
 .container {
   display: flex;
-  flex-direction: column;
-  padding-top: 5rem;
+  flex-flow: column nowrap;
   align-items: center;
-  padding-bottom: 5rem;
-}
-.registro {
-  width: 25%;
+  justify-content: center;
   text-align: center;
 }
 
-#registro {
-  display: flex;
-  flex-direction: column;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: rgb(71, 71, 66);
-  border-radius: 5px;
-  color: aliceblue;
-}
 h1,
 h2 {
   color: whitesmoke;
@@ -41,10 +14,31 @@ h2 {
 h1 {
   font-size: 3rem;
 }
+
 h2 {
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
+
+form {
+  padding: 1.5rem;
+  display: flex;
+  flex-flow: column;
+  background-color: rgb(71, 71, 66);
+  border-radius: 0.5rem;
+  color: aliceblue;
+}
+
 label {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mdc-button {
+  border-radius: 4px;
+  background-color: aliceblue;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
