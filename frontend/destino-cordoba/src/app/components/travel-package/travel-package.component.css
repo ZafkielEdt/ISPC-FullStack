@@ -52,8 +52,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
+  gap: .8rem;
+  font-size: .8rem;
 }
 .mat-horizontal-stepper{
   width: 70%;
@@ -75,7 +75,7 @@
 }
 
 .demo-inline-calendar-card {
-  width: 300px;
+  width: 50%;
   margin: auto;
 }
 
@@ -103,8 +103,6 @@
   margin: 0 auto;
   width: 50%;
   gap: 1rem;
-
-
 }
 .controls{
   display: flex;
@@ -144,9 +142,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
   justify-content: space-between;
-  margin: 1rem 0 3rem 0;
+  margin: 2rem 0 3rem 0;
+
 
 }
 
@@ -261,3 +259,59 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1568px) {
+  .travel-package-main{
+    justify-content: center;
+    gap: 5rem;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mat-horizontal-stepper-header-container{
+    flex-direction: column;
+  }
+  
+  .travel-package-main{
+    justify-content: center;
+    gap: 5rem;
+
+  }
+
+  .content-left{
+    width: 80%;
+    margin: 0;
+    
+  }
+
+  .gallery-box{
+    width: 100%;
+  }
+  .package-content{
+    margin: 2rem 0;
+    width: 100%;
+  }
+  .header>h1 {
+
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .demo-inline-calendar-card {
+    width: 80%;
+    margin: auto;
+  }
+  .persons-field {
+
+    width: 100%;
+    gap: .7rem;
+  }
+  .mat-horizontal-stepper{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+  .set-package-header>h2 {
+    font-size: 1.5rem;
+  }
+  
+}
