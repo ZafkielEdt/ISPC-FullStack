@@ -3,9 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { RegistroComponent } from './components/registro/registro.component';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PackageTravelComponent } from './components/travel-package/travel-package.component';
@@ -22,17 +20,13 @@ import { CardsComponent } from './components/destinations/cards/cards.component'
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { CardWithButtonComponent } from './components/destinations/card-with-button/card-with-button.component';
 import { CardWithTextComponent } from './components/destinations/card-with-text/card-with-text.component';
+import { AuthModule } from './auth/auth.module';
 
-
-import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
     PackageTravelComponent,
     GalleryComponent,
-    RegistroComponent,
     UserDashboardComponent,
     ModalComponent,
     HomeComponent,
@@ -41,8 +35,7 @@ import { LoginComponent } from './components/login/login.component';
     DestinationsComponent,
     CardWithButtonComponent,
     CardWithTextComponent,
-
-    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -51,6 +44,7 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     LazyLoadImageModule,
     SharedModule,
+    AuthModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
