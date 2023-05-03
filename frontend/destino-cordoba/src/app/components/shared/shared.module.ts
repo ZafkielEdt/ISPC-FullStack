@@ -15,10 +15,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FooterComponent,
+    NavbarComponent
+  ],
   imports: [
+    BrowserModule,
+    AppRoutingModule,
     CommonModule,
     FormsModule,
     MatStepperModule,
@@ -39,6 +48,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 
   ],
   exports: [
+    FooterComponent,
+    NavbarComponent,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
