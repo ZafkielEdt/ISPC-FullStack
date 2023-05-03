@@ -7,9 +7,11 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path:'',component : HomeComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   {path : 'travel/:title', component: PackageTravelComponent },
   { path : 'user-dashboard', component: UserDashboardComponent},

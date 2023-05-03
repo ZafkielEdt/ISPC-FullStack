@@ -21,6 +21,7 @@ import { CardsComponent } from './components/destinations/cards/cards.component'
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { CardWithButtonComponent } from './components/destinations/card-with-button/card-with-button.component';
 import { CardWithTextComponent } from './components/destinations/card-with-text/card-with-text.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { CardWithTextComponent } from './components/destinations/card-with-text/
     DestinationsComponent,
     CardWithButtonComponent,
     CardWithTextComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
