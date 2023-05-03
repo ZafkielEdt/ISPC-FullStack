@@ -17,6 +17,7 @@ import { ModalComponent } from './components/travel-package/modal/modal.componen
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ModalComponent,
     HomeComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,9 @@
 .app-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 5.787rem 1fr 3.313rem;
-  height: 100vh;
+  display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 main {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  flex: 1;
 }
