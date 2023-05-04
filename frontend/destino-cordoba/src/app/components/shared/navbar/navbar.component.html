@@ -13,6 +13,7 @@
         <button [matMenuTriggerFor]="aboveMenu">
         <img src="../../../../assets/img/image-jeremy.png">
         <span>+9</span>
+      </button>
         <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">
 
             <div class="header-menu" mat-menu-item disabled >
@@ -27,22 +28,19 @@
           <button  mat-menu-item>Ayuda</button>
           <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
         </mat-menu>
-        </button>
+        
       </div>
-      <div *ngIf="!isLogged" class="auth-buttons">
-      <a
-        class="nav-links"
-        routerLink="/registro"
-      >
-        <button class="nav-login-btn">
-         Registrarse
-        </button>
-      </a>
-      <a class="nav-links" routerLink="/login">
+      <div *ngIf="!isLogged" class="logged-out__buttons">
+        
         <button class="nav-login-btn" (click)="onClick()">
           Iniciar Sesion
         </button>
-      </a>
+        <button class="nav-register-btn" routerLink="/registro">
+         Registrarse
+        </button>
+
+
+
     </div>
     </div>
   </div>

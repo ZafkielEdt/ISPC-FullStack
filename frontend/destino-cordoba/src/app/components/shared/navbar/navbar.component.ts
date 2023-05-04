@@ -13,8 +13,8 @@ export class NavbarComponent {
   @Input() screen: string = '';
   isLogged: boolean = true;
   onClick(): void {
-    this.isLogged ? this.router.navigate(['/logout']) : this.router.navigate(['/login']);
-    this.isLogged = !this.isLogged;
+    console.log(this.isLogged);
+    this.router.navigateByUrl('/login');
   }
   openMenu(): void {
     this.trigger.openMenu();

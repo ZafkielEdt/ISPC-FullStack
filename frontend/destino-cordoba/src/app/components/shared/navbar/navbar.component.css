@@ -66,7 +66,7 @@ nav {
   
 }
 
-.nav-login-btn {
+ .nav-register-btn {
   padding: 0.5rem;
   font-weight: 700;
   background-color: #fff;
@@ -74,18 +74,19 @@ nav {
   border-radius: 0.2rem;
   border: none;
   outline: none;
+  cursor: pointer;
 }
-.auth-buttons a{
-  margin: 0 .5rem;
+.nav-login-btn {
+  padding: 0.5rem;
+  font-weight: 700;
+  background-color: #ffffff00;
+  color: #ffffff;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.is-login {
-  background-color: transparent;
-}
-
-.is-login > div > ul > li > a {
-  display: none;
-}
 
 @media screen and (min-width: 1024px) {
   .buttons-container {
