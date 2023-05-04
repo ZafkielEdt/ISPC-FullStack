@@ -8,19 +8,45 @@
       />
     </a>
     <div *ngIf="screen !== '/registro'" class="buttons-container">
+
+      <div *ngIf="isLogged" class="profile-pic">
+        <button [matMenuTriggerFor]="aboveMenu">
+        <img src="../../../../assets/img/image-jeremy.png">
+        <span>+9</span>
+        <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">
+
+            <div class="header-menu" mat-menu-item disabled >
+              <p>
+              Hola! {{username}}
+              </p>
+            </div>
+          <button routerLink="/user-dashboard" mat-menu-item>Mi perfil</button>
+          <button routerLink="/user-dashboard" mat-menu-item>Mis notificaciones</button>
+          <button routerLink="/user-dashboard" mat-menu-item>Mis opiniones</button>
+          <button routerLink="/user-dashboard" mat-menu-item>Ver carrito</button>
+          <button  mat-menu-item>Ayuda</button>
+          <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
+        </mat-menu>
+        </button>
+      </div>
+      <div *ngIf="!isLogged" class="auth-buttons">
       <a
         class="nav-links"
-        [routerLink]="isLogged ? '/user-dashboard' : '/registro'"
+        routerLink="/registro"
       >
         <button class="nav-login-btn">
-          {{ isLogged ? "Perfil" : "Registrarse" }}
+         Registrarse
         </button>
       </a>
-      <a class="nav-links" [routerLink]="isLogged ? '/logout' : '/login'">
+      <a class="nav-links" routerLink="/login">
         <button class="nav-login-btn" (click)="onClick()">
-          {{ isLogged ? "Cerrar Sesión" : "Iniciar Sesion" }}
+          Iniciar Sesion
         </button>
       </a>
     </div>
+    </div>
   </div>
 </nav>
+
+
+
