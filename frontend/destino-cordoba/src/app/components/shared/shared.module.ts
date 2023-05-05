@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     ReactiveFormsModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatMenuModule
+    
     
 
   ],
@@ -65,6 +68,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatSlideToggleModule,
     FormsModule,
     MatDialogModule,
+    MatMenuModule
     
   ]
 })
