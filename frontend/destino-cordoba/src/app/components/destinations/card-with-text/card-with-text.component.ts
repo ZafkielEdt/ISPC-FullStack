@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-with-text',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class CardWithTextComponent {
 image = 'https://cdn.culturagenial.com/es/imagenes/2915110-taj-mahal-1000-1464523250-cke.jpg'
+@Input() path: string = "";
 }

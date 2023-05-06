@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-with-button',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class CardWithButtonComponent {
 image = 'https://userfiles.mailswitch.nl/medialib/3049697/medialib/France%204%20Naturisme/transparante%20kano.jpg';
+@Input() path: string = "";
 }
