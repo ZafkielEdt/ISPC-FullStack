@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -11,5 +11,6 @@ name = 'Praga';
 description = 'Republica checa';
 rate = 4.7;
 price  = 1999
+@Input() path: string = "";
 
 }

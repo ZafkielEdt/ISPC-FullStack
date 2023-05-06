@@ -41,6 +41,7 @@ color: #999999;
     color: #fff;
     font-size: 16px;
     line-height: 19px;
+    cursor: pointer;
 }
 
 .description {
