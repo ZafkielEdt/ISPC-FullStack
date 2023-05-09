@@ -20,7 +20,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import {MatTableModule} from '@angular/material/table';
     MatSlideToggleModule,
     MatDialogModule,
     MatMenuModule,
-    MatTableModule
     
     
 
@@ -71,7 +69,6 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatDialogModule,
     MatMenuModule,
-    MatTableModule
     
   ]
 })
