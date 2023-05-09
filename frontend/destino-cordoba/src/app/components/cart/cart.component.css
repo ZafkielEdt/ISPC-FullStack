@@ -1,5 +1,4 @@
 .cart-container{
-    min-height: 70vh;
     margin: 3rem 0;
     
 }
@@ -26,5 +25,8 @@ h1{
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 2rem;
+}
+.empty-cart img{
+    width: 40%;
+    height: 35%;
 }
