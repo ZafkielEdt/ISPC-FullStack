@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {path:'',component : HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path : 'travel/:title', component: PackageTravelComponent },
   { path : 'user-dashboard', component: UserDashboardComponent},
   { path : 'cards', component: DestinationsComponent},
+  {path : 'cart' , component : CartComponent},
   { path: '**', component: NotFoundComponent },
 ];
 
