@@ -1,0 +1,30 @@
+.cart-container{
+    min-height: 70vh;
+    margin: 3rem 0;
+    
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem;
+}
+.item .item__image img {
+    width: 10rem;
+    height: 6rem;
+    aspect-ratio: 10/6;
+}
+.item {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem;
+}

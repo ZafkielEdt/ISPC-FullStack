@@ -45,7 +45,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ReactiveFormsModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
     
     
 
@@ -68,7 +68,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSlideToggleModule,
     FormsModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
     
   ]
 })

@@ -1,25 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { PackageTravel } from 'src/app/models/package-travel';
+import { CartServiceService } from 'src/app/services/products/cart-service.service';
 
 
-export interface PackageTravel {
-  title: string;
-  description: string;
-  price: number;
-  gallery: string[];
-  days: number;
-  nights: number;
-  childs?: number;
-  adults?: number;
-  experiences?: Experience[];
-}
-export interface Experience {
-  title: string;
-  description: string;
-  price : number;
-  gallery: string[];
-}
+
+
 
 @Component({
   selector: 'app-travel-package',
@@ -27,9 +14,11 @@ export interface Experience {
   styleUrls: ['./travel-package.component.css']
 })
 export class PackageTravelComponent implements OnInit {
+
   
   isChecked = true;
   packageTravel: PackageTravel = {
+    id : 1,
     title: this.route.snapshot.params['title'],
     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
 
@@ -77,7 +66,7 @@ export class PackageTravelComponent implements OnInit {
   });
 
 
-  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private cartService : CartServiceService,private router : Router) { }
   
   selectedDate: Date = new Date();
   dateValid : boolean = false;
@@ -122,6 +111,12 @@ export class PackageTravelComponent implements OnInit {
 
     
   }
+
+  addToCart() {
+    this.cartService.addItem(this.packageTravel);
+    console.log(this.cartService.getCurrentCart());
+    this.router.navigateByUrl('/cart');
+    }
   
 
 
