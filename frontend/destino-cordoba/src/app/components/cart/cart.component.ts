@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/cart';
-import { CartServiceService } from 'src/app/services/products/cart-service.service';
+import { CartService } from 'src/app/services/products/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +11,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   
 
-  constructor(private cartService : CartServiceService) {}
+  constructor(private cartService : CartService) {}
   // cart: Cart = {
   //   id: 1,
   //   totalValue: 0,
@@ -32,8 +32,7 @@ export class CartComponent implements OnInit, OnDestroy {
   //   }
   cart: Cart = {
     id: 1,
-    totalValue: 0,
-    totalItems: 0,
+    totalValue: 100000,
     item: null,
   };
 

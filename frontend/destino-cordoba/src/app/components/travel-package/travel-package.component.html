@@ -6,7 +6,7 @@
 
 <div class="travel-package-main">
 <section class="content-left">
-<app-gallery class="gallery-box" [gallery]="packageTravel.gallery" [totalDuration]="totalDuration"></app-gallery>
+<app-gallery class="gallery-box" [gallery]="packageTravel.destination.gallery" [totalDuration]="totalDuration"></app-gallery>
 <section class="package-content">
     <header class="header">
         <h1>{{packageTravel.description}}</h1>   
@@ -62,7 +62,7 @@
               <button mat-flat-button class="minus-btn" (click)="decrementValue('adults')">
                 -
               </button>
-              <div class="persons-quantity">{{packageTravel.adults}}</div>
+              <div class="persons-quantity">{{packageTravel.adults.length}}</div>
               <button mat-flat-button class="plus-button" (click)="incrementValue('adults')">
                 +
               </button>
@@ -75,7 +75,7 @@
                 -
               </button>
 
-              <div class="quantity">{{packageTravel.childs}}</div>
+              <div class="quantity">{{packageTravel.childs.length}}</div>
               <button mat-flat-button class="plus-button" (click)="incrementValue('childs')">
                 +
               </button>
