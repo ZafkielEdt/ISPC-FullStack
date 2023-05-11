@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class PackagesService {
 
   constructor(private http: HttpClient) { }
-  apiURL = 'http://localhost:3000';
+  apiURL = 'http://localhost:3000/';
 
 
   getPackages() {
