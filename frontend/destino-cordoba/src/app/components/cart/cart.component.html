@@ -1,11 +1,11 @@
-<section class="cart-container container flex flex-col mx-auto px-10 my-10 min-h-[80vh] w-full shadow-md bg-gray-50">
+<section class="cart-container container flex flex-col mx-auto px-10 pb-3 my-10 min-h-[80vh] w-full shadow-md bg-gray-50">
 
   <h1 class="text-5xl my-8" *ngIf="cart.item !== null">Completar datos y finalizar compra</h1>
   <div *ngIf="cart.item !== null" class="item">
     <div class="data-container flex flex-col md:flex-row gap-6">
-      <div class="travelers-info ">
+      <div class="travelers-info md:w-8/12 w-full">
         <p class="text-xl font-bold mb-2">¿Quiénes viajan?</p>
-        <mat-accordion class="w-[20rem]">
+        <mat-accordion >
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title class="font-bold">
@@ -14,7 +14,7 @@
             </mat-expansion-panel-header>
 
             <div class="adults__form-container flex flex-col gap-3">
-              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="false" />
+              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="false" class="mb-2"/>
             </div>
           </mat-expansion-panel>
         </mat-accordion>
