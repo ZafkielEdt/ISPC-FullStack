@@ -39,6 +39,7 @@ export class CartComponent implements OnInit, OnDestroy {
   cancel(): void {
     this.cartService.emptyCart();
     this.cart.item = null;
+
   }
 
   ngOnInit(): void {

@@ -1,0 +1,72 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "asdsadds",
+      "description": "asdasda",
+      "information": "asdasd",
+      "city": {
+        "id": 1,
+        "name": "asdasd",
+        "country": {
+          "id": 1,
+          "name": "asdasd"
+        }
+      }
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "name": "",
+      "description": "",
+      "price": "",
+      "destination": ""
+    }
+  ],
+  "packages": [
+    {
+      "id": 1,
+      "startDate": "",
+      "endDate": "",
+      "totalPrice": 0,
+      "destination": "",
+      "experience": ""
+    },
+    {
+      "id": 2,
+      "startDate": "12312",
+      "endDate": "12312",
+      "totalPrice": 123123,
+      "destination": "",
+      "experience": ""
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+      "email": "",
+      "phone": "",
+      "role": [
+        ""
+      ],
+      "photo": "",
+      "address": {
+        "id": 1,
+        "street": "",
+        "number": "",
+        "city": {
+          "id": 1,
+          "name": "",
+          "country": {
+            "id": 1,
+            "name": ""
+          }
+        }
+      }
+    }
+  ]
+}
