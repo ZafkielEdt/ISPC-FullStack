@@ -1,43 +1,40 @@
-<section class="cart-container container flex flex-col mx-auto justify-center items-center flex-1">
+<section class="cart-container container flex flex-col mx-auto px-10 my-10 min-h-[80vh] w-full shadow-md bg-gray-50">
 
-  <h1 class="text-5xl mb-8" *ngIf="cart.item !== null">Completar datos y finalizar compra</h1>
+  <h1 class="text-5xl my-8" *ngIf="cart.item !== null">Completar datos y finalizar compra</h1>
   <div *ngIf="cart.item !== null" class="item">
-    <p class="text-xl font-bold">¿Quiénes viajan?</p>
-    <div class="data-container grid grid-rows-2 gap-7 md:grid-rows-1 md:grid-cols-3 lg:grids-cols-5 grid-flow-col w-full mt-[1rem]">
-      <div class="travelers-info gap-y-10 flex flex-col col-span-2 lg:col-span-3">
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="font-bold">
-            Adultos
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+    <div class="data-container flex flex-col md:flex-row gap-6">
+      <div class="travelers-info ">
+        <p class="text-xl font-bold mb-2">¿Quiénes viajan?</p>
+        <mat-accordion class="w-[20rem]">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-bold">
+                Adultos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
 
-        <div class="adults__form-container flex flex-col gap-3">
-          <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="false" />
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+            <div class="adults__form-container flex flex-col gap-3">
+              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="false" />
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="font-bold">
-            Niños
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-          <div class="childs__form-container">
-            <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="true" />
-          </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-bold">
+                Niños
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="childs__form-container">
+              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="true" />
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
-      <div class="package-resume col-span-1 lg:col-end-5">
+      <hr class="text-cyan-300">
+      <div class="package-resume">
         <h5>resumen</h5>
-        <!-- <div class="item__image">
-
-          <img [src]="cart.item.destination.gallery[2]" alt="Imagen del producto" class="aspect-auto w-20">
-        </div> -->
         <div class="item__info">
           <h2>{{cart.item.title}}</h2>
           <p>{{cart.item.description}}</p>

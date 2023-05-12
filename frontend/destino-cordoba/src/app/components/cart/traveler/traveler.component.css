@@ -1,9 +1,0 @@
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.mat-expansion-panel-header-description, 
-.mat-expansion-indicator::after {
-    border-color: rgb(0, 0, 0);
-}

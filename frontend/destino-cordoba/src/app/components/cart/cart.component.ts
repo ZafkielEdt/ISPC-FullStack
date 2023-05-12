@@ -42,6 +42,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    document.body.style.backgroundColor = '#f5f5f5';
     this.cartService.loadCart();
     if (this.cartService.getCurrentCart()) {
       this.cart.item = this.cartService.getCurrentCart();
@@ -50,7 +51,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    document.body.style.backgroundColor = "#fff";
   }
 
 }
