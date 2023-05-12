@@ -1,1 +1,57 @@
-<p>traveler works!</p>
+<form [formGroup]="travelerForm">
+  <h3 class="text-xl font-bold">{{isChild ? 'Niño' : 'Adulto'}} {{index}}</h3>
+  <div>
+    <label class="block">Nombre</label>
+    <input class="
+        form-input mt-1
+        block
+        w-full
+        rounded-md
+        border-gray-300
+        shadow-sm
+        focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="text"
+      placeholder="Nombre" formControlName="name" autocomplete="off">
+  </div>
+  <div>
+    <label class="block">Apellido</label>
+    <input class="
+        form-input mt-1
+        block
+        w-full
+        rounded-md
+        border-gray-300
+        shadow-sm
+        focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="text"
+      placeholder="Apellido" formControlName="lastName" autocomplete="off">
+  </div>
+  <div>
+    <label class="block">País de residencia</label>
+    <input class="
+        form-input mt-1
+        block
+        w-full
+        rounded-md
+        border-gray-300
+        shadow-sm
+        focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="text"
+      placeholder="Ej. Argentina" formControlName="country" autocomplete="off">
+  </div>
+  <div>
+    <label class="block">Fecha de nacimiento</label>
+    <div class="date-input w-full flex relative">
+    <input class="
+        w-full
+        flex-1
+        form-input 
+        mt-1
+        block
+        rounded-md
+        border-gray-300
+        shadow-sm
+        focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" [matDatepicker]="picker"
+      placeholder="Ej. 01/01/1990" formControlName="birthDate" autocomplete="off">
+      <mat-datepicker-toggle matSuffix [for]="picker" class="absolute right-0 top-0 h-100"></mat-datepicker-toggle>
+    <mat-datepicker #picker class="w-100"></mat-datepicker>
+    </div>
+  </div>
+</form>

@@ -2,7 +2,7 @@ export interface Traveler {
     id: number;
     name: string;
     lastName: string;
-    pais: string;
+    country: string;
     dni: number;
-    fechaNacimiento : Date;
+    birthDate : Date;
 }

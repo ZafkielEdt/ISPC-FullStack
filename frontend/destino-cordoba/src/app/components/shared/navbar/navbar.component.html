@@ -1,5 +1,5 @@
 <nav [ngClass]="{ 'is-login': screen === '/registro' || screen === '/login' }">
-  <div class="container">
+  <div class="containert mx-auto">
     <a routerLink="/" class="nav-logo">
       <img
         class="nav-brand"
@@ -11,7 +11,7 @@
 
       <div *ngIf="isLogged" class="profile-pic">
         <button [matMenuTriggerFor]="aboveMenu">
-        <img src="../../../../assets/img/image-jeremy.png">
+        <img  src="../../../../assets/img/image-jeremy.png">
         <span>+9</span>
       </button>
         <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">

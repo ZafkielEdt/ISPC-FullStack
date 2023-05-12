@@ -26,9 +26,9 @@ export interface PackageTravel {
       id: 1,
       name: 'Maria',
       lastName: 'Gonzalez',
-      pais: 'Argentina',
+      country: 'Argentina',
       dni: 12345678,
-      fechaNacimiento: new Date(
+      birthDate: new Date(
         1990,
         1,
         1
@@ -38,10 +38,9 @@ export interface PackageTravel {
       id: 1,
       name: 'Juan',
       lastName: 'Gonzalez',
-      pais: 'Argentina',
+      country: 'Argentina',
       dni: 12345678,
-      phone: 123456789,
-      fechaNacimiento: new Date(
+      birthDate: new Date(
         2010,
         1,
         1
