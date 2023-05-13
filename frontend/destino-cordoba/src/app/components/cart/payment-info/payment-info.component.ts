@@ -31,7 +31,7 @@ export class PaymentInfoComponent implements OnInit{
 
   visa= '../../assets/icons/visa.png'
   mastercard= '../../assets/icons/mastercard.png'
-
+  tabActive = 0;
 
   public paymentForm!: FormGroup;
   constructor(private fb: FormBuilder) { }
@@ -62,6 +62,11 @@ export class PaymentInfoComponent implements OnInit{
     });
   }
     
+    setActive(index: number) {
+      this.tabActive = index;
+      console.log(this.tabActive)
+      
+    }
 
     getCardType(cardNumber: string): string {
 

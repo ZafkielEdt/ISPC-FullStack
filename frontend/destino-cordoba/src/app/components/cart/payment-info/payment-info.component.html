@@ -1,6 +1,9 @@
 <form [formGroup]="paymentForm" class="flex flex-col w-full gap-3 mt-6" (ngSubmit)="onSubmit()">
-  <h3 class="text-xl font-bold">Tarjeta de credito</h3>
-
+  <div class="tabs flex gap-8 items-center border-b-2 w-full">
+    <button type="button" (click)="setActive(1)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 1}">Tarjeta de credito</button>
+    <button type="button" (click)="setActive(2)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 2}">Tarjeta de débito</button>
+    <button type="button" (click)="setActive(3)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 3}">Efectivo</button>
+  </div>
   <label class="block font-bold">Número</label>
   <input 
   (change)="onCardNumberChange()"
@@ -36,6 +39,7 @@
 
   <label class="block font-bold">DNI del titular (solo números)</label>
   <input class="
+          
           form-input mt-1
           block
           w-full
@@ -45,7 +49,7 @@
           focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="text"
     placeholder="XX XXX XXX" formControlName="dni" autocomplete="off">
   <label class="block font-bold">Código de seguridad</label>
-  <input class="
+  <input class="appearance-none
             form-input mt-1
             block
             w-full
@@ -93,5 +97,5 @@
     </select>
     </div>
   </div>
-  <button type="submit" class="rounded-md bg-emerald-600 text-white font-bold text-sm py-2 px-4 w-fit ">Pagar</button>
+  <button type="submit" class="rounded-emerald text-white font-bold text-sm py-2 px-4 w-fit ">Pagar</button>
 </form>
