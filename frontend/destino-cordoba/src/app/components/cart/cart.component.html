@@ -34,18 +34,21 @@
       </div>
       <hr class="text-cyan-300">
       <div class="package-resume">
-        <h5>resumen</h5>
+        <h5 class="text-xl font-bold mb-2">Resumen</h5>
         <div class="item__info">
           <h2>{{cart.item.title}}</h2>
           <p>{{cart.item.description}}</p>
           <p>Precio: {{cart.totalValue | currency}}</p>
         </div>
         <div class="item__actions">
-          <button mat-raised-button color="warn" (click)="cancel()">
-            <mat-icon>delete</mat-icon>
+          <button mat-raised-button color="warn" (click)="cancel()" class="font-bold text-sm">
+            <mat-icon>delete</mat-icon> Buscar otro destino
           </button>
         </div>
       </div>
+    </div>
+    <div class="payment-info-container md:w-8/12 w-full">
+      <app-payment-info></app-payment-info>
     </div>
   </div>
 
