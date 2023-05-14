@@ -80,6 +80,7 @@
 .home-content{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .buscador{
   width: calc(100% - 4rem);

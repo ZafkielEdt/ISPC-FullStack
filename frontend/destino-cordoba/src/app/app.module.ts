@@ -22,6 +22,8 @@ import { CardWithButtonComponent } from './components/destinations/card-with-but
 import { CardWithTextComponent } from './components/destinations/card-with-text/card-with-text.component';
 import { AuthModule } from './auth/auth.module';
 import { CartComponent } from './components/cart/cart.component';
+import { TravelerComponent } from './components/cart/traveler/traveler.component';
+import { PaymentInfoComponent } from './components/cart/payment-info/payment-info.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { CartComponent } from './components/cart/cart.component';
     CardWithButtonComponent,
     CardWithTextComponent,
     CartComponent,
+    TravelerComponent,
+    PaymentInfoComponent,
     
   ],
   imports: [
