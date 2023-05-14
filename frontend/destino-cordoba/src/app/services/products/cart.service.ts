@@ -5,7 +5,7 @@ import { PackageTravel } from 'src/app/models/package-travel';
 @Injectable({
   providedIn: 'root'
 })
-export class CartServiceService {
+export class CartService {
 
   cart!: PackageTravel;
   

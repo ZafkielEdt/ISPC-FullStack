@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PackageTravel } from 'src/app/models/package-travel';
-import { CartServiceService } from 'src/app/services/products/cart-service.service';
+import { packageTravel } from 'src/app/models/package-travel';
+import { CartService } from 'src/app/services/products/cart.service';
 
 
 
@@ -17,46 +17,7 @@ export class PackageTravelComponent implements OnInit {
 
   
   isChecked = true;
-  packageTravel: PackageTravel = {
-    id : 1,
-    title: this.route.snapshot.params['title'],
-    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-
-    price: 1000,
-    gallery: [
-      "./assets/img/imagen1.webp", "./assets/img/imagen2.webp", "./assets/img/imagen3.webp", "./assets/img/imagen4.webp", "./assets/img/imagen5.webp", "./assets/img/imagen2.webp","./assets/img/imagen2.webp","./assets/img/imagen1.webp","./assets/img/imagen3.webp",
-    ],
-    days: 7,
-    nights: 6,
-    adults:1,
-    childs:1,
-    experiences: [{
-      title: 'Manejar un tanque en familia',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-      price: 1000,
-      gallery: [
-        "./assets/img/imagen1.webp", "./assets/img/imagen2.webp", "./assets/img/imagen3.webp"
-      ],
-    },
-    {
-      title: 'Nadar con tiburones',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-      price: 5000,
-      gallery: [
-        "./assets/img/imagen5.webp", "./assets/img/imagen2.webp", "./assets/img/imagen4.webp"
-      ],
-    },
-    {
-      title: 'Caminar por el desierto sin agua',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-      price: 10000,
-      gallery: [
-        "./assets/img/imagen2.webp", "./assets/img/imagen2.webp", "./assets/img/imagen1.webp"
-      ],
-    },
-    ] 
-    
-  };
+  packageTravel = packageTravel;
   totalDuration = this.packageTravel.days.toString() + ' DÍAS / ' + this.packageTravel.nights.toString() + ' NOCHES';
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -66,7 +27,7 @@ export class PackageTravelComponent implements OnInit {
   });
 
 
-  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private cartService : CartServiceService,private router : Router) { }
+  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private cartService : CartService,private router : Router) { }
   
   selectedDate: Date = new Date();
   dateValid : boolean = false;
@@ -93,20 +54,20 @@ export class PackageTravelComponent implements OnInit {
   }
 
   incrementValue(type:string) : void{
-    if(type === 'childs'  &&  this.packageTravel.childs !== undefined && this.packageTravel.childs <= 9 ){
-      this.packageTravel.childs >= 0 ? this.packageTravel.childs++ : this.packageTravel.childs = 0;
+    if(type === 'childs'  &&  this.packageTravel.childs !== undefined && this.packageTravel.childs.length <= 4 ){
+      this.packageTravel.childs.length >= 0 ? this.packageTravel.childs.length++ : this.packageTravel.childs.length = 0;
     }
-    if(type === 'adults' && this.packageTravel.adults){
-      this.packageTravel.adults >= 0 ? this.packageTravel.adults++ : this.packageTravel.adults = 1;
+    if(type === 'adults' && this.packageTravel.adults && this.packageTravel.adults.length <= 4){
+      this.packageTravel.adults.length >= 0 ? this.packageTravel.adults.length++ : this.packageTravel.adults.length = 1;
     }
   }
   decrementValue(type:string) : void{
 
     if(type === 'childs' && this.packageTravel.childs !== undefined){
-      this.packageTravel.childs > 0 ? this.packageTravel.childs-- : this.packageTravel.childs = 0;
+      this.packageTravel.childs.length > 0 ? this.packageTravel.childs.length-- : this.packageTravel.childs.length = 0;
     }
-    if(type === 'adults' && this.packageTravel.adults){
-      this.packageTravel.adults > 1 ? this.packageTravel.adults-- : this.packageTravel.adults = 1;
+    if(type === 'adults' && this.packageTravel.adults ){
+      this.packageTravel.adults.length > 1 ? this.packageTravel.adults.length-- : this.packageTravel.adults.length = 1;
     }
 
     

@@ -1,5 +1,5 @@
 <div class="app-container">
-  <app-navbar *ngIf="router.url !== '/registro' && router.url !== '/login'" ></app-navbar>
+  <app-navbar class="sticky top-0 z-[999]" *ngIf="router.url !== '/registro' && router.url !== '/login'" ></app-navbar>
     <main>
       <router-outlet></router-outlet>
     </main>
