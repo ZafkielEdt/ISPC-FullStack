@@ -29,7 +29,7 @@ export class PaymentInfoComponent implements OnInit{
     expYear: '',
   }
 
-  visa= '../../assets/icons/visa.png'
+  visa= '../../assets/icons/Visa.png'
   mastercard= '../../assets/icons/mastercard.png'
   tabActive = 0;
 

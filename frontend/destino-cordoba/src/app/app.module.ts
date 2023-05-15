@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -21,6 +20,8 @@ import { TravelerComponent } from './pages/cart/traveler';
 import { PaymentInfoComponent } from './pages/cart/payment-info';
 import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
     CartComponent,
     TravelerComponent,
     PaymentInfoComponent,
-
+    ResultadoBuscadorComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,4 +49,4 @@ import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
