@@ -17,10 +17,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AuthRoutingModule } from 'src/app/auth/auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     NavbarComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    AuthRoutingModule,
     CommonModule,
     FormsModule,
     MatStepperModule,

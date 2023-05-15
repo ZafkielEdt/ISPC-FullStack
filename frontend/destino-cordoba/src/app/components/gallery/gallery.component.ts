@@ -1,6 +1,6 @@
 import { Component,Input } from '@angular/core';
-import { ModalComponent } from '../travel-package/modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/pages/travel-package';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',

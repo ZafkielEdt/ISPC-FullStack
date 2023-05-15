@@ -12,24 +12,7 @@ export class CartComponent implements OnInit, OnDestroy {
   
 
   constructor(private cartService : CartService) {}
-  // cart: Cart = {
-  //   id: 1,
-  //   totalValue: 0,
-  //   totalItems: 0,
-  //   item: {
-  //     id: 0,
-  //     title: '',
-  //     description: '',
-  //     price: 0,
-  //     gallery: [],
-  //     days: 0,
-  //     nights: 0,
-  //     childs: 0,
-  //     adults: 0,
-  //     experiences: [],
-  //   },
-  
-  //   }
+
   cart: Cart = {
     id: 1,
     totalValue: 100000,
