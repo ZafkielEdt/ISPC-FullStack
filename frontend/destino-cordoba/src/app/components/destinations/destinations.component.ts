@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable, map } from 'rxjs';
 import {
   Destination,
   DestinationsService,
