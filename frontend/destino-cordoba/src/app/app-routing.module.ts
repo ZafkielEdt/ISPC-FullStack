@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import {PackageTravelComponent} from './components/travel-package/travel-package.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
-import { HomeComponent } from './components/home/home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegistroComponent } from './auth/registro/registro.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent,NotFoundComponent, PackageTravelComponent } from './pages';
 
 const routes: Routes = [
-  {path:'',component : HomeComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
+  { path: '', loadChildren: () => import('./pages').then(m => m.HomeModule) },
+  { path: '', loadChildren: () => import('./auth').then(m => m.AuthModule) },
   {path : 'travel/:title', component: PackageTravelComponent },
   { path : 'user-dashboard', component: UserDashboardComponent},
   { path : 'cards', component: DestinationsComponent},
