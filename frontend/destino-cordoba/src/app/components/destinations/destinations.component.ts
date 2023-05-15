@@ -11,7 +11,7 @@ import {
   styleUrls: ['./destinations.component.css'],
 })
 export class DestinationsComponent {
-  destination$: Destination[] = [];
+  destination$!: Destination[];
 
   constructor(private destinationsService: DestinationsService) {}
 
