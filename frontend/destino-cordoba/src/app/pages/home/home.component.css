@@ -57,7 +57,6 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-
 }
 
 .hero-images img {
@@ -77,44 +76,34 @@
   width: 7rem;
   object-fit: left;
 }
-.home-content{
+.home-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.buscador{
-  width: calc(100% - 4rem);
-  height: 300px;
+.buscador {
   margin: 2rem auto;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #1e1e1e;
 }
-.home-content .container{
+.home-content .container {
   display: flex;
   flex-wrap: wrap;
 }
-.destacados{
+.destacados {
   margin: 3rem;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
-.destacados h3{
+.destacados h3 {
   font-size: 2.5rem;
-
 }
-.destacados div{
+.destacados div {
   display: flex;
   justify-content: flex-start;
-  align-items: center;  
+  align-items: center;
   gap: 2rem;
 }
-.recommendations{
+.recommendations {
   margin: 3rem;
   display: flex;
   flex-direction: column;
@@ -122,33 +111,26 @@
   flex: 1;
   align-items: flex-start;
 }
-.recommendations h3{
-  
+.recommendations h3 {
   font-size: 2.5rem;
-
 }
-.recommendations div{
+.recommendations div {
   display: flex;
 
   justify-content: flex-start;
-  align-items: flex-end;  
-
+  align-items: flex-end;
 }
-.side-recommendations{
+.side-recommendations {
   width: 30%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-end;
   margin: 3rem;
-  
 }
-.side-recommendations h3{
-  
+.side-recommendations h3 {
   font-size: 2.5rem;
-
 }
-
 
 @media screen and (min-width: 1024px) {
   .hero-container {

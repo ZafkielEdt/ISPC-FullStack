@@ -2,36 +2,30 @@
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;
-
 }
 
 .package-content {
   width: 50%;
-  margin:auto;
-  
-
+  margin: auto;
 }
 
-.header>h1 {
+.header > h1 {
   font-size: 2.5rem;
   font-weight: 600;
-
-
 }
-.gallery-box{ 
+.gallery-box {
   width: 50%;
   margin: auto;
-
 }
 .description {
   display: flex;
   align-items: center;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   gap: 1rem;
   font-size: 1.5rem;
 }
 
-.description>i {
+.description > i {
   font-size: 1.2rem;
 }
 
@@ -48,22 +42,23 @@
   width: 50%;
   flex: 1;
 }
-::ng-deep .mat-step-header{
+::ng-deep .mat-step-header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: .8rem;
-  font-size: .8rem;
+  gap: 0.8rem;
+  font-size: 0.8rem;
 }
-.mat-horizontal-stepper{
+
+.mat-horizontal-stepper {
   width: 70%;
   margin: 0 auto;
 }
-.stepper-label{
+.stepper-label {
   font-size: 12px;
 }
 
-.set-package-header>h2 {
+.set-package-header > h2 {
   color: black;
   font-size: 2rem;
   font-weight: 600;
@@ -93,7 +88,7 @@
   font-weight: 700;
 }
 
-.p-dates>strong {
+.p-dates > strong {
   color: #374d3b;
 }
 
@@ -104,7 +99,7 @@
   width: 50%;
   gap: 1rem;
 }
-.controls{
+.controls {
   display: flex;
   align-items: center;
 }
@@ -115,7 +110,6 @@
   font-weight: 700;
   text-align: left;
   flex: 1;
-
 }
 
 .handler-persons-field {
@@ -123,11 +117,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: .4rem;
+  gap: 0.4rem;
   font-size: 1.2rem;
   font-weight: 700;
   height: fit-content;
-
 }
 
 .minus-btn,
@@ -144,8 +137,6 @@
   align-items: center;
   justify-content: space-between;
   margin: 2rem 0 3rem 0;
-
-
 }
 
 .step-buttons {
@@ -174,35 +165,33 @@
   font-size: 1.2rem;
   margin: 1rem 0;
   padding: 2rem;
-  gap: .8rem;
+  gap: 0.8rem;
 }
 
 .hotel-header {
   display: flex;
   align-items: center;
-  margin: .5rem 0;
-  gap: .7rem;
+  margin: 0.5rem 0;
+  gap: 0.7rem;
 }
 
 .badges {
   display: flex;
   align-items: center;
-  gap: .5rem;
-  font-size: .8rem;
+  gap: 0.5rem;
+  font-size: 0.8rem;
   margin-bottom: 1rem;
 }
 
 .badge-rating,
-.badge-price
- {
+.badge-price {
   background-color: #1c6d1c;
   color: white;
   width: fit-content;
   border-radius: 8px;
-  padding: .3rem .5rem;
+  padding: 0.3rem 0.5rem;
   font-weight: 700;
 }
-
 
 .hotel-name {
   font-weight: 700;
@@ -215,10 +204,9 @@
   border-radius: 10px;
   width: fit-content;
   border-radius: 10px;
-  padding: .2rem .5rem;
-  margin: .5rem auto;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem auto;
 }
-
 
 .btn-info:hover {
   color: #fff;
@@ -226,73 +214,65 @@
   border-radius: 10px;
   width: fit-content;
   border-radius: 10px;
-  padding: .2rem .5rem;
-  transition: .3s ease-out;
+  padding: 0.2rem 0.5rem;
+  transition: 0.3s ease-out;
 }
 
-
-.card-step-experience{
+.card-step-experience {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 80%;
   font-size: 1.2rem;
-
-
 }
 
-
-.exp-header{
+.exp-header {
   display: flex;
-  gap:.5rem;
+  gap: 0.5rem;
 }
 
-.exp-header button{
+.exp-header button {
   background-color: #7e47c7b7;
   color: white;
   border-radius: 8px;
-  padding: .2rem .5rem;
+  padding: 0.2rem 0.5rem;
   font-weight: 700;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border: none;
   cursor: pointer;
 }
 
 @media screen and (max-width: 1568px) {
-  .travel-package-main{
+  .travel-package-main {
     justify-content: center;
     gap: 5rem;
-
   }
 }
 
 @media screen and (max-width: 768px) {
-  .mat-horizontal-stepper-header-container{
+  .mat-horizontal-stepper-header-container {
     flex-direction: column;
   }
-  
-  .travel-package-main{
+
+  .travel-package-main {
     justify-content: center;
     gap: 5rem;
-
   }
 
-  .content-left{
+  .content-left {
     width: 80%;
     margin: 0;
-    
   }
 
-  .gallery-box{
+  .gallery-box {
     width: 100%;
   }
-  .package-content{
+  .package-content {
     margin: 2rem 0;
     width: 100%;
   }
-  .header>h1 {
-
+  .header > h1 {
     font-size: 1.5rem;
     font-weight: 600;
   }
@@ -301,17 +281,15 @@
     margin: auto;
   }
   .persons-field {
-
     width: 100%;
-    gap: .7rem;
+    gap: 0.7rem;
   }
-  .mat-horizontal-stepper{
+  .mat-horizontal-stepper {
     width: 70%;
     margin: 0 auto;
     font-size: 1rem;
   }
-  .set-package-header>h2 {
+  .set-package-header > h2 {
     font-size: 1.5rem;
   }
-  
 }

@@ -1,0 +1,52 @@
+<section class="container mx-auto bg-zinc-800 p-6 rounded-md">
+  <form>
+    <div
+      class="tabs mx-auto flex gap-8 items-center my-2 justify-center w-full"
+    >
+      <button
+        type="button"
+        (click)="setActive(1)"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        [ngClass]="{
+          'border-b-[3px] border-green-500 text-green-500 ': tabActive === 1
+        }"
+      >
+        Vuelos
+      </button>
+      <button
+        type="button"
+        (click)="setActive(2)"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        [ngClass]="{
+          'border-b-[3px] border-green-500 text-green-500': tabActive === 2
+        }"
+      >
+        Hoteles
+      </button>
+      <button
+        type="button"
+        (click)="setActive(3)"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        [ngClass]="{
+          'border-b-[3px] border-green-500 text-green-500': tabActive === 3
+        }"
+      >
+        Experiencias
+      </button>
+    </div>
+    <div class="flex gap-2">
+      <input
+        class="form-input mt-1 block w-full rounded-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
+        type="text"
+        formControlName="name"
+      />
+
+      <button
+        type="submit"
+        class="rounded-emerald rounded-md text-white bg-green-800 font-bold text-sm px-4 w-fit"
+      >
+        Buscar
+      </button>
+    </div>
+  </form>
+</section>
