@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
   Destination,
   DestinationsService,
@@ -10,13 +11,9 @@ import {
   styleUrls: ['./destinations.component.css'],
 })
 export class DestinationsComponent {
-  destination$!: Destination[];
+  destinations$: Observable<Destination[]>;
 
-  constructor(private destinationsService: DestinationsService) {}
-
-  getDestinations() {
-    this.destinationsService.getDestinations().subscribe({
-      next: (data: Destination[]) => (this.destination$ = data),
-    });
+  constructor(private destinationsService: DestinationsService) {
+    this.destinations$ = this.destinationsService.getDestinations();
   }
 }

@@ -1,35 +1,26 @@
 <div class="grid">
-        <div >
-            <h1>Destinos Destacados</h1>
-            <div class="borderRed">
-                
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                
-            </div>
+  <div>
+    <h1>Destinos Destacados</h1>
+    <div class="borderRed">
+      <app-cards
+        *ngFor="let destination of destinations$ | async"
+        [destination]="destination"
+      ></app-cards>
+    </div>
 
-            <h1>Descubre</h1>
-            <div >
-
-                <div class="container">
-                    
-                    <app-card-with-text></app-card-with-text>
-                    <app-card-with-text></app-card-with-text>
-                    <app-card-with-text></app-card-with-text>
-                   
-                </div>
-            </div>
-            
-            
-            
-        </div>
-        <div  class="borderBlue">
-            <h1>Explora</h1>
-            <app-card-with-button></app-card-with-button>
-            <app-card-with-button></app-card-with-button>
-            <app-card-with-button></app-card-with-button>
-        </div>
-    
+    <h1>Descubre</h1>
+    <div>
+      <div class="container">
+        <app-card-with-text></app-card-with-text>
+        <app-card-with-text></app-card-with-text>
+        <app-card-with-text></app-card-with-text>
+      </div>
+    </div>
+  </div>
+  <div class="borderBlue">
+    <h1>Explora</h1>
+    <app-card-with-button></app-card-with-button>
+    <app-card-with-button></app-card-with-button>
+    <app-card-with-button></app-card-with-button>
+  </div>
 </div>
-
