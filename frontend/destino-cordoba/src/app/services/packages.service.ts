@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PackageCard } from '../models/package-card';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,18 +12,9 @@ export class PackagesService {
 
 
   getPackages() {
-    return this.http.get(this.apiURL+'packages');
+    return this.http.get<PackageCard[]>(this.apiURL+'packages');
   }
-  packageA : any = {
-    "id": 3,
-    "startDate": "12312",
-    "endDate": "12312",
-    "totalPrice":123123,
-    "destination":"",
-    "experience":""
-}
-
-  setPackages() {
-    return this.http.post(this.apiURL+'packages', this.packageA);
+  setPackages(packageTravel : PackageCard) {
+    return this.http.post(this.apiURL+'packages', packageTravel);
   }
 }

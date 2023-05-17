@@ -28,33 +28,16 @@
 <section class="home-content">
   <div class="div-destinos">
     <div class="destacados">
-      <h3>Destinos Destacados</h3>
       <div class="container">
-        <app-cards path="/travel/destino1"></app-cards>
-        <app-cards path="/travel/destino2"></app-cards>
-        <app-cards path="/travel/destino3"></app-cards>
-        <app-cards path="/travel/destino3"></app-cards>
       </div>
     </div>
-    <div class="recommendations">
-      <h3>Descubre</h3>
+    <div class="recommendations w-full flex items-center mx-auto flex-col">
 
-      <div class="container">
-        <app-card-with-text path="/details/destino/1"></app-card-with-text>
-        <app-card-with-text path="/details/destino/2"></app-card-with-text>
-        <app-card-with-text path="/details/destino/3"></app-card-with-text>
-        <app-card-with-text path="/details/destino/3"></app-card-with-text>
+      <div class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
+        <div *ngFor="let package of packages" >
+          <app-package-card [package]="package" [path]="packageUrl+package.title"></app-package-card>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="side-recommendations">
-    <h3>Explora</h3>
-    <div class="side-container">
-      <app-card-with-button path="/details/experience/1"></app-card-with-button>
-      <app-card-with-button path="/details/experience/2"></app-card-with-button>
-      <app-card-with-button path="/details/experience/3"></app-card-with-button>
-      <app-card-with-button path="/details/experience/4"></app-card-with-button>
-      <app-card-with-button path="/details/experience/5"></app-card-with-button>
     </div>
   </div>
 </section>
