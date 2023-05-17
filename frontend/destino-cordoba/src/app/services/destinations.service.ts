@@ -4,10 +4,9 @@ import { HttpClient } from '@angular/common/http';
 export interface Destination {
   id: number;
   name: string;
-  country: string;
-  rate: number;
-  price: number;
+  city: string;
   image: string;
+  description: string;
 }
 
 @Injectable({
