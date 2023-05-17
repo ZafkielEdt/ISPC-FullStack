@@ -8,6 +8,7 @@ import { CardWithButtonComponent } from 'src/app/components/destinations/card-wi
 import { CardWithTextComponent } from 'src/app/components/destinations/card-with-text/card-with-text.component';
 import { SharedModule } from 'src/app/shared';
 import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
+import { PackageCardComponent } from 'src/app/components/package-card';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BuscadorComponent } from 'src/app/components/buscador/buscador.componen
     CardWithButtonComponent,
     CardWithTextComponent,
     BuscadorComponent,
+    PackageCardComponent
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
 })

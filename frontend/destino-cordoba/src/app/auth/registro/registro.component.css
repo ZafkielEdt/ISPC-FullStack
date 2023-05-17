@@ -6,7 +6,7 @@
   flex-flow: column nowrap;
   text-align: center;
   overflow: hidden;
-  background: url("../../../assets/img/fondo.svg") no-repeat fixed;
+  background: url("/assets/img/fondo.svg") no-repeat fixed;
   background-size: cover;
 }
 .login-container::before{
@@ -53,7 +53,6 @@ form {
   flex-flow: column;
   background-color: rgb(71, 71, 66);
   border-radius: 0.5rem;
-  color: aliceblue;
 }
 
 label {

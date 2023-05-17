@@ -6,7 +6,7 @@
     flex-flow: column nowrap;
     text-align: center;
     overflow: hidden;
-    background: url("../../../assets/img/fondo.svg") no-repeat fixed;
+    background: url("/assets/img/fondo.svg") no-repeat fixed;
     background-size: cover;
   }
   .login-container::before{
@@ -40,7 +40,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    color: #fff;
     flex: 1;
     margin-top: 5rem;
 

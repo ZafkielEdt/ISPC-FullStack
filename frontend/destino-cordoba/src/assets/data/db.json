@@ -2,49 +2,199 @@
   "destinations": [
     {
       "id": 1,
-      "name": "asdsadds",
-      "description": "asdasda",
-      "information": "asdasd",
+      "name": "Villa María",
+      "description": "villa maria",
+      "image": "./assets/images/imagen2.webp",
       "city": {
         "id": 1,
-        "name": "asdasd",
+        "name": "villa maria",
         "country": {
           "id": 1,
-          "name": "asdasd"
+          "name": "Argentina"
         }
       }
     }
   ],
-  "experiences": [
+  "experience": [
     {
       "id": 1,
-      "name": "",
-      "description": "",
-      "price": "",
-      "destination": ""
+      "name": "city tour",
+      "description": "city tour por la ciudad",
+      "price": 10000
+    },
+    {
+      "id": 2,
+      "name": "city tour 2",
+      "description": "city tour por la ciudad 2",
+      "price": 2799
+    },
+    {
+      "id": 3,
+      "name": "city tour 3 ",
+      "description": "city tour por la ciudad 3",
+      "price": 4000
+    },
+    {
+      "id": 4,
+      "name": "city tour 4",
+      "description": "city tour por la ciudad 4",
+      "price": 1800
     }
   ],
   "packages": [
     {
-      "id": 1,
-      "startDate": "",
-      "endDate": "",
-      "totalPrice": 0,
-      "destination": "",
-      "experience": ""
+      "id": 2,
+      "title":"villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 11230,
+      "destination": {   
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "./assets/images/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [{
+        
+        "id": 1,
+        "name": "city tour",
+        "description": "city tour por la ciudad",
+        "price": 10000
+        
+      }],
+      "rate" : 5
     },
     {
       "id": 2,
-      "startDate": "12312",
-      "endDate": "12312",
-      "totalPrice": 123123,
-      "destination": "",
-      "experience": ""
+      "title":"villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 42130,
+      "destination": {   
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "./assets/images/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [{
+        
+        "id": 2,
+        "name": "city tour 2",
+        "description": "city tour por la ciudad 2",
+        "price": 2799
+        
+      }],
+      "rate" : 3
+    },
+    {
+      "id": 2,
+      "title":"villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 51230,
+      "destination": {   
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "./assets/images/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [{
+        
+        "id": 3,
+        "name": "city tour 3 ",
+        "description": "city tour por la ciudad 3",
+        "price": 4000
+        
+      }],
+      "rate" : 4
+    },
+    {
+      "id": 4,
+      "title":"villa-maria",
+      "days": 16,
+      "nights": 15,
+      "totalPrice": 12330,
+      "destination": {   
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "./assets/images/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [{
+        
+        "id": 4,
+        "name": "city tour 4",
+        "description": "city tour por la ciudad 4",
+        "price": 1800
+        
+      }],
+      "rate" : 2.9
+    },{
+      "id": 5,
+      "title":"villa-maria",
+      "days": 16,
+      "nights": 15,
+      "totalPrice": 12330,
+      "destination": {   
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "./assets/images/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [{
+        
+        "id": 5,
+        "name": "city tour 4",
+        "description": "city tour por la ciudad 4",
+        "price": 1800
+        
+      }],
+      "rate" : 1.9
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id":1,
       "firstName": "",
       "lastName": "",
       "password": "",

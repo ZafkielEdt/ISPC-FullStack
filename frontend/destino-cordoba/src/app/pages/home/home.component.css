@@ -1,5 +1,5 @@
 .hero-container {
-  background-image: url("../../../assets/img/fondo.svg");
+  background-image: url("/assets/img/fondo.svg");
   background-attachment: fixed;
   height: 100%;
   display: flex;
@@ -76,50 +76,11 @@
   width: 7rem;
   object-fit: left;
 }
-.home-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 .buscador {
   margin: 2rem auto;
 }
-.home-content .container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.destacados {
-  margin: 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-.destacados h3 {
-  font-size: 2.5rem;
-}
-.destacados div {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2rem;
-}
-.recommendations {
-  margin: 3rem;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex: 1;
-  align-items: flex-start;
-}
-.recommendations h3 {
-  font-size: 2.5rem;
-}
-.recommendations div {
-  display: flex;
 
-  justify-content: flex-start;
-  align-items: flex-end;
-}
+
 .side-recommendations {
   width: 30%;
   display: flex;
@@ -134,7 +95,7 @@
 
 @media screen and (min-width: 1024px) {
   .hero-container {
-    background-image: url("../../../assets/img/fondo.svg");
+    background-image: url("/assets/img/fondo.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

@@ -20,7 +20,6 @@ import { TravelerComponent } from './pages/cart/traveler';
 import { PaymentInfoComponent } from './pages/cart/payment-info';
 import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
-import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
 
 @NgModule({
