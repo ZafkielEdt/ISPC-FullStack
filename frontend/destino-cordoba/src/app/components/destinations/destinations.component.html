@@ -1,15 +1,15 @@
 <div class="grid">
   <div>
-    <h1>Destinos Destacados</h1>
-    <div class="borderRed">
+    <h1 class="main-title">Destinos Destacados</h1>
+    <div class="destinations-container">
       <app-cards
         *ngFor="let destination of destinations$ | async"
         [destination]="destination"
       ></app-cards>
     </div>
 
-    <h1>Descubre</h1>
     <div>
+      <h2 class="sub-title">Descubre</h2>
       <div class="container">
         <app-card-with-text></app-card-with-text>
         <app-card-with-text></app-card-with-text>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="borderBlue">
-    <h1>Explora</h1>
+    <h2 class="sub-title">Explora</h2>
     <app-card-with-button></app-card-with-button>
     <app-card-with-button></app-card-with-button>
     <app-card-with-button></app-card-with-button>
