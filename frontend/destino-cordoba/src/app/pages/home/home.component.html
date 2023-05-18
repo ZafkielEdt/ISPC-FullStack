@@ -10,8 +10,6 @@
       ipsam vel.
     </p>
     <div class="buttons">
-      <button class="btn-primary">Button Primary</button>
-      <button class="btn-secondary">Button Secondary</button>
     </div>
   </div>
 
@@ -27,17 +25,27 @@
 </div>
 <section class="home-content">
   <div class="div-destinos">
-    <div class="destacados">
-      <div class="container">
+      <div class="destacados my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
+        <div class="w-fit lg:w-1/2 mt-4">
+          <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">Destinos recomendados</div>
+        </div>
+        <div class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
+          <div *ngFor="let destination of destinations$ | async">
+            <app-cards [destination]="destination" [path]="'details/'+destination.name"></app-cards>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="recommendations w-full flex items-center mx-auto flex-col">
+    <div class="recommendations my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
 
+      <div class="w-fit lg:w-1/2 mt-4">
+        <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">Paquetes recomendados</div>
+      </div>
       <div class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
         <div *ngFor="let package of packages" >
           <app-package-card [package]="package" [path]="packageUrl+package.title"></app-package-card>
         </div>
       </div>
+
     </div>
   </div>
 </section>

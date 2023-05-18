@@ -2,12 +2,58 @@
   "destinations": [
     {
       "id": 1,
+      "slug": "villa-maria",
       "name": "Villa María",
-      "description": "villa maria",
-      "image": "./assets/images/imagen2.webp",
+      "description": "Villa María, Córdoba",
+      "image": "/assets/img/imagen2.webp",
       "city": {
         "id": 1,
-        "name": "villa maria",
+        "name": "Villa María",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "slug": "villa-general-belgrano",
+      "name": "Villa General Belgrano",
+      "description": "Villa General Belgrano, Córdoba",
+      "image": "/assets/img/imagen2.webp",
+      "city": {
+        "id": 2,
+        "name": "Villa General Belgrano",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "slug": "valle-de-calamuchita",
+      "name": "Valle de Calamuchita",
+      "description": "Valle de Calamuchita, Córdoba",
+      "image": "/assets/img/imagen5.webp",
+      "city": {
+        "id": 3,
+        "name": "Valle de Calamuchita",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "slug": "alta-gracia",
+      "name": "Alta Gracia",
+      "description": "Alta Gracia,Córdoba",	
+      "image": "/assets/img/imagen3.webp",
+      "city": {
+        "id": 4,
+        "name": "Alta Gracia",
         "country": {
           "id": 1,
           "name": "Argentina"
@@ -52,7 +98,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "./assets/images/imagen2.webp",
+        "image": "/assets/images/imagen2.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -82,7 +128,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "./assets/images/imagen2.webp",
+        "image": "/assets/images/imagen3.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -112,7 +158,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "./assets/images/imagen2.webp",
+        "image": "/assets/images/imagen5.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -142,7 +188,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "./assets/images/imagen2.webp",
+        "image": "/assets/images/imagen1.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -171,7 +217,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "./assets/images/imagen2.webp",
+        "image": "/assets/images/imagen4.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
