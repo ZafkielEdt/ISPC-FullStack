@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+interface City {
+  name: string;
+}
+
 export interface Destination {
   id: number;
   name: string;
-  city: string;
+  city: City;
   image: string;
   description: string;
 }
