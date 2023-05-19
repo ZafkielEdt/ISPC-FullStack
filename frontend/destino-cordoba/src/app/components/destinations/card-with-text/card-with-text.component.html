@@ -1,9 +1,8 @@
 <div class="image-container">
-    <img src="{{image}}" [routerLink]="path"/>
+    <img src="{{destination.image}}" [routerLink]="path"/>
     <div class="content">
-        <h1>5 Destinos para visitar en otoño</h1>
-        <p>De caminar alrededor de Washington DC a pasear en bote
-            en el lago de Seoul.
+        <h1>{{destination.name}}</h1>
+        <p>{{destination.description}}
         </p>
     </div>
 </div>
