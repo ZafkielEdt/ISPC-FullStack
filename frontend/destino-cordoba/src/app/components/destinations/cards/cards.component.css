@@ -1,5 +1,5 @@
 .card-destination {
-  margin: 1rem;
+  margin: 0 0 1rem 0;
   width: 21.438rem;
   background-color: #f1f6f9;
   border-radius: 1rem;
@@ -35,6 +35,7 @@
 @media screen and (min-width: 1024px) {
   .card-destination {
     width: 16rem;
+    margin: 0 1rem 1rem 0;
   }
 
   .card-destination:hover {
