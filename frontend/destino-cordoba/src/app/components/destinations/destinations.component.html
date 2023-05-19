@@ -11,9 +11,8 @@
     <div>
       <h2 class="sub-title">Descubre</h2>
       <div class="container">
-        <app-card-with-text></app-card-with-text>
-        <app-card-with-text></app-card-with-text>
-        <app-card-with-text></app-card-with-text>
+        <app-card-with-text *ngFor="let destination of destinations$ | async"
+        [destination]="destination"></app-card-with-text>
       </div>
     </div>
   </div>
