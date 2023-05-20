@@ -1,5 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  MinLengthValidator,
+  Validators,
+} from '@angular/forms';
+import { RegisterService } from '../service/register.service';
+import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -8,24 +15,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistroComponent implements OnInit, OnDestroy {
   formularioRegistro!: FormGroup;
   hide: boolean = true;
-  
-  constructor(private fb: FormBuilder) {}
+
+  constructor(
+    private fb: FormBuilder,
+    private registerService: RegisterService
+  ) {}
   ngOnInit(): void {
     this.formularioRegistro = this.fb.group({
-      nombre: ['', [Validators.required]],
-      apellido: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      contrasena: ['', [Validators.required]],
-      checkbox: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
     });
-    document.body.style.background = 'url("./assets/img/fondo.svg") no-repeat fixed';
+    document.body.style.background =
+      'url("./assets/img/fondo.svg") no-repeat fixed';
     document.body.style.backgroundSize = 'cover';
   }
   onSubmit(): void {
-    console.log(this.formularioRegistro.get('checkbox')?.value);
+    if (this.formularioRegistro.valid) {
+      this.registerService
+        .registerUser(this.formularioRegistro.value as User)
+        .subscribe((data) => {
+          console.log(data);
+        });
+    }
   }
 
   ngOnDestroy(): void {
-    document.body.style.background = 'none'
+    document.body.style.background = 'none';
   }
 }

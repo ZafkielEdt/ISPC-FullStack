@@ -1,50 +1,46 @@
 <div class="login-container">
   <div class="logo">
-      <a routerLink="/">
-      <img src="/assets/img/logo.svg"
-        alt="logo"
-      >
-      </a>
+    <a routerLink="/">
+      <img src="/assets/img/logo.svg" alt="logo" />
+    </a>
   </div>
-<div class="container mx-auto">
-  <h1>Bienvenido!</h1>
-  <div class="registro">
-    <h2>Registrate</h2>
+  <div class="container mx-auto">
+    <h1>Bienvenido!</h1>
+    <div class="registro">
+      <h2>Registrate</h2>
 
-    <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Nombre:</mat-label>
-        <input matInput formControlName="nombre" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Apellido:</mat-label>
-        <input matInput formControlName="apellido" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email:</mat-label>
-        <input matInput formControlName="email" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Contraseña</mat-label>
-        <input
-          formControlName="contrasena"
-          matInput
-          [type]="hide ? 'password' : 'text'"
-        />
-        <button
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-        </button>
-      </mat-form-field>
-      <mat-checkbox class="example-margin" formControlName="checkbox"
-        >Acepto los terminos y condiciones</mat-checkbox
-      >
-      <button mat-button color="primary">Crear cuenta</button>
-    </form>
+      <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Nombre:</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Apellido:</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email:</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-button color="primary">Crear cuenta</button>
+      </form>
+    </div>
   </div>
 </div>
