@@ -11,7 +11,7 @@ export class NavbarComponent {
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   constructor(private router: Router) {}
   @Input() screen: string = '';
-  isLogged: boolean = true;
+  isLogged: boolean = false;
   onClick(): void {
     console.log(this.isLogged);
     this.router.navigateByUrl('/login');
