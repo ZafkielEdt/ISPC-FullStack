@@ -98,7 +98,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "/assets/images/imagen2.webp",
+        "image": "/assets/img/imagen2.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -128,7 +128,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "/assets/images/imagen3.webp",
+        "image": "/assets/img/imagen3.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -158,7 +158,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "/assets/images/imagen5.webp",
+        "image": "/assets/img/imagen5.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -188,7 +188,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "/assets/images/imagen1.webp",
+        "image": "/assets/img/imagen1.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -218,7 +218,7 @@
         "id": 1,
         "name": "Villa María",
         "description": "descripcion",
-        "image": "/assets/images/imagen4.webp",
+        "image": "/assets/img/imagen4.webp",
         "city": {
           "id": 1,
           "name": "villa maria",
@@ -239,7 +239,7 @@
       "rate": 1.9
     }
   ],
-  "users": [
+  "user": [
     {
       "id": 1,
       "firstName": "",
@@ -270,13 +270,14 @@
       "apellido": "lopez",
       "email": "plopez@gmail.com",
       "contrasena": "1234",
-      "checkbox": true,
+      "photo": "/assets/img/default.png",
       "id": 2
     },
     {
       "firstName": "pablo",
       "lastName": "rolo",
       "email": "prolo@hotmail.com",
+      "photo": "/assets/img/default.png",
       "password": "1234",
       "id": 3
     },
@@ -284,6 +285,7 @@
       "firstName": "jose",
       "lastName": "lopez",
       "email": "jlo@outlook.com",
+      "photo": "/assets/img/image-jeremy.png",
       "password": "12345",
       "id": 4
     }

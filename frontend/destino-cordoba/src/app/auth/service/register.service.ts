@@ -9,6 +9,6 @@ export class RegisterService {
   url: string = 'http://localhost:3000';
 
   registerUser(user: User) {
-    return this.http.post(this.url + '/users', user);
+    return this.http.post(this.url + '/user', user);
   }
 }

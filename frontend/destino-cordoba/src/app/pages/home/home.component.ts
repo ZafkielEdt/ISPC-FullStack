@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       .getPackages()
       .subscribe((data: PackageCard[]) => {
         this.packages = data;
-        console.log(data);
       });
   }
 

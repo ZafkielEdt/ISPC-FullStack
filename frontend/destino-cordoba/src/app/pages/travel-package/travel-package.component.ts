@@ -75,7 +75,6 @@ export class PackageTravelComponent implements OnInit {
 
   addToCart() {
     this.cartService.addItem(this.packageTravel);
-    console.log(this.cartService.getCurrentCart());
     this.router.navigateByUrl('/cart');
     }
   

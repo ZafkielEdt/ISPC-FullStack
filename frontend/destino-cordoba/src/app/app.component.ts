@@ -8,5 +8,9 @@ import { LoginService } from './auth/service/login.service';
 })
 export class AppComponent {
   title = 'destino-cordoba';
+  currentUser!:any;
   constructor(public router: Router, private loginService: LoginService) {}
+  ngOnInit(): void {
+    this.currentUser = this.loginService.getCurrentUser();
+  }
 }

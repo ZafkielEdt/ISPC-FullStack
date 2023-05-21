@@ -1,26 +1,32 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/auth/service/login.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loginService: LoginService) {}
   @Input() screen: string = '';
-  isLogged: boolean = false;
-  onClick(): void {
-    console.log(this.isLogged);
-    this.router.navigateByUrl('/login');
+  isLogged!: boolean;
+  user!:User;
+  ngOnInit(): void {
+    this.isLogged = this.loginService.islogged();
+
+    this.loginService.currentUser.subscribe((data) => {
+      this.user = data;
+    });
   }
   openMenu(): void {
     this.trigger.openMenu();
   }
   logout(): void {
-    this.isLogged = false;
+    this.loginService.logout();
   }
-  username = 'Jeremy';
+  
 }

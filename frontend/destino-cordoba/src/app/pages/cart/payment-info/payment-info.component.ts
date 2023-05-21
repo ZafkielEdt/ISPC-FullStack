@@ -39,7 +39,6 @@ export class PaymentInfoComponent implements OnInit{
   years:Number[] = new Array(10).fill(0).map((e, i) => i + 2023);
 
   ngOnInit(): void {
-    console.log(this.years)
     this.paymentForm = this.fb.group({
       cardNumber: ['',[Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(16), Validators.maxLength(16)]],
       name: [''],
@@ -64,7 +63,6 @@ export class PaymentInfoComponent implements OnInit{
     
     setActive(index: number) {
       this.tabActive = index;
-      console.log(this.tabActive)
       
     }
 
@@ -81,6 +79,5 @@ export class PaymentInfoComponent implements OnInit{
     }
     onSubmit(){
       this.paymentForm.value.cardType = this.cardType;
-      console.log(this.paymentForm.value as PaymentInfo)
     }
 }

@@ -19,12 +19,12 @@ export class LoginComponent {
   hide: boolean = true;
   rememberColor: ThemePalette = 'primary';
   loggedUser!: User;
-  user!: LoginRequest;
+  userCredentials!: LoginRequest;
   constructor(
     private fb: FormBuilder,
     private serviceLogin: LoginService,
     private router: Router
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.formularioLogin = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -34,20 +34,32 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.formularioLogin.valid) {
-      this.user = {
-        email: this.formularioLogin.value.email,
-        password: this.formularioLogin.value.password,
+      this.userCredentials = {
+        email: this.formularioLogin.get('email')?.value,
+        password: this.formularioLogin.get('password')?.value
       };
-      console.log(this.user);
-      this.serviceLogin.getByEmail(this.user.email).subscribe((res) => {
-        if (res.user.email !== undefined) {
-          this.serviceLogin.login(this.user).subscribe((res) => {
-            console.log(res);
-          });
-        } else {
-          console.log('El usuario no existe');
-        }
-      });
+      console.log(this.userCredentials.email)
+
+      this.serviceLogin.getByEmail(this.userCredentials.email).subscribe({
+        next:(data) => {
+          console.log(data) // [] 
+          this.loggedUser = data;
+  
+          if (this.loggedUser.password === this.userCredentials.password) {
+            sessionStorage.setItem('currentUser', JSON.stringify(this.loggedUser));
+            this.serviceLogin.isLoggedIn.next(true);
+            this.serviceLogin.currentUser.next(this.loggedUser);
+
+          }
+      }, 
+      error: (err) => {
+        console.log(err)
+      }, 
+      complete: () => {
+          this.router.navigate(['/']);
+
+      }});
+
     }
   }
 
@@ -55,3 +67,4 @@ export class LoginComponent {
     document.body.style.background = 'none';
   }
 }
+

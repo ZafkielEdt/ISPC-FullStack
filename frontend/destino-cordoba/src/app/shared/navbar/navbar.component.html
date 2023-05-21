@@ -9,16 +9,17 @@
     </a>
     <div *ngIf="screen !== '/registro'" class="buttons-container">
 
-      <div *ngIf="isLogged" class="profile-pic">
+      <div *ngIf="isLogged" class="profile-pic text-white">
+          Hola! {{user.firstName}}
         <button [matMenuTriggerFor]="aboveMenu">
-        <img  src="../assets/img/image-jeremy.png">
+        <img  [src]="user.photo">
         <span>+9</span>
       </button>
         <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">
 
             <div class="header-menu" mat-menu-item disabled >
               <p>
-              Hola! {{username}}
+              Hola! {{user.firstName}}
               </p>
             </div>
           <button routerLink="/user-dashboard" mat-menu-item>Mi perfil</button>
@@ -32,7 +33,7 @@
       </div>
       <div *ngIf="!isLogged" class="logged-out__buttons">
         
-        <button class="nav-login-btn" (click)="onClick()">
+        <button class="nav-login-btn" routerLink="/login">
           Iniciar Sesion
         </button>
         <button class="nav-register-btn" routerLink="/registro">
