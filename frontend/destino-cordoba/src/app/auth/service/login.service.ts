@@ -1,32 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable,BehaviorSubject } from 'rxjs';
+import { map} from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  currentUser: BehaviorSubject<any>;
+  currentUser: BehaviorSubject<User>;
+  isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {
-    this.currentUser = new BehaviorSubject<any>(
-      sessionStorage.getItem('currentUser') || {}
-    );
+
+      const storedUser = sessionStorage.getItem('currentUser');
+      this.currentUser = new BehaviorSubject<User>(
+        storedUser ? JSON.parse(storedUser) : {}
+      );
+
   }
   url: string = 'http://localhost:3000';
-  getByEmail(email: string): Observable<any> {
-    return this.http.get<any>(`${this.url}/users?email=${email}`);
+  islogged(){
+    return sessionStorage.getItem('currentUser') !== null;
   }
-  login(credentials: any): Observable<any> {
-    return this.http.get<boolean>(`${this.url}/users`, credentials).pipe(
-      map((isLogged) => {
-        if (isLogged) {
-          sessionStorage.setItem('currentUser', JSON.stringify(credentials));
-        }
-        return isLogged;
-      })
+  getByEmail(email: string): Observable<User> {
+    return this.http.get<User[]>(`${this.url}/user?email=${email}`).pipe(
+      map((users) => users[0])
     );
+  }  
+  getCurrentUser(): any {
+    return this.currentUser.value;
+  }
+  logout(): void {
+    sessionStorage.removeItem('currentUser');
+    this.isLoggedIn.next(false);
+    location.reload();
+
   }
 }

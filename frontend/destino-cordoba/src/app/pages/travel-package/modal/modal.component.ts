@@ -25,7 +25,6 @@ export class ModalComponent implements OnInit {
   nextImage() : void{
     if(this.activeIndex < this.gallery.length - 1){
       this.activeIndex++;
-      console.log(this.currentImage)
 
     }else{
       this.activeIndex = 0;

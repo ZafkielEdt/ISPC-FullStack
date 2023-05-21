@@ -36,7 +36,6 @@ export class RegistroComponent implements OnInit, OnDestroy {
       this.registerService
         .registerUser(this.formularioRegistro.value as User)
         .subscribe((data) => {
-          console.log(data);
         });
     }
   }

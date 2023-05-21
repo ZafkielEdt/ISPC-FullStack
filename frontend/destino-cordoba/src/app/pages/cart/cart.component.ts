@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/auth/service/login.service';
 import { Cart } from 'src/app/models/cart';
 import { CartService } from 'src/app/services/products/cart.service';
 
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   
 
-  constructor(private cartService : CartService) {}
+  constructor(private cartService : CartService,private loginService:LoginService) {}
 
   cart: Cart = {
     id: 1,
@@ -27,11 +28,12 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     document.body.style.backgroundColor = '#f5f5f5';
-    this.cartService.loadCart();
+    if(this.loginService.islogged()){
+      this.cartService.loadCart();
+    }
     if (this.cartService.getCurrentCart()) {
       this.cart.item = this.cartService.getCurrentCart();
     }
-    // this.cart.item = this.cartService.getCurrentCart();
   }
 
   ngOnDestroy(): void {
