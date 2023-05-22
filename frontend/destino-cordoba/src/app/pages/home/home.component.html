@@ -1,51 +1,64 @@
 <section class="hero-container">
-  <div class="hero-text">
-    <h1>Destino Córdoba asjas</h1>
-    <h2>kdasjdsla</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum eligendi
-      nobis ex mag. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      Laborum, incidunt nulla. Excepturi adipisci aliquid mollitia iusto amet,
-      recusandae, neque sequi totam quia possimus libero unde fuga nihil debitis
-      ipsam vel.
-    </p>
-    <div class="buttons">
+    <div class="hero-text">
+        <h1>Destino Córdoba</h1>
+        <h2>Tu proxima aventura</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum
+            eligendi nobis ex mag. Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Laborum, incidunt nulla. Excepturi adipisci
+            aliquid mollitia iusto amet, recusandae, neque sequi totam quia
+            possimus libero unde fuga nihil debitis ipsam vel.
+        </p>
+        <div class="buttons"></div>
     </div>
-  </div>
-
-  <div class="hero-images">
-    <img src="/assets/img/imagen1.webp" alt="Hero Image" />
-    <img src="/assets/img/imagen2.webp" alt="Hero Image" />
-    <img src="/assets/img/imagen3.webp" alt="Hero Image" />
-  </div>
 </section>
 
 <div class="buscador">
-  <app-buscador></app-buscador>
+    <app-buscador></app-buscador>
 </div>
 <section class="home-content">
-  <div class="div-destinos">
-      <div class="destacados my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
-        <div class="w-fit lg:w-1/2 mt-4">
-          <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">Destinos recomendados</div>
+    <div class="div-destinos">
+        <div
+            class="destacados my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+        >
+            <div class="w-fit lg:w-1/2 mt-4">
+                <div
+                    class="text-3xl font-bold text-zinc-800 text-center lg:text-left"
+                >
+                    Destinos recomendados
+                </div>
+            </div>
+            <div
+                class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+            >
+                <div *ngFor="let destination of destinations$ | async">
+                    <app-cards
+                        [destination]="destination"
+                        [path]="'details/' + destination.name"
+                    ></app-cards>
+                </div>
+            </div>
         </div>
-        <div class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
-          <div *ngFor="let destination of destinations$ | async">
-            <app-cards [destination]="destination" [path]="'details/'+destination.name"></app-cards>
-          </div>
+        <div
+            class="recommendations my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+        >
+            <div class="w-fit lg:w-1/2 mt-4">
+                <div
+                    class="text-3xl font-bold text-zinc-800 text-center lg:text-left"
+                >
+                    Paquetes recomendados
+                </div>
+            </div>
+            <div
+                class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+            >
+                <div *ngFor="let package of packages">
+                    <app-package-card
+                        [package]="package"
+                        [path]="packageUrl + package.title"
+                    ></app-package-card>
+                </div>
+            </div>
         </div>
-      </div>
-    <div class="recommendations my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
-
-      <div class="w-fit lg:w-1/2 mt-4">
-        <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">Paquetes recomendados</div>
-      </div>
-      <div class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center">
-        <div *ngFor="let package of packages" >
-          <app-package-card [package]="package" [path]="packageUrl+package.title"></app-package-card>
-        </div>
-      </div>
-
     </div>
-  </div>
 </section>

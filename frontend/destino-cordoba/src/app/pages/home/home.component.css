@@ -1,15 +1,14 @@
 .hero-container {
   background-image: url("/assets/img/fondo.svg");
-  background-attachment: fixed;
-  height: 100%;
+  background-attachment: scroll;
+  background-position: bottom;
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .hero-text {
   width: 90%;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +79,6 @@
   margin: 2rem auto;
 }
 
-
 .side-recommendations {
   width: 30%;
   display: flex;
@@ -95,11 +93,8 @@
 
 @media screen and (min-width: 1024px) {
   .hero-container {
-    background-image: url("/assets/img/fondo.svg");
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     flex-flow: row;
     justify-content: center;
     align-items: center;
@@ -117,25 +112,5 @@
 
   .hero-images {
     width: 50%;
-  }
-
-  .hero-images img {
-    height: 20rem;
-    width: 25%;
-  }
-  .hero-images img:hover {
-    box-shadow: 0px 5px 15px 0px rgba(252, 246, 246, 0.35);
-    transform: scale(1.1);
-    transition: 0.5s;
-  }
-
-  .hero-images img:first-child {
-    object-position: 15%;
-  }
-
-  .hero-images img:nth-child(2) {
-    height: 25rem;
-    width: 30%;
-    object-fit: cover;
   }
 }

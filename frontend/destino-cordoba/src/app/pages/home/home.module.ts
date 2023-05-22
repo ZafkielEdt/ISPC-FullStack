@@ -9,6 +9,7 @@ import { CardWithTextComponent } from 'src/app/components/destinations/card-with
 import { SharedModule } from 'src/app/shared';
 import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
 import { PackageCardComponent } from 'src/app/components/package-card';
+import { ResultadoBuscadorComponent } from '../resultado-buscador/resultado-buscador.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PackageCardComponent } from 'src/app/components/package-card';
     CardWithButtonComponent,
     CardWithTextComponent,
     BuscadorComponent,
-    PackageCardComponent
+    PackageCardComponent,
+    ResultadoBuscadorComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
 })

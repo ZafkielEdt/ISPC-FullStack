@@ -1,5 +1,5 @@
 <section class="container mx-auto bg-zinc-800 p-6 rounded-md">
-  <form>
+  <form [formGroup]="formularioBuscador" (ngSubmit)="onSubmit()">
     <div
       class="tabs mx-auto flex gap-8 items-center my-2 justify-center w-full"
     >
@@ -11,7 +11,7 @@
           'border-b-[3px] border-green-500 text-green-500 ': tabActive === 1
         }"
       >
-        Vuelos
+        Paquetes
       </button>
       <button
         type="button"
@@ -34,11 +34,39 @@
         Experiencias
       </button>
     </div>
-    <div class="flex gap-2">
-      <input
-        class="form-input mt-1 block w-full rounded-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
-        type="text"
-      />
+    <div class="justify-center flex gap-2">
+      <div class="flex items-center relative">
+        <input
+          formControlName="origen"
+          class="form-input text-center block w-full rounded-l-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
+          type="text"
+          placeholder="Origen"
+        />
+
+        <div id="arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <polygon
+                points="9.293 18.707 10.707 17.293 8.414 15 20 15 20 13 3.586 13 9.293 18.707"
+              />
+              <polygon
+                points="14.707 5.293 13.293 6.707 15.586 9 4 9 4 11 20.414 11 14.707 5.293"
+              />
+            </g>
+          </svg>
+        </div>
+        <input
+          formControlName="destino"
+          class="form-input text-center block w-full rounded-r-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
+          type="text"
+          placeholder="Destino"
+        />
+      </div>
 
       <button
         type="submit"

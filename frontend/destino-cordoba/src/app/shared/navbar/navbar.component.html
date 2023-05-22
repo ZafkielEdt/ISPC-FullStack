@@ -1,51 +1,46 @@
 <nav [ngClass]="{ 'is-login': screen === '/registro' || screen === '/login' }">
-  <div class="containert mx-auto">
-    <a routerLink="/" class="nav-logo">
-      <img
-        class="nav-brand"
-        src="../assets/img/logo.svg"
-        alt="logo-destino-cordoba"
-      />
-    </a>
-    <div *ngIf="screen !== '/registro'" class="buttons-container">
-
-      <div *ngIf="isLogged" class="profile-pic text-white">
-          Hola! {{user.firstName}}
-        <button [matMenuTriggerFor]="aboveMenu">
-        <img  [src]="user.photo">
-        <span>+9</span>
-      </button>
-        <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">
-
-            <div class="header-menu" mat-menu-item disabled >
-              <p>
-              Hola! {{user.firstName}}
-              </p>
+    <div class="containert mx-auto">
+        <a routerLink="/" class="nav-logo">
+            <img
+                class="nav-brand"
+                src="../assets/img/logo.svg"
+                alt="logo-destino-cordoba"
+            />
+        </a>
+        <div *ngIf="screen !== '/registro'" class="buttons-container">
+            <div *ngIf="isLogged" class="profile-pic text-white">
+                Hola! {{ user.firstName }}
+                <button [matMenuTriggerFor]="aboveMenu">
+                    <img [src]="user.photo" />
+                    <span>+9</span>
+                </button>
+                <mat-menu #aboveMenu="matMenu" yPosition="above" id="mat__menu">
+                    <button routerLink="/user-dashboard" mat-menu-item>
+                        Mi perfil
+                    </button>
+                    <button routerLink="/user-dashboard" mat-menu-item>
+                        Mis notificaciones
+                    </button>
+                    <button routerLink="/user-dashboard" mat-menu-item>
+                        Mis opiniones
+                    </button>
+                    <button routerLink="/cart" mat-menu-item>
+                        Ver carrito
+                    </button>
+                    <button mat-menu-item>Ayuda</button>
+                    <button (click)="logout()" mat-menu-item>
+                        Cerrar Sesión
+                    </button>
+                </mat-menu>
             </div>
-          <button routerLink="/user-dashboard" mat-menu-item>Mi perfil</button>
-          <button routerLink="/user-dashboard" mat-menu-item>Mis notificaciones</button>
-          <button routerLink="/user-dashboard" mat-menu-item>Mis opiniones</button>
-          <button routerLink="/cart" mat-menu-item>Ver carrito</button>
-          <button  mat-menu-item>Ayuda</button>
-          <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
-        </mat-menu>
-        
-      </div>
-      <div *ngIf="!isLogged" class="logged-out__buttons">
-        
-        <button class="nav-login-btn" routerLink="/login">
-          Iniciar Sesion
-        </button>
-        <button class="nav-register-btn" routerLink="/registro">
-         Registrarse
-        </button>
-
-
-
+            <div *ngIf="!isLogged" class="logged-out__buttons">
+                <button class="nav-login-btn" routerLink="/login">
+                    Iniciar Sesion
+                </button>
+                <button class="nav-register-btn" routerLink="/registro">
+                    Registrarse
+                </button>
+            </div>
+        </div>
     </div>
-    </div>
-  </div>
 </nav>
-
-
-

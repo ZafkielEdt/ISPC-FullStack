@@ -1,1 +1,26 @@
-<p>resultado-buscador works!</p>
+<div
+  class="destacados my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+>
+  <div class="w-fit lg:w-1/2 mt-4">
+    <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">
+      {{
+        isFound
+          ? "Destinos recomendados"
+          : 'No encontramos el destino "' + destino + '"'
+      }}
+    </div>
+  </div>
+  <div
+    class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
+  >
+    <div *ngFor="let resultado of resultados">
+      <app-cards
+        [destination]="resultado"
+        [path]="'details/' + resultado.name"
+      ></app-cards>
+    </div>
+  </div>
+</div>
+<div *ngIf="!isFound">
+  <img src="/assets/img/Questions-amico.svg" alt="Not found image" />
+</div>

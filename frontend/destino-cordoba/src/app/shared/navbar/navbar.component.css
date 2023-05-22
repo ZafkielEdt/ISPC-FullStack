@@ -1,109 +1,108 @@
 nav {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  padding: 0.8rem;
-  background-color: #1e1e1e;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: 0.8rem;
+    background-color: #1e1e1e;
 }
 
 .containert {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .buttons-container {
-
-  display: flex;
-  align-items: center;
-  position: relative;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
-.buttons-container img{
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  cursor: pointer;
+.buttons-container img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    cursor: pointer;
 }
-.buttons-container img:hover{
-  box-shadow: 0px 2px 22px 0px rgba(252, 246, 246, 0.35);
-
+.buttons-container img:hover {
+    box-shadow: 0px 2px 22px 0px rgba(252, 246, 246, 0.35);
 }
-.profile-pic span{
-  text-decoration: none;
-  position: absolute;
-  border-radius: 50%;
-  background-color: #ff3333;
-  color: #fff;
-  right: -5px;
-  top: -5px;
-  padding: .2rem;
-  font-size: .7em;
-  font-weight: bold;
+.profile-pic {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-.profile-pic button{
-  border-radius: 50%;
-  border: none;
-  background: none;
-
+.profile-pic span {
+    text-decoration: none;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ff3333;
+    color: #fff;
+    right: -5px;
+    top: -5px;
+    padding: 0.2rem;
+    font-size: 0.7em;
+    font-weight: bold;
 }
-
-.header-menu{
-  background-color: #000000;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-.header-menu p{
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-::ng-deep.mat-mdc-menu-content{
-  padding-top: 0!important;
-  
+.profile-pic button {
+    border-radius: 50%;
+    border: none;
+    background: none;
 }
 
- .nav-register-btn {
-  padding: 0.5rem;
-  font-weight: 700;
-  background-color: #fff;
-  color: #1e1e1e;
-  border-radius: 0.2rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
+.header-menu {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.header-menu p {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+::ng-deep.mat-mdc-menu-content {
+    padding-top: 0 !important;
+}
+
+.nav-register-btn {
+    padding: 0.5rem;
+    font-weight: 700;
+    background-color: #fff;
+    color: #1e1e1e;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 .nav-login-btn {
-  padding: 0.5rem;
-  font-weight: 700;
-  background-color: #ffffff00;
-  color: #ffffff;
-  border-radius: 0.2rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
+    padding: 0.5rem;
+    font-weight: 700;
+    background-color: #ffffff00;
+    color: #ffffff;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
-
 
 @media screen and (min-width: 1024px) {
-  .buttons-container {
-    justify-content: space-between;
-  }
+    .buttons-container {
+        justify-content: space-between;
+    }
 
-  .nav-login-btn {
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-  }
-
+    .nav-login-btn {
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+    }
 }
 @media screen and (max-width: 678px) {
-  .auth-buttons{
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    gap: .5rem;
-  }
+    .auth-buttons {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
