@@ -20,7 +20,7 @@ import { TravelerComponent } from './pages/cart/traveler';
 import { PaymentInfoComponent } from './pages/cart/payment-info';
 import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
-import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado
     AuthModule,
     HttpClientModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' },CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { ThemePalette } from '@angular/material/core';
 import { LoginService } from '../service/login.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 export interface LoginRequest {
   email: string;
@@ -23,7 +24,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private serviceLogin: LoginService,
-    private router: Router
+    private router: Router,
+    private cookie: CookieService
   ) { }
   ngOnInit(): void {
     this.formularioLogin = this.fb.group({
@@ -42,18 +44,15 @@ export class LoginComponent {
 
       this.serviceLogin.getByEmail(this.userCredentials.email).subscribe({
         next:(data) => {
-          console.log(data) // [] 
           this.loggedUser = data;
-  
           if (this.loggedUser.password === this.userCredentials.password) {
-            sessionStorage.setItem('currentUser', JSON.stringify(this.loggedUser));
+            this.cookie.set('currentUser', JSON.stringify(this.loggedUser),1);
             this.serviceLogin.isLoggedIn.next(true);
             this.serviceLogin.currentUser.next(this.loggedUser);
 
           }
       }, 
       error: (err) => {
-        console.log(err)
       }, 
       complete: () => {
           this.router.navigate(['/']);

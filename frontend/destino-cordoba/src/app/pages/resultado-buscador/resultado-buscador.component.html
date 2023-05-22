@@ -1,15 +1,13 @@
 <div
   class="destacados my-4 container flex flex-wrap gap-6 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
 >
-  <div class="w-fit lg:w-1/2 mt-4">
-    <div class="text-3xl font-bold text-zinc-800 text-center lg:text-left">
+    <div class="text-3xl font-bold text-zinc-800 text-center mx-auto">
       {{
         isFound
           ? "Destinos recomendados"
           : 'No encontramos el destino "' + destino + '"'
       }}
     </div>
-  </div>
   <div
     class="container flex flex-wrap gap-3 flex-grow mx-auto lg:justify-between items-center lg:w-full justify-center"
   >
@@ -21,6 +19,6 @@
     </div>
   </div>
 </div>
-<div *ngIf="!isFound">
-  <img src="/assets/img/Questions-amico.svg" alt="Not found image" />
+<div *ngIf="!isFound" class="flex flex-col justify-center items-center">
+  <img class="w-3/6 h-96" src="/assets/img/Questions-amico.svg" alt="Not found image" />
 </div>

@@ -11,4 +11,9 @@ export class BuscadorService {
   getByDestino(destino: string): Observable<any> {
     return this.http.get<any>(`${this.url}/destinations?name=${destino}`);
   }
+
+
+  getOrigins(): Observable<any> {
+    return this.http.get<any>('/assets/data/origins.json');
+  }
 }

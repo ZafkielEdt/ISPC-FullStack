@@ -1,0 +1,257 @@
+{
+  "cities": [
+    {
+      "name": "Buenos Aires",
+      "latitude": -34.61315,
+      "longitude": -58.37723,
+      "province": {
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Córdoba Capital",
+      "latitude": -31.4135,
+      "longitude": -64.18105,
+      "province": {
+        "name": "Córdoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Rosario",
+      "latitude": -32.95456,
+      "longitude": -60.678,
+      "province": {
+        "name": "Santa Fe",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Mendoza",
+      "latitude": -32.89084,
+      "longitude": -68.82717,
+      "province": {
+        "name": "Mendoza",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "San Miguel de Tucumán",
+      "latitude": -26.82414,
+      "longitude": -65.2226,
+      "province": {
+        "name": "Tucumán",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "La Plata",
+      "latitude": -34.93139,
+      "longitude": -57.94864,
+      "province": {
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Mar del Plata",
+      "latitude": -38.00228,
+      "longitude": -57.55754,
+      "province": {
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Salta",
+      "latitude": -24.7859,
+      "longitude": -65.41166,
+      "province": {
+        "name": "Salta",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Santa Fe",
+      "latitude": -31.63333,
+      "longitude": -60.7,
+      "province": {
+        "name": "Santa Fe",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "San Juan",
+
+      "latitude": -31.5375,
+      "longitude": -68.53639,
+      "province": {
+        "name": "San Juan",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Resistencia",
+      "latitude": -27.46056,
+      "longitude": -58.98389,
+      "province": {
+        "name": "Chaco",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Santiago del Estero",
+      "latitude": -27.79511,
+      "longitude": -64.26149,
+      "province": {
+        "name": "Santiago del Estero",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Corrientes",
+      "latitude": -27.4806,
+      "longitude": -58.8341,
+      "province": {
+        "name": "Corrientes",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Posadas",
+      "latitude": -27.36708,
+      "longitude": -55.89608,
+      "province": {
+        "name": "Misiones",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "San Salvador de Jujuy",
+      "latitude": -24.19456,
+      "longitude": -65.29712,
+      "province": {
+        "name": "Jujuy",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Bahía Blanca",
+      "latitude": -38.7196,
+      "longitude": -62.27243,
+      "province": {
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Paraná",
+      "latitude": -31.73197,
+      "longitude": -60.5238,
+      "province": {
+        "name": "Entre Ríos",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Neuquén",
+      "latitude": -38.95161,
+      "longitude": -68.0591,
+      "province": {
+        "name": "Neuquén",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Formosa",
+      "latitude": -26.17753,
+      "longitude": -58.17814,
+      "province": {
+        "name": "Formosa",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "San Fernando del Valle de Catamarca",
+      "latitude": -28.46957,
+      "longitude": -65.78524,
+      "province": {
+        "name": "Catamarca",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "San Luis",
+      "latitude": -33.29501,
+      "longitude": -66.33563,
+      "province": {
+        "name": "San Luis",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "La Rioja",
+      "latitude": -29.41105,
+      "longitude": -66.85067,
+      "province": {
+        "name": "La Rioja",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Río Gallegos",
+      "latitude": -51.62315,
+      "longitude": -69.21683,
+      "province": {
+        "name": "Santa Cruz",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Rio Grande",
+      "latitude": -53.79141,
+      "longitude": -67.69871,
+      "province": {
+        "name": "Tierra del Fuego",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Ushuaia",
+      "latitude": -54.807,
+      "longitude": -68.307,
+      "province": {
+        "name": "Tierra del Fuego",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Viedma",
+      "latitude": -40.81345,
+      "longitude": -62.99668,
+      "province": {
+        "name": "Santa Cruz",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Rawson",
+      "latitude": -43.30016,
+      "longitude": -65.10228,
+      "province": {
+        "name": "Chubut",
+        "country": "Argentina"
+      }
+    },
+    {
+      "name": "Santa Rosa",
+      "latitude": -36.62028,
+      "longitude": -64.29002,
+      "province": {
+        "name": "La Pampa",
+        "country": "Argentina"
+      }
+    }
+  ]
+}
