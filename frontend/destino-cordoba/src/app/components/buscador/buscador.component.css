@@ -1,1 +1,18 @@
-
+#arrow {
+  position: absolute;
+  top: 10px;
+  right: 47%;
+}
+#arrow svg {
+  background: #ffffff;
+  width: 1.6rem;
+  border: black solid 1px;
+  border-radius: 50%;
+}
+button {
+  height: 3rem;
+}
+input {
+  height: 100%;
+  border: 1px solid #2b2626a0;
+}

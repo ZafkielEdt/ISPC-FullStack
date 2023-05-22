@@ -33,7 +33,6 @@ import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado
     CartComponent,
     TravelerComponent,
     PaymentInfoComponent,
-    ResultadoBuscadorComponent,
   ],
   imports: [
     BrowserModule,
