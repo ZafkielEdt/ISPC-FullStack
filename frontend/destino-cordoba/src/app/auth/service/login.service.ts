@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
@@ -10,15 +11,16 @@ import { User } from 'src/app/models/user';
 export class LoginService {
     currentUser: BehaviorSubject<User>;
     isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-    constructor(private http: HttpClient) {
-        const storedUser = sessionStorage.getItem('currentUser');
+    constructor(private http: HttpClient,private cookie : CookieService) {
+        const storedUser = this.cookie.get('currentUser');
         this.currentUser = new BehaviorSubject<User>(
             storedUser ? JSON.parse(storedUser) : {}
         );
     }
     url: string = 'http://localhost:3000';
     islogged() {
-        return sessionStorage.getItem('currentUser') !== null;
+        const storedUser = this.cookie.get('currentUser');
+        return storedUser !== '' && storedUser !== null;
     }
     getByEmail(email: string): Observable<User> {
         return this.http
@@ -29,7 +31,7 @@ export class LoginService {
         return this.currentUser.value;
     }
     logout(): void {
-        sessionStorage.removeItem('currentUser');
+        this.cookie.delete('currentUser');
         this.isLoggedIn.next(false);
         location.reload();
     }

@@ -1,12 +1,12 @@
 <section class="container mx-auto bg-zinc-800 p-6 rounded-md">
   <form [formGroup]="formularioBuscador" (ngSubmit)="onSubmit()">
     <div
-      class="tabs mx-auto flex gap-8 items-center my-2 justify-center w-full"
+      class="tabs mx-auto flex gap-8 items-start my-2 justify-start w-[400px]"
     >
       <button
         type="button"
         (click)="setActive(1)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
         [ngClass]="{
           'border-b-[3px] border-green-500 text-green-500 ': tabActive === 1
         }"
@@ -16,7 +16,7 @@
       <button
         type="button"
         (click)="setActive(2)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
         [ngClass]="{
           'border-b-[3px] border-green-500 text-green-500': tabActive === 2
         }"
@@ -26,7 +26,7 @@
       <button
         type="button"
         (click)="setActive(3)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white p-3"
+        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
         [ngClass]="{
           'border-b-[3px] border-green-500 text-green-500': tabActive === 3
         }"
@@ -35,20 +35,23 @@
       </button>
     </div>
     <div class="justify-center flex gap-2">
-      <div class="flex items-center relative">
+      <div class="flex items-center relative w-[400px]">
         <input
+          list="list"
           formControlName="origen"
           class="form-input text-center block w-full rounded-l-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
           type="text"
           placeholder="Origen"
-        />
+          [matAutocomplete]="auto"
+          (ngModelChange)="onSearchChange($event)">
 
-        <div id="arrow">
+        <div id="arrow" class="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             viewBox="0 0 24 24"
+
           >
             <g>
               <polygon
@@ -65,7 +68,9 @@
           class="form-input text-center block w-full rounded-r-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
           type="text"
           placeholder="Destino"
-        />
+          [matAutocomplete]="auto2"
+          (ngModelChange)="onSearchChange($event)"
+          >
       </div>
 
       <button
@@ -77,3 +82,13 @@
     </div>
   </form>
 </section>
+<mat-autocomplete #auto="matAutocomplete" class="">
+  <mat-option *ngFor="let option of options$ | async " [value]="option.name" >
+    {{option.name+", "+option.province.country  }}
+  </mat-option>
+</mat-autocomplete>
+<mat-autocomplete #auto2="matAutocomplete" class="">
+  <mat-option *ngFor="let option of options$ | async" [value]="option.name" >
+    {{option.name+", "+option.province.country }}
+  </mat-option>
+</mat-autocomplete>

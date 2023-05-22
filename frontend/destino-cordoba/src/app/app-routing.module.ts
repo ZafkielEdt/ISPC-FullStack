@@ -9,12 +9,14 @@ import {
   PackageTravelComponent,
 } from './pages';
 import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
+import { AuthGuard } from './auth/guard/auth.guard';
+// import { AuthGuard } from './auth/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages').then((m) => m.HomeModule) },
   { path: '', loadChildren: () => import('./auth').then((m) => m.AuthModule) },
   { path: 'travel/:title', component: PackageTravelComponent },
-  { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard]},
   { path: 'cards', component: DestinationsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'search/:type/:destino', component: ResultadoBuscadorComponent },

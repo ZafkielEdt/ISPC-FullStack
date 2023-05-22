@@ -65,6 +65,7 @@ nav {
 }
 ::ng-deep.mat-mdc-menu-content {
     padding-top: 0 !important;
+    z-index: 999 !important;
 }
 
 .nav-register-btn {
