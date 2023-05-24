@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define la paleta de colores
+$destino-cordoba-primary: mat.define-palette(mat.$teal-palette);
+$destino-cordoba-accent: mat.define-palette(mat.$teal-palette, A400, A100, A700);
+$destino-cordoba-warn: mat.define-palette(mat.$red-palette);
+
+// Define el tema basado en la paleta
+$destino-cordoba-theme: mat.define-light-theme((
+  color: (
+    primary: $destino-cordoba-primary,
+    accent: $destino-cordoba-accent,
+    warn: $destino-cordoba-warn,
+  )
+));
+
+// Incluye el tema en todos los componentes
+@include mat.all-component-themes($destino-cordoba-theme);

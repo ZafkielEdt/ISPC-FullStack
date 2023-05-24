@@ -1,0 +1,72 @@
+<section class="cart-container container flex flex-col mx-auto px-10 pb-3 my-10 min-h-[75vh] w-full shadow-md bg-gray-50">
+
+  <h1 class="text-5xl my-8" *ngIf="cart.item !== null">Completar datos y finalizar compra</h1>
+  <div *ngIf="cart.item !== null" class="item">
+    <div class="data-container flex flex-col md:flex-row gap-6">
+      <div class="travelers-info md:w-8/12 w-full">
+        <p class="text-xl font-bold mb-2">¿Quiénes viajan?</p>
+        <mat-accordion >
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-bold">
+                Adultos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="adults__form-container flex flex-col gap-3">
+              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="false" class="mb-2"/>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-bold">
+                Niños
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="childs__form-container">
+              <app-traveler *ngFor="let adults of cart.item.adults;index as i" [index]="i+1" [isChild]="true" />
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <hr class="text-cyan-300">
+      <div class="package-resume">
+        <h5 class="text-xl font-bold mb-2">Resumen</h5>
+        <div class="item__info">
+          <h2>{{cart.item.title}}</h2>
+          <p>{{cart.item.description}}</p>
+          <p>Precio: {{cart.totalValue | currency}}</p>
+        </div>
+        <div class="item__actions">
+          <button mat-raised-button color="warn" (click)="cancel()" class="font-bold text-sm">
+            <mat-icon>delete</mat-icon> Buscar otro destino
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="payment-info-container md:w-8/12 w-full">
+      <app-payment-info></app-payment-info>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div *ngIf="cart.item === null" class="empty-cart flex flex-col justify-center items-center">
+    <img src="/assets/img/Backpackers-pana.svg" class="object-cover md:object-contain w-2/4 h-2/5">
+    <p>No seleccionaste ningún paquete</p>
+    <a routerLink="/" class="underline decoration-emerald-800 font-semibold">Buscar destino</a>
+  </div>
+</section>

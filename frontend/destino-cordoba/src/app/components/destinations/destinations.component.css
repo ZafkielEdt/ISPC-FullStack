@@ -1,0 +1,41 @@
+.grid {
+  padding: 1rem;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .destinations-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .borderRed {
+    display: flex;
+    justify-content: space-between;
+  }
+  .borderBlue {
+    justify-self: center;
+    align-self: center;
+  }
+}

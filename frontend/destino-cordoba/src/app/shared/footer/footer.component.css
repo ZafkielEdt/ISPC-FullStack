@@ -1,0 +1,37 @@
+footer {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.social-icons {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.social-icons i {
+  font-size: 20px;
+  color: #1e1e1e;
+}
+
+.is-login > div > a > i {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.is-login {
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  .social-icons {
+    width: 20%;
+  }
+}

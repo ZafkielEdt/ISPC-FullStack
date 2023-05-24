@@ -1,0 +1,116 @@
+.hero-container {
+  background-image: url("/assets/img/fondo.svg");
+  background-attachment: scroll;
+  background-position: bottom;
+  display: flex;
+  flex-flow: column;
+}
+
+.hero-text {
+  width: 90%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 1rem;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.buttons {
+  width: 21.094rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #000;
+}
+.btn-secondary {
+  background-color: #71be71;
+  color: #fff;
+}
+
+.hero-images {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-images img {
+  display: block;
+  width: 6rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.hero-images img:hover {
+  box-shadow: 0px 5px 15px 0px rgba(252, 246, 246, 0.35);
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.hero-images img:nth-child(2) {
+  width: 7rem;
+  object-fit: left;
+}
+.buscador {
+  margin: 2rem auto;
+}
+
+.side-recommendations {
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 3rem;
+}
+.side-recommendations h3 {
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-container {
+    background-size: cover;
+    background-attachment: scroll;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .hero-text {
+    width: 50%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    cursor: pointer;
+  }
+
+  .hero-images {
+    width: 50%;
+  }
+}

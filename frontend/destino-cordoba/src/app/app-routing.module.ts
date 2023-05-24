@@ -1,10 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { DestinationsComponent } from './components/destinations/destinations.component';
+import {
+  CartComponent,
+  NotFoundComponent,
+  PackageTravelComponent,
+} from './pages';
+import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
+import { AuthGuard } from './auth/guard/auth.guard';
+// import { AuthGuard } from './auth/guard/auth.guard';
+
+const routes: Routes = [
+  { path: '', loadChildren: () => import('./pages').then((m) => m.HomeModule) },
+  { path: '', loadChildren: () => import('./auth').then((m) => m.AuthModule) },
+  { path: 'travel/:title', component: PackageTravelComponent },
+  { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard]},
+  { path: 'cards', component: DestinationsComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'search/:type/:destino', component: ResultadoBuscadorComponent },
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

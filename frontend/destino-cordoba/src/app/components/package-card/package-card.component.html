@@ -1,0 +1,50 @@
+<div
+  class="card__package container rounded-sm bg-white min-h-96 max-w-[300px] shadow-xl cursor-pointer"
+  [routerLink]="path">
+  <div class="card__info relative ">
+    <div class="relative max-w-xs rounded-t-md overflow-hidden">
+      <img class="rounded-t-md max-w-xs transition duration-300 ease-in-out hover:scale-110" src="/assets/img/imagen3.webp" alt="thumnail" width="300" height="200">
+    </div>
+  </div>
+
+  <div class="card__description relative bottom-0 left-0 w-full bg-white ">
+      <div class="package__duration bg-emerald-500 rounded-md px-1 text-white flex gap-1 items center absolute top-[-1rem] left-1">
+        <span class="py-1 text-sm font-semibold">{{package.nights}} NOCHES y {{package.days}} DIAS </span>
+      </div>
+
+    <div class="p-3 flex flex-col gap-4 divide-y">
+      <div class="card__header">
+        <p class="font-bold text-xl">{{package.destination.name}}</p>
+
+        <p class="font-bold text-sm">{{package.destination.description}}</p>
+      </div>
+      <div class="package__rate flex gap-1 items-center p-2">
+        <span class="bg-emerald-500 font-semibold text-white px-2 rounded-sm">{{package.rate}}</span>
+        <div class="flex items-center">
+            <div *ngFor="let star of stars">
+                <i class="fa-solid fa-star text-yellow-500"></i>
+            </div>
+
+        </div>
+      </div>
+      <div class="package__price py-4 flex gap-1 items-center">
+        <span class="tex-black text-xl rounded-sm font-bold">
+          {{package.totalPrice | currency:'ARS':'symbol-narrow'}}
+        </span>
+
+        <div class="group relative inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+            <path
+              d="M440 776h80V536h-80v240Zm40-320q17 0 28.5-11.5T520 416q0-17-11.5-28.5T480 376q-17 0-28.5 11.5T440 416q0 17 11.5 28.5T480 456Zm0 520q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+            </svg>
+          <div
+            class="border-light text-white absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded border bg-zinc-800 py-[6px] px-4 text-sm font-semibold opacity-0 group-hover:opacity-100">
+            <span
+              class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-zinc-800"></span>
+            Por persona
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

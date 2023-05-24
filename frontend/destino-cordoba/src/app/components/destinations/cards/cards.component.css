@@ -1,0 +1,44 @@
+.card-destination {
+  margin: 0 0 1rem 0;
+  width: 21.438rem;
+  background-color: #f1f6f9;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px 1px rgba(115, 111, 111, 0.51);
+  -webkit-box-shadow: 1px 1px 6px 1px rgba(115, 111, 111, 0.51);
+  -moz-box-shadow: 1px 1px 6px 1px rgba(115, 111, 111, 0.51);
+}
+
+.card-header img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-body {
+  padding: 1.2rem 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.city {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-body .description {
+  padding: 0;
+  margin-top: 0.6rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .card-destination {
+    width: 16rem;
+    margin: 0 1rem 1rem 0;
+  }
+
+  .card-destination:hover {
+    cursor: pointer;
+  }
+}

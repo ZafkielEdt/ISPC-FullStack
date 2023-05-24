@@ -1,0 +1,293 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "slug": "villa-maria",
+      "name": "Villa María",
+      "description": "Villa María, Córdoba",
+      "image": "/assets/img/imagen2.webp",
+      "city": {
+        "id": 1,
+        "name": "Villa María",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "slug": "villa-general-belgrano",
+      "name": "Villa General Belgrano",
+      "description": "Villa General Belgrano, Córdoba",
+      "image": "/assets/img/imagen2.webp",
+      "city": {
+        "id": 2,
+        "name": "Villa General Belgrano",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "slug": "valle-de-calamuchita",
+      "name": "Valle de Calamuchita",
+      "description": "Valle de Calamuchita, Córdoba",
+      "image": "/assets/img/imagen5.webp",
+      "city": {
+        "id": 3,
+        "name": "Valle de Calamuchita",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "slug": "alta-gracia",
+      "name": "Alta Gracia",
+      "description": "Alta Gracia,Córdoba",
+      "image": "/assets/img/imagen3.webp",
+      "city": {
+        "id": 4,
+        "name": "Alta Gracia",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "name": "city tour",
+      "description": "city tour por la ciudad",
+      "price": 10000
+    },
+    {
+      "id": 2,
+      "name": "city tour 2",
+      "description": "city tour por la ciudad 2",
+      "price": 2799
+    },
+    {
+      "id": 3,
+      "name": "city tour 3 ",
+      "description": "city tour por la ciudad 3",
+      "price": 4000
+    },
+    {
+      "id": 4,
+      "name": "city tour 4",
+      "description": "city tour por la ciudad 4",
+      "price": 1800
+    }
+  ],
+  "packages": [
+    {
+      "id": 2,
+      "title": "villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 11230,
+      "destination": {
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "/assets/img/imagen2.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [
+        {
+          "id": 1,
+          "name": "city tour",
+          "description": "city tour por la ciudad",
+          "price": 10000
+        }
+      ],
+      "rate": 5
+    },
+    {
+      "id": 2,
+      "title": "villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 42130,
+      "destination": {
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "/assets/img/imagen3.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [
+        {
+          "id": 2,
+          "name": "city tour 2",
+          "description": "city tour por la ciudad 2",
+          "price": 2799
+        }
+      ],
+      "rate": 3
+    },
+    {
+      "id": 2,
+      "title": "villa-maria",
+      "days": 6,
+      "nights": 5,
+      "totalPrice": 51230,
+      "destination": {
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "/assets/img/imagen5.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [
+        {
+          "id": 3,
+          "name": "city tour 3 ",
+          "description": "city tour por la ciudad 3",
+          "price": 4000
+        }
+      ],
+      "rate": 4
+    },
+    {
+      "id": 4,
+      "title": "villa-maria",
+      "days": 16,
+      "nights": 15,
+      "totalPrice": 12330,
+      "destination": {
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "/assets/img/imagen1.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [
+        {
+          "id": 4,
+          "name": "city tour 4",
+          "description": "city tour por la ciudad 4",
+          "price": 1800
+        }
+      ],
+      "rate": 2.9
+    },
+    {
+      "id": 5,
+      "title": "villa-maria",
+      "days": 16,
+      "nights": 15,
+      "totalPrice": 12330,
+      "destination": {
+        "id": 1,
+        "name": "Villa María",
+        "description": "descripcion",
+        "image": "/assets/img/imagen4.webp",
+        "city": {
+          "id": 1,
+          "name": "villa maria",
+          "country": {
+            "id": 1,
+            "name": "Argentina"
+          }
+        }
+      },
+      "experiences": [
+        {
+          "id": 5,
+          "name": "city tour 4",
+          "description": "city tour por la ciudad 4",
+          "price": 1800
+        }
+      ],
+      "rate": 1.9
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+      "email": "",
+      "phone": "",
+      "role": [
+        ""
+      ],
+      "photo": "",
+      "address": {
+        "id": 1,
+        "street": "",
+        "number": "",
+        "city": {
+          "id": 1,
+          "name": "",
+          "country": {
+            "id": 1,
+            "name": ""
+          }
+        }
+      }
+    },
+    {
+      "nombre": "pepe",
+      "apellido": "lopez",
+      "email": "plopez@gmail.com",
+      "contrasena": "1234",
+      "photo": "/assets/img/default.png",
+      "id": 2
+    },
+    {
+      "firstName": "pablo",
+      "lastName": "rolo",
+      "email": "prolo@hotmail.com",
+      "photo": "/assets/img/default.png",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "firstName": "jose",
+      "lastName": "lopez",
+      "email": "jlo@outlook.com",
+      "photo": "/assets/img/image-jeremy.png",
+      "password": "12345",
+      "id": 4
+    }
+  ]
+}
