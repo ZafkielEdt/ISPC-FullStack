@@ -1,20 +1,15 @@
-from django.conf import settings
-from django.dispatch import receiver
 from rest_framework import generics
 from django.contrib.auth import get_user_model
-from django.db.models.signals import post_save
-from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
+import datetime,jwt
 
 User = get_user_model()
 
     
-@receiver(post_save, sender='users.User')
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
+
 
 
 
@@ -23,18 +18,30 @@ class UserList(generics.ListCreateAPIView):
     serializer_class = UserSerializer
 
 
-class LoginView(ObtainAuthToken):
+class LoginView(APIView):
+    def post(self, request):
+        username = request.data['username']
+        password = request.data['password']
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,
-                                           context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        print(user)
-        token = Token.objects.get(user=user)
-        if token: print(token.key)
-        return Response({
-            'token': token.key,
-            'id': user.pk,
-            'username': user.username
-        })
+        user = User.objects.filter(username=username).first()
+
+        if user is None:
+            raise AuthenticationFailed('User not found!')
+
+        if not user.check_password(password):
+            raise AuthenticationFailed('Incorrect password!')
+
+        payload = {
+            'id': user.id,
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+            'iat': datetime.datetime.utcnow()
+        }
+
+        token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
+
+        response = Response()
+
+        response.data = {
+            'jwt': token
+        }
+        return response
