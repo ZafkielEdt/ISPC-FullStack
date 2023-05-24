@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 export interface LoginRequest {
-  email: string;
+  username: string;
   password: string;
 }
 @Component({
@@ -29,7 +29,7 @@ export class LoginComponent {
   ) { }
   ngOnInit(): void {
     this.formularioLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -37,27 +37,22 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.formularioLogin.valid) {
       this.userCredentials = {
-        email: this.formularioLogin.get('email')?.value,
+        username: this.formularioLogin.get('username')?.value,
         password: this.formularioLogin.get('password')?.value
       };
-      console.log(this.userCredentials.email)
-
-      this.serviceLogin.getByEmail(this.userCredentials.email).subscribe({
-        next:(data) => {
+      console.log(this.userCredentials.username)
+      this.serviceLogin.login(this.userCredentials).subscribe({
+        next: (data:any) => {
           this.loggedUser = data;
-          if (this.loggedUser.password === this.userCredentials.password) {
-            this.cookie.set('currentUser', JSON.stringify(this.loggedUser),1);
-            this.serviceLogin.isLoggedIn.next(true);
-            this.serviceLogin.currentUser.next(this.loggedUser);
-
-          }
+          this.cookie.set('currentUser', JSON.stringify(this.loggedUser), 1);
+          this.serviceLogin.isLoggedIn.next(true);
+          this.serviceLogin.currentUser.next(this.loggedUser);
+      },
+      error: (err:any) => {
+        console.log(err);
       }, 
-      error: (err) => {
-      }, 
-      complete: () => {
-          this.router.navigate(['/']);
-
-      }});
+      complete: () => {this.router.navigate(['/']);}
+    });
 
     }
   }

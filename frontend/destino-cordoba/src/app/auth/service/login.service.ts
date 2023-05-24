@@ -35,4 +35,8 @@ export class LoginService {
         this.isLoggedIn.next(false);
         location.reload();
     }
+    login(user:any) : Observable<any>{
+
+        return this.http.post('http://localhost:8000/auth/login', user);
+    }
 }

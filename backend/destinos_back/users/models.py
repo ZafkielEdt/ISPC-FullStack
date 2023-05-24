@@ -17,4 +17,4 @@ class User(AbstractUser):
         
         
     def __str__(self):
-        return " USER: " + self.username + " | EMAIL: " + self.email + " | ROL: " + self.rol + " | "
+        return self.username + " | " + self.email + " | " + self.rol
