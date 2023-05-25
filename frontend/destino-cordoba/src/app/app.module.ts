@@ -21,6 +21,8 @@ import { PaymentInfoComponent } from './pages/cart/payment-info';
 import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
 import {CookieService} from 'ngx-cookie-service';
+import { DashboardContainerComponent } from './components/admin-dashboard-components/dashboard-container/dashboard-container.component';
+import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {CookieService} from 'ngx-cookie-service';
     CartComponent,
     TravelerComponent,
     PaymentInfoComponent,
+    DashboardContainerComponent,
+    UserTabComponent,
   ],
   imports: [
     BrowserModule,
