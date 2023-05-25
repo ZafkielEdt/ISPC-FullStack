@@ -18,9 +18,9 @@ export interface LoginRequest {
 export class LoginComponent {
   formularioLogin!: FormGroup;
   hide: boolean = true;
-  rememberColor: ThemePalette = 'primary';
   loggedUser!: User;
   userCredentials!: LoginRequest;
+  password: any;
   constructor(
     private fb: FormBuilder,
     private serviceLogin: LoginService,
@@ -29,9 +29,10 @@ export class LoginComponent {
   ) { }
   ngOnInit(): void {
     this.formularioLogin = this.fb.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
+
     
   }
 
