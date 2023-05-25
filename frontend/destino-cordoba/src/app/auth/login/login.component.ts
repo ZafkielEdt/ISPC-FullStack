@@ -32,33 +32,24 @@ export class LoginComponent {
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+    
   }
 
   onSubmit(): void {
+    
     if (this.formularioLogin.valid) {
-      this.userCredentials = {
-        username: this.formularioLogin.get('username')?.value,
-        password: this.formularioLogin.get('password')?.value
-      };
-      console.log(this.userCredentials.username)
-      this.serviceLogin.login(this.userCredentials).subscribe({
-        next: (data:any) => {
-          this.loggedUser = data;
-          this.cookie.set('currentUser', JSON.stringify(this.loggedUser), 1);
-          this.serviceLogin.isLoggedIn.next(true);
-          this.serviceLogin.currentUser.next(this.loggedUser);
+      this.serviceLogin.login(this.formularioLogin.value).subscribe({
+      error: err => {
+        throw err;
       },
-      error: (err:any) => {
-        console.log(err);
-      }, 
-      complete: () => {this.router.navigate(['/']);}
-    });
-
-    }
+      complete: () => {
+        this.router.navigate(['/']);
+    }})
+  }
   }
 
   ngOnDestroy(): void {
     document.body.style.background = 'none';
   }
-}
 
+}

@@ -15,12 +15,16 @@ export class NavbarComponent implements OnInit{
   @Input() screen: string = '';
   isLogged!: boolean;
   user!:User;
+  initials!: string;
   ngOnInit(): void {
     this.isLogged = this.loginService.islogged();
-
-    this.loginService.currentUser.subscribe((data) => {
-      this.user = data;
-    });
+    this.loginService.getCurrentUser().subscribe({
+      next: res => {
+        this.user = res;
+        if(this.user.photo === null){
+          this.initials = this.user.first_name.charAt(0) + this.user.last_name.charAt(0);
+        }
+      }})
   }
   openMenu(): void {
     this.trigger.openMenu();
@@ -29,4 +33,16 @@ export class NavbarComponent implements OnInit{
     this.loginService.logout();
   }
   
+
+}
+export interface UserLogged {
+  username : string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  phone?: string;
+  role?: string[];
+  photo?: string;
+  address?: any;
 }

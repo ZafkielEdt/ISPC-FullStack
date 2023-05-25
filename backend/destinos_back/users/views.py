@@ -4,7 +4,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
 import datetime,jwt
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import AllowAny
 
 User = get_user_model()
 
@@ -12,36 +16,30 @@ User = get_user_model()
 
 
 
-
+@permission_classes([AllowAny])
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class UserByUsernameView(APIView):
+    def get(self, request, username):
+        try:
+            user = User.objects.get(username=username)
+            serialized_user = UserSerializer(user)
+            return Response(serialized_user.data)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=404)
 
-class LoginView(APIView):
-    def post(self, request):
-        username = request.data['username']
-        password = request.data['password']
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
 
-        user = User.objects.filter(username=username).first()
+        # Add custom claims
+        token['username'] = user.username
 
-        if user is None:
-            raise AuthenticationFailed('User not found!')
+        # ...
 
-        if not user.check_password(password):
-            raise AuthenticationFailed('Incorrect password!')
-
-        payload = {
-            'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat': datetime.datetime.utcnow()
-        }
-
-        token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
-
-        response = Response()
-
-        response.data = {
-            'jwt': token
-        }
-        return response
+        return token
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer

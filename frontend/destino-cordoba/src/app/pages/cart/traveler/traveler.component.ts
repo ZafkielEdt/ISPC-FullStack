@@ -16,7 +16,7 @@ export class TravelerComponent implements OnInit{
   ngOnInit(): void {
     this.travelerForm = this.fb.group({
       name: [''],
-      lastName: [''],
+      last_name: [''],
       country: [''],
       dni: [''],
       birthDate : [''],
