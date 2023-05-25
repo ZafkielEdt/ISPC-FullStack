@@ -11,12 +11,16 @@
 
       <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmit()">
         <mat-form-field>
+          <mat-label>Usuario:</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+        <mat-form-field>
           <mat-label>Nombre:</mat-label>
-          <input matInput formControlName="firstName" />
+          <input matInput formControlName="first_name" />
         </mat-form-field>
         <mat-form-field>
           <mat-label>Apellido:</mat-label>
-          <input matInput formControlName="lastName" />
+          <input matInput formControlName="last_name" />
         </mat-form-field>
         <mat-form-field>
           <mat-label>Email:</mat-label>
@@ -39,7 +43,7 @@
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
         </mat-form-field>
-        <button mat-button color="primary">Crear cuenta</button>
+        <button type="submit" mat-button color="primary">Crear cuenta</button>
       </form>
     </div>
   </div>

@@ -11,6 +11,5 @@ export class AppComponent {
   currentUser!:any;
   constructor(public router: Router, private loginService: LoginService) {}
   ngOnInit(): void {
-    this.currentUser = this.loginService.getCurrentUser();
   }
 }

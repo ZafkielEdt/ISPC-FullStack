@@ -25,7 +25,7 @@ export interface PackageTravel {
     adults: [{
       id: 1,
       name: 'Maria',
-      lastName: 'Gonzalez',
+      last_name: 'Gonzalez',
       country: 'Argentina',
       dni: 12345678,
       birthDate: new Date(
@@ -37,7 +37,7 @@ export interface PackageTravel {
     childs: [{
       id: 1,
       name: 'Juan',
-      lastName: 'Gonzalez',
+      last_name: 'Gonzalez',
       country: 'Argentina',
       dni: 12345678,
       birthDate: new Date(

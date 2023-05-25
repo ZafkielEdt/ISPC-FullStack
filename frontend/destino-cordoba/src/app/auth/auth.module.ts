@@ -4,8 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro';
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared';
-import { CookieService } from 'ngx-cookie-service';
-
 
 
 @NgModule({
@@ -22,7 +20,6 @@ import { CookieService } from 'ngx-cookie-service';
     LoginComponent,
     RegistroComponent
   ],
-  providers: [ CookieService]
 
 })
 export class AuthModule { }
