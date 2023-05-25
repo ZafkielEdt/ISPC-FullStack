@@ -10,7 +10,7 @@ import {
 } from './pages';
 import { ResultadoBuscadorComponent } from './pages/resultado-buscador/resultado-buscador.component';
 import { AuthGuard } from './auth/guard/auth.guard';
-// import { AuthGuard } from './auth/guard/auth.guard';
+
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages').then((m) => m.HomeModule) },

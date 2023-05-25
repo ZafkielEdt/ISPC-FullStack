@@ -19,45 +19,74 @@ class City(models.Model):
 
 class Address(models.Model):
     street = models.CharField(max_length=100)
+    number = models.CharField(max_length=10)
+    zip_code = models.CharField(max_length=10)
+
+
+class FeatureService(models.Model):
+    name = models.CharField(max_length=30)
+
+class Accommodation(models.Model):
+    name = models.CharField(max_length=30)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    lat = models.DecimalField(max_digits=10, decimal_places=8)
+    lon = models.DecimalField(max_digits=10, decimal_places=8)
+    stars = models.IntegerField(default=0)
+    services = models.ManyToManyField(FeatureService)
+    price = models.FloatField()
+
+
+class ImageAccommodation(models.Model):
+    url = models.CharField(max_length=500)
+    title = models.CharField(max_length=30)
+    accommodation = models.ForeignKey(Accommodation, on_delete=models.CASCADE)
 
 class Destination(models.Model):
     name = models.CharField(max_length=30)
-    description = models.CharField(max_length=255)
+    description = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
-class Image(models.Model):
-    url = models.CharField(max_length=255)
-    title = models.CharField(max_length=50)
+class ImageDestination(models.Model):
+    url = models.CharField(max_length=500)
+    title = models.CharField(max_length=30)
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+
+
 
 class Experience(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=255)
     price = models.FloatField()
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+class ExpDestination(models.Model):
+    url = models.CharField(max_length=500)
+    title = models.CharField(max_length=30)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
 
 class Package(models.Model):
+    title = models.CharField(max_length=50)
     start_date = models.DateField()
     end_date = models.DateField()
     total_price = models.FloatField()
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
-    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE,null=True)
+    accommodation = models.ManyToManyField(Accommodation)
 
+
+class Client(models.Model):
+    id = models.UUIDField(primary_key = True,default = uuid.uuid4,editable = False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 class Payment(models.Model):
     amount = models.FloatField()
     payment_method = models.CharField(max_length=5)
     payment_status = models.CharField(max_length=5)
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
-
-class Client(models.Model):
-        id = models.UUIDField(primary_key = True,default = uuid.uuid4,editable = False)
-        user = models.ForeignKey(User, on_delete=models.CASCADE)
-        name = models.CharField(max_length=30)
-        last_name = models.CharField(max_length=30)
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)

@@ -9,7 +9,7 @@
         </a>
         <div *ngIf="screen !== '/registro'" class="buttons-container">
             <div *ngIf="isLogged" class="profile-pic text-white">
-                Hola! {{ user.firstName }}
+                Hola! {{ user.username }}
                 <button [matMenuTriggerFor]="aboveMenu">
                     <img [src]="user.photo" />
                     <span>+9</span>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,6 +23,7 @@ import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
 import {CookieService} from 'ngx-cookie-service';
 import { DashboardContainerComponent } from './components/admin-dashboard-components/dashboard-container/dashboard-container.component';
 import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { UserTabComponent } from './components/admin-dashboard-components/user-t
     AuthModule,
     HttpClientModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' },CookieService],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+  ,CookieService,
+  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

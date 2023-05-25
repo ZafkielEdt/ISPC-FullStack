@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 export interface LoginRequest {
-  email: string;
+  username: string;
   password: string;
 }
 @Component({
@@ -29,41 +29,27 @@ export class LoginComponent {
   ) { }
   ngOnInit(): void {
     this.formularioLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+    
   }
 
   onSubmit(): void {
+    
     if (this.formularioLogin.valid) {
-      this.userCredentials = {
-        email: this.formularioLogin.get('email')?.value,
-        password: this.formularioLogin.get('password')?.value
-      };
-      console.log(this.userCredentials.email)
-
-      this.serviceLogin.getByEmail(this.userCredentials.email).subscribe({
-        next:(data) => {
-          this.loggedUser = data;
-          if (this.loggedUser.password === this.userCredentials.password) {
-            this.cookie.set('currentUser', JSON.stringify(this.loggedUser),1);
-            this.serviceLogin.isLoggedIn.next(true);
-            this.serviceLogin.currentUser.next(this.loggedUser);
-
-          }
-      }, 
-      error: (err) => {
-      }, 
+      this.serviceLogin.login(this.formularioLogin.value).subscribe({
+      error: err => {
+        throw err;
+      },
       complete: () => {
-          this.router.navigate(['/']);
-
-      }});
-
-    }
+        this.router.navigate(['/']);
+    }})
+  }
   }
 
   ngOnDestroy(): void {
     document.body.style.background = 'none';
   }
-}
 
+}
