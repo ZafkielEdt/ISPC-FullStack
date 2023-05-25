@@ -24,6 +24,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { DashboardContainerComponent } from './components/admin-dashboard-components/dashboard-container/dashboard-container.component';
 import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { UserFormUpdateComponent } from './components/admin-dashboard-components/user-tab/user-form-update/user-form-update.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     PaymentInfoComponent,
     DashboardContainerComponent,
     UserTabComponent,
+    UserFormUpdateComponent,
   ],
   imports: [
     BrowserModule,
