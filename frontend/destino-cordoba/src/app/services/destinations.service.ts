@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 interface City {
   name: string;
@@ -14,14 +14,18 @@ export interface Destination {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class DestinationsService {
   constructor(private http: HttpClient) {}
 
-  private destinationUrl: string = 'http://localhost:3000/destinations';
+  private destinationUrl: string = "http://localhost:3000/destinations";
 
-  getDestinations() {
+  getAll() {
     return this.http.get<Destination[]>(this.destinationUrl);
+  }
+
+  deleteBy(id: number) {
+    return this.http.delete(`${this.destinationUrl}/${id}`)
   }
 }
