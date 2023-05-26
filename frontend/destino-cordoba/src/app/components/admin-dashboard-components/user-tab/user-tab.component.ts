@@ -10,15 +10,10 @@ import { User, UserService } from 'src/app/services/user.service';
 export class UserTabComponent {
   users$: Observable<User[]>;
   windowSize: boolean = false;
-  update: boolean = false;
 
   constructor(private userService: UserService) {
     this.users$ = userService.getAll();
     this.windowSize = window.innerWidth > 768;
-  }
-
-  clickUpdate(){
-    this.update = !this.update;
   }
 
   deleteUser(id: number) {
