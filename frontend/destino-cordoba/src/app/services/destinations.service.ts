@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { FormGroup } from "@angular/forms";
 
 interface City {
   name: string;
@@ -25,7 +26,15 @@ export class DestinationsService {
     return this.http.get<Destination[]>(this.destinationUrl);
   }
 
+  getBy(id: number) {
+    return this.http.get<Destination>(`${this.destinationUrl}/${id}`);
+  }
+
+  update(destination: FormGroup, id: number) {
+    return this.http.put(`${this.destinationUrl}/${id}`, destination.value);
+  }
+
   deleteBy(id: number) {
-    return this.http.delete(`${this.destinationUrl}/${id}`)
+    return this.http.delete(`${this.destinationUrl}/${id}`);
   }
 }
