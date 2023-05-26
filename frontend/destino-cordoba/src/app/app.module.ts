@@ -25,6 +25,7 @@ import { DashboardContainerComponent } from './components/admin-dashboard-compon
 import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { DestinationTabComponent } from './components/admin-dashboard-components/destination-tab/destination-tab.component';
+import { DestinationUpdateDetailsComponent } from './components/admin-dashboard-components/destination-tab/destination-update-details/destination-update-details.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DestinationTabComponent } from './components/admin-dashboard-components
     DashboardContainerComponent,
     UserTabComponent,
     DestinationTabComponent,
+    DestinationUpdateDetailsComponent,
   ],
   imports: [
     BrowserModule,
