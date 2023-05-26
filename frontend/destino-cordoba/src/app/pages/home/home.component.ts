@@ -1,22 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { LoginService } from 'src/app/auth/service/login.service';
-import { PackageCard } from 'src/app/models/package-card';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Observable, Subscription } from "rxjs";
+import { LoginService } from "src/app/auth/service/login.service";
+import { PackageCard } from "src/app/models/package-card";
 import {
   Destination,
   DestinationsService,
-} from 'src/app/services/destinations.service';
-import { PackagesService } from 'src/app/services/packages.service';
+} from "src/app/services/destinations.service";
+import { PackagesService } from "src/app/services/packages.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   packages!: PackageCard[];
-  packageUrl = 'travel/';
+  packageUrl = "travel/";
   destinations$: Observable<Destination[]>;
 
   constructor(
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private destinationsService: DestinationsService,
     private loginService: LoginService
   ) {
-    this.destinations$ = this.destinationsService.getDestinations();
+    this.destinations$ = this.destinationsService.getAll();
   }
 
   ngOnInit(): void {
