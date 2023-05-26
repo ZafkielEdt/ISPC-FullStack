@@ -1,0 +1,11 @@
+<section class="admin-dashboard-container">
+  <div class="admin-options">
+    <h1 class="options-title">Administrar</h1>
+    <div class="options">
+      <button (click)="selectedUsers()" class="options-btn">Usuarios</button>
+      <button class="options-btn">Destinos</button>
+      <button class="options-btn">Paquetes</button>
+    </div>
+  </div>
+  <app-user-tab *ngIf="selectUser"></app-user-tab>
+</section>
