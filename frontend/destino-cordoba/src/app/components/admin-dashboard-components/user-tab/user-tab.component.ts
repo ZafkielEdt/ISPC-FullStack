@@ -22,7 +22,13 @@ export class UserTabComponent {
   }
 
   deleteUser(id: number) {
-    this.userService.deleteBy(id).subscribe();
-    window.location.reload();
+    this.userService.deleteBy(id).subscribe({
+      next: () => {
+        this.users$ = this.userService.getAll()
+      },
+      error: (error) => {
+        throw error
+      }
+    });
   }
 }
