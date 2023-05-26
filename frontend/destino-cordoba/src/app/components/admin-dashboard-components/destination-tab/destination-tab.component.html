@@ -1,0 +1,24 @@
+<div class="users-container">
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Ciudad</td>
+        <td *ngIf="windowSize">Descripción</td>
+        <td>Update</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let destination of destinations$ | async">
+        <td>{{destination.id}}</td>
+        <td>{{destination.name}}</td>
+        <td>{{destination.city.name}}</td>
+        <td *ngIf="windowSize">{{destination.description}}</td>
+        <td><img class="td-icon" src="/assets/icons/pen-to-square-solid.svg" alt="icon update"></td>
+        <td (click)="deleteDestination(destination.id)"><img class="td-icon" src="/assets/icons/trash-solid.svg" alt="trash icon"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
