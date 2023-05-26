@@ -38,6 +38,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           const refreshToken = this.cookieService.get('refresh_token');
           let service = this.inject.get(LoginService);
+          if(service.islogged()){
           if (refreshToken) {
             return service.refreshToken(refreshToken).pipe(
               catchError(() => {
@@ -70,6 +71,11 @@ export class AuthInterceptor implements HttpInterceptor {
             this.router.navigate(['/login']);
             return throwError(() => new Error('Refresh token not found'));
           }
+        }else{
+          service.logout();
+          this.router.navigate(['/login']);
+          return throwError(() => new Error('User not logged in'));
+        }
         } else {
           this.cookieService.delete('token');
           this.cookieService.delete('refresh_token');
