@@ -3,9 +3,9 @@ import { Observable, Subscription } from "rxjs";
 import { LoginService } from "src/app/auth/service/login.service";
 import { PackageCard } from "src/app/models/package-card";
 import {
-  Destination,
   DestinationsService,
 } from "src/app/services/destinations.service";
+import { Destination } from "src/app/models/destination";
 import { PackagesService } from "src/app/services/packages.service";
 
 @Component({
