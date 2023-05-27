@@ -1,4 +1,5 @@
 <div class="users-container">
+  <span class="icon-container">Agregar <img class="icon" src="/assets/icons/plus-solid.svg" alt="plus icon"></span>
   <table>
     <thead>
       <tr>
@@ -18,7 +19,7 @@
         <td *ngIf="windowSize">{{destination.description}}</td>
         <td>
           <a [routerLink]="['/user-dashboard/destinations',destination.id]"><img class="td-icon" src="/assets/icons/pen-to-square-solid.svg" alt="icon update"></a>
-        <td>
+        </td>
         <td (click)="deleteDestination(destination.id)"><img class="td-icon" src="/assets/icons/trash-solid.svg" alt="trash icon"></td>
       </tr>
     </tbody>
