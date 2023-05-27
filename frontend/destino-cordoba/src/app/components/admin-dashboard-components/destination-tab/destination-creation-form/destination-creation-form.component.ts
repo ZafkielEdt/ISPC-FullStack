@@ -10,7 +10,7 @@ import { DestinationsService } from "src/app/services/destinations.service";
 export class DestinationCreationFormComponent {
   formData = this.formBuilder.group({
     name: "",
-    city: { name: "" },
+    city: this.formBuilder.group({name: ''}),
     description: "",
     image: "",
   });
