@@ -1,0 +1,17 @@
+<section class="form-container">
+  <h2 class="title">Actualizar</h2>
+  <form action="" [formGroup]="currentUser" (ngSubmit)="onSubmit()">
+    <label for="first_name">Nombre</label>
+    <input type="text" name="first_name" id="first_name" value="{{user.first_name}}" formControlName="first_name">
+    <label for="last_name">Apellido</label>
+    <input type="text" name="last_name" id="last_name" value="{{user.last_name}}" formControlName="last_name">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" value="{{user.email}}" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" formControlName="password">
+    <div class="btns">
+      <button class="btn" type="submit">Actualizar</button>
+      <button class="btn" [routerLink]="['/user-dashboard']">Volver</button>
+    </div>
+  </form>
+</section>

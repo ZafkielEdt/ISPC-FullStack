@@ -12,7 +12,7 @@ export class UserDashboardComponent {
   actualUserRole: string[] = ['user'];
 
   constructor(private authService: LoginService) {
-    this.authService.getCurrentUser().subscribe(data => this.actualUserRole = data.role)
+    //this.authService.getCurrentUser().subscribe(data => this.actualUserRole = data.role)
   }
 
 }

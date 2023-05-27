@@ -42,7 +42,7 @@ export class DestinationUpdateDetailsComponent implements OnInit {
     this.destinationService
       .update(this.destinationFormData, this.destination.id)
       .subscribe((data) => {
-        console.log(data);
+        "Updated"
       });
   }
 }
