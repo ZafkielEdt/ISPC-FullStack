@@ -30,6 +30,10 @@ export class DestinationsService {
     return this.http.get<Destination>(`${this.destinationUrl}/${id}`);
   }
 
+  post(destination: FormGroup) {
+    return this.http.post(this.destinationUrl, destination.value)
+  }
+
   update(destination: FormGroup, id: number) {
     return this.http.put(`${this.destinationUrl}/${id}`, destination.value);
   }
