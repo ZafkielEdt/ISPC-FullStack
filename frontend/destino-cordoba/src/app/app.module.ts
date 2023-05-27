@@ -27,6 +27,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { DestinationTabComponent } from './components/admin-dashboard-components/destination-tab/destination-tab.component';
 import { DestinationUpdateDetailsComponent } from './components/admin-dashboard-components/destination-tab/destination-update-details/destination-update-details.component';
 import { DestinationCreationFormComponent } from './components/admin-dashboard-components/destination-tab/destination-creation-form/destination-creation-form.component';
+import { UserDashboardContainerComponent } from './components/user-dashboard-components/user-dashboard-container/user-dashboard-container.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DestinationCreationFormComponent } from './components/admin-dashboard-c
     DestinationTabComponent,
     DestinationUpdateDetailsComponent,
     DestinationCreationFormComponent,
+    UserDashboardContainerComponent,
   ],
   imports: [
     BrowserModule,
