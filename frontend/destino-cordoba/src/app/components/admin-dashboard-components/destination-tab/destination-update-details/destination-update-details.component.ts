@@ -14,12 +14,7 @@ import {
 export class DestinationUpdateDetailsComponent implements OnInit {
   destination!: Destination;
 
-  destinationFormData = this.formBuilder.group({
-    name: "",
-    city: "",
-    description: "",
-    image: "",
-  });
+  destinationFormData!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +25,15 @@ export class DestinationUpdateDetailsComponent implements OnInit {
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const destinationIdFromRoute = Number(routeParams.get("destinationId"));
+
+    this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
+      this.destinationFormData = this.formBuilder.group({
+        name: data.name,
+        city: data.city.name,
+        description: data.description,
+        image: data.image
+      })
+    })
 
     this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
       this.destination = data;
