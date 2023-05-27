@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import {
-  Destination,
-  DestinationsService,
-} from "src/app/services/destinations.service";
+import { DestinationsService } from "src/app/services/destinations.service";
+import { Destination } from "src/app/models/destination";
 
 @Component({
   selector: "app-destination-update-details",
@@ -31,9 +29,9 @@ export class DestinationUpdateDetailsComponent implements OnInit {
         name: data.name,
         city: data.city.name,
         description: data.description,
-        image: data.image
-      })
-    })
+        image: data.gallery,
+      });
+    });
 
     this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
       this.destination = data;

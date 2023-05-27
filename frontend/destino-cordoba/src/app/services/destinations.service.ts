@@ -1,18 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { FormGroup } from "@angular/forms";
-
-interface City {
-  name: string;
-}
-
-export interface Destination {
-  id: number;
-  name: string;
-  city: City;
-  image: string;
-  description: string;
-}
+import { Destination } from "../models/destination";
 
 @Injectable({
   providedIn: "root",
