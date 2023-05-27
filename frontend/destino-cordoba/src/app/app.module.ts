@@ -22,6 +22,7 @@ import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
 import {CookieService} from 'ngx-cookie-service';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     CartComponent,
     TravelerComponent,
     PaymentInfoComponent,
+    PriceBoxComponent,
   ],
   imports: [
     BrowserModule,

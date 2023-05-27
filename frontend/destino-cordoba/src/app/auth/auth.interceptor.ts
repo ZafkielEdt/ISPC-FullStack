@@ -42,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
           if (refreshToken) {
             return service.refreshToken(refreshToken).pipe(
               catchError(() => {
-                service.logout();
+                this.deleteCookies()
                 this.router.navigate(['/login']);
                 return throwError(() => new Error('Token refreshing failed'));
               }),
@@ -56,33 +56,33 @@ export class AuthInterceptor implements HttpInterceptor {
                   });
                   return next.handle(request);
                 } else {
-                  service.logout();
+                  this.deleteCookies()
                   this.router.navigate(['/login']);
                   return throwError(() => new Error('Token refreshing failed'));
                 }
               }),
-              catchError((error: any) => {
-                service.logout();
-                return from(throwError(() => error));
-              })
             );
           } else {
-            service.logout();
+            this.deleteCookies()
             this.router.navigate(['/login']);
             return throwError(() => new Error('Refresh token not found'));
           }
         }else{
-          service.logout();
+          this.deleteCookies()
           this.router.navigate(['/login']);
           return throwError(() => new Error('User not logged in'));
         }
         } else {
-          this.cookieService.delete('token');
-          this.cookieService.delete('refresh_token');
+          this.deleteCookies()
           return throwError(() => error);
         }
       })
     );
+  }
+
+  private deleteCookies(): void {
+    this.cookieService.delete('token');
+    this.cookieService.delete('refresh_token');
   }
 }
 
