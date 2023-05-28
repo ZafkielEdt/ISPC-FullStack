@@ -1,27 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-interface City {
-  name: string;
-}
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { City } from "../models/city";
 
 export interface Destination {
-  id: number;
-  name: string;
-  city: City;
-  image: string;
-  description: string;
+	id: number;
+	name: string;
+	description: string;
+	city: City;
 }
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: "root",
 })
 export class DestinationsService {
-  constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {}
 
-  private destinationUrl: string = 'http://localhost:3000/destinations';
+	private destinationUrl: string = "http://localhost:8000/destinations";
 
-  getDestinations() {
-    return this.http.get<Destination[]>(this.destinationUrl);
-  }
+	getDestinations() {
+		return this.http.get<any>(this.destinationUrl);
+	}
 }

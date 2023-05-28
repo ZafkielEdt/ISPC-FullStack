@@ -1,94 +1,100 @@
 <section class="container mx-auto bg-zinc-800 p-6 rounded-md">
-  <form [formGroup]="formularioBuscador" (ngSubmit)="onSubmit()">
-    <div
-      class="tabs mx-auto flex gap-8 items-start my-2 justify-start w-[400px]"
-    >
-      <button
-        type="button"
-        (click)="setActive(1)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
-        [ngClass]="{
-          'border-b-[3px] border-green-500 text-green-500 ': tabActive === 1
-        }"
-      >
-        Paquetes
-      </button>
-      <button
-        type="button"
-        (click)="setActive(2)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
-        [ngClass]="{
-          'border-b-[3px] border-green-500 text-green-500': tabActive === 2
-        }"
-      >
-        Hoteles
-      </button>
-      <button
-        type="button"
-        (click)="setActive(3)"
-        class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white "
-        [ngClass]="{
-          'border-b-[3px] border-green-500 text-green-500': tabActive === 3
-        }"
-      >
-        Experiencias
-      </button>
-    </div>
-    <div class="justify-center flex gap-2">
-      <div class="flex items-center relative w-[400px]">
-        <input
-          list="list"
-          formControlName="origen"
-          class="form-input text-center block w-full rounded-l-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
-          type="text"
-          placeholder="Origen"
-          [matAutocomplete]="auto"
-          (ngModelChange)="onSearchChange($event)">
+	<form [formGroup]="formularioBuscador" (ngSubmit)="onSubmit()">
+		<div
+			class="tabs mx-auto flex gap-8 items-start my-2 justify-start w-[400px]"
+		>
+			<button
+				type="button"
+				(click)="setActive(1)"
+				class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white"
+				[ngClass]="{
+					'border-b-[3px] border-green-500 text-green-500 ':
+						tabActive === 1
+				}"
+			>
+				Paquetes
+			</button>
+			<button
+				type="button"
+				(click)="setActive(2)"
+				class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white"
+				[ngClass]="{
+					'border-b-[3px] border-green-500 text-green-500':
+						tabActive === 2
+				}"
+			>
+				Hoteles
+			</button>
+			<button
+				type="button"
+				(click)="setActive(3)"
+				class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-white"
+				[ngClass]="{
+					'border-b-[3px] border-green-500 text-green-500':
+						tabActive === 3
+				}"
+			>
+				Experiencias
+			</button>
+		</div>
+		<div class="justify-center flex gap-2">
+			<div class="flex items-center relative w-[400px]">
+				<input
+					list="list"
+					formControlName="origen"
+					class="form-input text-center block w-full rounded-l-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
+					type="text"
+					placeholder="Origen"
+					[matAutocomplete]="auto"
+					(ngModelChange)="onSearchChange($event)"
+				/>
 
-        <div id="arrow" class="cursor-pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+				<div id="arrow" class="cursor-pointer">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+					>
+						<g>
+							<polygon
+								points="9.293 18.707 10.707 17.293 8.414 15 20 15 20 13 3.586 13 9.293 18.707"
+							/>
+							<polygon
+								points="14.707 5.293 13.293 6.707 15.586 9 4 9 4 11 20.414 11 14.707 5.293"
+							/>
+						</g>
+					</svg>
+				</div>
+				<input
+					formControlName="destino"
+					class="form-input text-center block w-full rounded-r-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
+					type="text"
+					placeholder="Destino"
+					[matAutocomplete]="auto2"
+					(ngModelChange)="onSearchChange($event)"
+				/>
+			</div>
 
-          >
-            <g>
-              <polygon
-                points="9.293 18.707 10.707 17.293 8.414 15 20 15 20 13 3.586 13 9.293 18.707"
-              />
-              <polygon
-                points="14.707 5.293 13.293 6.707 15.586 9 4 9 4 11 20.414 11 14.707 5.293"
-              />
-            </g>
-          </svg>
-        </div>
-        <input
-          formControlName="destino"
-          class="form-input text-center block w-full rounded-r-md border-green-200 shadow-sm focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30"
-          type="text"
-          placeholder="Destino"
-          [matAutocomplete]="auto2"
-          (ngModelChange)="onSearchChange($event)"
-          >
-      </div>
-
-      <button
-        type="submit"
-        class="rounded-emerald rounded-md text-white bg-green-800 font-bold text-sm px-4 w-fit"
-      >
-        Buscar
-      </button>
-    </div>
-  </form>
+			<button
+				type="submit"
+				class="rounded-emerald rounded-md text-white bg-green-800 font-bold text-sm px-4 w-fit"
+			>
+				Buscar
+			</button>
+		</div>
+	</form>
 </section>
 <mat-autocomplete #auto="matAutocomplete" class="">
-  <mat-option *ngFor="let option of options$ | async " [value]="option.name" >
-    {{option.name+", "+option.province.country  }}
-  </mat-option>
+	<mat-option *ngFor="let option of options$ | async" [value]="option.name">
+		{{ option.name + ", " + option.province.country }}
+	</mat-option>
 </mat-autocomplete>
 <mat-autocomplete #auto2="matAutocomplete" class="">
-  <mat-option *ngFor="let option of options$ | async" [value]="option.name" >
-    {{option.name+", "+option.province.country }}
-  </mat-option>
+	<mat-option
+		*ngFor="let option of optionsDest$ | async"
+		[value]="option.name"
+	>
+		{{ option.name }}
+	</mat-option>
 </mat-autocomplete>
