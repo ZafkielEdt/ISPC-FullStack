@@ -21,6 +21,8 @@ import { PaymentInfoComponent } from './pages/cart/payment-info';
 import { SharedModule } from './shared';
 import { ModalComponent, PackageTravelComponent } from './pages/travel-package';
 import {CookieService} from 'ngx-cookie-service';
+import { DashboardContainerComponent } from './components/admin-dashboard-components/dashboard-container/dashboard-container.component';
+import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
 
@@ -36,6 +38,8 @@ import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
     TravelerComponent,
     PaymentInfoComponent,
     PriceBoxComponent,
+    DashboardContainerComponent,
+    UserTabComponent,
   ],
   imports: [
     BrowserModule,
