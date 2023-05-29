@@ -14,8 +14,8 @@
     <tbody>
       <tr *ngFor="let user of users$ | async">
         <td>{{user.id}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
         <td *ngIf="windowSize">{{user.email}}</td>
         <td>{{user.role}}</td>
         <td><img class="td-icon" src="/assets/icons/pen-to-square-solid.svg" alt="icon update"></td>

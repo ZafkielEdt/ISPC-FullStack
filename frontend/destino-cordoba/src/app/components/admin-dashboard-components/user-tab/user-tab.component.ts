@@ -1,11 +1,12 @@
-import { Component} from '@angular/core';
-import { Observable } from 'rxjs';
-import { User, UserService } from 'src/app/services/user.service';
+import { Component } from "@angular/core";
+import { Observable } from "rxjs";
+import { UserService } from "src/app/services/user.service";
+import { User } from "src/app/models/user";
 
 @Component({
-  selector: 'app-user-tab',
-  templateUrl: './user-tab.component.html',
-  styleUrls: ['./user-tab.component.css']
+  selector: "app-user-tab",
+  templateUrl: "./user-tab.component.html",
+  styleUrls: ["./user-tab.component.css"],
 })
 export class UserTabComponent {
   users$: Observable<User[]>;
@@ -19,11 +20,11 @@ export class UserTabComponent {
   deleteUser(id: number) {
     this.userService.deleteBy(id).subscribe({
       next: () => {
-        this.users$ = this.userService.getAll()
+        this.users$ = this.userService.getAll();
       },
       error: (error) => {
-        throw error
-      }
+        throw error;
+      },
     });
   }
 }

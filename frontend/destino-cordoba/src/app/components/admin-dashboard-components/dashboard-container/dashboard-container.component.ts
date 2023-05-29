@@ -13,4 +13,8 @@ export class DashboardContainerComponent {
   selectedUsers() {
     this.selectUser = !this.selectUser;
   }
+
+  selectedDestination() {
+    this.selectDestination = !this.selectDestination;
+  }
 }
