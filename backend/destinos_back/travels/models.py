@@ -10,12 +10,16 @@ class Province(models.Model):
     name = models.CharField(max_length=30)
     lat = models.DecimalField(max_digits=10, decimal_places=8)
     lon = models.DecimalField(max_digits=10, decimal_places=8)
+    def __str__(self) -> str:
+        return self.name
 
 class City(models.Model):
     name = models.CharField(max_length=30)
     lat = models.DecimalField(max_digits=10, decimal_places=8)
     lon = models.DecimalField(max_digits=10, decimal_places=8)
     province = models.ForeignKey(Province, on_delete=models.CASCADE)
+    def __str__(self) -> str:
+        return self.name
 
 class Address(models.Model):
     street = models.CharField(max_length=100)
@@ -25,6 +29,8 @@ class Address(models.Model):
 
 class FeatureService(models.Model):
     name = models.CharField(max_length=30)
+    def __str__(self) -> str:
+        return self.name
 
 class Accommodation(models.Model):
     name = models.CharField(max_length=30)
@@ -35,6 +41,8 @@ class Accommodation(models.Model):
     stars = models.IntegerField(default=0)
     services = models.ManyToManyField(FeatureService)
     price = models.FloatField()
+    def __str__(self) -> str:
+        return self.name
 
 
 class ImageAccommodation(models.Model):
@@ -46,6 +54,8 @@ class Destination(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    def __str__(self) -> str:
+        return self.name
 
 class ImageDestination(models.Model):
     url = models.CharField(max_length=500)
@@ -59,6 +69,9 @@ class Experience(models.Model):
     description = models.CharField(max_length=255)
     price = models.FloatField()
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+    def __str__(self) -> str:
+        return self.name
+
 class ExpDestination(models.Model):
     url = models.CharField(max_length=500)
     title = models.CharField(max_length=30)
@@ -72,6 +85,8 @@ class Package(models.Model):
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
     experience = models.ForeignKey(Experience, on_delete=models.CASCADE,null=True)
     accommodation = models.ManyToManyField(Accommodation)
+    def __str__(self) -> str:
+        return self.title
 
 
 class Client(models.Model):
@@ -81,6 +96,7 @@ class Client(models.Model):
     last_name = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 class Payment(models.Model):
     amount = models.FloatField()
     payment_method = models.CharField(max_length=5)
