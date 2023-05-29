@@ -37,7 +37,7 @@ export class UserUpdateFormComponent implements OnInit {
 
   onSubmit() {
     this.userService.update(this.currentUser, this.userId).subscribe((data) => {
-      console.log(data);
+      "Updated"
     });
   }
 }
