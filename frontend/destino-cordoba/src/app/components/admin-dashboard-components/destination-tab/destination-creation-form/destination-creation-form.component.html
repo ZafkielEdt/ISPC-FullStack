@@ -1,0 +1,24 @@
+<section class="update-form-destination">
+  <h2 class="title">Crear Destino</h2>
+
+  <form class="destination-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" formControlName="name" />
+    <label for="city">Ciudad</label>
+    <input type="text" name="city" id="city" formControlName="city" />
+    <label for="description">Descripción</label>
+    <textarea
+      name="description"
+      id="description"
+      cols="30"
+      rows="5"
+      formControlName="description"
+    ></textarea>
+    <label for="image">Imagen</label>
+    <input type="text" name="image" id="image" formControlName="image" />
+    <div class="btns">
+      <button class="btn" type="submit">Crear</button>
+      <button class="btn" [routerLink]="['/user-dashboard']">Volver</button>
+    </div>
+  </form>
+</section>

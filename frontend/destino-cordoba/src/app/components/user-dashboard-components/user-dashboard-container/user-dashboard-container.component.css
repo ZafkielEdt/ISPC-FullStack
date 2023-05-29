@@ -1,0 +1,21 @@
+.user-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.btns {
+  margin-top: 1rem;
+}
+
+.btn-update {
+  padding: 0.5rem 1rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 0.5rem;
+}

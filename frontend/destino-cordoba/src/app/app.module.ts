@@ -25,6 +25,11 @@ import { DashboardContainerComponent } from './components/admin-dashboard-compon
 import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
+import { DestinationTabComponent } from './components/admin-dashboard-components/destination-tab/destination-tab.component';
+import { DestinationUpdateDetailsComponent } from './components/admin-dashboard-components/destination-tab/destination-update-details/destination-update-details.component';
+import { DestinationCreationFormComponent } from './components/admin-dashboard-components/destination-tab/destination-creation-form/destination-creation-form.component';
+import { UserDashboardContainerComponent } from './components/user-dashboard-components/user-dashboard-container/user-dashboard-container.component';
+import { UserUpdateFormComponent } from './components/user-dashboard-components/user-dashboard-container/user-update-form/user-update-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,11 @@ import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
     PriceBoxComponent,
     DashboardContainerComponent,
     UserTabComponent,
+    DestinationTabComponent,
+    DestinationUpdateDetailsComponent,
+    DestinationCreationFormComponent,
+    UserDashboardContainerComponent,
+    UserUpdateFormComponent,
   ],
   imports: [
     BrowserModule,

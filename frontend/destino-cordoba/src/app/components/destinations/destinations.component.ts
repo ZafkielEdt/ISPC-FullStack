@@ -1,9 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import {
-	Destination,
-	DestinationsService,
-} from "src/app/services/destinations.service";
+import { Component } from "@angular/core";
 
 @Component({
 	selector: "app-destinations",

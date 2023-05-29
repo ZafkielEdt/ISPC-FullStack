@@ -11,6 +11,9 @@ admin.site.register(Package)
 admin.site.register(Payment)
 admin.site.register(Order)
 admin.site.register(Client)
+admin.site.register(Accommodation)
+admin.site.register(FeatureService)
+
 
 
 
