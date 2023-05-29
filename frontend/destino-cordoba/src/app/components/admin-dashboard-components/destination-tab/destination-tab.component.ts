@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Observable } from "rxjs";
-import { DestinationsService } from "src/app/services/destinations.service";
-import { Destination } from "src/app/models/destination";
+import { Destination, DestinationsService } from "src/app/services/destinations.service";
 
 @Component({
   selector: "app-destination-tab",
