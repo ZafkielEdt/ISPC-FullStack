@@ -22,3 +22,23 @@ class ProvinceView(generics.ListCreateAPIView):
 class DestinationView(generics.ListCreateAPIView):
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
+
+@permission_classes([AllowAny])
+class ExperienceView(generics.ListCreateAPIView):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+
+@permission_classes([AllowAny])
+class PackageView(generics.ListCreateAPIView):
+    queryset= Package.objects.all()
+    serializer_class= PackageSerializer
+
+@permission_classes([AllowAny])
+class AccommodationView(generics.ListCreateAPIView):
+    queryset= Accommodation.objects.all()
+    serializer_class= AccommodationSerializer
+    
+@permission_classes([AllowAny])
+class FtServiceView(generics.ListCreateAPIView):
+    queryset= FeatureService.objects.all()
+    serializer_class= FtServiceSerializer

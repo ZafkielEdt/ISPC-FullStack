@@ -33,4 +33,31 @@ class DestinationSerializer(serializers.ModelSerializer):
         model = Destination
         fields = '__all__'
 
-        
+class ExperienceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Experience
+        fields = '__all__'
+
+class PackageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Package
+        fields = '__all__'
+
+class FtServiceSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = FeatureService
+        fields = '__all__'
+
+class AccommodationSerializer(serializers.ModelSerializer):
+    address = AddressSerializer()
+    services = serializers.StringRelatedField(many=True, read_only = True)
+    class Meta: 
+        model = Accommodation
+        fields = '__all__'
+    def create(self, validated_data):
+        address_data = validated_data.pop('address')  
+        address = Address.objects.create(**address_data)
+        accomodation = Accommodation.objects.create(address = address,**validated_data)
+        return accomodation
+
+
