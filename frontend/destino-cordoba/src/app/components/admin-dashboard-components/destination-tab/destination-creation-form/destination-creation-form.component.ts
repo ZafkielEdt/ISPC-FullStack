@@ -21,8 +21,8 @@ export class DestinationCreationFormComponent {
   ) {}
 
   onSubmit() {
-    this.destinationService.post(this.formData).subscribe((data) => {
-      "Data sended";
-    });
+    // this.destinationService.post(this.formData).subscribe((data) => {
+    //   "Data sended";
+    // });
   }
 }

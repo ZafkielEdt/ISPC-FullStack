@@ -24,25 +24,25 @@ export class DestinationUpdateDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const destinationIdFromRoute = Number(routeParams.get("destinationId"));
 
-    this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
-      this.destinationFormData = this.formBuilder.group({
-        name: data.name,
-        city: data.city.name,
-        description: data.description,
-        image: data.gallery,
-      });
-    });
+    // this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
+    //   this.destinationFormData = this.formBuilder.group({
+    //     name: data.name,
+    //     city: data.city.name,
+    //     description: data.description,
+    //     image: data.gallery,
+    //   });
+    // });
 
-    this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
-      this.destination = data;
-    });
+    // this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
+    //   this.destination = data;
+    // });
   }
 
   onSubmit(): void {
-    this.destinationService
-      .update(this.destinationFormData, this.destination.id)
-      .subscribe((data) => {
-        "Updated"
-      });
+    // this.destinationService
+    //   .update(this.destinationFormData, this.destination.id)
+    //   .subscribe((data) => {
+    //     "Updated"
+    //   });
   }
 }
