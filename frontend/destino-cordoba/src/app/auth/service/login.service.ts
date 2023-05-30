@@ -27,7 +27,7 @@ export class LoginService {
         }
     
     getUserByUsername(username: string): Observable<User> {
-        return this.http.get<User>("http://localhost:8000/users/" + username);
+        return this.http.get<User>("http://localhost:8000/users/username/" + username);
     }
     islogged() {
         const token = this.cookie.get('token');
