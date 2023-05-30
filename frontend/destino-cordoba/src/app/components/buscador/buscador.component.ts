@@ -25,7 +25,9 @@ export class BuscadorComponent implements OnInit {
 			origen: ["", [Validators.required]],
 			destino: ["", [Validators.required]],
 		});
-		this.searchService.getDestinations().subscribe((data: any) => {});
+		this.searchService.getDestinations().subscribe((data: any) => {
+			console.log(data)
+		});
 	}
 
 	onSubmit(): void {
@@ -47,8 +49,7 @@ export class BuscadorComponent implements OnInit {
 				if (response && response.cities && q) {
 					return response.cities.filter(
 						(city: any) =>
-							city.name.toLowerCase().indexOf(q.toLowerCase()) >
-							-1
+							city.name.toLowerCase().indexOf(q.toLowerCase()) > -1 || city.province.name.toLowerCase().indexOf(q.toLowerCase()) > -1
 					);
 				}
 				return [];
@@ -56,14 +57,14 @@ export class BuscadorComponent implements OnInit {
 		);
 		this.optionsDest$ = this.searchService.getDestinations().pipe(
 			map((response: any) => {
-				if (response && response.name && q) {
-					return response.name.filter(
-						(name: any) =>
-							name.toLowerCase().indexOf(q.toLowerCase()) > -1
-					);
-				}
-				return [];
+			  if (response && response.results && q) {
+				return response.results.filter(
+				  (destination: any) =>
+					destination.name.toLowerCase().indexOf(q.toLowerCase()) > -1
+				);
+			  }
+			  return [];
 			})
-		);
+		  );
 	}
 }
