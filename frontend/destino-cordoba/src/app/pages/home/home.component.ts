@@ -8,6 +8,7 @@ import {
 } from "src/app/services/destinations.service";
 import { PackagesService } from "src/app/services/packages.service";
 
+
 @Component({
 	selector: "app-home",
 	templateUrl: "./home.component.html",

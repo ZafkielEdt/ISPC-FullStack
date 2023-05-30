@@ -27,7 +27,7 @@ export class LoginService {
         }
     
     getUserByUsername(username: string): Observable<User> {
-        return this.http.get<User>("http://localhost:8000/users/" + username);
+        return this.http.get<User>("http://localhost:8000/users/username/" + username);
     }
     islogged() {
         const token = this.cookie.get('token');
@@ -61,9 +61,9 @@ export class LoginService {
         );
       }
 
-    refreshToken(refreshToken:string): Observable<any> {
+    refreshToken(refresh:string): Observable<any> {
         // const refreshToken = this.cookie.get('refresh_token');
-        return this.http.post('http://localhost:8000/api/token/refresh/', { refresh: refreshToken });
+        return this.http.post('http://localhost:8000/api/token/refresh/', {refresh: refresh} );
     }
 }
 

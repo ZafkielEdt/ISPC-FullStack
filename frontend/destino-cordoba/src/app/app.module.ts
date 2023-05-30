@@ -24,6 +24,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { DashboardContainerComponent } from './components/admin-dashboard-components/dashboard-container/dashboard-container.component';
 import { UserTabComponent } from './components/admin-dashboard-components/user-tab/user-tab.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PriceBoxComponent } from './pages/cart/price-box/price-box.component';
 import { DestinationTabComponent } from './components/admin-dashboard-components/destination-tab/destination-tab.component';
 import { DestinationUpdateDetailsComponent } from './components/admin-dashboard-components/destination-tab/destination-update-details/destination-update-details.component';
 import { DestinationCreationFormComponent } from './components/admin-dashboard-components/destination-tab/destination-creation-form/destination-creation-form.component';
@@ -41,6 +42,7 @@ import { UserUpdateFormComponent } from './components/user-dashboard-components/
     CartComponent,
     TravelerComponent,
     PaymentInfoComponent,
+    PriceBoxComponent,
     DashboardContainerComponent,
     UserTabComponent,
     DestinationTabComponent,

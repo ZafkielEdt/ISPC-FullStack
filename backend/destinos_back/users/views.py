@@ -23,12 +23,18 @@ class UserList(generics.ListCreateAPIView):
 
 class UserByUsernameView(APIView):
     def get(self, request, username):
-        try:
-            user = User.objects.get(username=username)
-            serialized_user = UserSerializer(user)
-            return Response(serialized_user.data)
-        except User.DoesNotExist:
-            return Response({'error': 'User not found'}, status=404)
+        
+        user = User.objects.get(username=username)
+        serialized_user = UserSerializer(user)
+        return Response(serialized_user.data)
+
+        
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'pk'
+
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

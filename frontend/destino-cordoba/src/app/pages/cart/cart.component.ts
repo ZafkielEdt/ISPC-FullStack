@@ -19,25 +19,26 @@ export class CartComponent implements OnInit, OnDestroy {
     totalValue: 100000,
     item: null,
   };
+  
+  personas: number = 1;
 
-  cancel(): void {
-    this.cartService.emptyCart();
-    this.cart.item = null;
 
-  }
 
   ngOnInit(): void {
     document.body.style.backgroundColor = '#f5f5f5';
     if(this.loginService.islogged()){
       this.cartService.loadCart();
+
     }
     if (this.cartService.getCurrentCart()) {
       this.cart.item = this.cartService.getCurrentCart();
+      this.personas = (this.cart.item.adults?.length ?? 1) + (this.cart.item.childs?.length ?? 0);
     }
   }
 
   ngOnDestroy(): void {
     document.body.style.backgroundColor = "#fff";
+    this.cartService.emptyCart();
   }
 
 }
