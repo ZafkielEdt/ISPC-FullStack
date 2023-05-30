@@ -65,8 +65,8 @@ class ImageDestination(models.Model):
 
 
 class Experience(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
+    description = models.TextField()
     price = models.FloatField()
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
     def __str__(self) -> str:
