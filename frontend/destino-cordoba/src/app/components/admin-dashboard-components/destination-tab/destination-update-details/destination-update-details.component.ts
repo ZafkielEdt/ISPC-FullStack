@@ -28,7 +28,10 @@ export class DestinationUpdateDetailsComponent implements OnInit {
         name: data.name,
         city: data.city.name,
         description: data.description,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 98c34de1bae542516cc89a69e12422e72bef224b
       });
     });
 
