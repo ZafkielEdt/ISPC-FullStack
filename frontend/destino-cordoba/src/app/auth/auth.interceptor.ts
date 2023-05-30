@@ -33,56 +33,9 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
 
-    return next.handle(request).pipe(
-      catchError((error: any) => {
-        if (error.status === 401) {
-          const refreshToken = this.cookieService.get('refresh_token');
-          let service = this.inject.get(LoginService);
-          if(service.islogged()){
-          if (refreshToken) {
-            return service.refreshToken(refreshToken).pipe(
-              catchError(() => {
-                this.deleteCookies()
-                this.router.navigate(['/login']);
-                return throwError(() => new Error('Token refreshing failed'));
-              }),
-              switchMap((res: any) => {
-                if (res && res.access) {
-                  this.cookieService.set('token', res.access);
-                  request = request.clone({
-                    setHeaders: {
-                      Authorization: `Bearer ${res.access}`,
-                    },
-                  });
-                  return next.handle(request);
-                } else {
-                  this.deleteCookies()
-                  this.router.navigate(['/login']);
-                  return throwError(() => new Error('Token refreshing failed'));
-                }
-              }),
-            );
-          } else {
-            this.deleteCookies()
-            this.router.navigate(['/login']);
-            return throwError(() => new Error('Refresh token not found'));
-          }
-        }else{
-          this.deleteCookies()
-          this.router.navigate(['/login']);
-          return throwError(() => new Error('User not logged in'));
-        }
-        } else {
-          this.deleteCookies()
-          return throwError(() => error);
-        }
-      })
-    );
+    return next.handle(request);
+
   }
 
-  private deleteCookies(): void {
-    this.cookieService.delete('token');
-    this.cookieService.delete('refresh_token');
-  }
+
 }
-

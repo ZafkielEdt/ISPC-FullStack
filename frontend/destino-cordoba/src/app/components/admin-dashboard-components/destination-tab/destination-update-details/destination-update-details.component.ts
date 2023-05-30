@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { DestinationsService } from "src/app/services/destinations.service";
-import { Destination } from "src/app/models/destination";
+import { Destination, DestinationsService } from "src/app/services/destinations.service";
 
 @Component({
   selector: "app-destination-update-details",
@@ -24,25 +23,25 @@ export class DestinationUpdateDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const destinationIdFromRoute = Number(routeParams.get("destinationId"));
 
-    // this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
-    //   this.destinationFormData = this.formBuilder.group({
-    //     name: data.name,
-    //     city: data.city.name,
-    //     description: data.description,
-    //     image: data.gallery,
-    //   });
-    // });
+    this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
+      this.destinationFormData = this.formBuilder.group({
+        name: data.name,
+        city: data.city.name,
+        description: data.description,
 
-    // this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
-    //   this.destination = data;
-    // });
+      });
+    });
+
+    this.destinationService.getBy(destinationIdFromRoute).subscribe((data) => {
+      this.destination = data;
+    });
   }
 
   onSubmit(): void {
-    // this.destinationService
-    //   .update(this.destinationFormData, this.destination.id)
-    //   .subscribe((data) => {
-    //     "Updated"
-    //   });
+    this.destinationService
+      .update(this.destinationFormData, this.destination.id)
+      .subscribe((data) => {
+        "Updated"
+      });
   }
 }
