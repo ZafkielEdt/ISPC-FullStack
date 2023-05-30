@@ -18,7 +18,5 @@ export class UserDashboardComponent implements OnInit {
       .subscribe(
         (data) => (this.actualUserRole = data.role?.includes("admin") ? true : false)
       );
-      console.log(this.actualUserRole);
-      
   }
 }

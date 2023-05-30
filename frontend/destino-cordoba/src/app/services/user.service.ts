@@ -11,10 +11,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private userUrl: string = 'http://localhost:3000/user';
+  private userUrl: string = 'http://localhost:8000/users';
 
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl);
+  getAll() {
+    return this.http.get<any>(this.userUrl);
   }
 
   getBy(id: number): Observable<User> {
