@@ -1,32 +1,40 @@
-import { Component } from "@angular/core";
-import { Observable } from "rxjs";
-import { Destination, DestinationsService } from "src/app/services/destinations.service";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import {
+  Destination,
+  DestinationsService,
+} from "src/app/services/destinations.service";
 
 @Component({
   selector: "app-destination-tab",
   templateUrl: "./destination-tab.component.html",
   styleUrls: ["./destination-tab.component.css"],
 })
-export class DestinationTabComponent {
-  destinations$!: Observable<Destination[]>;
+export class DestinationTabComponent implements OnInit, OnDestroy {
+  suscribe: Subscription | undefined;
+  destinations!: Destination[];
   windowSize: boolean = false;
 
   constructor(private destinationService: DestinationsService) {
-    this.destinationService.getAll().subscribe({
-      next: (data) => {
-        console.log(data)
-      },})
     this.windowSize = window.innerWidth > 768;
   }
 
   deleteDestination(id: number) {
     this.destinationService.deleteBy(id).subscribe({
-      next: () => {
-        
-      },
+      next: () => {},
       error: (error) => {
         throw error;
       },
     });
+  }
+
+  ngOnInit(): void {
+    this.suscribe = this.destinationService.getAll().subscribe((res) => {
+      this.destinations = res.results;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.suscribe?.unsubscribe();
   }
 }
