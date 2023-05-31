@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let destination of destinations$ | async">
+      <tr *ngFor="let destination of destinations">
         <td>{{destination.id}}</td>
         <td>{{destination.name}}</td>
         <td>{{destination.city.name}}</td>

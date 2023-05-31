@@ -19,7 +19,7 @@ export class DestinationsService {
   private destinationUrl: string = "http://localhost:8000/destinations";
 
   getAll() {
-    return this.http.get<Destination[]>(this.destinationUrl);
+    return this.http.get<any>(this.destinationUrl);
   }
 
   getBy(id: number) {
