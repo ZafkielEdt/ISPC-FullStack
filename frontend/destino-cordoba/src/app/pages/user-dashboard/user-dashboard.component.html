@@ -1,4 +1,4 @@
 <section class="dashboard">
-  <app-dashboard-container *ngIf="actualUserRole[0] === 'admin'"></app-dashboard-container>
-  <app-user-dashboard-container *ngIf="actualUserRole[0] === 'user'"></app-user-dashboard-container>
+  <app-dashboard-container *ngIf="actualUserRole"></app-dashboard-container>
+  <app-user-dashboard-container *ngIf="actualUserRole === false"></app-user-dashboard-container>
 </section>
