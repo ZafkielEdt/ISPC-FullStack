@@ -1,9 +1,9 @@
 <div
-  class="card__package container rounded-sm bg-white min-h-96 max-w-[300px] shadow-xl cursor-pointer"
+  class="card__package container rounded-sm bg-white min-h-96 max-w-[300px] shadow-2xl cursor-pointer"
   [routerLink]="path">
   <div class="card__info relative ">
     <div *ngIf="gallery && gallery.length > 0"  class="relative max-w-xs rounded-t-md overflow-hidden">
-      <img class="rounded-t-md max-w-xs transition duration-300 ease-in-out hover:scale-110" [src]="gallery[randomIndex] && gallery[randomIndex].url" alt="thumnail" width="300" height="200">
+      <img class="rounded-t-md max-w-xs h-[200px] transition duration-300 ease-in-out hover:scale-110" [src]="gallery[randomIndex] && gallery[randomIndex].url" alt="thumnail" width="300">
     </div>
   </div>
 
