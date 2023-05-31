@@ -1,4 +1,4 @@
-<div class="gallery-container">
+<div class="gallery-container" *ngIf="!isLoading">
 
   <img [lazyLoad]="gallery[0].url" class="gallery-image-large">
   <div class="gallery-image-small">

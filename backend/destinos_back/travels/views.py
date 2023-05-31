@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from .models import *
 from rest_framework.permissions import AllowAny
@@ -78,9 +79,15 @@ class PackageDetail(generics.RetrieveAPIView):
 
 
 @permission_classes([AllowAny])
-class ImageDestinationView(generics.ListCreateAPIView):
-    queryset = ImageDestination.objects.all()
+class ImageDestinationView(generics.ListAPIView):
     serializer_class = ImageDestinationSerializer
+    lookup_url_kwarg = 'destination'
+
+    def get_queryset(self):
+        destination_id = self.kwargs.get('destination')
+        destination = get_object_or_404(Destination, id=destination_id)
+        queryset = ImageDestination.objects.filter(destination=destination)
+        return queryset
 
 @permission_classes([AllowAny])
 class ImageExperienceView(generics.ListCreateAPIView):

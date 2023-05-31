@@ -6,7 +6,7 @@ urlpatterns = [
     path('cities', views.CityView.as_view()),
     path('destinations', views.DestinationView.as_view()),
     path('destinations/<int:id>', views.DestinationDetail.as_view()),
-    path('destinations/images/<int:id>', views.ImageDestinationView.as_view()),
+    path('destinations/images/<int:destination>', views.ImageDestinationView.as_view()),
     path('experiences', views.ExperienceView.as_view()),
     path('experiences/dest/<int:destination_id>', views.ExperienceListView.as_view()),
     path('experiences/<int:id>', views.ExperienceDetail.as_view()),

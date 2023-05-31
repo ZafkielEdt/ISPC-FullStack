@@ -11,6 +11,7 @@ export class GalleryComponent {
 
   @Input() gallery: any[] = [];
   @Input() totalDuration: string = '';
+  @Input() isLoading: boolean = true;
 
   openDialog() : void{
     this.dialog.open(ModalComponent,{

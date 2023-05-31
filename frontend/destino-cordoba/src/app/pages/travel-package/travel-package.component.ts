@@ -106,8 +106,8 @@ export class PackageTravelComponent implements OnInit {
 		this.router.navigateByUrl("/cart");
 	}
 
+	destinationId:number = 0;
 	ngOnInit(): void {
-		let destinationId;
 		this.route.params.subscribe((params) => {
 			this.id = params["id"];
 		});
@@ -127,6 +127,12 @@ export class PackageTravelComponent implements OnInit {
 					destination: paquete.destination,
 				  };
 				  this.totalDuration = this.packageTravel.days + " días y " + this.packageTravel.nights + " noches";
+				  this.destinationId = paquete.destination.id;
+				  this.imagesService.getDestinationImages(this.destinationId).subscribe({
+					next: (images: any) => {	
+						console.log(images)
+						this.gallery = images.results;
+					}});
 			},
 			error: (error: any) => {
 			  console.log(error)
@@ -135,11 +141,7 @@ export class PackageTravelComponent implements OnInit {
 				this.isLoading = false;
 			},
 		  });
-		  this.imagesService.getDestinationImages(this.id).subscribe({
-			next: (images: any) => {	
-				console.log(images)
-				this.gallery = images.results;
-			}});
+
 		}
 	setPackageInfo(): void {
 		if (this.package && this.destinationFetch) {
