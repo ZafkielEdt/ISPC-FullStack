@@ -3,7 +3,7 @@
   <div class="carousel" >
     <img
     *ngFor="let image of gallery; let i = index"
-    [ngClass]="{'active-img': (activeIndex === i)}" [src]="image" alt="">
+    [ngClass]="{'active-img': (activeIndex === i)}" [src]="image.url" alt="">
   </div>
 
   <div class="dots">

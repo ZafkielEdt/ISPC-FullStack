@@ -1,6 +1,5 @@
 from django.db import models
 from users.models import User
-
 import uuid
 
 
@@ -46,7 +45,7 @@ class Accommodation(models.Model):
 
 
 class ImageAccommodation(models.Model):
-    url = models.CharField(max_length=500)
+    url = models.FileField(upload_to='destinos-cba')
     title = models.CharField(max_length=30)
     accommodation = models.ForeignKey(Accommodation, on_delete=models.CASCADE)
 
@@ -58,9 +57,9 @@ class Destination(models.Model):
         return self.name
 
 class ImageDestination(models.Model):
-    url = models.CharField(max_length=500)
+    url = models.FileField(upload_to='destinos-cba')
     title = models.CharField(max_length=30)
-    destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='images')
 
 
 
@@ -71,6 +70,10 @@ class Experience(models.Model):
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
     def __str__(self) -> str:
         return self.name
+class ImageExperience(models.Model):
+    url = models.FileField(upload_to='destinos-cba')
+    title = models.CharField(max_length=30)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE, related_name='images')
 
 class ExpDestination(models.Model):
     url = models.CharField(max_length=500)
@@ -82,9 +85,8 @@ class Package(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     total_price = models.FloatField()
+    rate = models.FloatField(default=0)
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
-    experience = models.ForeignKey(Experience, on_delete=models.CASCADE,null=True)
-    accommodation = models.ManyToManyField(Accommodation)
     def __str__(self) -> str:
         return self.title
 
@@ -106,3 +108,5 @@ class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
+
+

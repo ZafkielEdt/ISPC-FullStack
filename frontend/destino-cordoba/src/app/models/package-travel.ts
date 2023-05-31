@@ -1,4 +1,4 @@
-import { Destination } from "./destination";
+import { Destination } from "../services/destinations.service";
 import { Traveler } from "./traveler";
 export interface Experience {
 	title: string;
@@ -13,10 +13,11 @@ export interface PackageTravel {
 	price: number;
 	days: number;
 	nights: number;
+	rate?: number;
 	childs?: Traveler[];
 	adults?: Traveler[];
 	experiences?: Experience[];
-	destination: Destination;
+	destination?: Destination;
 }
 
 export const packageTravel = {

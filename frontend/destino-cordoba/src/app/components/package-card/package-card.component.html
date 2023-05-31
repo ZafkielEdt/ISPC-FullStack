@@ -1,22 +1,25 @@
 <div
-  class="card__package container rounded-sm bg-white min-h-96 max-w-[300px] shadow-xl cursor-pointer"
+  class="card__package container rounded-sm bg-white min-h-96 max-w-[300px] shadow-2xl cursor-pointer"
   [routerLink]="path">
   <div class="card__info relative ">
-    <div class="relative max-w-xs rounded-t-md overflow-hidden">
-      <img class="rounded-t-md max-w-xs transition duration-300 ease-in-out hover:scale-110" src="/assets/img/imagen3.webp" alt="thumnail" width="300" height="200">
+    <div *ngIf="gallery && gallery.length > 0"  class="relative max-w-xs rounded-t-md overflow-hidden">
+      <img class="rounded-t-md max-w-xs h-[200px] transition duration-300 ease-in-out hover:scale-110" [src]="gallery[randomIndex] && gallery[randomIndex].url" alt="thumnail" width="300">
     </div>
   </div>
 
   <div class="card__description relative bottom-0 left-0 w-full bg-white ">
       <div class="package__duration bg-emerald-500 rounded-md px-1 text-white flex gap-1 items center absolute top-[-1rem] left-1">
-        <span class="py-1 text-sm font-semibold">{{package.nights}} NOCHES y {{package.days}} DIAS </span>
+        <span class="py-1 text-sm font-semibold">{{duration.nights}} NOCHES y {{duration.days}} DIAS </span>
       </div>
 
     <div class="p-3 flex flex-col gap-4 divide-y">
       <div class="card__header">
-        <p class="font-bold text-xl">{{package.destination.name}}</p>
+        <p class="font-bold text-xl">{{package.title}}</p>
+        <div class="location__ flex items-center my-1">
 
-        <p class="font-bold text-sm">{{package.destination.description}}</p>
+          <span><img src="/assets/icons/ic_location.png" alt="" width="16" height="16"></span>
+          <p class="font-bold text-sm">{{package.destination.name}}</p>
+        </div>
       </div>
       <div class="package__rate flex gap-1 items-center p-2">
         <span class="bg-emerald-500 font-semibold text-white px-2 rounded-sm">{{package.rate}}</span>
@@ -29,7 +32,7 @@
       </div>
       <div class="package__price py-4 flex gap-1 items-center">
         <span class="tex-black text-xl rounded-sm font-bold">
-          {{package.totalPrice | currency:'ARS':'symbol-narrow'}}
+          {{package.total_price | currency:'ARS':'symbol-narrow'}}
         </span>
 
         <div class="group relative inline-block">
@@ -43,7 +46,6 @@
               class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-zinc-800"></span>
             Por persona
           </div>
-
         </div>
       </div>
     </div>
