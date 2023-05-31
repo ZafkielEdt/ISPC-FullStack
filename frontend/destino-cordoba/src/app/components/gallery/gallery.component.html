@@ -8,8 +8,8 @@
       <div class="image-small-mask" *ngIf="i == 2 &&gallery.length !== 4">
         <button (click)="openDialog()">+ {{gallery.length-4}}</button>
       </div>
-      <div class="image-small-mask" *ngIf="i == 2">
-        <button (click)="openDialog()">+</button>
+      <div class="image-small-mask" *ngIf="i == 2 &&gallery.length <= 4">
+        <button (click)="openDialog()">ver</button>
       </div>
     </div>
     <div class="travel-duration">
