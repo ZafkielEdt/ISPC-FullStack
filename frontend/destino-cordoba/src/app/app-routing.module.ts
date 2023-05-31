@@ -18,7 +18,7 @@ import { AuthGuard } from './auth/guard/auth.guard';
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages').then((m) => m.HomeModule) },
   { path: '', loadChildren: () => import('./auth').then((m) => m.AuthModule) },
-  { path: 'travel/:title', component: PackageTravelComponent },
+  { path: 'paquete/:id', component: PackageTravelComponent },
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard]},
   {path: 'user-dashboard/destinations/:destinationId', component: DestinationUpdateDetailsComponent},
   {path: 'user-dashboard/destination/new-destination', component: DestinationCreationFormComponent},

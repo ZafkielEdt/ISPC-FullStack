@@ -9,7 +9,7 @@ import { ModalComponent } from 'src/app/pages/travel-package';
 export class GalleryComponent {
   constructor(public dialog: MatDialog) {}
 
-  @Input() gallery: string[] = [];
+  @Input() gallery: any[] = [];
   @Input() totalDuration: string = '';
 
   openDialog() : void{

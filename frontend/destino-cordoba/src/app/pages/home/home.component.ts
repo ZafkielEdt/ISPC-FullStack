@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Observable, Subscription } from "rxjs";
 import { LoginService } from "src/app/auth/service/login.service";
 import { PackageCard } from "src/app/models/package-card";
 import {
@@ -15,9 +14,8 @@ import { PackagesService } from "src/app/services/packages.service";
 	styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-	subscription: Subscription | undefined;
 	packages!: PackageCard[];
-	packageUrl = "travel/";
+	packageUrl = "paquete/";
 	destinations$!: Destination[];
 
 	constructor(
@@ -27,10 +25,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
-		this.subscription = this.packageService
-			.getPackages()
-			.subscribe((data: PackageCard[]) => {
-				this.packages = data;
+		this.packageService.getPackages()
+			.subscribe((data: any) => {
+				this.packages = data.results;
+				console.log(this.packages);
 			});
 		this.destinationsService.getDestinations().subscribe((data) => {
 			this.destinations$ = data.results;
@@ -39,6 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.subscription?.unsubscribe();
+	
 	}
 }

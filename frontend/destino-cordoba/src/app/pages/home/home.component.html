@@ -55,7 +55,7 @@
 				<div *ngFor="let package of packages">
 					<app-package-card
 						[package]="package"
-						[path]="packageUrl + package.title"
+						[path]="packageUrl + package.id"
 					></app-package-card>
 				</div>
 			</div>

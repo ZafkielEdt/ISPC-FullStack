@@ -19,7 +19,7 @@ export class UserDashboardContainerComponent {
     //   username: 'John',
     //   email: 'john@gmail.com',
     //   password: 'password',
-    //   role: ['user']
+    //   rol: ['user']
     // }
     this.authService.getCurrentUser().subscribe(data => this.currentUser = data);
   }

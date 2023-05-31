@@ -9,16 +9,16 @@ import { User } from "src/app/models/user";
 })
 export class UserDashboardComponent implements OnInit {
   // TODO: Cambiar a true para acceder al dashboard del admin, en false accede al del usuario
-  actualUserRole?: boolean = false;
+  actualUserrol?: boolean = false;
 
   constructor(private authService: LoginService) {}
 
   ngOnInit(): void {
     // TODO: Tecnicamente, esto debería de funcionar, pero como el rol sale 'undefined' falla
-    //  this.authService
-    //    .getCurrentUser()
-    //    .subscribe(
-    //      (data) => {this.actualUserRole = data.role?.includes("ADM") ? true : false}
-    //    );
+     this.authService
+       .getCurrentUser()
+       .subscribe(
+         (data) => {this.actualUserrol = data.rol?.includes("ADM") ? true : false}
+       );
   }
 }

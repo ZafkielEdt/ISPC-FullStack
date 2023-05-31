@@ -9,7 +9,7 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {gallery: string[]}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {gallery: any[]}) { }
   gallery = this.data.gallery;
   activeIndex:number = 0;
   currentImage = '';
