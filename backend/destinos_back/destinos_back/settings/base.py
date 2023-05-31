@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import timedelta
+import cloudinary_storage
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 print(BASE_DIR)
@@ -26,6 +27,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -170,3 +173,11 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:4200",
     "http://127.0.0.1:4200",
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dgeqs6lot',
+    'API_KEY': '323429277287268',
+    'API_SECRET': '3uArjnXkTZT5b37R-wpi8mLy9Rw',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

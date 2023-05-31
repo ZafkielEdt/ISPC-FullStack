@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import User
-
+import cloudinary
+from cloudinary.models import CloudinaryField
 import uuid
 
 
@@ -58,9 +59,9 @@ class Destination(models.Model):
         return self.name
 
 class ImageDestination(models.Model):
-    url = models.CharField(max_length=500)
+    url = models.FileField(upload_to='destinos-cba')
     title = models.CharField(max_length=30)
-    destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='images')
 
 
 
@@ -83,8 +84,6 @@ class Package(models.Model):
     end_date = models.DateField()
     total_price = models.FloatField()
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
-    experience = models.ForeignKey(Experience, on_delete=models.CASCADE,null=True)
-    accommodation = models.ManyToManyField(Accommodation)
     def __str__(self) -> str:
         return self.title
 
