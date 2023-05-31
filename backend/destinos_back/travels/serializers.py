@@ -28,10 +28,17 @@ class CitySerializer(serializers.ModelSerializer):
         model = City
         fields = '__all__'
 
+class ImageDestinationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageDestination
+        fields = '__all__'
+
 class DestinationSerializer(serializers.ModelSerializer):
+    images = ImageDestinationSerializer(many=True)
+    city = CitySerializer()
     class Meta:
         model = Destination
-        fields = '__all__'
+        fields = ['id','name','description','city','images']
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -39,6 +46,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PackageSerializer(serializers.ModelSerializer):
+    destination = DestinationSerializer()
     class Meta:
         model = Package
         fields = '__all__'
@@ -60,4 +68,12 @@ class AccommodationSerializer(serializers.ModelSerializer):
         accomodation = Accommodation.objects.create(address = address,**validated_data)
         return accomodation
 
+class ImageExperienceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = None 
+        fields = ('url', 'title')
 
+class ImageAccommodationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = None 
+        fields = ('url', 'title')

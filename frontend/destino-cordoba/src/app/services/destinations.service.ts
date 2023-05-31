@@ -23,7 +23,7 @@ export class DestinationsService {
   }
 
   getBy(id: number) {
-    return this.http.get<Destination>(`${this.destinationUrl}/${id}`);
+    return this.http.get<any>(`${this.destinationUrl}/${id}`);
   }
 
   post(destination: FormGroup) {

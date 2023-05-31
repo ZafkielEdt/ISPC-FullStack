@@ -1,12 +1,12 @@
 export interface User {
-  id: number; 
+  pk: number; 
   username : string;
   first_name: string;
   last_name: string;
   email: string;
   password: string;
   phone?: string;
-  role?: string[];
+  rol?: string[];
   photo?: string;
   address?: any;
 }

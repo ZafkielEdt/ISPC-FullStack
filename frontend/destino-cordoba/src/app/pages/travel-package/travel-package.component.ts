@@ -1,9 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder, Validators } from "@angular/forms";
-import { packageTravel } from "src/app/models/package-travel";
 import { CartService } from "src/app/services/products/cart.service";
 import { ExperiencesService } from "src/app/services/experiencias.service";
+import { PackagesService } from "src/app/services/packages.service";
+import { Package } from "src/app/models/package";
+import { DestinationsService } from "src/app/services/destinations.service";
+import { PackageTravel } from "src/app/models/package-travel";
+import { ImagesService } from "src/app/services/images.service";
 
 @Component({
 	selector: "app-travel-package",
@@ -11,26 +15,31 @@ import { ExperiencesService } from "src/app/services/experiencias.service";
 	styleUrls: ["./travel-package.component.css"],
 })
 export class PackageTravelComponent implements OnInit {
+	id!: number;
 	isChecked = true;
-	packageTravel = packageTravel;
-	totalDuration =
-		this.packageTravel.days.toString() +
-		" DÍAS / " +
-		this.packageTravel.nights.toString() +
-		" NOCHES";
+	packageTravel!:any;
+	package! : Package;
+	destinationFetch!: any;
+	gallery: string[] = [];
+	totalDuration: string = "";
 	firstFormGroup = this._formBuilder.group({
 		firstCtrl: ["", Validators.required],
 	});
 	secondFormGroup = this._formBuilder.group({
 		secondCtrl: ["", Validators.required],
 	});
+	isLoading: boolean = true;
 
 	constructor(
 		private route: ActivatedRoute,
 		private _formBuilder: FormBuilder,
 		private cartService: CartService,
 		private router: Router,
-		private expericenceService: ExperiencesService
+		private expericenceService: ExperiencesService,
+		private packageService: PackagesService,
+		private destinationService : DestinationsService,
+		private imagesService: ImagesService		
+
 	) {}
 
 	selectedDate: Date = new Date();
@@ -89,6 +98,7 @@ export class PackageTravelComponent implements OnInit {
 				? this.packageTravel.adults.length--
 				: (this.packageTravel.adults.length = 1);
 		}
+		console.log(this.packageTravel.adults.length);
 	}
 
 	addToCart() {
@@ -96,9 +106,59 @@ export class PackageTravelComponent implements OnInit {
 		this.router.navigateByUrl("/cart");
 	}
 
+	destinationId:number = 0;
 	ngOnInit(): void {
 		this.route.params.subscribe((params) => {
-			const title = params["title"];
+			this.id = params["id"];
 		});
-	}
+		this.packageService.getPackageById(this.id).subscribe({
+			next: (paquete: any) => {
+				this.packageTravel = {
+					id: paquete.id,
+					title: paquete.title,
+					description: paquete.destination.description,
+					price: paquete.total_price,
+					days: Number(paquete.end_date.split('-')[2]) - Number(paquete.start_date.split('-')[2]),
+					nights: Number(paquete.end_date.split('-')[2]) - Number(paquete.start_date.split('-')[2])-1,
+					rate: 0,
+					childs: [],
+					adults: [],
+					experiences: [],
+					destination: paquete.destination,
+				  };
+				  this.totalDuration = this.packageTravel.days + " días y " + this.packageTravel.nights + " noches";
+				  this.destinationId = paquete.destination.id;
+				  this.imagesService.getDestinationImages(this.destinationId).subscribe({
+					next: (images: any) => {	
+						console.log(images)
+						this.gallery = images.results;
+					}});
+			},
+			error: (error: any) => {
+			  console.log(error)
+			},
+			complete: () => {
+				this.isLoading = false;
+			},
+		  });
+
+		}
+	setPackageInfo(): void {
+		if (this.package && this.destinationFetch) {
+			console.log("hola")
+		  this.packageTravel = {
+			id: this.id,
+			title: this.package.title,
+			description: this.package.destination.description,
+			price: this.package.total_price,
+			days: Number(this.package.end_date.split('-')[2]) - Number(this.package.start_date.split('-')[2]),
+			nights: Number(this.package.end_date.split('-')[2]) - Number(this.package.start_date.split('-')[2])-1, // Asegúrate de ajustar esta línea según corresponda
+			rate: 0,
+			childs: [],
+			adults: [],
+			experiences: [],
+			destination: this.destinationFetch,
+		  };
+		}
+	  }
 }
