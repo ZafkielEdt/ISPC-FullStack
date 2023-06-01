@@ -1,17 +1,11 @@
 <section class="form-container">
   <h2 class="title">Actualizar</h2>
-  <form
-    action=""
-    *ngIf="user"
-    [formGroup]="currentUser"
-    (ngSubmit)="onSubmit()"
-  >
+  <form action="" [formGroup]="currentUser" (ngSubmit)="onSubmit()">
     <label for="first_name">Nombre</label>
     <input
       type="text"
       name="first_name"
       id="first_name"
-      value="{{ user.first_name }}"
       formControlName="first_name"
     />
     <label for="last_name">Apellido</label>
@@ -19,17 +13,10 @@
       type="text"
       name="last_name"
       id="last_name"
-      value="{{ user.last_name }}"
       formControlName="last_name"
     />
     <label for="email">Email</label>
-    <input
-      type="email"
-      name="email"
-      id="email"
-      value="{{ user.email }}"
-      formControlName="email"
-    />
+    <input type="email" name="email" id="email" formControlName="email" />
     <label for="password">Password</label>
     <input
       type="password"
@@ -38,21 +25,9 @@
       formControlName="password"
     />
     <label for="phone">phone</label>
-    <input
-      type="tel"
-      name="phone"
-      id="phone"
-      value="{{ user.phone }}"
-      formControlName="phone"
-    />
+    <input type="tel" name="phone" id="phone" formControlName="phone" />
     <label for="photo">photo</label>
-    <input
-      type="text"
-      name="photo"
-      id="photo"
-      value="{{ user.photo }}"
-      formControlName="photo"
-    />
+    <input type="text" name="photo" id="photo" formControlName="photo" />
     <label for="street">Street</label>
     <input type="text" name="street" id="street" formControlName="address" />
     <label for="number">Number</label>
