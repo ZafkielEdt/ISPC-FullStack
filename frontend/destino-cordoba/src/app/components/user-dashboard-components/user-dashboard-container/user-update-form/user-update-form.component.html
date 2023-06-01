@@ -1,6 +1,11 @@
 <section class="form-container">
   <h2 class="title">Actualizar</h2>
-  <form action="" [formGroup]="currentUser" (ngSubmit)="onSubmit()">
+  <form
+    action=""
+    *ngIf="user"
+    [formGroup]="currentUser"
+    (ngSubmit)="onSubmit()"
+  >
     <label for="first_name">Nombre</label>
     <input
       type="text"
@@ -48,12 +53,15 @@
       value="{{ user.photo }}"
       formControlName="photo"
     />
-    <label for="address">address</label>
+    <label for="street">Street</label>
+    <input type="text" name="street" id="street" formControlName="address" />
+    <label for="number">Number</label>
+    <input type="text" name="number" id="number" formControlName="address" />
+    <label for="zip_code">Zip Code</label>
     <input
       type="text"
-      name="address"
-      id="address"
-      value="{{ user.address }}"
+      name="zip_code"
+      id="zip_code"
       formControlName="address"
     />
     <div class="btns">
