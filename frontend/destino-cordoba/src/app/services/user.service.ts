@@ -17,8 +17,8 @@ export class UserService {
     return this.http.get<any>(this.userUrl);
   }
 
-  getBy(id: number): Observable<User> {
-    return this.http.get<User>(`${this.userUrl}/${id}`)
+  getBy(id: number) {
+    return this.http.get<any>(`${this.userUrl}/${id}`)
   }
 
   update(user: FormGroup, id: number) {
