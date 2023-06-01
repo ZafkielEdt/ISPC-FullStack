@@ -1,15 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { User } from "src/app/models/user";
 import { UserService } from "src/app/services/user.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-user-update-form",
   templateUrl: "./user-update-form.component.html",
   styleUrls: ["./user-update-form.component.css"],
 })
-export class UserUpdateFormComponent implements OnInit {
+export class UserUpdateFormComponent implements OnInit, OnDestroy {
+  subscription!: Subscription;
   currentUser!: FormGroup;
   user!: User;
   userId!: number;
@@ -24,15 +26,22 @@ export class UserUpdateFormComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.userId = Number(routeParams.get("userId"));
 
-    this.userService.getBy(this.userId).subscribe((data) => {
+    this.subscription = this.userService.getBy(this.userId).subscribe((data) => {
       this.currentUser = this.formBuilder.group({
         first_name: data.first_name,
         last_name: data.last_name,
         email: data.email,
         password: "",
-      });
+        phone: data.phone,
+        photo: data.photo,
+        address: data.address
+      }); {this.user = data};
     });
-    this.userService.getBy(this.userId).subscribe((data) => {this.user = data})
+    //this.userService.getBy(this.userId).subscribe((data) => {this.user = data})
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   onSubmit() {

@@ -1,5 +1,5 @@
 <section class="user-dashboard">
-  <h2 class="title">Bienvenido</h2>
+  <h2 class="title">Bienvenido {{currentUser.username}}</h2>
 
   <div class="btns">
     <a [routerLink]="['/users/', currentUser.pk]"><button class="btn-update">Actualizar Datos</button></a>
