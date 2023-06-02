@@ -1,3 +1,5 @@
+import { Address } from "./address";
+
 export interface User {
   pk: number;
   username: string;
@@ -8,5 +10,5 @@ export interface User {
   phone?: string;
   rol?: string[];
   photo?: string;
-  address?: any;
+  address: Address;
 }
