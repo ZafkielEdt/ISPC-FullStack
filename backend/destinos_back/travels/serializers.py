@@ -4,7 +4,7 @@ from .models import *
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = '__all__'
+        fields = ['street','number','zip_code']
     
     def create(self,validated_data):
         address = Address.objects.filter(street=validated_data.get('street'), 

@@ -1,11 +1,10 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ThemePalette } from "@angular/material/core";
-import { LoginService } from "../service/login.service";
-import { User } from "src/app/models/user";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { ToastrService } from "ngx-toastr";
+import { User } from "src/app/models/user";
+import { LoginService } from "../service/login.service";
 
 export interface LoginRequest {
 	username: string;
@@ -26,7 +25,6 @@ export class LoginComponent {
 		private fb: FormBuilder,
 		private serviceLogin: LoginService,
 		private router: Router,
-		private cookie: CookieService,
 		private toastr: ToastrService
 	) {}
 	ngOnInit(): void {
