@@ -16,12 +16,12 @@
           id="username"
           [ngClass]="{'border-red-700':(formularioLogin.get('password')?.invalid && (formularioLogin.get('password')?.dirty || formularioLogin.get('password')?.touched))}"
           />
-          <div *ngIf="formularioLogin.get('username')?.invalid && (formularioLogin.get('username')?.dirty || formularioLogin.get('username')?.touched)"
+          <!-- <div *ngIf="formularioLogin.get('username')?.invalid && (formularioLogin.get('username')?.dirty || formularioLogin.get('username')?.touched)"
           class="text-red-500 text-sm mt-1">
           <p *ngIf="formularioLogin.get('username')?.errors?.['required']">Este campo es requerido.</p>
           <p *ngIf="formularioLogin.get('username')?.errors?.['minlength']">La longitud mínima es de 4 caracteres.</p>
           <p *ngIf="formularioLogin.get('username')?.errors?.['maxlength']">La longitud máxima es de 20 caracteres.</p>
-        </div>
+        </div> -->
         <label for="password" class="mt-6">Contraseña</label>     
         <div class="relative w-full">
           <input class="form-input rounded-md text-black bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 w-full"
@@ -31,12 +31,12 @@
             autocomplete="off" 
             [ngClass]="{'border-red-700':(formularioLogin.get('username')?.invalid && (formularioLogin.get('username')?.dirty || formularioLogin.get('username')?.touched))}"/>
         
-          <div *ngIf="formularioLogin.get('password')?.invalid && (formularioLogin.get('password')?.dirty || formularioLogin.get('password')?.touched)"
+          <!-- <div *ngIf="formularioLogin.get('password')?.invalid && (formularioLogin.get('password')?.dirty || formularioLogin.get('password')?.touched)"
             class="text-red-500 text-sm mt-1">
             <p *ngIf="formularioLogin.get('username')?.errors?.['required']">Este campo es requerido.</p>
             <p *ngIf="formularioLogin.get('username')?.errors?.['minlength']">La longitud mínima es de 8 caracteres.</p>
           </div>
-        
+         -->
           <div class="absolute inset-y-0 right-0 ">
             <button mat-icon-button color="primary"  matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
