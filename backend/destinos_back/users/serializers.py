@@ -10,9 +10,11 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+    address = AddressSerializer()  # Nested serializer field for address
+
     class Meta:
         model = User
-        fields = ['pk','username', 'first_name', 'last_name', 'email','password', 'dni', 'phone', 'photo', 'rol']
+        fields = ['pk', 'username', 'first_name', 'last_name', 'email', 'password', 'dni', 'phone', 'photo', 'address', 'rol']
         extra_kwargs = {
             'password': {'write_only': True}
         }
@@ -20,10 +22,11 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         password = validated_data.pop('password')
         validated_data['password'] = make_password(password)
-        user = User.objects.create(**validated_data)
+        address_data = validated_data.pop('address')
+        address = Address.objects.create(**address_data)
+        user = User.objects.create(address=address, **validated_data)
         return user
-
-
+    
 class LoginSerializer(serializers.ModelSerializer):
 
     class Meta:
