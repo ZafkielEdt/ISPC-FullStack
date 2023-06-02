@@ -18,7 +18,7 @@ User = get_user_model()
 
 @permission_classes([AllowAny])
 class UserList(generics.ListCreateAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
 
 class UserByUsernameView(APIView):
