@@ -37,7 +37,8 @@ export class DestinationUpdateDetailsComponent implements OnInit {
         name: data.name,
         city: data.city.name,
         description: data.description,
-        image: 'Image link'
+        image: "",
+        title: ""
       });
     });
 
@@ -52,7 +53,10 @@ export class DestinationUpdateDetailsComponent implements OnInit {
       name: this.formData.value.name || "",
       city: this.cities.filter((c) => c.name === this.formData.value.city)[0],
       description: this.formData.value.description || "",
-      images: [this.formData.value.image] || [],
+      images: [{
+        url: this.formData.value.image,
+        title: this.formData.value.title
+      }],
     };
 
     this.destinationService
