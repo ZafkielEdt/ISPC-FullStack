@@ -19,7 +19,9 @@
       formControlName="description"
     ></textarea>
     <label for="image">Imagen</label>
-    <input type="text" name="image" id="image" formControlName="image" />
+    <input type="file" name="image" id="image" formControlName="image" accept="image/jpg, image/png, image/jpeg"/>`
+    <label for="title">Titulo de Imagen</label>
+    <input type="title" name="title" id="title" formControlName="title">
     <div class="btns">
       <button class="btn" type="submit">Crear</button>
       <button class="btn" [routerLink]="['/user-dashboard']">Volver</button>

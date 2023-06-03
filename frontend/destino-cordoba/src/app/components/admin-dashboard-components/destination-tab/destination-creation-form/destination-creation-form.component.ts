@@ -18,6 +18,7 @@ export class DestinationCreationFormComponent implements OnInit {
     city: "",
     description: "",
     image: "",
+    title: ""
   });
 
   constructor(
@@ -31,7 +32,10 @@ export class DestinationCreationFormComponent implements OnInit {
       name: this.formData.value.name || "",
       city: this.cities.filter((c) => c.name === this.formData.value.city)[0],
       description: this.formData.value.description || "",
-      images: [this.formData.value.image] || [],
+      images: [{
+        url: this.formData.value.image,
+        title: this.formData.value.title
+      }],
     };
     this.destinationService.post(formDataForApi).subscribe((data) => {
       console.log("Data sended");
