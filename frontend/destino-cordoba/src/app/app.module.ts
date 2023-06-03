@@ -34,6 +34,8 @@ import { DestinationCreationFormComponent } from "./components/admin-dashboard-c
 import { UserDashboardContainerComponent } from "./components/user-dashboard-components/user-dashboard-container/user-dashboard-container.component";
 import { UserUpdateFormComponent } from "./components/user-dashboard-components/user-dashboard-container/user-update-form/user-update-form.component";
 import { ToastrModule, provideToastr } from "ngx-toastr";
+import { CityTabComponent } from './components/admin-dashboard-components/city-tab/city-tab.component';
+import { CityFormComponent } from './components/admin-dashboard-components/city-tab/city-form/city-form.component';
 
 @NgModule({
 	declarations: [
@@ -54,6 +56,8 @@ import { ToastrModule, provideToastr } from "ngx-toastr";
 		DestinationCreationFormComponent,
 		UserDashboardContainerComponent,
 		UserUpdateFormComponent,
+  CityTabComponent,
+  CityFormComponent,
 	],
 	imports: [
 		BrowserModule,

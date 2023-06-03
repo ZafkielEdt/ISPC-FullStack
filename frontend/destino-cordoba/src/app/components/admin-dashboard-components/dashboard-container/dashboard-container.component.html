@@ -3,10 +3,13 @@
     <h1 class="options-title">Administrar</h1>
     <div class="options">
       <button (click)="selectedUsers()" class="options-btn">Usuarios</button>
-      <button (click)="selectedDestination()" class="options-btn">Destinos</button>
-      <button class="options-btn">Paquetes</button>
+      <button (click)="selectedDestination()" class="options-btn">
+        Destinos
+      </button>
+      <button class="options-btn" (click)="selectedCity()">Ciudades</button>
     </div>
   </div>
   <app-user-tab *ngIf="selectUser"></app-user-tab>
   <app-destination-tab *ngIf="selectDestination"></app-destination-tab>
+  <app-city-tab *ngIf="selectCity"></app-city-tab>
 </section>
