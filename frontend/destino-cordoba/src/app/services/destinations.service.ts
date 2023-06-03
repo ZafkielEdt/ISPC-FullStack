@@ -4,17 +4,17 @@ import { FormGroup } from "@angular/forms";
 import { City } from "../models/city";
 
 export interface Destination {
-	id: number;
-	name: string;
-	description: string;
-	city: City;
+  id: number;
+  name: string;
+  description: string;
+  city: City;
 }
 
 @Injectable({
-	providedIn: "root",
+  providedIn: "root",
 })
 export class DestinationsService {
-	constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   private destinationUrl: string = "http://localhost:8000/destinations";
 
@@ -26,8 +26,8 @@ export class DestinationsService {
     return this.http.get<any>(`${this.destinationUrl}/${id}`);
   }
 
-  post(destination: FormGroup) {
-    return this.http.post(this.destinationUrl, destination.value)
+  post(destination: object) {
+    return this.http.post(this.destinationUrl, destination);
   }
 
   update(destination: FormGroup, id: number) {
@@ -38,7 +38,7 @@ export class DestinationsService {
     return this.http.delete(`${this.destinationUrl}/${id}`);
   }
 
-	getDestinations() {
-		return this.http.get<any>(this.destinationUrl);
-	}
+  getDestinations() {
+    return this.http.get<any>(this.destinationUrl);
+  }
 }

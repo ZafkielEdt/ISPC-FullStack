@@ -5,7 +5,11 @@
     <label for="name">Nombre</label>
     <input type="text" name="name" id="name" formControlName="name" />
     <label for="city">Ciudad</label>
-    <input type="text" name="city" id="city" formControlName="city" />
+    <select name="city" id="city" formControlName="city">
+      <option selected>Elige una ciudad</option>
+      <option *ngFor="let city of cities">{{ city.name }}</option>
+    </select>
+
     <label for="description">Descripción</label>
     <textarea
       name="description"
