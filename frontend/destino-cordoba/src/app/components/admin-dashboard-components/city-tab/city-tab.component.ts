@@ -20,7 +20,11 @@ export class CityTabComponent implements OnInit {
   }
 
   deleteCity(id: number) {
-    
+    this.cityService.delete(id).subscribe({
+      next: () => {
+        this.cityService.getAll().subscribe(res => {this.cities = res.results})
+      }
+    })
   }
 
   createState() {
