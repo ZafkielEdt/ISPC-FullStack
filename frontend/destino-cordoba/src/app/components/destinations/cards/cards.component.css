@@ -30,6 +30,11 @@
 .card-body .description {
   padding: 0;
   margin-top: 0.6rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* Número máximo de líneas a mostrar */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 1024px) {

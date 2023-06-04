@@ -1,11 +1,15 @@
-<div class="gallery-container">
+<div class="gallery-container" *ngIf="gallery && gallery.length > 0">
 
-  <img [lazyLoad]="gallery[0]" class="gallery-image-large">
+  <img [lazyLoad]="gallery[0] && gallery[0].url" class="gallery-image-large">
   <div class="gallery-image-small">
     <div *ngFor="let image of gallery.slice(1, 4); let i = index" class="image-small">
-      <img [lazyLoad]="image" alt="">
-      <div class="image-small-mask" *ngIf="i == 2">
+      <img [lazyLoad]="image.url" alt="">
+
+      <div class="image-small-mask" *ngIf="i == 2 &&gallery.length !== 4">
         <button (click)="openDialog()">+ {{gallery.length-4}}</button>
+      </div>
+      <div class="image-small-mask" *ngIf="i == 2 &&gallery.length <= 4">
+        <button (click)="openDialog()">ver</button>
       </div>
     </div>
     <div class="travel-duration">

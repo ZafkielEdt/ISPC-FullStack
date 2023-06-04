@@ -1,7 +1,7 @@
 export interface Traveler {
     id: number;
     name: string;
-    lastName: string;
+    last_name: string;
     country: string;
     dni: number;
     birthDate : Date;

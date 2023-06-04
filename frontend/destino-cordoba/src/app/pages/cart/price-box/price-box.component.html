@@ -1,0 +1,51 @@
+<div class="package-resume">
+    <h5 class="text-xl font-bold mb-2">Detalle del pago</h5>
+    <ul class="flex flex-col gap-2">
+    <li class="item__info grid grid-cols-3">
+      <div class="product__detail col-span-2 text-md">
+      Viaje para {{personas}} {{personas > 1 ? 'personas' : 'persona'}} a  <span class="uppercase font-semibold"> {{cart.item.title}}</span>
+      </div>
+      <div class="price__detail text-md font-bold text-end">
+        <p>{{cart.item.price | currency}}</p>
+      </div>
+    </li>
+    <li class="item__info grid grid-cols-3">
+      <div class="product__detail col-span-2 text-md">
+      Alojamiento para {{personas}} {{personas > 1 ? 'personas' : 'persona'}}
+      </div>
+      <div class="price__detail text-md font-bold text-end">
+        <p>{{cart.item.price/1.65 | currency}}</p>
+      </div>
+    </li>
+    <li class="item__info grid grid-cols-3 ">
+      <div class="product__detail col-span-2 text-md">
+      Impuestos tasas y cargos
+      </div>
+      <div class="price__detail text-md font-bold text-end">
+        <p>{{cart.item.price/64 | currency}}</p>
+      </div>
+    </li>
+    <li class="item__info grid grid-cols-3 ">
+      <div class="product__detail col-span-2 text-md">
+      Impuesto PAÍS
+      </div>
+      <div class="price__detail text-md font-bold text-end">
+        <p>{{cart.item.price* 0.15 | currency}}</p>
+      </div>
+    </li>
+    <hr>
+    <li class="item__info grid grid-cols-3 ">
+      <div class="product__detail col-span-2 text-md">
+      TOTAL
+      </div>
+      <div class="price__detail text-md font-bold text-end">
+        <p>{{cart.item.price+cart.item.price* 0.15+cart.item.price/64+cart.item.price/1.65  | currency}}</p>
+      </div>
+    </li>
+  </ul>
+    <div class="item__actions">
+      <button mat-raised-button color="warn" (click)="cancel()" class="font-bold text-sm">
+        Buscar otro destino
+      </button>
+    </div>
+</div>

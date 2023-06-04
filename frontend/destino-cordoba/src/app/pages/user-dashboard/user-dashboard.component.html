@@ -1,11 +1,4 @@
 <section class="dashboard">
-  <div class="user-info">
-    <img class="user-img" src="../assets/img/image-jeremy.png" alt="user image">
-    <p class="user-name">Jeremy Mincy</p>
-  </div>
-  <div class="card best-destination"></div>
-  <div class="card my-trips"> <img class="icon" src="../assets/icons/ticket.svg" alt="ticket icon"> My trips</div>
-  <div class="card favorite"> <img class="icon" src="../assets/icons/favorite.svg" alt="favorite icon">Favorite</div>
-  <div class="card transaction"> <img class="icon" src="../assets/icons/card.svg" alt="card icon">Transaction</div>
-  <div class="card setting"><img class="icon" src="../assets/icons/gear.svg" alt="gear icon">Settings</div>
+  <app-dashboard-container *ngIf="actualUserRole"></app-dashboard-container>
+  <app-user-dashboard-container *ngIf="actualUserRole === false"></app-user-dashboard-container>
 </section>

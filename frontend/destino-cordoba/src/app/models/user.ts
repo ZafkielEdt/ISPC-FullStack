@@ -1,11 +1,14 @@
+import { Address } from "./address";
+
 export interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
+  pk: number;
+  username: string;
+  first_name: string;
+  last_name: string;
   email: string;
   password: string;
   phone?: string;
-  role?: string[];
+  rol?: string[];
   photo?: string;
-  address?: any;
+  address: Address;
 }

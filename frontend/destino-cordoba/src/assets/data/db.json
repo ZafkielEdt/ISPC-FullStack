@@ -242,12 +242,12 @@
   "user": [
     {
       "id": 1,
-      "firstName": "",
-      "lastName": "",
+      "first_name": "",
+      "last_name": "",
       "password": "",
       "email": "",
       "phone": "",
-      "role": [
+      "rol": [
         ""
       ],
       "photo": "",
@@ -274,16 +274,16 @@
       "id": 2
     },
     {
-      "firstName": "pablo",
-      "lastName": "rolo",
+      "first_name": "pablo",
+      "last_name": "rolo",
       "email": "prolo@hotmail.com",
       "photo": "/assets/img/default.png",
       "password": "1234",
       "id": 3
     },
     {
-      "firstName": "jose",
-      "lastName": "lopez",
+      "first_name": "jose",
+      "last_name": "lopez",
       "email": "jlo@outlook.com",
       "photo": "/assets/img/image-jeremy.png",
       "password": "12345",

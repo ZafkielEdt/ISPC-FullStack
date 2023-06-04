@@ -1,0 +1,47 @@
+<div class="city-container">
+  <a (click)="createState()"
+    ><span class="icon-container"
+      >Agregar
+      <img
+        class="icon"
+        src="/assets/icons/plus-solid.svg"
+        alt="plus icon" /></span
+  ></a>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Latitud</td>
+        <td>Longitud</td>
+        <td>Provincia</td>
+        <td>Update</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let city of cities">
+        <td>{{ city.id }}</td>
+        <td>{{ city.name }}</td>
+        <td>{{ city.lat }}</td>
+        <td>{{ city.lon }}</td>
+        <td>{{ city.province }}</td>
+        <td>
+          <img
+            class="td-icon"
+            src="/assets/icons/pen-to-square-solid.svg"
+            alt="icon update"
+          />
+        </td>
+        <td (click)="deleteCity(city.id)">
+          <img
+            class="td-icon"
+            src="/assets/icons/trash-solid.svg"
+            alt="trash icon"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-city-form *ngIf="createCity"></app-city-form>

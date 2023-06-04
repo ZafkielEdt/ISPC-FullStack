@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/pages/travel-package';
 @Component({
@@ -6,11 +6,15 @@ import { ModalComponent } from 'src/app/pages/travel-package';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit{
   constructor(public dialog: MatDialog) {}
+  ngOnInit(): void {
+    console.log(this.gallery)
+  }
 
-  @Input() gallery: string[] = [];
+  @Input() gallery: any[] = [];
   @Input() totalDuration: string = '';
+  @Input() isLoading: boolean = true;
 
   openDialog() : void{
     this.dialog.open(ModalComponent,{
