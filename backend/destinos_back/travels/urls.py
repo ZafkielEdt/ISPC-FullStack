@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('provinces', views.ProvinceView.as_view()),
     path('cities', views.CityView.as_view()),
+    path('cities/<int:id>', views.CityDetail.as_view()),
     path('destinations', views.DestinationView.as_view()),
     path('destinations/<int:id>', views.DestinationDetail.as_view()),
     path('destinations/images/<int:destination>', views.ImageDestinationView.as_view()),

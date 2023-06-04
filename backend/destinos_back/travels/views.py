@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import generics
+from rest_framework import generics, status
 from .models import *
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import permission_classes
+from rest_framework.response import Response
 from .serializers import *
 
 class AddressApi(generics.ListCreateAPIView):
@@ -13,6 +14,22 @@ class AddressApi(generics.ListCreateAPIView):
 class CityView(generics.ListCreateAPIView):
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    
+@permission_classes([AllowAny])
+class CityDetail(generics.RetrieveAPIView):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    lookup_field = 'id'
+    
+    def get(self, request, id=None):
+        cities = City.objects.filter(id=id)
+        serializer = CitySerializer(cities, many=True)
+        return Response(serializer.data)
+    
+    def delete(self, request, id=None):
+        cities = City.objects.filter(id=id)
+        cities.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class ProvinceView(generics.ListCreateAPIView):
