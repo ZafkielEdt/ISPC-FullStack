@@ -30,4 +30,8 @@ export class CityService {
   create(city: object) {
     return this.http.post(this.cityUrl, city);
   }
+
+  delete(id: number) {
+    return this.http.delete(`${this.cityUrl}/${id}`)
+  }
 }
