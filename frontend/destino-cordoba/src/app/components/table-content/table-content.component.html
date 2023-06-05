@@ -1,0 +1,102 @@
+<div class="mt-5">
+    <div *ngIf="showContentTab" class="mt-5">
+        <button (click)="showTableBy('users')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Usuarios
+        </button>
+        <button (click)="showTableBy('destinations')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Destinos
+        </button>
+        <button (click)="showTableBy('cities')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Ciudades
+        </button>
+        <button (click)="showTableBy('provinces')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Provincias
+        </button>
+    </div>
+
+    <div class="overflow-x-auto border-x border-t">
+        <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable && !showProfileTab"
+               class="table-auto w-full">
+            <thead *ngIf="showUsersTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">ID</th>
+                <th class="text-left p-4 font-medium">Nombre de usuario</th>
+                <th class="text-left p-4 font-medium">Email</th>
+                <th class="text-left p-4 font-medium">Rol</th>
+                <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showDestinationsTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">ID</th>
+                <th class="text-left p-4 font-medium">Nombre</th>
+                <th class="text-left p-4 font-medium">Ciudad</th>
+                <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showCitiesTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">ID</th>
+                <th class="text-left p-4 font-medium">Nombre</th>
+                <th class="text-left p-4 font-medium">Provincia</th>
+                <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showProvincesTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">ID</th>
+                <th class="text-left p-4 font-medium">Nombre</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody *ngIf="showUsersTable">
+            <tr *ngFor="let user of contentUsers" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{user.pk}}</td>
+                <td class="p-4">{{user.username}}</td>
+                <td class="p-4">{{user.email}}</td>
+                <td class="p-4">{{user.rol ? user.rol : "No definido"}}</td>
+                <td class="p-4 flex justify-center">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
+                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                </td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="showDestinationsTable">
+            <tr *ngFor="let destination of contentDestinations" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{destination.id}}</td>
+                <td class="p-4">{{destination.name}}</td>
+                <td class="p-4">{{destination.city.name}}</td>
+                <td class="p-4 flex justify-center">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
+                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                </td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="showCitiesTable">
+            <tr *ngFor="let city of contentCities" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{city.id}}</td>
+                <td class="p-4">{{city.name}}</td>
+                <td class="p-4">{{city.province}}</td>
+                <td class="p-4 flex justify-center">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
+                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                </td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="showProvincesTable">
+            <tr *ngFor="let province of contentProvinces" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{province.id}}</td>
+                <td class="p-4">{{province.name}}</td>
+                <td class="p-4 flex justify-center">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
+                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
