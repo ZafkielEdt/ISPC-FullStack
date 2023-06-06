@@ -12,4 +12,8 @@ export class ProvinceService {
   getAll() {
     return this.http.get<any>(this.provinceUrl);
   }
+
+  deleteBy(id: number) {
+    return this.http.delete(`${this.provinceUrl}/${id}`)
+  }
 }
