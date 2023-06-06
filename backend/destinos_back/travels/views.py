@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from .models import *
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.decorators import permission_classes
 from rest_framework.response import Response
 from .serializers import *
@@ -26,6 +26,7 @@ class CityDetail(generics.RetrieveAPIView):
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data)
     
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         cities = City.objects.filter(id=id)
         cities.delete()
@@ -35,6 +36,17 @@ class CityDetail(generics.RetrieveAPIView):
 class ProvinceView(generics.ListCreateAPIView):
     queryset = Province.objects.all()
     serializer_class = ProvinceSerializer
+    
+class ProvinceDetail(generics.RetrieveAPIView):
+    queryset = Province.objects.all()
+    serializer_class = ProvinceSerializer
+    lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        provinces = Province.objects.filter(id=id)
+        provinces.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class DestinationView(generics.ListCreateAPIView):
@@ -46,6 +58,12 @@ class DestinationDetail(generics.RetrieveAPIView):
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
     lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        destinations = Destination.objects.filter(id=id)
+        destinations.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class ExperienceView(generics.ListCreateAPIView):
