@@ -84,7 +84,7 @@
             <tr *ngFor="let city of contentCities" class="border-b hover:bg-gray-50">
                 <td class="p-4">{{city.id}}</td>
                 <td class="p-4">{{city.name}}</td>
-                <td class="p-4">{{city.province}}</td>
+                <td class="p-4">{{city.province.name}}</td>
                 <td class="p-4 flex justify-center">
                     <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
                          class="w-6 h-6 mr-1.5">
