@@ -60,8 +60,10 @@
                 <td class="p-4">{{user.email}}</td>
                 <td class="p-4">{{user.rol ? user.rol : "No definido"}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
-                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                         class="w-6 h-6 mr-1.5">
+                    <img (click)="deleteBy('user',user.pk)" ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
+                         height="16" width="16" class="w-6 h-6">
                 </td>
             </tr>
             </tbody>
@@ -71,8 +73,10 @@
                 <td class="p-4">{{destination.name}}</td>
                 <td class="p-4">{{destination.city.name}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
-                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                         class="w-6 h-6 mr-1.5">
+                    <img (click)="deleteBy('destination', destination.id)" ngSrc="/assets/icons/trash-solid.svg"
+                         alt="Icon delete" height="16" width="16" class="w-6 h-6">
                 </td>
             </tr>
             </tbody>
@@ -82,8 +86,10 @@
                 <td class="p-4">{{city.name}}</td>
                 <td class="p-4">{{city.province}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
-                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                         class="w-6 h-6 mr-1.5">
+                    <img (click)="deleteBy('city', city.id)" ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
+                         height="16" width="16" class="w-6 h-6">
                 </td>
             </tr>
             </tbody>
@@ -92,8 +98,10 @@
                 <td class="p-4">{{province.id}}</td>
                 <td class="p-4">{{province.name}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16" class="w-6 h-6 mr-1.5">
-                    <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                         class="w-6 h-6 mr-1.5">
+                    <img (click)="deleteBy('province', province.id)" ngSrc="/assets/icons/trash-solid.svg"
+                         alt="Icon delete" height="16" width="16" class="w-6 h-6">
                 </td>
             </tr>
             </tbody>
