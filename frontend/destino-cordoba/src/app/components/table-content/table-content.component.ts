@@ -13,7 +13,8 @@ import {Subscription} from "rxjs";
     styleUrls: ['./table-content.component.css']
 })
 export class TableContentComponent implements OnInit, OnDestroy {
-    subscription!: Subscription;
+    getSubscription!: Subscription;
+    deleteSubscription!: Subscription;
     showUsersTable: boolean = false;
     showDestinationsTable: boolean = false;
     showCitiesTable: boolean = false;
@@ -36,34 +37,34 @@ export class TableContentComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.subscription.unsubscribe()
+        this.getSubscription.unsubscribe()
     }
 
     injectContentBy(contentName: string) {
         switch (contentName) {
             case "users":
-                this.subscription = this.userService.getAll().subscribe({
+                this.getSubscription = this.userService.getAll().subscribe({
                     next: (res) => {
                         this.contentUsers = res.results
                     }
                 })
                 break;
             case "destinations":
-                this.subscription = this.destinationService.getAll().subscribe({
+                this.getSubscription = this.destinationService.getAll().subscribe({
                     next: (res) => {
                         this.contentDestinations = res.results
                     }
                 })
                 break;
             case "cities":
-                this.subscription = this.cityService.getAll().subscribe({
+                this.getSubscription = this.cityService.getAll().subscribe({
                     next: (res) => {
                         this.contentCities = res.results
                     }
                 })
                 break;
             case "provinces":
-                this.subscription = this.provinceService.getAll().subscribe({
+                this.getSubscription = this.provinceService.getAll().subscribe({
                     next: (res) => {
                         this.contentProvinces = res.results
                     }
@@ -72,7 +73,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
         }
     }
 
-  showTableBy(tableName: string) {
+    showTableBy(tableName: string) {
         switch (tableName) {
             case "users":
                 this.showUsersTable = !this.showUsersTable;
@@ -102,6 +103,38 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
                 break;
+        }
+    }
+
+    deleteBy(content: string, id: number) {
+        switch (content) {
+            case "user":
+                this.deleteSubscription = this.userService.deleteBy(id).subscribe({
+                    next: (res) => {
+                        this.userService.getAll().subscribe((res) => {this.contentUsers = res.results})
+                    }
+                })
+                break;
+            case "destination":
+                this.destinationService.deleteBy(id).subscribe({
+                    next: () => {
+                        this.destinationService.getAll().subscribe((res) => {this.contentDestinations = res.results})
+                    }
+                })
+                break;
+            case "city":
+                this.cityService.delete(id).subscribe({
+                    next: (res) => {
+                        this.cityService.getAll().subscribe((res) => this.contentCities = res.results)
+                    }
+                })
+                break;
+            case "province":
+                this.provinceService.deleteBy(id).subscribe({
+                    next: (res) => {
+                        this.provinceService.getAll().subscribe((res) => this.contentProvinces = res.results)
+                    }
+                })
         }
     }
 }
