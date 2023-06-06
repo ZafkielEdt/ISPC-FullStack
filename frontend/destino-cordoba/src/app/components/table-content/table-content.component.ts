@@ -77,28 +77,28 @@ export class TableContentComponent implements OnInit, OnDestroy {
         switch (tableName) {
             case "users":
                 this.showUsersTable = !this.showUsersTable;
-                this.injectContentBy("users");
+                if (this.showUsersTable) {this.injectContentBy("users");}
                 this.showDestinationsTable = false;
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 break;
             case "destinations":
                 this.showDestinationsTable = !this.showDestinationsTable;
-                this.injectContentBy("destinations");
+                if (this.showDestinationsTable) {this.injectContentBy("destinations");}
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 break;
             case "cities":
                 this.showCitiesTable = !this.showCitiesTable;
-                this.injectContentBy("cities");
+                if (this.showCitiesTable) {this.injectContentBy("cities");}
                 this.showDestinationsTable = false;
                 this.showUsersTable = false;
                 this.showProvincesTable = false;
                 break;
             case "provinces":
                 this.showProvincesTable = !this.showProvincesTable;
-                this.injectContentBy("provinces");
+                if (this.showProvincesTable) {this.injectContentBy("provinces");}
                 this.showDestinationsTable = false;
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
