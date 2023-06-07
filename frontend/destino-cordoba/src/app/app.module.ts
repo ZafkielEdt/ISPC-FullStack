@@ -29,6 +29,7 @@ import {ToastrModule, provideToastr} from "ngx-toastr";
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import { TableContentComponent } from './components/table-content/table-content.component';
 import {NgOptimizedImage} from "@angular/common";
+import { FormsContentComponent } from './components/forms-content/forms-content.component';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {NgOptimizedImage} from "@angular/common";
         PaymentInfoComponent,
         PriceBoxComponent,
         TableContentComponent,
+        FormsContentComponent,
 
     ],
     imports: [
