@@ -19,6 +19,24 @@
     </div>
 
     <div class="overflow-x-auto border-x border-t">
+        <div>
+            <button *ngIf="showUsersTable" (click)="showFormBy('user','create')"
+                    class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Agregar
+            </button>
+            <button *ngIf="showDestinationsTable" (click)="showFormBy('destination','create')"
+                    class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Agregar
+            </button>
+            <button *ngIf="showCitiesTable"
+                    class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Agregar
+            </button>
+            <button *ngIf="showProvincesTable" (click)="showFormBy('province', 'create')"
+                    class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Agregar
+            </button>
+        </div>
         <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable && !showProfileTab"
                class="table-auto w-full">
             <thead *ngIf="showUsersTable" class="border-b">
@@ -107,4 +125,12 @@
             </tbody>
         </table>
     </div>
+    <app-forms-content [showForm]="showForm"
+                       [formInfo]="formInfo"
+                       [showUsersTable]="showUsersTable"
+                       [showDestinationsTable]="showDestinationsTable"
+                       [showCitiesTable]="showCitiesTable"
+                       [showProvincesTable]="showProvincesTable">
+
+    </app-forms-content>
 </div>
