@@ -6,6 +6,8 @@ import {ProvinceService} from "../../services/province.service";
 import {User} from "../../models/user";
 import {Province} from "../../models/province";
 import {Subscription} from "rxjs";
+import {FormInfo} from "../../utils/FormInfo";
+
 
 @Component({
     selector: 'app-table-content',
@@ -19,6 +21,9 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showDestinationsTable: boolean = false;
     showCitiesTable: boolean = false;
     showProvincesTable: boolean = false;
+
+    showForm: boolean = false;
+    formInfo: FormInfo = {content: '', type: ''}
 
     contentUsers!: User[];
     contentDestinations!: Destination[];
@@ -38,6 +43,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.getSubscription.unsubscribe()
+        this.deleteSubscription.unsubscribe()
     }
 
     injectContentBy(contentName: string) {
@@ -135,6 +141,21 @@ export class TableContentComponent implements OnInit, OnDestroy {
                         this.provinceService.getAll().subscribe((res) => this.contentProvinces = res.results)
                     }
                 })
+        }
+    }
+
+    showFormBy(content: string, operation: 'create' | 'update') {
+        switch (content) {
+            case "user":
+                this.showUsersTable = !this.showUsersTable;
+                this.showForm = true;
+                this.formInfo = {content: content, type: operation}
+                break;
+            case 'province':
+                this.showProvincesTable = !this.showProvincesTable
+                this.showForm = true;
+                this.formInfo = {content: content, type: operation}
+                break;
         }
     }
 }
