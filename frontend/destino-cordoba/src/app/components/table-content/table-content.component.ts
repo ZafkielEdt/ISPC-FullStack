@@ -158,7 +158,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
         }
     }
 
-    showFormBy(content: string, operation: 'create' | 'update') {
+    showFormBy(content: string, operation: 'create' | 'update', id?: number) {
         switch (content) {
             case "user":
                 this.showUsersTable = !this.showUsersTable;
@@ -168,7 +168,11 @@ export class TableContentComponent implements OnInit, OnDestroy {
             case 'province':
                 this.showProvincesTable = !this.showProvincesTable
                 this.showProvinceForm = true;
-                this.formInfo = {type: operation}
+                if (operation.includes('update')) {
+                    this.formInfo = {id: id, type: operation}
+                } else {
+                    this.formInfo = {type: operation}
+                }
                 break;
         }
     }
