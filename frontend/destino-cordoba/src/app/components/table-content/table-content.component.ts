@@ -17,13 +17,15 @@ import {FormInfo} from "../../utils/FormInfo";
 export class TableContentComponent implements OnInit, OnDestroy {
     getSubscription!: Subscription;
     deleteSubscription!: Subscription;
+    // Table
     showUsersTable: boolean = false;
     showDestinationsTable: boolean = false;
     showCitiesTable: boolean = false;
     showProvincesTable: boolean = false;
-
-    showForm: boolean = false;
-    formInfo: FormInfo = {content: '', type: ''}
+    // Form
+    showForm: 'user' | 'destination' | 'city' | 'province' | string = '';
+    showProvinceForm: boolean = false;
+    formInfo: FormInfo = {type: ''}
 
     contentUsers!: User[];
     contentDestinations!: Destination[];
@@ -83,28 +85,36 @@ export class TableContentComponent implements OnInit, OnDestroy {
         switch (tableName) {
             case "users":
                 this.showUsersTable = !this.showUsersTable;
-                if (this.showUsersTable) {this.injectContentBy("users");}
+                if (this.showUsersTable) {
+                    this.injectContentBy("users");
+                }
                 this.showDestinationsTable = false;
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 break;
             case "destinations":
                 this.showDestinationsTable = !this.showDestinationsTable;
-                if (this.showDestinationsTable) {this.injectContentBy("destinations");}
+                if (this.showDestinationsTable) {
+                    this.injectContentBy("destinations");
+                }
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 break;
             case "cities":
                 this.showCitiesTable = !this.showCitiesTable;
-                if (this.showCitiesTable) {this.injectContentBy("cities");}
+                if (this.showCitiesTable) {
+                    this.injectContentBy("cities");
+                }
                 this.showDestinationsTable = false;
                 this.showUsersTable = false;
                 this.showProvincesTable = false;
                 break;
             case "provinces":
                 this.showProvincesTable = !this.showProvincesTable;
-                if (this.showProvincesTable) {this.injectContentBy("provinces");}
+                if (this.showProvincesTable) {
+                    this.injectContentBy("provinces");
+                }
                 this.showDestinationsTable = false;
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
@@ -117,14 +127,18 @@ export class TableContentComponent implements OnInit, OnDestroy {
             case "user":
                 this.deleteSubscription = this.userService.deleteBy(id).subscribe({
                     next: (res) => {
-                        this.userService.getAll().subscribe((res) => {this.contentUsers = res.results})
+                        this.userService.getAll().subscribe((res) => {
+                            this.contentUsers = res.results
+                        })
                     }
                 })
                 break;
             case "destination":
                 this.destinationService.deleteBy(id).subscribe({
                     next: () => {
-                        this.destinationService.getAll().subscribe((res) => {this.contentDestinations = res.results})
+                        this.destinationService.getAll().subscribe((res) => {
+                            this.contentDestinations = res.results
+                        })
                     }
                 })
                 break;
@@ -148,13 +162,13 @@ export class TableContentComponent implements OnInit, OnDestroy {
         switch (content) {
             case "user":
                 this.showUsersTable = !this.showUsersTable;
-                this.showForm = true;
-                this.formInfo = {content: content, type: operation}
+                this.showForm = 'user';
+                this.formInfo = {type: operation}
                 break;
             case 'province':
                 this.showProvincesTable = !this.showProvincesTable
-                this.showForm = true;
-                this.formInfo = {content: content, type: operation}
+                this.showProvinceForm = true;
+                this.formInfo = {type: operation}
                 break;
         }
     }
