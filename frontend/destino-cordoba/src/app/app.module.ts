@@ -30,6 +30,7 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import { TableContentComponent } from './components/table-content/table-content.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FormsContentComponent } from './components/forms-content/forms-content.component';
+import { ProvinceFormComponent } from './components/forms-content/province-form/province-form.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { FormsContentComponent } from './components/forms-content/forms-content.
         PriceBoxComponent,
         TableContentComponent,
         FormsContentComponent,
+        ProvinceFormComponent,
 
     ],
     imports: [
