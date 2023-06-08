@@ -43,6 +43,15 @@ class ProvinceDetail(generics.RetrieveAPIView):
     lookup_field = 'id'
     
     @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        provinces = Province.objects.get(id=id)
+        serializer = ProvinceSerializer(provinces, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         provinces = Province.objects.filter(id=id)
         provinces.delete()
