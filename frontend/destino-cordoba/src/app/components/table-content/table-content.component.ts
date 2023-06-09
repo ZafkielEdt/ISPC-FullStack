@@ -24,6 +24,8 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showProvincesTable: boolean = false;
     // Form
     showForm: 'user' | 'destination' | 'city' | 'province' | string = '';
+    showUserForm: boolean = false;
+    showCityForm: boolean = false;
     showProvinceForm: boolean = false;
     formInfo: FormInfo = {type: ''}
 
@@ -158,21 +160,30 @@ export class TableContentComponent implements OnInit, OnDestroy {
         }
     }
 
+    private setOperation(operation: 'create' | 'update', id?: number) {
+        if (operation.includes('update')) {
+            this.formInfo = {id: id, type: operation}
+        } else {
+            this.formInfo = {type: operation}
+        }
+    }
+
     showFormBy(content: string, operation: 'create' | 'update', id?: number) {
         switch (content) {
             case "user":
                 this.showUsersTable = !this.showUsersTable;
-                this.showForm = 'user';
-                this.formInfo = {type: operation}
+                this.showUserForm = true;
+                this.setOperation(operation, id)
+                break;
+            case 'city':
+                this.showCitiesTable = !this.showCitiesTable;
+                this.showCityForm = true;
+                this.setOperation(operation, id)
                 break;
             case 'province':
                 this.showProvincesTable = !this.showProvincesTable
                 this.showProvinceForm = true;
-                if (operation.includes('update')) {
-                    this.formInfo = {id: id, type: operation}
-                } else {
-                    this.formInfo = {type: operation}
-                }
+                this.setOperation(operation, id)
                 break;
         }
     }
