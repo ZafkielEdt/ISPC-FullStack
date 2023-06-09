@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Province } from "../models/province";
-import { FormGroup } from "@angular/forms";
 
 export interface City {
   id: number;
@@ -29,6 +28,10 @@ export class CityService {
 
   create(city: object) {
     return this.http.post(this.cityUrl, city);
+  }
+
+  update(city: object, id?: number) {
+    return this.http.put(`${this.cityUrl}/${id}`, city)
   }
 
   delete(id: number) {
