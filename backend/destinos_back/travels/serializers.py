@@ -24,7 +24,7 @@ class ProvinceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CitySerializer(serializers.ModelSerializer):
-    province = ProvinceSerializer()
+    
     class Meta:
         model = City
         fields = '__all__'
