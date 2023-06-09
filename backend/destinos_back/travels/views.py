@@ -27,6 +27,15 @@ class CityDetail(generics.RetrieveAPIView):
         return Response(serializer.data)
     
     @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        cities = City.objects.get(id=id)
+        serializer = CitySerializer(cities, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         cities = City.objects.filter(id=id)
         cities.delete()
