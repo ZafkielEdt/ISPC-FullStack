@@ -31,6 +31,7 @@ import { TableContentComponent } from './components/table-content/table-content.
 import {NgOptimizedImage} from "@angular/common";
 import { FormsContentComponent } from './components/forms-content/forms-content.component';
 import { ProvinceFormComponent } from './components/forms-content/province-form/province-form.component';
+import { CityFormComponent } from './components/forms-content/city-form/city-form.component';
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { ProvinceFormComponent } from './components/forms-content/province-form/
         TableContentComponent,
         FormsContentComponent,
         ProvinceFormComponent,
+        CityFormComponent,
 
     ],
     imports: [
