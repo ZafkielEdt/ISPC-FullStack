@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {FormInfo} from "../../utils/FormInfo";
 
 @Component({
@@ -9,19 +8,15 @@ import {FormInfo} from "../../utils/FormInfo";
 })
 export class FormsContentComponent {
 
-    provinceForm: FormGroup = this.formBuilder.group({
-        name: ['', Validators.required, Validators.min(5)],
-        lat: [0, Validators.required],
-        lon: [0, Validators.required],
-    })
 
+    @Input() showCityForm: boolean = false;
     @Input() showProvinceForm: boolean = false;
-    @Input() formInfo: FormInfo = {type: ''}
+    @Input() formInfo: FormInfo = {id: 0, type: ''}
     @Input() showUsersTable: boolean = false;
     @Input() showDestinationsTable: boolean = false;
     @Input() showCitiesTable: boolean = false;
     @Input() showProvincesTable: boolean = false;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor() {
     }
 }

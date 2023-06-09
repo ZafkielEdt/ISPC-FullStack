@@ -28,7 +28,7 @@
                     class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Agregar
             </button>
-            <button *ngIf="showCitiesTable"
+            <button *ngIf="showCitiesTable" (click)="showFormBy('city', 'create')"
                     class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Agregar
             </button>
@@ -102,9 +102,10 @@
             <tr *ngFor="let city of contentCities" class="border-b hover:bg-gray-50">
                 <td class="p-4">{{city.id}}</td>
                 <td class="p-4">{{city.name}}</td>
-                <td class="p-4">{{city.province.name}}</td>
+                <td class="p-4">{{city.province}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                    <img (click)="showFormBy('city', 'update', city.id)" ngSrc="/assets/icons/pen-to-square-solid.svg"
+                         alt="Icon update" height="16" width="16"
                          class="w-6 h-6 mr-1.5">
                     <img (click)="deleteBy('city', city.id)" ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
                          height="16" width="16" class="w-6 h-6">
@@ -116,7 +117,8 @@
                 <td class="p-4">{{province.id}}</td>
                 <td class="p-4">{{province.name}}</td>
                 <td class="p-4 flex justify-center">
-                    <img (click)="showFormBy('province', 'update', province.id)" ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                    <img (click)="showFormBy('province', 'update', province.id)"
+                         ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
                          class="w-6 h-6 mr-1.5">
                     <img (click)="deleteBy('province', province.id)" ngSrc="/assets/icons/trash-solid.svg"
                          alt="Icon delete" height="16" width="16" class="w-6 h-6">
@@ -125,7 +127,8 @@
             </tbody>
         </table>
     </div>
-    <app-forms-content [showProvinceForm]="showProvinceForm"
+    <app-forms-content [showCityForm]="showCityForm"
+                       [showProvinceForm]="showProvinceForm"
                        [formInfo]="formInfo"
                        [showUsersTable]="showUsersTable"
                        [showDestinationsTable]="showDestinationsTable"
