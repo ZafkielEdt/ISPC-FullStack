@@ -78,6 +78,15 @@ class DestinationDetail(generics.RetrieveAPIView):
     lookup_field = 'id'
     
     @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        destinations = Destination.objects.get(id=id)
+        serializer = DestinationSerializer(destinations, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         destinations = Destination.objects.filter(id=id)
         destinations.delete()
