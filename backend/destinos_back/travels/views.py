@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from .models import *
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.decorators import permission_classes
 from rest_framework.response import Response
 from .serializers import *
@@ -26,6 +26,16 @@ class CityDetail(generics.RetrieveAPIView):
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data)
     
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        cities = City.objects.get(id=id)
+        serializer = CitySerializer(cities, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         cities = City.objects.filter(id=id)
         cities.delete()
@@ -35,6 +45,26 @@ class CityDetail(generics.RetrieveAPIView):
 class ProvinceView(generics.ListCreateAPIView):
     queryset = Province.objects.all()
     serializer_class = ProvinceSerializer
+    
+class ProvinceDetail(generics.RetrieveAPIView):
+    queryset = Province.objects.all()
+    serializer_class = ProvinceSerializer
+    lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        provinces = Province.objects.get(id=id)
+        serializer = ProvinceSerializer(provinces, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        provinces = Province.objects.filter(id=id)
+        provinces.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class DestinationView(generics.ListCreateAPIView):
@@ -46,6 +76,21 @@ class DestinationDetail(generics.RetrieveAPIView):
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
     lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        destinations = Destination.objects.get(id=id)
+        serializer = DestinationSerializer(destinations, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        destinations = Destination.objects.filter(id=id)
+        destinations.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class ExperienceView(generics.ListCreateAPIView):
