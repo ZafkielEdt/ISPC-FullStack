@@ -34,6 +34,14 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     lookup_field = 'pk'
     
+    def put(self, request, pk=None):
+        users = User.objects.get(pk=pk)
+        serializer = UserSerializer(users, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     @permission_classes([IsAdminUser])
     def delete(self, request, pk=None):
         users = User.objects.filter(pk=pk)
