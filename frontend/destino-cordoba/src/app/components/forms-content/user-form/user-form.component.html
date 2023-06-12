@@ -1,1 +1,83 @@
-<p>user-form works!</p>
+<div *ngIf="showForm && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable"
+     class="container mx-auto py-8">
+    <h1 class="text-2xl font-bold mb-6 text-center">Agregar</h1>
+    <form [formGroup]="userForm" class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md"
+          (ngSubmit)="onSubmit($event)">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Nombre de usuario</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="username" name="username" placeholder="Username" formControlName="username">
+            <div *ngIf="Username?.errors && Username?.touched" class="text-red-600">
+                <p *ngIf="Username?.hasError('required')">El username es requerido</p>
+                <p *ngIf="Username?.hasError('min')">El username debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="name" name="name" placeholder="Nombre" formControlName="first_name">
+            <div *ngIf="FirstName?.errors && FirstName?.touched" class="text-red-600">
+                <p *ngIf="FirstName?.hasError('required')">El nombre es requerido</p>
+                <p *ngIf="FirstName?.hasError('min')">El nombre debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="Last_name">Apellido</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="Last_name" name="Last_name" placeholder="Apellido" formControlName="last_name">
+            <div *ngIf="LastName?.errors && LastName?.touched" class="text-red-600">
+                <p *ngIf="LastName?.hasError('required')">El apellido es requerido</p>
+                <p *ngIf="LastName?.hasError('min')">El apellido debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="email" id="email" name="email" placeholder="john@example.com" formControlName="email">
+            <div *ngIf="Email?.errors && Email?.touched" class="text-red-600">
+                <p *ngIf="Email?.hasError('required')">El Email es requerido</p>
+                <p *ngIf="Email?.hasError('email')">El email debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="password" id="password" name="password" placeholder="********" formControlName="password">
+            <div *ngIf="Password?.errors && Password?.touched" class="text-red-600">
+                <p *ngIf="Password?.hasError('required')">La contraseña es requerida</p>
+                <p *ngIf="Password?.hasError('min')">La contraseña debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="dni">Dni</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="number" id="dni" name="dni" placeholder="DNI" formControlName="dni">
+            <div *ngIf="Dni?.errors && Dni?.touched" class="text-red-600">
+                <p *ngIf="Dni?.hasError('required')">El dni es requerido</p>
+                <p *ngIf="Dni?.hasError('min')">El dni debe contener minimo 8 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Telefono</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="tel" id="phone" name="phone" placeholder="Telefono" formControlName="phone">
+        </div>
+        <div class="mb-4" *ngIf="currentRol && currentRol.includes('ADM')">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="rol">Rol</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    name="rol" id="rol" formControlName="rol">
+                <option value="" selected>Seleccionar rol</option>
+                <option value="ADM" selected>Admin</option>
+                <option value="CSM" selected>Customer</option>
+            </select>
+        </div>
+        <button *ngIf="formInfo.type.includes('create')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Agregar
+        </button>
+        <button *ngIf="formInfo.type.includes('update')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Actualizar
+        </button>
+    </form>
+</div>
