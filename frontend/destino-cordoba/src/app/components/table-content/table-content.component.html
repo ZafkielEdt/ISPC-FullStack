@@ -78,7 +78,7 @@
                 <td class="p-4">{{user.email}}</td>
                 <td class="p-4">{{user.rol ? user.rol : "No definido"}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                    <img (click)="showFormBy('user', 'update')" ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
                          class="w-6 h-6 mr-1.5">
                     <img (click)="deleteBy('user',user.pk)" ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
                          height="16" width="16" class="w-6 h-6">
@@ -127,7 +127,8 @@
             </tbody>
         </table>
     </div>
-    <app-forms-content [showCityForm]="showCityForm"
+    <app-forms-content [showUserForm]="showUserForm"
+                       [showCityForm]="showCityForm"
                        [showProvinceForm]="showProvinceForm"
                        [formInfo]="formInfo"
                        [showUsersTable]="showUsersTable"
