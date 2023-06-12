@@ -32,6 +32,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { FormsContentComponent } from './components/forms-content/forms-content.component';
 import { ProvinceFormComponent } from './components/forms-content/province-form/province-form.component';
 import { CityFormComponent } from './components/forms-content/city-form/city-form.component';
+import { UserFormComponent } from './components/forms-content/user-form/user-form.component';
 
 @NgModule({
     declarations: [
@@ -49,6 +50,7 @@ import { CityFormComponent } from './components/forms-content/city-form/city-for
         FormsContentComponent,
         ProvinceFormComponent,
         CityFormComponent,
+        UserFormComponent,
 
     ],
     imports: [
