@@ -3,6 +3,8 @@
                        [formInfo]="formInfo" [showForm]="showProvinceForm"></app-province-form>
     <app-city-form *ngIf="!showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showCityForm"
                    [formInfo]="formInfo" [showForm]="showCityForm"></app-city-form>
+    <app-user-form *ngIf="!showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showUserForm"
+                   [formInfo]="formInfo" [showForm]="showUserForm"></app-user-form>
     <!--    <div *ngIf="showForm && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable" class="container mx-auto py-8">-->
     <!--        <h1 class="text-2xl font-bold mb-6 text-center">Agregar</h1>-->
     <!--        <form class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">-->
