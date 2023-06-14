@@ -33,6 +33,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ModalComponent, PackageTravelComponent } from "./pages/travel-package";
 import { SharedModule } from "./shared";
 import { CheckoutStatusComponent } from './pages/checkout-status/checkout-status.component';
+import { UserFormComponent } from './components/forms-content/user-form/user-form.component';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,7 @@ import { CheckoutStatusComponent } from './pages/checkout-status/checkout-status
         CityFormComponent,
         CheckoutStatusComponent,
 
+        UserFormComponent,
 
     ],
     imports: [

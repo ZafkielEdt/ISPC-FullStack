@@ -23,7 +23,6 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showCitiesTable: boolean = false;
     showProvincesTable: boolean = false;
     // Form
-    showForm: 'user' | 'destination' | 'city' | 'province' | string = '';
     showUserForm: boolean = false;
     showCityForm: boolean = false;
     showProvinceForm: boolean = false;

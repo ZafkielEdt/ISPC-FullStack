@@ -1,5 +1,5 @@
-<div class="mt-5">
-    <div *ngIf="showContentTab" class="mt-5">
+<div *ngIf="showContentTab" class="mt-5">
+    <div class="mt-5">
         <button (click)="showTableBy('users')"
                 class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
             Usuarios
@@ -78,7 +78,7 @@
                 <td class="p-4">{{user.email}}</td>
                 <td class="p-4">{{user.rol ? user.rol : "No definido"}}</td>
                 <td class="p-4 flex justify-center">
-                    <img ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                    <img (click)="showFormBy('user', 'update', user.pk)" ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
                          class="w-6 h-6 mr-1.5">
                     <img (click)="deleteBy('user',user.pk)" ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
                          height="16" width="16" class="w-6 h-6">
@@ -127,13 +127,14 @@
             </tbody>
         </table>
     </div>
-    <app-forms-content [showCityForm]="showCityForm"
+    <app-forms-content *ngIf="showContentTab" [showUserForm]="showUserForm"
+                       [showCityForm]="showCityForm"
                        [showProvinceForm]="showProvinceForm"
                        [formInfo]="formInfo"
                        [showUsersTable]="showUsersTable"
                        [showDestinationsTable]="showDestinationsTable"
                        [showCitiesTable]="showCitiesTable"
-                       [showProvincesTable]="showProvincesTable">
-
+                       [showProvincesTable]="showProvincesTable"
+                       [showContentTab]="showContentTab">
     </app-forms-content>
 </div>
