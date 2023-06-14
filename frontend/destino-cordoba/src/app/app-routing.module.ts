@@ -10,6 +10,7 @@ import {
 import {ResultadoBuscadorComponent} from "./pages/resultado-buscador/resultado-buscador.component";
 import {AuthGuard} from "./auth/guard/auth.guard";
 import {DashboardComponent} from "./pages";
+import { CheckoutStatusComponent } from "./pages/checkout-status/checkout-status.component";
 
 const routes: Routes = [
     {
@@ -25,6 +26,7 @@ const routes: Routes = [
     {path: "cart", component: CartComponent},
     {path: "search/:type/:destino", component: ResultadoBuscadorComponent},
     {path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard]},
+    {path: "payment/:status", component: CheckoutStatusComponent},
     {path: "**", component: NotFoundComponent},
 ];
 

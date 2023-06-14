@@ -1,0 +1,20 @@
+
+<div *ngIf="status === 'accepted'" class=" h-[60vh] flex flex-col gap-4 justify-center items-center">
+    <p>Pago aceptado!</p>
+    <img src="/assets/img/accepted.svg" alt="" width="300">
+    <p>Le enviaremos un email a  <strong>{{client.email}}</strong> con los detalles de la compra</p>
+    <a routerLink="/" class="rounded-sm bg-green-600 p-2 text-white">Volver a inicio</a>
+</div>
+
+<div *ngIf="status === 'rejected'" class="h-[60vh] flex flex-col justify-center items-center">
+    <p>Pago rechazado!</p>
+    <img src="/assets/img/rejected.svg" alt="" width="300">
+    <p>Tu pago fue rechazado por fondos insuficientes</p>
+    <a routerLink="/cart" class="rounded-sm bg-green-600 p-2 text-white">Vuelve a intentarlo</a>
+</div>
+<div *ngIf="status === 'expired'" class="h-[60vh] flex flex-col justify-center items-center">
+    <p>Pago rechazado!</p>
+    <img src="/assets/img/expired.svg" alt="" width="300">
+    <p>Tu pago fue rechazado por que tu tarjeta esta vencida</p>
+    <a routerLink="/cart" class="rounded-sm bg-green-600 p-2 text-white">Vuelve a intentarlo</a>
+</div>
