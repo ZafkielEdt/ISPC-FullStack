@@ -18,7 +18,7 @@ export class UserService {
         return this.http.get<any>(this.userUrl);
     }
 
-    getBy(id: number) {
+    getBy(id?: number) {
         return this.http.get<any>(`${this.userUrl}/${id}`)
     }
 

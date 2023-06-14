@@ -17,6 +17,7 @@ export class FormsContentComponent {
     @Input() showDestinationsTable: boolean = false;
     @Input() showCitiesTable: boolean = false;
     @Input() showProvincesTable: boolean = false;
+    @Input() showContentTab: boolean = false;
 
     constructor() {
     }
