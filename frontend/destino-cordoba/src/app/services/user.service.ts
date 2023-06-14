@@ -22,8 +22,8 @@ export class UserService {
         return this.http.get<any>(`${this.userUrl}/${id}`)
     }
 
-    create(user: object) {
-        return this.http.post(`${this.userUrl}`, user)
+    create(user: FormGroup) {
+        return this.http.post(`${this.userUrl}`, user.value)
     }
 
     update(user: FormGroup, id?: number) {
