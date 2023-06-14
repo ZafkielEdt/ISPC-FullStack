@@ -9,6 +9,7 @@ import {FormInfo} from "../../utils/FormInfo";
 export class FormsContentComponent {
 
 
+    @Input() showUserForm: boolean = false;
     @Input() showCityForm: boolean = false;
     @Input() showProvinceForm: boolean = false;
     @Input() formInfo: FormInfo = {id: 0, type: ''}
@@ -16,6 +17,7 @@ export class FormsContentComponent {
     @Input() showDestinationsTable: boolean = false;
     @Input() showCitiesTable: boolean = false;
     @Input() showProvincesTable: boolean = false;
+    @Input() showContentTab: boolean = false;
 
     constructor() {
     }
