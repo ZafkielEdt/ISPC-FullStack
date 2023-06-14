@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from "../../auth/service/login.service";
 import {Subscription} from "rxjs";
 import {User} from "../../models/user";
+import {FormInfo} from "../../utils/FormInfo";
 
 @Component({
     selector: 'app-dashboard',
@@ -15,6 +16,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     currentUser!: User;
     showProfileTab: boolean = false;
     showContentTab: boolean = false;
+    showUpdateForm: boolean = false;
+    formInfo: FormInfo = {id: 0, type: ''}
 
     constructor(private loginService: LoginService) {
     }
@@ -36,6 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         if (contentName === "profile") {
             this.showProfileTab = !this.showProfileTab;
             this.showContentTab = false;
+            this.formInfo = {id: this.currentUser.pk, type: 'update'}
         } else {
             this.showContentTab = !this.showContentTab;
             this.showProfileTab = false;

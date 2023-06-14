@@ -17,7 +17,6 @@ export class UserFormComponent implements OnInit, OnDestroy {
     updateSubscription!: Subscription;
 
     currentRol!: string[] | undefined;
-    updateCurrentUser: boolean = false;
 
     userForm: FormGroup = this.formBuilder.group({
         username: ['', [Validators.required, Validators.min(5)]],
@@ -36,6 +35,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     @Input() showDestinationsTable: boolean = false;
     @Input() showCitiesTable: boolean = false;
     @Input() showProvincesTable: boolean = false;
+    @Input() updateCurrentUser: boolean = false;
 
     ngOnInit() {
         this.getSubscription = this.loginService.getCurrentUser().subscribe((res) => {

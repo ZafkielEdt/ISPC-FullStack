@@ -8,11 +8,11 @@
             <button (click)="showContentBy('content')" class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Administrar Contenido
             </button>
+            <app-table-content [showContentTab] = "showContentTab" [showProfileTab] = "showProfileTab"></app-table-content>
         </div>
         <div *ngIf="showProfileTab">
-            <p>User</p>
+            <app-user-form [showForm]="showProfileTab" [formInfo]="formInfo" [updateCurrentUser]="true"></app-user-form>
         </div>
-        <app-table-content [showContentTab] = "showContentTab" [showProfileTab] = "showProfileTab"></app-table-content>
     </div>
     <div *ngIf="!isAdmin" class="user-section">
         <p>User time :v</p>
