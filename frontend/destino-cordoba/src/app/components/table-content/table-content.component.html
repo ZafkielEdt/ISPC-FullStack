@@ -1,5 +1,5 @@
-<div class="mt-5">
-    <div *ngIf="showContentTab" class="mt-5">
+<div *ngIf="showContentTab" class="mt-5">
+    <div class="mt-5">
         <button (click)="showTableBy('users')"
                 class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
             Usuarios
@@ -134,6 +134,7 @@
                        [showUsersTable]="showUsersTable"
                        [showDestinationsTable]="showDestinationsTable"
                        [showCitiesTable]="showCitiesTable"
-                       [showProvincesTable]="showProvincesTable">
+                       [showProvincesTable]="showProvincesTable"
+                       [showContentTab]="showContentTab">
     </app-forms-content>
 </div>

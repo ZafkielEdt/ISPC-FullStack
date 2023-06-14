@@ -1,11 +1,11 @@
 <section>
     <app-province-form
-            *ngIf="!showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showProvinceForm"
+            *ngIf="showContentTab && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showProvinceForm"
             [formInfo]="formInfo" [showForm]="showProvinceForm"></app-province-form>
     <app-city-form
-            *ngIf="!showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showCityForm"
+            *ngIf="showContentTab && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showCityForm"
             [formInfo]="formInfo" [showForm]="showCityForm"></app-city-form>
     <app-user-form
-            *ngIf="!showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showUserForm"
+            *ngIf="showContentTab && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showUserForm"
             [formInfo]="formInfo" [showForm]="showUserForm"></app-user-form>
 </section>
