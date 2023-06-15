@@ -40,11 +40,17 @@ class ImageDestinationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DestinationSerializer(serializers.ModelSerializer):
-    images = ImageDestinationSerializer(many=True)
-    city = CitySerializer()
+    images = ImageDestinationSerializer(read_only=True,many=True)
+    #city = CitySerializer()
     class Meta:
         model = Destination
         fields = ['id','name','description','city','images']
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['city'] = CitySerializer(instance.city).data
+        data['images'] = ImageDestinationSerializer(instance.images, many=True).data
+        return data
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
