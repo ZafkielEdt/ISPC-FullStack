@@ -8,4 +8,7 @@
     <app-user-form
             *ngIf="showContentTab && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showUserForm"
             [formInfo]="formInfo" [showForm]="showUserForm"></app-user-form>
+    <app-destination-form
+            *ngIf="showContentTab && !showUsersTable && !showDestinationsTable && !showCitiesTable && !showProvincesTable && showDestinationForm"
+            [formInfo]="formInfo" [showForm]="showDestinationForm"></app-destination-form>
 </section>
