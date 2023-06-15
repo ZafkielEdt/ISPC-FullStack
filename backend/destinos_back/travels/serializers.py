@@ -28,6 +28,11 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = '__all__'
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['province'] = ProvinceSerializer(instance.province).data
+        return data    
 
 class ImageDestinationSerializer(serializers.ModelSerializer):
     class Meta:
