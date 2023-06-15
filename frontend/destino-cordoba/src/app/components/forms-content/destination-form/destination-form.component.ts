@@ -65,7 +65,8 @@ export class DestinationFormComponent implements OnInit, OnDestroy {
         const dataApiWithImage = {
             name: this.destinationForm.value.name,
             description: this.destinationForm.value.description,
-            city: this.cities.filter(c => c.id === parseInt(this.destinationForm.value.city) ? c.id : 0)[0].id
+            city: this.cities.filter(c => c.id === parseInt(this.destinationForm.value.city) ? c.id : 0)[0].id,
+            images: {title: this.destinationForm.value.title, image: this.destinationForm.value.image}
         };
         const dataApi = {
             name: this.destinationForm.value.name,

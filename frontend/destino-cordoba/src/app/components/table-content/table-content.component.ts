@@ -46,8 +46,8 @@ export class TableContentComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.getSubscription.unsubscribe()
-        this.deleteSubscription.unsubscribe()
+        this.getSubscription?.unsubscribe()
+        this.deleteSubscription?.unsubscribe()
     }
 
     injectContentBy(contentName: string) {
