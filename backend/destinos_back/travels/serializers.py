@@ -89,3 +89,33 @@ class ImageAccommodationSerializer(serializers.ModelSerializer):
     class Meta:
         model = None 
         fields = ('url', 'title')
+
+
+
+class ClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Client
+        fields = ['id','user', 'name', 'last_name']
+
+class PaymentInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PaymentInfo
+        fields = ['card_number', 'card_type', 'name', 'dni', 'cvv', 'exp_month', 'exp_year']
+
+class OrderSerializer(serializers.ModelSerializer):
+    client = ClientSerializer()  # Nested serializer for Client
+    payment = PaymentInfoSerializer()  # Nested serializer for PaymentInfo
+
+    class Meta:
+        model = Order
+        fields = ['amount', 'client', 'package', 'payment', 'status', 'created_at']
+
+    def create(self, validated_data):
+        client_data = validated_data.pop('client')
+        payment_data = validated_data.pop('payment')
+
+        client = Client.objects.create(**client_data)
+        payment = PaymentInfo.objects.create(**payment_data)
+
+        order = Order.objects.create(client=client, payment=payment, **validated_data)
+        return order

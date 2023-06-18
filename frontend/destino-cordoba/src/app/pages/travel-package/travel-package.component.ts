@@ -8,6 +8,7 @@ import { Package } from "src/app/models/package";
 import { DestinationsService } from "src/app/services/destinations.service";
 import { PackageTravel } from "src/app/models/package-travel";
 import { ImagesService } from "src/app/services/images.service";
+import { Traveler } from "src/app/models/traveler";
 
 @Component({
 	selector: "app-travel-package",
@@ -45,27 +46,6 @@ export class PackageTravelComponent implements OnInit {
 	selectedDate: Date = new Date();
 	dateValid: boolean = false;
 	endDate: Date = new Date();
-	errorMessage: string = "";
-	set selected(value: Date) {
-		this.selectedDate = value;
-		this.dateValid = false;
-		this.errorMessage = "";
-	}
-
-	get selected(): Date {
-		return this.selectedDate;
-	}
-
-	checkAvailability(): void {
-		if (this.selected && this.selected >= new Date()) {
-			this.dateValid = true;
-			this.errorMessage = "";
-		} else {
-			this.dateValid = false;
-			this.errorMessage =
-				"La fecha seleccionada debe ser posterior a hoy.";
-		}
-	}
 
 	incrementValue(type: string): void {
 		if (
@@ -98,7 +78,6 @@ export class PackageTravelComponent implements OnInit {
 				? this.packageTravel.adults.length--
 				: (this.packageTravel.adults.length = 1);
 		}
-		console.log(this.packageTravel.adults.length);
 	}
 
 	addToCart() {
@@ -122,7 +101,7 @@ export class PackageTravelComponent implements OnInit {
 					nights: Number(paquete.end_date.split('-')[2]) - Number(paquete.start_date.split('-')[2])-1,
 					rate: 0,
 					childs: [],
-					adults: [],
+					adults: [{} as Traveler],
 					experiences: [],
 					destination: paquete.destination,
 				  };
@@ -130,7 +109,6 @@ export class PackageTravelComponent implements OnInit {
 				  this.destinationId = paquete.destination.id;
 				  this.imagesService.getDestinationImages(this.destinationId).subscribe({
 					next: (images: any) => {	
-						console.log(images)
 						this.gallery = images.results;
 					}});
 			},
@@ -145,7 +123,6 @@ export class PackageTravelComponent implements OnInit {
 		}
 	setPackageInfo(): void {
 		if (this.package && this.destinationFetch) {
-			console.log("hola")
 		  this.packageTravel = {
 			id: this.id,
 			title: this.package.title,

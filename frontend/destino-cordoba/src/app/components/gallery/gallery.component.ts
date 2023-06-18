@@ -9,7 +9,6 @@ import { ModalComponent } from 'src/app/pages/travel-package';
 export class GalleryComponent implements OnInit{
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
-    console.log(this.gallery)
   }
 
   @Input() gallery: any[] = [];
