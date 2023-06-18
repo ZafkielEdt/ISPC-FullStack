@@ -75,7 +75,7 @@ export class PaymentInfoComponent implements OnInit{
   }
   cardType! : string;
   onCardNumberChange(): void {
-    this.paymentForm.get('cardNumber')?.valueChanges.subscribe((value) => {
+    this.paymentForm.get('card_number')?.valueChanges.subscribe((value) => {
       if (value) {
         const cleanValue = value.replace(/[^0-9]/g, ''); // eliminar caracteres no numéricos
         this.paymentForm.patchValue({ card_number: cleanValue }, { emitEvent: false }); // actualizar el valor del campo
