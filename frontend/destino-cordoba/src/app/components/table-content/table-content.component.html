@@ -16,6 +16,10 @@
                 class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
             Provincias
         </button>
+        <button (click)="showTableBy('orders')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Ordenes
+        </button>
     </div>
 
     <div class="overflow-x-auto border-x border-t">
@@ -37,7 +41,7 @@
                 Agregar
             </button>
         </div>
-        <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable && !showProfileTab"
+        <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable || showOrdersTable && !showProfileTab"
                class="table-auto w-full">
             <thead *ngIf="showUsersTable" class="border-b">
             <tr class="bg-gray-100">
@@ -69,6 +73,13 @@
                 <th class="text-left p-4 font-medium">ID</th>
                 <th class="text-left p-4 font-medium">Nombre</th>
                 <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showOrdersTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">Usuario</th>
+                <th class="text-left p-4 font-medium">Orden</th>
+                <th class="text-left p-4 font-medium">Estado</th>
             </tr>
             </thead>
             <tbody *ngIf="showUsersTable">
@@ -125,6 +136,13 @@
                     <img (click)="deleteBy('province', province.id)" ngSrc="/assets/icons/trash-solid.svg"
                          alt="Icon delete" height="16" width="16" class="w-6 h-6">
                 </td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="showOrdersTable">
+            <tr class="border-b hover:bg-gray-50">
+                <td class="p-4">Cliente</td>
+                <td class="p-4">Orden</td>
+                <td class="p-4">Estado</td>
             </tr>
             </tbody>
         </table>

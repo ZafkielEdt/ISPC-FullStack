@@ -27,6 +27,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showDestinationForm: boolean = false;
     showCityForm: boolean = false;
     showProvinceForm: boolean = false;
+    showOrdersTable: boolean = false;
     formInfo: FormInfo = {type: ''}
 
     contentUsers!: User[];
@@ -120,6 +121,13 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showDestinationsTable = false;
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
+                break;
+            case "orders":
+                this.showOrdersTable = !this.showOrdersTable;
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
                 break;
         }
     }
