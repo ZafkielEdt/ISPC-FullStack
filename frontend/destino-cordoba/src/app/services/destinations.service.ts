@@ -22,7 +22,7 @@ export class DestinationsService {
     return this.http.get<any>(this.destinationUrl);
   }
 
-  getBy(id: number) {
+  getBy(id?: number) {
     return this.http.get<any>(`${this.destinationUrl}/${id}`);
   }
 
@@ -30,8 +30,8 @@ export class DestinationsService {
     return this.http.post(this.destinationUrl, destination);
   }
 
-  update(destination: FormGroup, id: number) {
-    return this.http.put(`${this.destinationUrl}/${id}`, destination.value);
+  update(destination: object, id?: number) {
+    return this.http.put(`${this.destinationUrl}/${id}`, destination);
   }
 
   deleteBy(id: number) {
