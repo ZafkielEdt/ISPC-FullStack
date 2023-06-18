@@ -19,7 +19,7 @@
           border-green-200
           shadow-sm
           focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" maxlength="16" type="text"
-    placeholder="XXXX XXXX XXXX XXXX" formControlName="cardNumber" autocomplete="off">
+    placeholder="XXXX XXXX XXXX XXXX" formControlName="card_number" autocomplete="off">
   <div *ngIf="cardType === 'Visa' || cardType === 'Mastercard'" class="h-8">
     <img class="inline-block" [src]="cardType === 'Visa' ? visa : mastercard" alt="" height="32" width="32">
   </div>
@@ -74,8 +74,8 @@
           border-green-200
           shadow-sm
           focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" placeholder=""
-            formControlName="expMonth" [autocomplete]="false">
-            <option *ngFor="let month of months ;index as i" [value]="month">{{month}}</option>
+            formControlName="exp_month" [autocomplete]="false">
+            <option *ngFor="let month of months ;index as i" [value]="i+1">{{month}}</option>
           </select>
 
         </div>
@@ -90,7 +90,7 @@
         border-green-200
         shadow-sm
         focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" placeholder=""
-            formControlName="expYear" [autocomplete]="false">
+            formControlName="exp_year" [autocomplete]="false">
             <option class="p-5 m-3" *ngFor="let year of years ;index as i" [value]="year">{{year}}</option>
 
 
