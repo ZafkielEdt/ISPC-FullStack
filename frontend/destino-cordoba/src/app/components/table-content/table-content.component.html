@@ -79,6 +79,8 @@
             <tr class="bg-gray-100">
                 <th class="text-left p-4 font-medium">Usuario</th>
                 <th class="text-left p-4 font-medium">Orden</th>
+                <th class="text-left p-4 font-medium">Monto</th>
+                <th class="text-left p-4 font-medium">Tarjeta</th>
                 <th class="text-left p-4 font-medium">Estado</th>
             </tr>
             </thead>
@@ -139,10 +141,12 @@
             </tr>
             </tbody>
             <tbody *ngIf="showOrdersTable">
-            <tr class="border-b hover:bg-gray-50">
-                <td class="p-4">Cliente</td>
-                <td class="p-4">Orden</td>
-                <td class="p-4">Estado</td>
+            <tr *ngFor="let order of contentOrders" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{order.client.name}}</td>
+                <td class="p-4">{{order.package}}</td>
+                <td class="p-4">{{order.amount}}</td>
+                <td class="p-4">{{order.payment.card_type}}</td>
+                <td class="p-4">{{order.status}}</td>
             </tr>
             </tbody>
         </table>
