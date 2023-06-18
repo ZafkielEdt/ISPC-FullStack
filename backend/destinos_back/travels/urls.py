@@ -19,4 +19,8 @@ urlpatterns = [
     path('hotels/<int:id>', views.AccommodationDetail.as_view()),
     path('hotels/images/<int:id>', views.ImageAccommodationView.as_view()),
     path('features', views.FtServiceView.as_view()),
+     path('orders/', views.OrderView.as_view()),
+    path('clients/', views.ClientView.as_view()),
+    path('orders/<int:order_id>/', views.OrderByIdView.as_view()),
+    path('orders/client/<int:client_id>/', views.OrdersByClientView.as_view()),
 ]
