@@ -9,6 +9,8 @@ import {Subscription} from "rxjs";
 import {FormInfo} from "../../utils/FormInfo";
 import {OrderService} from "../../services/order.service";
 import {Order} from "../../models/order";
+import {PackagesService} from "../../services/packages.service";
+import {Package} from "../../models/package";
 
 
 @Component({
@@ -30,6 +32,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showCityForm: boolean = false;
     showProvinceForm: boolean = false;
     showOrdersTable: boolean = false;
+    showPackagesTable: boolean = false;
     formInfo: FormInfo = {type: ''}
 
     contentUsers!: User[];
@@ -37,12 +40,14 @@ export class TableContentComponent implements OnInit, OnDestroy {
     contentCities!: City[];
     contentProvinces!: Province[];
     contentOrders!: Order[];
+    contentPackages!: Package[]
 
     @Input() showContentTab: boolean = false;
     @Input() showProfileTab: boolean = false;
 
     constructor(private userService: UserService, private destinationService: DestinationsService,
-                private cityService: CityService, private provinceService: ProvinceService, private orderService: OrderService) {
+                private cityService: CityService, private provinceService: ProvinceService,
+                private orderService: OrderService, private packagesService: PackagesService) {
     }
 
     ngOnInit() {
@@ -91,6 +96,13 @@ export class TableContentComponent implements OnInit, OnDestroy {
                     }
                 })
                 break;
+            case "packages":
+                this.getSubscription = this.packagesService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentPackages = res.results
+                    }
+                })
+                break;
         }
     }
 
@@ -105,6 +117,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 this.showOrdersTable = false;
+                this.showPackagesTable = false;
                 break;
             case "destinations":
                 this.showDestinationsTable = !this.showDestinationsTable;
@@ -115,6 +128,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
                 this.showOrdersTable = false;
+                this.showPackagesTable = false;
                 break;
             case "cities":
                 this.showCitiesTable = !this.showCitiesTable;
@@ -125,6 +139,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showUsersTable = false;
                 this.showProvincesTable = false;
                 this.showOrdersTable = false;
+                this.showPackagesTable = false;
                 break;
             case "provinces":
                 this.showProvincesTable = !this.showProvincesTable;
@@ -135,6 +150,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
                 this.showOrdersTable = false;
+                this.showPackagesTable = false;
                 break;
             case "orders":
                 this.showOrdersTable = !this.showOrdersTable;
@@ -145,6 +161,19 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showUsersTable = false;
                 this.showCitiesTable = false;
                 this.showProvincesTable = false;
+                this.showPackagesTable = false;
+                console.log(this.showPackagesTable)
+                break;
+            case "packages":
+                this.showPackagesTable = !this.showPackagesTable
+                if (this.showPackagesTable) {
+                    this.injectContentBy("packages")
+                }
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
+                this.showOrdersTable = false;
                 break;
         }
     }
