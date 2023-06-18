@@ -14,6 +14,10 @@ export class PackagesService {
   getPackages() {
     return this.http.get<Package[]>(this.apiURL+'packages');
   }
+
+  getAll() {
+    return this.http.get<any>(this.apiURL+'packages')
+  }
   getPackageById(id : number) {
     return this.http.get<Package>(this.apiURL+'packages/'+id);
   }

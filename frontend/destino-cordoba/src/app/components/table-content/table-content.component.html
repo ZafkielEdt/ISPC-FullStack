@@ -16,6 +16,14 @@
                 class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
             Provincias
         </button>
+        <button (click)="showTableBy('packages')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Paquetes
+        </button>
+        <button (click)="showTableBy('orders')"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Ordenes
+        </button>
     </div>
 
     <div class="overflow-x-auto border-x border-t">
@@ -36,8 +44,12 @@
                     class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Agregar
             </button>
+            <button *ngIf="showPackagesTable" (click)="showFormBy('province', 'create')"
+                    class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Agregar
+            </button>
         </div>
-        <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable && !showProfileTab"
+        <table *ngIf="showUsersTable || showDestinationsTable || showCitiesTable || showProvincesTable || showOrdersTable || showPackagesTable && !showProfileTab"
                class="table-auto w-full">
             <thead *ngIf="showUsersTable" class="border-b">
             <tr class="bg-gray-100">
@@ -69,6 +81,25 @@
                 <th class="text-left p-4 font-medium">ID</th>
                 <th class="text-left p-4 font-medium">Nombre</th>
                 <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showPackagesTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">ID</th>
+                <th class="text-left p-4 font-medium">Nombre</th>
+                <th class="text-left p-4 font-medium">Precio</th>
+                <th class="text-left p-4 font-medium">Destino</th>
+                <th class="text-left p-4 font-medium">Puntuacion</th>
+                <th></th>
+            </tr>
+            </thead>
+            <thead *ngIf="showOrdersTable" class="border-b">
+            <tr class="bg-gray-100">
+                <th class="text-left p-4 font-medium">Usuario</th>
+                <th class="text-left p-4 font-medium">Orden</th>
+                <th class="text-left p-4 font-medium">Monto</th>
+                <th class="text-left p-4 font-medium">Tarjeta</th>
+                <th class="text-left p-4 font-medium">Estado</th>
             </tr>
             </thead>
             <tbody *ngIf="showUsersTable">
@@ -127,6 +158,31 @@
                 </td>
             </tr>
             </tbody>
+            <tbody *ngIf="showOrdersTable">
+            <tr *ngFor="let order of contentOrders" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{order.client.name}}</td>
+                <td class="p-4">{{order.package}}</td>
+                <td class="p-4">{{order.amount}}</td>
+                <td class="p-4">{{order.payment.card_type}}</td>
+                <td class="p-4">{{order.status}}</td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="showPackagesTable">
+            <tr *ngFor="let packages of contentPackages" class="border-b hover:bg-gray-50">
+                <td class="p-4">{{packages.id}}</td>
+                <td class="p-4">{{packages.title}}</td>
+                <td class="p-4">{{packages.total_price}}</td>
+                <td class="p-4">{{packages.destination.name}}</td>
+                <td class="p-4">{{packages.rate}}</td>
+                <td class="p-4 flex justify-center">
+                    <img
+                            ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                            class="w-6 h-6 mr-1.5">
+                    <img  ngSrc="/assets/icons/trash-solid.svg"
+                          alt="Icon delete" height="16" width="16" class="w-6 h-6">
+                </td>
+            </tr>
+            </tbody>
         </table>
     </div>
     <app-forms-content *ngIf="showContentTab"
@@ -139,6 +195,8 @@
                        [showDestinationsTable]="showDestinationsTable"
                        [showCitiesTable]="showCitiesTable"
                        [showProvincesTable]="showProvincesTable"
+                       [showOrdersTable]="showOrdersTable"
+                       [showPackagesTable]="showPackagesTable"
                        [showContentTab]="showContentTab">
     </app-forms-content>
 </div>
