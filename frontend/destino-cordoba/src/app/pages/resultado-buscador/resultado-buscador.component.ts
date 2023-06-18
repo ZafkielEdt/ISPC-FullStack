@@ -26,7 +26,6 @@ export class ResultadoBuscadorComponent implements OnInit {
 			if (res.length > 0) {
 				this.isFound = true;
 			}
-			console.log(res);
 		});
 	}
 }
