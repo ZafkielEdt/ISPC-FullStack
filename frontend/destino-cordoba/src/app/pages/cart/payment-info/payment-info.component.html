@@ -1,29 +1,28 @@
 <form [formGroup]="paymentForm" class="flex flex-col w-full gap-3 mt-6" (ngSubmit)="onSubmit()">
   <div class="tabs flex gap-8 items-center border-b-2 w-full">
-    <button type="button" (click)="setActive(1)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 1}">Tarjeta de credito</button>
-    <button type="button" (click)="setActive(2)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 2}">Tarjeta de débito</button>
-    <button type="button" (click)="setActive(3)" class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3" [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 3}">Efectivo</button>
+    <button type="button" (click)="setActive(1)"
+      class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3"
+      [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 1}">Tarjeta de credito</button>
+    <button type="button" (click)="setActive(2)"
+      class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3"
+      [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 2}">Tarjeta de débito</button>
+    <button type="button" (click)="setActive(3)"
+      class="text-xl font-bold hover:bg-zinc-400 hover:bg-opacity-20 text-black p-3"
+      [ngClass]="{'border-b-[3px] border-slate-950 text-emerald-600' : tabActive === 3}">Efectivo</button>
   </div>
   <label class="block font-bold">Número</label>
-  <input 
-  (change)="onCardNumberChange()"
-  class="
+  <input (change)="onCardNumberChange()" class="
           form-input mt-1
           block
           w-full
           rounded-md
           border-green-200
           shadow-sm
-          focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" 
-          maxlength="16"
-          type="text"
-    placeholder="XXXX XXXX XXXX XXXX"
-        formControlName="cardNumber" autocomplete="off">
-        <div *ngIf="cardType === 'Visa' || cardType === 'Mastercard'" class="h-8">
-            <img 
-            class="inline-block"
-            [src]="cardType === 'Visa' ? visa : mastercard" alt="" height="32" width="32">
-        </div>
+          focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" maxlength="16" type="text"
+    placeholder="XXXX XXXX XXXX XXXX" formControlName="card_number" autocomplete="off">
+  <div *ngIf="cardType === 'Visa' || cardType === 'Mastercard'" class="h-8">
+    <img class="inline-block" [src]="cardType === 'Visa' ? visa : mastercard" alt="" height="32" width="32">
+  </div>
 
   <label class="block font-bold">Nombre y apellido como figura en la tarjeta</label>
   <input class="
@@ -48,22 +47,24 @@
           shadow-sm
           focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="text"
     placeholder="XX XXX XXX" formControlName="dni" autocomplete="off">
-  <label class="block font-bold">Código de seguridad</label>
-  <input class="appearance-none
+  <div class="flex justify-between items-end">
+      <div class="left ">
+      <label class="block font-bold">Código de seguridad</label>
+      <input class="appearance-none
             form-input mt-1
             block
             w-full
             rounded-md
             border-green-200
             shadow-sm
-            focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="number" placeholder="CVV"
-    formControlName="cvv" autocomplete="off">
-
-<p class="block mt-3 font-bold">Fecha de vencimiento</p>
-  <div class="date-input w-full gap-6 flex relative">
-    <div class="flex flex-col">
-      <label class="block">Mes</label>
-      <select class="
+            focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" type="number"
+        placeholder="CVV" formControlName="cvv" autocomplete="off">
+      </div>
+      <div class="right">
+      <p class="block mt-3 font-bold">Fecha de vencimiento</p>
+      <div class="date-input w-full gap-6 flex relative">
+        <div class="flex flex-col">
+          <select class="
           
           flex-1
           form-select 
@@ -73,14 +74,13 @@
           border-green-200
           shadow-sm
           focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" placeholder=""
-        formControlName="expMonth" [autocomplete]="false">
-        <option *ngFor="let month of months ;index as i" [value]="month">{{month}}</option>
-    </select>
+            formControlName="exp_month" [autocomplete]="false">
+            <option *ngFor="let month of months ;index as i" [value]="i+1">{{month}}</option>
+          </select>
 
-    </div>
-    <div class="flex flex-col">
-      <label class="block">Año</label>
-      <select class="
+        </div>
+        <div class="flex flex-col">
+          <select class="
 
         flex-1
         form-select 
@@ -90,12 +90,14 @@
         border-green-200
         shadow-sm
         focus:border-[#009688] focus:ring focus:ring-[#009688] focus:ring-opacity-30" placeholder=""
-        formControlName="expYear" [autocomplete]="false">
-        <option class="p-5 m-3" *ngFor="let year of years ;index as i" [value]="year">{{year}}</option>
-    
+            formControlName="exp_year" [autocomplete]="false">
+            <option class="p-5 m-3" *ngFor="let year of years ;index as i" [value]="year">{{year}}</option>
 
-    </select>
-    </div>
+
+          </select>
+        </div>
+        </div>
+      </div>
   </div>
-  <button type="submit" class="rounded-emerald text-white font-bold text-sm py-2 px-4 w-fit ">Pagar</button>
+  <button type="submit" class="rounded-emerald bg-green-800 text-white font-bold text-sm py-2 px-4 w-fit ">Pagar</button>
 </form>

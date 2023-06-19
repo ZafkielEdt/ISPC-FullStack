@@ -1,0 +1,51 @@
+<div *ngIf="showForm" class="container mx-auto py-8">
+    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar Destino</h1>
+    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar Destino</h1>
+
+    <form [formGroup]="destinationForm" (ngSubmit)="onSubmit($event)"
+          class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="name" name="name" placeholder="Name" formControlName="name">
+            <div *ngIf="Name?.errors && Name?.touched" class="text-red-600">
+                <p *ngIf="Name?.hasError('required')">El nombre es requerido</p>
+                <p *ngIf="Name?.hasError('min')">El nombre debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Descripción</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="description" name="description" placeholder="Descripción"
+                   formControlName="description">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="city">Ciudad</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    name="city" id="city" formControlName="city">
+                <option value="" selected>Seleccionar ciudad</option>
+                <option *ngFor="let city of cities" value="{{ city.id }}">
+                    {{ city.name }}
+                </option>
+            </select>
+        </div>
+        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Titulo de imagen</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="title" name="title" placeholder="Titulo de imagen" formControlName="title">
+        </div>
+        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="image">Imagen</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="file" id="image" name="image" placeholder="Longitud" formControlName="image">
+        </div>
+        <button *ngIf="formInfo.type.includes('create')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Agregar
+        </button>
+        <button *ngIf="formInfo.type.includes('update')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Actualizar
+        </button>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<section>
+    <div *ngIf="isAdmin" class="flex flex-col justify-center items-center">
+        <h2 class="font-bold text-3xl mt-5">Bienvenido {{currentUser.username}}</h2>
+        <div class="mt-5">
+            <button (click)="showContentBy('profile')" class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Actualizar Perfil
+            </button>
+            <button (click)="showContentBy('content')" class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Administrar Contenido
+            </button>
+            <app-table-content [showContentTab] = "showContentTab" [showProfileTab] = "showProfileTab"></app-table-content>
+        </div>
+        <div *ngIf="showProfileTab">
+            <app-user-form [showForm]="showProfileTab" [formInfo]="formInfo" [updateCurrentUser]="true"></app-user-form>
+        </div>
+    </div>
+    <div *ngIf="!isAdmin" class="flex flex-col justify-center items-center">
+        <h2 class="font-bold text-3xl mt-5">Bienvenido {{currentUser.username}}</h2>
+        <div class="mt-5">
+            <button (click)="showContentBy('profile')" class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+                Actualizar Perfil
+            </button>
+        </div>
+        <div *ngIf="showProfileTab">
+            <app-user-form [showForm]="showProfileTab" [formInfo]="formInfo" [updateCurrentUser]="true"></app-user-form>
+        </div>
+    </div>
+</section>

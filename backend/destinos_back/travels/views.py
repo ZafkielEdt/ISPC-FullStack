@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from .models import *
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.decorators import permission_classes
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 
@@ -26,6 +27,16 @@ class CityDetail(generics.RetrieveAPIView):
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data)
     
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        cities = City.objects.get(id=id)
+        serializer = CitySerializer(cities, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
     def delete(self, request, id=None):
         cities = City.objects.filter(id=id)
         cities.delete()
@@ -35,6 +46,26 @@ class CityDetail(generics.RetrieveAPIView):
 class ProvinceView(generics.ListCreateAPIView):
     queryset = Province.objects.all()
     serializer_class = ProvinceSerializer
+    
+class ProvinceDetail(generics.RetrieveAPIView):
+    queryset = Province.objects.all()
+    serializer_class = ProvinceSerializer
+    lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        provinces = Province.objects.get(id=id)
+        serializer = ProvinceSerializer(provinces, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        provinces = Province.objects.filter(id=id)
+        provinces.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class DestinationView(generics.ListCreateAPIView):
@@ -46,6 +77,21 @@ class DestinationDetail(generics.RetrieveAPIView):
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
     lookup_field = 'id'
+    
+    @permission_classes([IsAdminUser])
+    def put(self, request, id=None):
+        destinations = Destination.objects.get(id=id)
+        serializer = DestinationSerializer(destinations, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @permission_classes([IsAdminUser])
+    def delete(self, request, id=None):
+        destinations = Destination.objects.filter(id=id)
+        destinations.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @permission_classes([AllowAny])
 class ExperienceView(generics.ListCreateAPIView):
@@ -115,3 +161,42 @@ class ImageExperienceView(generics.ListCreateAPIView):
 class ImageAccommodationView(generics.ListCreateAPIView):
     queryset = ImageAccommodation.objects.all()
     serializer_class = ImageAccommodationSerializer
+
+@permission_classes([AllowAny])
+class OrderView(APIView):
+    def get(self, request):
+        orders = Order.objects.all()
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST,exception=True)
+@permission_classes([AllowAny])  
+class ClientView(APIView):
+    def get(self, request):
+        clients = Client.objects.all()
+        serializer = ClientSerializer(clients, many=True)
+        return Response(serializer.data)
+@permission_classes([AllowAny])
+class OrderByIdView(APIView):
+    def get(self, request, order_id):
+        try:
+            order = Order.objects.get(id=order_id)
+            serializer = OrderSerializer(order)
+            return Response(serializer.data)
+        except Order.DoesNotExist:
+            return Response({'error': 'Order not found'}, status=status.HTTP_404_NOT_FOUND)
+@permission_classes([AllowAny])
+class OrdersByClientView(APIView):
+    def get(self, request, client_id):
+        try:
+            client = Client.objects.get(id=client_id)
+            orders = Order.objects.filter(client=client)
+            serializer = OrderSerializer(orders, many=True)
+            return Response(serializer.data)
+        except Client.DoesNotExist:
+            return Response({'error': 'Client not found'}, status=status.HTTP_404_NOT_FOUND)

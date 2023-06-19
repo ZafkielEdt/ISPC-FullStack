@@ -1,82 +1,82 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import {
-	BrowserAnimationsModule,
-	provideAnimations,
+    BrowserAnimationsModule,
+    provideAnimations,
 } from "@angular/platform-browser/animations";
 
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { GalleryComponent } from "./components/gallery/gallery.component";
-import { UserDashboardComponent } from "./pages/user-dashboard/";
 
 import { MAT_DATE_LOCALE } from "@angular/material/core";
-import { NotFoundComponent } from "./pages/not-found/";
 import { AuthModule } from "./auth/auth.module";
+import { NotFoundComponent } from "./pages/not-found/";
 
+import { NgOptimizedImage } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
-import { CartComponent } from "./pages";
-import { TravelerComponent } from "./pages/cart/traveler";
-import { PaymentInfoComponent } from "./pages/cart/payment-info";
-import { SharedModule } from "./shared";
-import { ModalComponent, PackageTravelComponent } from "./pages/travel-package";
 import { CookieService } from "ngx-cookie-service";
-import { DashboardContainerComponent } from "./components/admin-dashboard-components/dashboard-container/dashboard-container.component";
-import { UserTabComponent } from "./components/admin-dashboard-components/user-tab/user-tab.component";
-import { AuthInterceptor } from "./auth/auth.interceptor";
-import { PriceBoxComponent } from "./pages/cart/price-box/price-box.component";
-import { DestinationTabComponent } from "./components/admin-dashboard-components/destination-tab/destination-tab.component";
-import { DestinationUpdateDetailsComponent } from "./components/admin-dashboard-components/destination-tab/destination-update-details/destination-update-details.component";
-import { DestinationCreationFormComponent } from "./components/admin-dashboard-components/destination-tab/destination-creation-form/destination-creation-form.component";
-import { UserDashboardContainerComponent } from "./components/user-dashboard-components/user-dashboard-container/user-dashboard-container.component";
-import { UserUpdateFormComponent } from "./components/user-dashboard-components/user-dashboard-container/user-update-form/user-update-form.component";
 import { ToastrModule, provideToastr } from "ngx-toastr";
-import { CityTabComponent } from './components/admin-dashboard-components/city-tab/city-tab.component';
-import { CityFormComponent } from './components/admin-dashboard-components/city-tab/city-form/city-form.component';
+import { AuthInterceptor } from "./auth/auth.interceptor";
+import { CityFormComponent } from './components/forms-content/city-form/city-form.component';
+import { FormsContentComponent } from './components/forms-content/forms-content.component';
+import { ProvinceFormComponent } from './components/forms-content/province-form/province-form.component';
+import { TableContentComponent } from './components/table-content/table-content.component';
+import { CartComponent } from "./pages";
+import { PaymentInfoComponent } from "./pages/cart/payment-info";
+import { PriceBoxComponent } from "./pages/cart/price-box/price-box.component";
+import { TravelerComponent } from "./pages/cart/traveler";
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ModalComponent, PackageTravelComponent } from "./pages/travel-package";
+import { SharedModule } from "./shared";
+import { CheckoutStatusComponent } from './pages/checkout-status/checkout-status.component';
+import { UserFormComponent } from './components/forms-content/user-form/user-form.component';
+import { DestinationFormComponent } from './components/forms-content/destination-form/destination-form.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		PackageTravelComponent,
-		GalleryComponent,
-		UserDashboardComponent,
-		ModalComponent,
-		NotFoundComponent,
-		CartComponent,
-		TravelerComponent,
-		PaymentInfoComponent,
-		PriceBoxComponent,
-		DashboardContainerComponent,
-		UserTabComponent,
-		DestinationTabComponent,
-		DestinationUpdateDetailsComponent,
-		DestinationCreationFormComponent,
-		UserDashboardContainerComponent,
-		UserUpdateFormComponent,
-  CityTabComponent,
-  CityFormComponent,
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		ReactiveFormsModule,
-		LazyLoadImageModule,
-		SharedModule,
-		AuthModule,
-		HttpClientModule,
-		ToastrModule.forRoot(),
-	],
-	providers: [
-		{ provide: MAT_DATE_LOCALE, useValue: "es-ES" },
-		CookieService,
-		{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-		provideAnimations(), // required animations providers
-		provideToastr(),
-	],
-	bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        PackageTravelComponent,
+        GalleryComponent,
+        ModalComponent,
+        DashboardComponent,
+        NotFoundComponent,
+        CartComponent,
+        TravelerComponent,
+        PaymentInfoComponent,
+        PriceBoxComponent,
+        TableContentComponent,
+        FormsContentComponent,
+        ProvinceFormComponent,
+        CityFormComponent,
+        CheckoutStatusComponent,
+
+        UserFormComponent,
+          DestinationFormComponent,
+
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        LazyLoadImageModule,
+        SharedModule,
+        AuthModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+        NgOptimizedImage,
+    ],
+    providers: [
+        {provide: MAT_DATE_LOCALE, useValue: "es-ES"},
+        CookieService,
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        provideAnimations(), // required animations providers
+        provideToastr(),
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

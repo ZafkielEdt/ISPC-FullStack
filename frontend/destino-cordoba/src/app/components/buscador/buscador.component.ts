@@ -26,7 +26,6 @@ export class BuscadorComponent implements OnInit {
 			destino: ["", [Validators.required]],
 		});
 		this.searchService.getDestinations().subscribe((data: any) => {
-			console.log(data)
 		});
 	}
 

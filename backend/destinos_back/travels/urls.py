@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('provinces', views.ProvinceView.as_view()),
+    path('provinces/<int:id>', views.ProvinceDetail.as_view()),
     path('cities', views.CityView.as_view()),
     path('cities/<int:id>', views.CityDetail.as_view()),
     path('destinations', views.DestinationView.as_view()),
@@ -18,4 +19,8 @@ urlpatterns = [
     path('hotels/<int:id>', views.AccommodationDetail.as_view()),
     path('hotels/images/<int:id>', views.ImageAccommodationView.as_view()),
     path('features', views.FtServiceView.as_view()),
+     path('orders/', views.OrderView.as_view()),
+    path('clients/', views.ClientView.as_view()),
+    path('orders/<int:order_id>/', views.OrderByIdView.as_view()),
+    path('orders/client/<int:client_id>/', views.OrdersByClientView.as_view()),
 ]

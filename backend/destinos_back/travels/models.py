@@ -99,14 +99,27 @@ class Client(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class Payment(models.Model):
-    amount = models.FloatField()
-    payment_method = models.CharField(max_length=5)
-    payment_status = models.CharField(max_length=5)
+
+class PaymentInfo(models.Model):
+    card_number = models.CharField(max_length=20)
+    card_type = models.CharField(max_length=10)
+    name = models.CharField(max_length=30)
+    dni = models.CharField(max_length=10)
+    cvv = models.CharField(max_length=3)
+    exp_month = models.CharField(max_length=2)
+    exp_year = models.CharField(max_length=4)
+class PaymentStatus(models.TextChoices):
+    NONE = 'NON', 'None'
+    ACCEPTED = 'ACC', 'Accepted'
+    REJECTED = 'REJ', 'Rejected'
+    EXPIRED = 'EXP', 'Expired'
 
 class Order(models.Model):
+    amount = models.FloatField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
-    payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
+    payment = models.ForeignKey(PaymentInfo, on_delete=models.CASCADE)
+    status = models.CharField(max_length=3, choices=PaymentStatus.choices,default=PaymentStatus.NONE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 

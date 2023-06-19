@@ -1,0 +1,51 @@
+<div *ngIf="showForm" class="container mx-auto py-8">
+    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar Ciudad</h1>
+    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar Ciudad</h1>
+
+    <form [formGroup]="cityForm" (ngSubmit)="onSubmit($event)"
+          class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="name" name="name" placeholder="Name" formControlName="name">
+            <div *ngIf="Name?.errors && Name?.touched" class="text-red-600">
+                <p *ngIf="Name?.hasError('required')">El nombre es requerido</p>
+                <p *ngIf="Name?.hasError('min')">El nombre debe contener mínimo 5 carácteres</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="lat">Latitud</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="number" id="lat" name="lat" placeholder="Latitud" formControlName="lat">
+            <div *ngIf="Lat?.errors && Lat?.touched" class="text-red-600">
+                <p *ngIf="Lat?.hasError('required')">La latitud es requerida</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="lon">Longitud</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="number" id="lon" name="lon" placeholder="Longitud" formControlName="lon">
+            <div *ngIf="Lon?.errors && Lon?.touched" class="text-red-600">
+                <p *ngIf="Lon?.hasError('required')">La longitud es requerida</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="lon">Provincia</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    name="province" id="province" formControlName="province">
+                <option value="" selected>Seleccionar provincia</option>
+                <option *ngFor="let province of provinces" value="{{ province.id }}">
+                    {{ province.name }}
+                </option>
+            </select>
+        </div>
+        <button *ngIf="formInfo.type.includes('create')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Agregar
+        </button>
+        <button *ngIf="formInfo.type.includes('update')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Actualizar
+        </button>
+    </form>
+</div>

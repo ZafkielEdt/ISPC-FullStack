@@ -1,0 +1,262 @@
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {Destination, DestinationsService} from "../../services/destinations.service";
+import {City, CityService} from "../../services/city.service";
+import {ProvinceService} from "../../services/province.service";
+import {User} from "../../models/user";
+import {Province} from "../../models/province";
+import {Subscription} from "rxjs";
+import {FormInfo} from "../../utils/FormInfo";
+import {OrderService} from "../../services/order.service";
+import {Order} from "../../models/order";
+import {PackagesService} from "../../services/packages.service";
+import {Package} from "../../models/package";
+
+
+@Component({
+    selector: 'app-table-content',
+    templateUrl: './table-content.component.html',
+    styleUrls: ['./table-content.component.css']
+})
+export class TableContentComponent implements OnInit, OnDestroy {
+    getSubscription!: Subscription;
+    deleteSubscription!: Subscription;
+    // Table
+    showUsersTable: boolean = false;
+    showDestinationsTable: boolean = false;
+    showCitiesTable: boolean = false;
+    showProvincesTable: boolean = false;
+    // Form
+    showUserForm: boolean = false;
+    showDestinationForm: boolean = false;
+    showCityForm: boolean = false;
+    showProvinceForm: boolean = false;
+    showOrdersTable: boolean = false;
+    showPackagesTable: boolean = false;
+    formInfo: FormInfo = {type: ''}
+    status!: string;
+
+    contentUsers!: User[];
+    contentDestinations!: Destination[];
+    contentCities!: City[];
+    contentProvinces!: Province[];
+    contentOrders!: Order[];
+    contentPackages!: Package[]
+
+    @Input() showContentTab: boolean = false;
+    @Input() showProfileTab: boolean = false;
+
+    constructor(private userService: UserService, private destinationService: DestinationsService,
+                private cityService: CityService, private provinceService: ProvinceService,
+                private orderService: OrderService, private packagesService: PackagesService) {
+    }
+
+    ngOnInit() {
+
+    }
+
+    ngOnDestroy() {
+        this.getSubscription?.unsubscribe()
+        this.deleteSubscription?.unsubscribe()
+    }
+
+    injectContentBy(contentName: string) {
+        switch (contentName) {
+            case "users":
+                this.getSubscription = this.userService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentUsers = res.results
+                    }
+                })
+                break;
+            case "destinations":
+                this.getSubscription = this.destinationService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentDestinations = res.results
+                    }
+                })
+                break;
+            case "cities":
+                this.getSubscription = this.cityService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentCities = res.results
+                    }
+                })
+                break;
+            case "provinces":
+                this.getSubscription = this.provinceService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentProvinces = res.results
+                    }
+                })
+                break;
+            case "orders":
+                this.getSubscription = this.orderService.getOrders().subscribe({
+                    next: (res) => {
+                        this.contentOrders = res
+                    }
+                })
+                break;
+            case "packages":
+                this.getSubscription = this.packagesService.getAll().subscribe({
+                    next: (res) => {
+                        this.contentPackages = res.results
+                    }
+                })
+                break;
+        }
+    }
+
+    showTableBy(tableName: string) {
+        switch (tableName) {
+            case "users":
+                this.showUsersTable = !this.showUsersTable;
+                if (this.showUsersTable) {
+                    this.injectContentBy("users");
+                }
+                this.showDestinationsTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
+                this.showOrdersTable = false;
+                this.showPackagesTable = false;
+                break;
+            case "destinations":
+                this.showDestinationsTable = !this.showDestinationsTable;
+                if (this.showDestinationsTable) {
+                    this.injectContentBy("destinations");
+                }
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
+                this.showOrdersTable = false;
+                this.showPackagesTable = false;
+                break;
+            case "cities":
+                this.showCitiesTable = !this.showCitiesTable;
+                if (this.showCitiesTable) {
+                    this.injectContentBy("cities");
+                }
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showProvincesTable = false;
+                this.showOrdersTable = false;
+                this.showPackagesTable = false;
+                break;
+            case "provinces":
+                this.showProvincesTable = !this.showProvincesTable;
+                if (this.showProvincesTable) {
+                    this.injectContentBy("provinces");
+                }
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showOrdersTable = false;
+                this.showPackagesTable = false;
+                break;
+            case "orders":
+                this.showOrdersTable = !this.showOrdersTable;
+                if (this.showOrdersTable) {
+                    this.injectContentBy("orders")
+                }
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
+                this.showPackagesTable = false;
+                console.log(this.showPackagesTable)
+                break;
+            case "packages":
+                this.showPackagesTable = !this.showPackagesTable
+                if (this.showPackagesTable) {
+                    this.injectContentBy("packages")
+                }
+                this.showDestinationsTable = false;
+                this.showUsersTable = false;
+                this.showCitiesTable = false;
+                this.showProvincesTable = false;
+                this.showOrdersTable = false;
+                break;
+        }
+    }
+
+    deleteBy(content: string, id: number) {
+        switch (content) {
+            case "user":
+                this.deleteSubscription = this.userService.deleteBy(id).subscribe({
+                    next: (res) => {
+                        this.userService.getAll().subscribe((res) => {
+                            this.contentUsers = res.results
+                        })
+                    }
+                })
+                break;
+            case "destination":
+                this.destinationService.deleteBy(id).subscribe({
+                    next: () => {
+                        this.destinationService.getAll().subscribe((res) => {
+                            this.contentDestinations = res.results
+                        })
+                    }
+                })
+                break;
+            case "city":
+                this.cityService.delete(id).subscribe({
+                    next: (res) => {
+                        this.cityService.getAll().subscribe((res) => this.contentCities = res.results)
+                    }
+                })
+                break;
+            case "province":
+                this.provinceService.deleteBy(id).subscribe({
+                    next: (res) => {
+                        this.provinceService.getAll().subscribe((res) => this.contentProvinces = res.results)
+                    }
+                })
+        }
+    }
+
+    private setOperation(operation: 'create' | 'update', id?: number) {
+        if (operation.includes('update')) {
+            this.formInfo = {id: id, type: operation}
+        } else {
+            this.formInfo = {type: operation}
+        }
+    }
+
+    showFormBy(content: string, operation: 'create' | 'update', id?: number) {
+        switch (content) {
+            case "user":
+                this.showUsersTable = !this.showUsersTable;
+                this.showUserForm = true;
+                this.setOperation(operation, id)
+                this.showDestinationForm = false
+                this.showCityForm = false
+                this.showProvinceForm = false
+                break;
+            case 'destination':
+                this.showDestinationsTable = !this.showDestinationsTable
+                this.showDestinationForm = true
+                this.setOperation(operation, id)
+                this.showUserForm = false
+                this.showCityForm = false
+                this.showProvinceForm = false
+                break
+            case 'city':
+                this.showCitiesTable = !this.showCitiesTable;
+                this.showCityForm = true;
+                this.setOperation(operation, id)
+                this.showDestinationForm = false
+                this.showUserForm = false
+                this.showProvinceForm = false
+                break;
+            case 'province':
+                this.showProvincesTable = !this.showProvincesTable
+                this.showProvinceForm = true;
+                this.setOperation(operation, id)
+                this.showDestinationForm = false
+                this.showCityForm = false
+                this.showUserForm = false
+                break;
+        }
+    }
+}

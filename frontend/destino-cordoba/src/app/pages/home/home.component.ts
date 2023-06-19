@@ -28,11 +28,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 		this.packageService.getPackages()
 			.subscribe((data: any) => {
 				this.packages = data.results;
-				console.log(this.packages);
 			});
 		this.destinationsService.getDestinations().subscribe((data) => {
 			this.destinations$ = data.results;
-			console.log(this.destinations$);
 		});
 	}
 
