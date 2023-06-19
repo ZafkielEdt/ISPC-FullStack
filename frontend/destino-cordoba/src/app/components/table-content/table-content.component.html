@@ -164,7 +164,10 @@
                 <td class="p-4">{{order.package}}</td>
                 <td class="p-4">{{order.amount}}</td>
                 <td class="p-4">{{order.payment.card_type}}</td>
-                <td class="p-4">{{order.status}}</td>
+                <!-- <td class="p-4">{{order.status}}</td> -->
+
+                <td *ngIf="order.status === 'REJ' || order.status === 'EXP'" class="p-4 inline-flex items-center rounded-md bg-red-50 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Rechazado</td>
+                <td *ngIf="order.status === 'ACC'" class="p-4 inline-flex items-center rounded-md bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Aceptado</td>
             </tr>
             </tbody>
             <tbody *ngIf="showPackagesTable">

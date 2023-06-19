@@ -1,7 +1,7 @@
 <div *ngIf="showForm"
      class="container mx-auto py-8">
-    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar</h1>
-    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar</h1>
+    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar Usuario</h1>
+    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar Usuario</h1>
     <form [formGroup]="userForm" class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md"
           (ngSubmit)="onSubmit($event)">
         <div class="mb-4">

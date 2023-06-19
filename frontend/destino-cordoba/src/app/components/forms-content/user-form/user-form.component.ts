@@ -131,8 +131,10 @@ export class UserFormComponent implements OnInit, OnDestroy {
         event.preventDefault()
         if (this.userForm.valid) {
             this.operations();
+            location.reload();
         } else {
             this.userForm.markAllAsTouched()
         }
+        
     }
 }
