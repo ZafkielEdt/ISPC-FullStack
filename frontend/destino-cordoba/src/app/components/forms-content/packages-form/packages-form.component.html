@@ -1,0 +1,66 @@
+<div *ngIf="showForm" class="container mx-auto py-8">
+    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar</h1>
+    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar</h1>
+
+    <form [formGroup]="packagesForm" (ngSubmit)="onSubmit($event)"
+          class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="text" id="name" name="name" placeholder="Name" formControlName="name">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="start-date">Fecha de inicio</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="date" id="start-date" name="start-date"
+                   formControlName="start_date">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="end_date">Fecha de fin</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="date" id="end_date" name="end-date"
+                   formControlName="end_date">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="city">Ciudad</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    name="city" id="city" formControlName="city">
+                <option value=" " selected>Seleccionar ciudad</option>
+                <option *ngFor="let city of cities" value="{{ city.id }}">
+                    {{ city.name }}
+                </option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="destination">Destino</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    name="destination" id="destination" formControlName="destination">
+                <option  value=" " selected>Seleccionar destino</option>
+                <option *ngFor="let destination of destinations" value="{{ destination.id }}">
+                    {{ destination.name }}
+                </option>
+            </select>
+            <div *ngIf="Name?.errors && Name?.touched" class="text-red-600">
+                <p *ngIf="Name?.hasError('required')">El nombre/titulo es requerido</p>
+            </div>
+        </div>
+        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="rate">Puntuación (max. 5)</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="number" min="1" max="5" id="rate" name="rate" placeholder="Rate" formControlName="rate">
+        </div>
+        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Precio</label>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                   type="number" id="price" name="price" placeholder="price" formControlName="total_price">
+        </div>
+        <button *ngIf="formInfo.type.includes('create')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Agregar
+        </button>
+        <button *ngIf="formInfo.type.includes('update')"
+                class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                type="submit">Actualizar
+        </button>
+    </form>
+</div>

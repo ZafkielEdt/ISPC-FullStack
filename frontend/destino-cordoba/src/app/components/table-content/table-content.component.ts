@@ -33,6 +33,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
     showProvinceForm: boolean = false;
     showOrdersTable: boolean = false;
     showPackagesTable: boolean = false;
+    showPackagesForm: boolean = false;
     formInfo: FormInfo = {type: ''}
     status!: string;
 
@@ -212,6 +213,13 @@ export class TableContentComponent implements OnInit, OnDestroy {
                         this.provinceService.getAll().subscribe((res) => this.contentProvinces = res.results)
                     }
                 })
+                break;
+            case 'packages':
+                this.packagesService.deleteBy(id).subscribe({
+                    next: (res) => {
+                        this.packagesService.getAll().subscribe((res) => this.contentPackages = res.results)
+                    }
+                })
         }
     }
 
@@ -232,6 +240,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showDestinationForm = false
                 this.showCityForm = false
                 this.showProvinceForm = false
+                this.showPackagesForm = false;
                 break;
             case 'destination':
                 this.showDestinationsTable = !this.showDestinationsTable
@@ -240,6 +249,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showUserForm = false
                 this.showCityForm = false
                 this.showProvinceForm = false
+                this.showPackagesForm = false;
                 break
             case 'city':
                 this.showCitiesTable = !this.showCitiesTable;
@@ -248,6 +258,7 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showDestinationForm = false
                 this.showUserForm = false
                 this.showProvinceForm = false
+                this.showPackagesForm = false;
                 break;
             case 'province':
                 this.showProvincesTable = !this.showProvincesTable
@@ -256,7 +267,16 @@ export class TableContentComponent implements OnInit, OnDestroy {
                 this.showDestinationForm = false
                 this.showCityForm = false
                 this.showUserForm = false
+                this.showPackagesForm = false;
                 break;
+            case 'packages':
+                this.showPackagesTable = !this.showPackagesTable;
+                this.showPackagesForm = true;
+                this.setOperation(operation, id)
+                this.showDestinationForm = false;
+                this.showCityForm = false
+                this.showUserForm = false
+                this.showProvinceForm = false;
         }
     }
 }

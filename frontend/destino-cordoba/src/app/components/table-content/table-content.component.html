@@ -44,7 +44,7 @@
                     class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Agregar
             </button>
-            <button *ngIf="showPackagesTable" (click)="showFormBy('province', 'create')"
+            <button *ngIf="showPackagesTable" (click)="showFormBy('packages', 'create')"
                     class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
                 Agregar
             </button>
@@ -90,7 +90,6 @@
                 <th class="text-left p-4 font-medium">Precio</th>
                 <th class="text-left p-4 font-medium">Destino</th>
                 <th class="text-left p-4 font-medium">Puntuacion</th>
-                <th></th>
             </tr>
             </thead>
             <thead *ngIf="showOrdersTable" class="border-b">
@@ -177,13 +176,6 @@
                 <td class="p-4">{{packages.total_price}}</td>
                 <td class="p-4">{{packages.destination.name}}</td>
                 <td class="p-4">{{packages.rate}}</td>
-                <td class="p-4 flex justify-center">
-                    <img
-                            ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
-                            class="w-6 h-6 mr-1.5">
-                    <img  ngSrc="/assets/icons/trash-solid.svg"
-                          alt="Icon delete" height="16" width="16" class="w-6 h-6">
-                </td>
             </tr>
             </tbody>
         </table>
@@ -193,6 +185,7 @@
                        [showUserForm]="showUserForm"
                        [showCityForm]="showCityForm"
                        [showProvinceForm]="showProvinceForm"
+                       [showPackagesForm]="showPackagesForm"
                        [formInfo]="formInfo"
                        [showUsersTable]="showUsersTable"
                        [showDestinationsTable]="showDestinationsTable"

@@ -11,6 +11,7 @@ export class FormsContentComponent {
 	@Input() showDestinationForm: boolean = false;
 	@Input() showCityForm: boolean = false;
 	@Input() showProvinceForm: boolean = false;
+	@Input() showPackagesForm: boolean = false;
 	@Input() formInfo: FormInfo = { id: 0, type: "" };
 	@Input() showUsersTable: boolean = false;
 	@Input() showDestinationsTable: boolean = false;
