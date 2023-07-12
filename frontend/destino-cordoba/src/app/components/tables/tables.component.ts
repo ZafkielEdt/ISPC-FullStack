@@ -87,7 +87,7 @@ export class TablesComponent implements OnDestroy {
                 break
             case Tables.Orders:
                 this.subscription = this.orderService.getOrders().subscribe((res) => {
-                    this.tableData = res.results
+                    this.tableData = res
                 })
                 break
             default:
