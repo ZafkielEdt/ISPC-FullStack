@@ -2,8 +2,8 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../services/user.service";
 import {LoginService} from "../../../auth/service/login.service";
-import {FormInfo} from "../../../utils/FormInfo";
 import {Subscription} from "rxjs";
+import {FormData} from "../../../utils/FormData";
 
 @Component({
     selector: 'app-user-form',
@@ -29,7 +29,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
         rol: ''
     })
 
-    @Input() formInfo: FormInfo = {id: 0, type: ''}
+    @Input() formData!: FormData;
     @Input() showForm: boolean = false;
     @Input() showUsersTable: boolean = false;
     @Input() showDestinationsTable: boolean = false;
@@ -41,7 +41,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
         this.getSubscription = this.loginService.getCurrentUser().subscribe((res) => {
             this.currentRol = res.rol;
         })
-        if (this.formInfo.type.includes('update') && this.updateCurrentUser) {
+        if (this.formData.action.includes('update') && this.updateCurrentUser) {
             this.getSubscription = this.loginService.getCurrentUser().subscribe((res) => {
                 this.userForm = this.formBuilder.group({
                     username: [res?.username, [Validators.required, Validators.min(5)]],
@@ -54,8 +54,8 @@ export class UserFormComponent implements OnInit, OnDestroy {
                     rol: ''
                 })
             })
-        } else if ((this.formInfo.type.includes('update') && !this.updateCurrentUser)) {
-            this.getSubscription = this.userService.getBy(this.formInfo.id).subscribe((res) => {
+        } else if ((this.formData.action.includes('update') && !this.updateCurrentUser)) {
+            this.getSubscription = this.userService.getBy(this.formData.id).subscribe((res) => {
                 this.userForm = this.formBuilder.group({
                     username: [res?.username, [Validators.required, Validators.min(5)]],
                     first_name: [res?.first_name, [Validators.required, Validators.min(5)]],
@@ -112,16 +112,22 @@ export class UserFormComponent implements OnInit, OnDestroy {
     }
 
     private operations() {
-        if (this.formInfo.type.includes('create')) {
+        if (this.formData.action.includes('create')) {
             this.postSubscription = this.userService.create(this.userForm).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         } else {
-            this.updateSubscription = this.userService.update(this.userForm, this.formInfo.id).subscribe({
+            this.updateSubscription = this.userService.update(this.userForm, this.formData.id).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         }
@@ -131,10 +137,9 @@ export class UserFormComponent implements OnInit, OnDestroy {
         event.preventDefault()
         if (this.userForm.valid) {
             this.operations();
-            location.reload();
         } else {
             this.userForm.markAllAsTouched()
         }
-        
+
     }
 }

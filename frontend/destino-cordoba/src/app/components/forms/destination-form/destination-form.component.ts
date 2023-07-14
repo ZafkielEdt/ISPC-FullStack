@@ -1,9 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {FormInfo} from "../../../utils/FormInfo";
 import {Subscription} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {City, CityService} from "../../../services/city.service";
 import {DestinationsService} from "../../../services/destinations.service";
+import {FormData} from "../../../utils/FormData";
 
 @Component({
     selector: 'app-destination-form',
@@ -27,14 +27,14 @@ export class DestinationFormComponent implements OnInit, OnDestroy {
     })
 
     @Input() showForm: boolean = false;
-    @Input() formInfo: FormInfo = {type: ''}
+    @Input() formData!: FormData;
 
     ngOnInit() {
         this.getSubscription = this.cityService.getAll().subscribe((res) => {
             this.cities = res.results
         })
-        if (this.formInfo.type.includes('update')) {
-            this.getSubscription = this.destinationService.getBy(this.formInfo.id).subscribe((res) => {
+        if (this.formData.action.includes('update')) {
+            this.getSubscription = this.destinationService.getBy(this.formData.id).subscribe((res) => {
                 this.destinationForm = this.formBuilder.group({
                     name: res.name,
                     description: res.description,
@@ -74,17 +74,22 @@ export class DestinationFormComponent implements OnInit, OnDestroy {
             city: this.cities.filter(c => c.id === parseInt(this.destinationForm.value.city) ? c.id : 0)[0].id
         };
 
-        if (this.formInfo.type.includes('create')) {
+        if (this.formData.action.includes('create')) {
             this.postSubscription = this.destinationService.post(dataApiWithImage).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         } else {
-            this.updateSubscription = this.destinationService.update(dataApi, this.formInfo.id).subscribe({
+            this.updateSubscription = this.destinationService.update(dataApi, this.formData.id).subscribe({
                 next: (res) => {
-
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         }

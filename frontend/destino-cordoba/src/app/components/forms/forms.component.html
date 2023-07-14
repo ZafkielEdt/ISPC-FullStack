@@ -1,0 +1,7 @@
+<section *ngIf="showForm()">
+    <app-user-form *ngIf="currentDataForm.formType === Forms.Users" [formData]="currentDataForm"></app-user-form>
+    <app-destination-form *ngIf="currentDataForm.formType === Forms.Destinations" [formData]="currentDataForm"></app-destination-form>
+    <app-city-form *ngIf="currentDataForm.formType === Forms.Cities" [formData]="currentDataForm"></app-city-form>
+    <app-province-form *ngIf="currentDataForm.formType === Forms.Provinces" [formData]="currentDataForm"></app-province-form>
+    <app-packages-form *ngIf="currentDataForm.formType === Forms.Packages" [formData]="currentDataForm"></app-packages-form>
+</section>

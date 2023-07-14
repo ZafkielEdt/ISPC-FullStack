@@ -1,6 +1,6 @@
-<div *ngIf="showForm" class="container mx-auto py-8">
-    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar Provincia</h1>
-    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar Provincia</h1>
+<div class="container mx-auto py-8">
+    <h1 *ngIf="formData.action.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar Provincia</h1>
+    <h1 *ngIf="formData.action.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar Provincia</h1>
 
     <form [formGroup]="provinceForm" (ngSubmit)="onSubmit($event)"
           class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
@@ -29,11 +29,11 @@
                 <p *ngIf="Lon?.hasError('required')">La longitud es requerida</p>
             </div>
         </div>
-        <button *ngIf="formInfo.type.includes('create')"
+        <button *ngIf="formData.action.includes('create')"
                 class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
                 type="submit">Agregar
         </button>
-        <button *ngIf="formInfo.type.includes('update')"
+        <button *ngIf="formData.action.includes('update')"
                 class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
                 type="submit">Actualizar
         </button>

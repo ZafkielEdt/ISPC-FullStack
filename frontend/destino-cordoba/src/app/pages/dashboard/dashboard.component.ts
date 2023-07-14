@@ -3,6 +3,8 @@ import {LoginService} from "../../auth/service/login.service";
 import {Subscription} from "rxjs";
 import {User} from "../../models/user";
 import {FormInfo} from "../../utils/FormInfo";
+import {FormData} from "../../utils/FormData";
+import {Forms} from "../../utils/forms";
 
 @Component({
     selector: 'app-dashboard',
@@ -18,6 +20,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     showContentTab: boolean = false;
     showUpdateForm: boolean = false;
     formInfo: FormInfo = {id: 0, type: ''}
+
+    currenDataForm!: FormData;
 
     constructor(private loginService: LoginService) {
     }
@@ -39,7 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         if (contentName === "profile") {
             this.showProfileTab = !this.showProfileTab;
             this.showContentTab = false;
-            this.formInfo = {id: this.currentUser.pk, type: 'update'}
+            this.currenDataForm = {action: 'update', formType: Forms.AnyForm, showForm: false, id: this.currentUser.pk}
         } else {
             this.showContentTab = !this.showContentTab;
             this.showProfileTab = false;
