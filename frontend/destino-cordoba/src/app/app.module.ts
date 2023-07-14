@@ -22,9 +22,7 @@ import {CookieService} from "ngx-cookie-service";
 import {ToastrModule, provideToastr} from "ngx-toastr";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {CityFormComponent} from './components/forms/city-form/city-form.component';
-import {FormsContentComponent} from './components/forms-content/forms-content.component';
 import {ProvinceFormComponent} from './components/forms/province-form/province-form.component';
-import {TableContentComponent} from './components/table-content/table-content.component';
 import {CartComponent} from "./pages";
 import {PaymentInfoComponent} from "./pages/cart/payment-info";
 import {PriceBoxComponent} from "./pages/cart/price-box/price-box.component";
@@ -52,8 +50,6 @@ import { FormsComponent } from './components/forms/forms.component';
         TravelerComponent,
         PaymentInfoComponent,
         PriceBoxComponent,
-        TableContentComponent,
-        FormsContentComponent,
         ProvinceFormComponent,
         CityFormComponent,
         CheckoutStatusComponent,
