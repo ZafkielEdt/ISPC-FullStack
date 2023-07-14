@@ -1,5 +1,4 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {FormInfo} from "../../../utils/FormInfo";
 import {FormBuilder, Validators} from "@angular/forms";
 import {City} from "../../../services/city.service";
 import {Destination} from "../../../services/destinations.service";

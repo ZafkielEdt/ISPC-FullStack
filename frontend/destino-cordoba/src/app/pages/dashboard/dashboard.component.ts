@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from "../../auth/service/login.service";
 import {Subscription} from "rxjs";
 import {User} from "../../models/user";
-import {FormInfo} from "../../utils/FormInfo";
 import {FormData} from "../../utils/FormData";
 import {Forms} from "../../utils/forms";
 
@@ -18,9 +17,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     currentUser!: User;
     showProfileTab: boolean = false;
     showContentTab: boolean = false;
-    showUpdateForm: boolean = false;
-    formInfo: FormInfo = {id: 0, type: ''}
-
     currenDataForm!: FormData;
 
     constructor(private loginService: LoginService) {
