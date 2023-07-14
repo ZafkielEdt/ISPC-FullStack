@@ -1,0 +1,157 @@
+<div>
+    <button *ngIf="currentTable === Tables.Users" (click)="showForm('create', Forms.Users, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Destinations" (click)="showForm('create', Forms.Destinations, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Cities" (click)="showForm('create', Forms.Cities, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Provinces" (click)="showForm('create', Forms.Provinces, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Packages" (click)="showForm('create', Forms.Packages, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+</div>
+<table class="table-auto w-full">
+    <thead *ngIf="currentTable === Tables.Users" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">ID</th>
+        <th class="text-left p-4 font-medium">Nombre de usuario</th>
+        <th class="text-left p-4 font-medium">Email</th>
+        <th class="text-left p-4 font-medium">Rol</th>
+        <th></th>
+    </tr>
+    </thead>
+    <thead *ngIf="currentTable === Tables.Destinations" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">ID</th>
+        <th class="text-left p-4 font-medium">Nombre</th>
+        <th class="text-left p-4 font-medium">Ciudad</th>
+        <th></th>
+    </tr>
+    </thead>
+    <thead *ngIf="currentTable === Tables.Cities" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">ID</th>
+        <th class="text-left p-4 font-medium">Nombre</th>
+        <th class="text-left p-4 font-medium">Provincia</th>
+        <th></th>
+    </tr>
+    </thead>
+    <thead *ngIf="currentTable === Tables.Provinces" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">ID</th>
+        <th class="text-left p-4 font-medium">Nombre</th>
+        <th></th>
+    </tr>
+    </thead>
+    <thead *ngIf="currentTable === Tables.Packages" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">ID</th>
+        <th class="text-left p-4 font-medium">Nombre</th>
+        <th class="text-left p-4 font-medium">Precio</th>
+        <th class="text-left p-4 font-medium">Destino</th>
+        <th class="text-left p-4 font-medium">Puntuacion</th>
+    </tr>
+    </thead>
+    <thead *ngIf="currentTable === Tables.Orders" class="border-b">
+    <tr class="bg-gray-100">
+        <th class="text-left p-4 font-medium">Usuario</th>
+        <th class="text-left p-4 font-medium">Orden</th>
+        <th class="text-left p-4 font-medium">Monto</th>
+        <th class="text-left p-4 font-medium">Tarjeta</th>
+        <th class="text-left p-4 font-medium">Estado</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="currentTable === Tables.Users">
+    <tr *ngFor="let user of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{user.pk}}</td>
+        <td class="p-4">{{user.username}}</td>
+        <td class="p-4">{{user.email}}</td>
+        <td class="p-4">{{user.rol ? user.rol : "No definido"}}</td>
+        <td class="p-4 flex justify-center">
+            <img (click)="showForm('update', Forms.Users, true, user.pk)" ngSrc="/assets/icons/pen-to-square-solid.svg"
+                 alt="Icon update" height="16" width="16"
+                 class="w-6 h-6 mr-1.5">
+            <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
+                 height="16" width="16" class="w-6 h-6">
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="currentTable === Tables.Destinations">
+    <tr *ngFor="let destination of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{destination.id}}</td>
+        <td class="p-4">{{destination.name}}</td>
+        <td class="p-4">{{destination.city.name}}</td>
+        <td class="p-4 flex justify-center">
+            <img (click)="showForm('update',Forms.Destinations,true, destination.id)"
+                 ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                 class="w-6 h-6 mr-1.5">
+            <img ngSrc="/assets/icons/trash-solid.svg"
+                 alt="Icon delete" height="16" width="16" class="w-6 h-6">
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="currentTable === Tables.Cities">
+    <tr *ngFor="let city of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{city.id}}</td>
+        <td class="p-4">{{city.name}}</td>
+        <td class="p-4">{{city.province.name}}</td>
+        <td class="p-4 flex justify-center">
+            <img (click)="showForm('update', Forms.Cities, true, city.id)" ngSrc="/assets/icons/pen-to-square-solid.svg"
+                 alt="Icon update" height="16" width="16"
+                 class="w-6 h-6 mr-1.5">
+            <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
+                 height="16" width="16" class="w-6 h-6">
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="currentTable === Tables.Provinces">
+    <tr *ngFor="let province of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{province.id}}</td>
+        <td class="p-4">{{province.name}}</td>
+        <td class="p-4 flex justify-center">
+            <img (click)="showForm('update', Forms.Provinces, true, province.id)"
+                    ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
+                    class="w-6 h-6 mr-1.5">
+            <img ngSrc="/assets/icons/trash-solid.svg"
+                 alt="Icon delete" height="16" width="16" class="w-6 h-6">
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="currentTable === Tables.Packages">
+    <tr *ngFor="let packages of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{packages.id}}</td>
+        <td class="p-4">{{packages.title}}</td>
+        <td class="p-4">{{packages.total_price}}</td>
+        <td class="p-4">{{packages.destination.name}}</td>
+        <td class="p-4">{{packages.rate}}</td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="currentTable === Tables.Orders">
+    <tr *ngFor="let order of data" class="border-b hover:bg-gray-50">
+        <td class="p-4">{{order.client.name}}</td>
+        <td class="p-4">{{order.package}}</td>
+        <td class="p-4">{{order.amount}}</td>
+        <td class="p-4">{{order.payment.card_type}}</td>
+        <!-- <td class="p-4">{{order.status}}</td> -->
+
+        <td *ngIf="order.status === 'REJ' || order.status === 'EXP'"
+            class="p-4 inline-flex items-center rounded-md bg-red-50 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+            Rechazado
+        </td>
+        <td *ngIf="order.status === 'ACC'"
+            class="p-4 inline-flex items-center rounded-md bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+            Aceptado
+        </td>
+    </tr>
+    </tbody>
+</table>

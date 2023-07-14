@@ -1,0 +1,33 @@
+<div class="mt-5">
+    <div>
+        <button (click)="changeCurrentTable(Tables.Users)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Usuarios
+        </button>
+        <button (click)="changeCurrentTable(Tables.Destinations)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Destinos
+        </button>
+        <button (click)="changeCurrentTable(Tables.Cities)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Ciudades
+        </button>
+        <button (click)="changeCurrentTable(Tables.Provinces)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Provincias
+        </button>
+        <button (click)="changeCurrentTable(Tables.Packages)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Paquetes
+        </button>
+        <button (click)="changeCurrentTable(Tables.Orders)"
+                class="inline-block m-2 uppercase  shadow bg-sky-700 hover:bg-sky-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+            Ordenes
+        </button>
+    </div>
+
+    <table class="table-auto w-full">
+        <app-table-details [currentTable]="currentTable" [data]="tableData" (hideTable)="hiddenTable($event)"></app-table-details>
+    </table>
+    <app-forms></app-forms>
+</div>

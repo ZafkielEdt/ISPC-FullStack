@@ -21,7 +21,15 @@ export class PackagesService {
   getPackageById(id : number) {
     return this.http.get<Package>(this.apiURL+'packages/'+id);
   }
+
+  post(data: object) {
+    return this.http.post(this.apiURL+'packages', data)
+  }
   setPackages(packageTravel : PackageCard) {
     return this.http.post(this.apiURL+'packages', packageTravel);
+  }
+
+  deleteBy(id?: number) {
+    return this.http.delete(`${this.apiURL+'packages'}/${id}`)
   }
 }

@@ -58,10 +58,15 @@ class ExperienceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PackageSerializer(serializers.ModelSerializer):
-    destination = DestinationSerializer()
+    #destination = DestinationSerializer(read_only=True)
     class Meta:
         model = Package
         fields = '__all__'
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['destination'] = DestinationSerializer(instance.destination).data
+        return data    
 
 class FtServiceSerializer(serializers.ModelSerializer):
     class Meta: 
