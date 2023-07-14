@@ -1,0 +1,4 @@
+<section *ngIf="showForm()">
+    <app-user-form *ngIf="currentDataForm.formType === Forms.Users" [formData]="currentDataForm"></app-user-form>
+    <app-destination-form *ngIf="currentDataForm.formType === Forms.Destinations" [formData]="currentDataForm"></app-destination-form>
+</section>
