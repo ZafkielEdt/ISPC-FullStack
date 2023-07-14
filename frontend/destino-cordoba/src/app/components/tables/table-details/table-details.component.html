@@ -3,19 +3,19 @@
             class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
         Agregar
     </button>
-    <button *ngIf="currentTable === Tables.Destinations"
+    <button *ngIf="currentTable === Tables.Destinations" (click)="showForm('create', Forms.Destinations, true)"
             class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
         Agregar
     </button>
-    <button *ngIf="currentTable === Tables.Cities"
+    <button *ngIf="currentTable === Tables.Cities" (click)="showForm('create', Forms.Cities, true)"
             class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
         Agregar
     </button>
-    <button *ngIf="currentTable === Tables.Provinces"
+    <button *ngIf="currentTable === Tables.Provinces" (click)="showForm('create', Forms.Provinces, true)"
             class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
         Agregar
     </button>
-    <button *ngIf="currentTable === Tables.Packages"
+    <button *ngIf="currentTable === Tables.Packages" (click)="showForm('create', Forms.Packages, true)"
             class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
         Agregar
     </button>
@@ -106,7 +106,7 @@
         <td class="p-4">{{city.name}}</td>
         <td class="p-4">{{city.province.name}}</td>
         <td class="p-4 flex justify-center">
-            <img ngSrc="/assets/icons/pen-to-square-solid.svg"
+            <img (click)="showForm('update', Forms.Cities, true, city.id)" ngSrc="/assets/icons/pen-to-square-solid.svg"
                  alt="Icon update" height="16" width="16"
                  class="w-6 h-6 mr-1.5">
             <img ngSrc="/assets/icons/trash-solid.svg" alt="Icon delete"
@@ -119,7 +119,7 @@
         <td class="p-4">{{province.id}}</td>
         <td class="p-4">{{province.name}}</td>
         <td class="p-4 flex justify-center">
-            <img
+            <img (click)="showForm('update', Forms.Provinces, true, province.id)"
                     ngSrc="/assets/icons/pen-to-square-solid.svg" alt="Icon update" height="16" width="16"
                     class="w-6 h-6 mr-1.5">
             <img ngSrc="/assets/icons/trash-solid.svg"
