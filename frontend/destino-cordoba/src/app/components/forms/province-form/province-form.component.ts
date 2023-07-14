@@ -1,8 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
 import {ProvinceService} from "../../../services/province.service";
-import {FormInfo} from "../../../utils/FormInfo";
 import {Subscription} from "rxjs";
+import {FormData} from "../../../utils/FormData";
 
 @Component({
     selector: 'app-province-form',
@@ -22,11 +22,11 @@ export class ProvinceFormComponent implements OnInit, OnDestroy {
     })
 
     @Input() showForm: boolean = false;
-    @Input() formInfo: FormInfo = {type: ''}
+    @Input() formData!: FormData;
 
     ngOnInit() {
-        if (this.formInfo.type.includes('update')) {
-            this.getSubscription = this.provinceService.getBy(this.formInfo.id).subscribe((res) => {
+        if (this.formData.action.includes('update')) {
+            this.getSubscription = this.provinceService.getBy(this.formData.id).subscribe((res) => {
                 this.provinceForm = this.formBuilder.group({
                     name: [res.name, [Validators.required, Validators.min(5)]],
                     lat: [res.lat, [Validators.required,]],
@@ -58,16 +58,22 @@ export class ProvinceFormComponent implements OnInit, OnDestroy {
     }
 
     private operations() {
-        if (this.formInfo.type.includes('create')) {
+        if (this.formData.action.includes('create')) {
             this.postSubscription = this.provinceService.create(this.provinceForm).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         } else {
-            this.updateSubscription = this.provinceService.update(this.provinceForm, this.formInfo.id).subscribe({
+            this.updateSubscription = this.provinceService.update(this.provinceForm, this.formData.id).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         }

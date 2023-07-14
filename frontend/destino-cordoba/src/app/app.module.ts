@@ -23,7 +23,7 @@ import {ToastrModule, provideToastr} from "ngx-toastr";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {CityFormComponent} from './components/forms/city-form/city-form.component';
 import {FormsContentComponent} from './components/forms-content/forms-content.component';
-import {ProvinceFormComponent} from './components/forms-content/province-form/province-form.component';
+import {ProvinceFormComponent} from './components/forms/province-form/province-form.component';
 import {TableContentComponent} from './components/table-content/table-content.component';
 import {CartComponent} from "./pages";
 import {PaymentInfoComponent} from "./pages/cart/payment-info";
