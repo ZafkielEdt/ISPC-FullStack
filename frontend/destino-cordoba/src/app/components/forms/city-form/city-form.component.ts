@@ -1,10 +1,10 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FormInfo} from "../../../utils/FormInfo";
 import {ProvinceService} from "../../../services/province.service";
 import {CityService} from "../../../services/city.service";
 import {Province} from "../../../models/province";
 import {Subscription} from "rxjs";
+import {FormData} from "../../../utils/FormData";
 
 @Component({
     selector: 'app-city-form',
@@ -27,7 +27,7 @@ export class CityFormComponent implements OnInit, OnDestroy {
     })
 
     @Input() showForm: boolean = false;
-    @Input() formInfo: FormInfo = {type: ''}
+    @Input() formData!: FormData;
 
     constructor(private formBuilder: FormBuilder, private provinceService: ProvinceService, private cityService: CityService) {
     }
@@ -36,8 +36,8 @@ export class CityFormComponent implements OnInit, OnDestroy {
         this.getSubscription = this.provinceService.getAll().subscribe((res) => {
             this.provinces = res.results;
         });
-        if (this.formInfo.type.includes('update')) {
-            this.getSubscription = this.cityService.getBy(this.formInfo.id).subscribe((res) => {
+        if (this.formData.action.includes('update')) {
+            this.getSubscription = this.cityService.getBy(this.formData.id).subscribe((res) => {
                 this.cityForm = this.formBuilder.group({
                     name: [res[0].name, [Validators.required, Validators.min(5)]],
                     lat: [res[0].lat, [Validators.required,]],
@@ -78,16 +78,22 @@ export class CityFormComponent implements OnInit, OnDestroy {
             province: this.provinces.filter(p => p.id === parseInt(this.cityForm.value.province) ? p.id : 0)[0].id
         };
 
-        if (this.formInfo.type.includes('create')) {
+        if (this.formData.action.includes('create')) {
             this.postSubscription = this.cityService.create(dataApi).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         } else {
-            this.updateSubscription = this.cityService.update(dataApi, this.formInfo.id).subscribe({
+            this.updateSubscription = this.cityService.update(dataApi, this.formData.id).subscribe({
                 next: (res) => {
                     this.showForm = !this.showForm;
+                },
+                complete: () => {
+                    location.reload()
                 }
             })
         }
