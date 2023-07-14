@@ -1,6 +1,6 @@
-<div *ngIf="showForm" class="container mx-auto py-8">
-    <h1 *ngIf="formInfo.type.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar</h1>
-    <h1 *ngIf="formInfo.type.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar</h1>
+<div class="container mx-auto py-8">
+    <h1 *ngIf="formData.action.includes('create')" class="text-2xl font-bold mb-6 text-center">Agregar</h1>
+    <h1 *ngIf="formData.action.includes('update')" class="text-2xl font-bold mb-6 text-center">Actualizar</h1>
 
     <form [formGroup]="packagesForm" (ngSubmit)="onSubmit($event)"
           class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
@@ -44,21 +44,21 @@
                 <p *ngIf="Name?.hasError('required')">El nombre/titulo es requerido</p>
             </div>
         </div>
-        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+        <div *ngIf="formData.action.includes('create')" class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="rate">Puntuación (max. 5)</label>
             <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                    type="number" min="1" max="5" id="rate" name="rate" placeholder="Rate" formControlName="rate">
         </div>
-        <div *ngIf="formInfo.type.includes('create')" class="mb-4">
+        <div *ngIf="formData.action.includes('create')" class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Precio</label>
             <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                    type="number" id="price" name="price" placeholder="price" formControlName="total_price">
         </div>
-        <button *ngIf="formInfo.type.includes('create')"
+        <button *ngIf="formData.action.includes('create')"
                 class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
                 type="submit">Agregar
         </button>
-        <button *ngIf="formInfo.type.includes('update')"
+        <button *ngIf="formData.action.includes('update')"
                 class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
                 type="submit">Actualizar
         </button>

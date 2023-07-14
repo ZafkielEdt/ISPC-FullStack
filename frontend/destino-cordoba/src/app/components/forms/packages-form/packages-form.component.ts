@@ -7,6 +7,7 @@ import {Subscription} from "rxjs";
 import {PackagesService} from "../../../services/packages.service";
 import {DestinationsService} from "../../../services/destinations.service";
 import {CityService} from "../../../services/city.service";
+import {FormData} from "../../../utils/FormData";
 
 @Component({
   selector: 'app-packages-form',
@@ -33,7 +34,7 @@ export class PackagesFormComponent implements OnInit, OnDestroy{
   destinations!: Destination[]
 
   @Input() showForm: boolean = false;
-  @Input() formInfo: FormInfo = {type: ''}
+  @Input() formData!: FormData;
 
   get Name() {
     return this.packagesForm.get('name')
@@ -69,10 +70,13 @@ export class PackagesFormComponent implements OnInit, OnDestroy{
       total_price: this.packagesForm.value.total_price
     };
 
-    if (this.formInfo.type.includes('create')) {
+    if (this.formData.action.includes('create')) {
       this.postSubscription = this.packagesService.post(dataApi).subscribe({
         next: (res) => {
           this.showForm = !this.showForm;
+        },
+        complete: () => {
+          location.reload()
         }
       })
     } else {
