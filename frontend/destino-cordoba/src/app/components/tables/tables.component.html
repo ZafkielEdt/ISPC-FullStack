@@ -27,6 +27,7 @@
     </div>
 
     <table class="table-auto w-full">
-        <app-table-details [currentTable]="currentTable" [data]="tableData"></app-table-details>
+        <app-table-details [currentTable]="currentTable" [data]="tableData" (hideTable)="hiddenTable($event)"></app-table-details>
     </table>
+    <app-forms></app-forms>
 </div>

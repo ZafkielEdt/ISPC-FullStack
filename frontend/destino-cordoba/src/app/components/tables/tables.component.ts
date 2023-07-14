@@ -1,8 +1,8 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Tables} from "../../utils/tables";
 import {UserService} from "../../services/user.service";
-import {DestinationsService, Destination} from "../../services/destinations.service";
-import {CityService, City} from "../../services/city.service";
+import {Destination, DestinationsService} from "../../services/destinations.service";
+import {City, CityService} from "../../services/city.service";
 import {ProvinceService} from "../../services/province.service";
 import {PackagesService} from "../../services/packages.service";
 import {OrderService} from "../../services/order.service";
@@ -11,6 +11,8 @@ import {Province} from "../../models/province";
 import {Order} from "../../models/order";
 import {Package} from "../../models/package";
 import {Subscription} from "rxjs";
+import {FormsService} from "../../services/forms.service";
+import {Forms} from "../../utils/forms";
 
 @Component({
     selector: 'app-tables',
@@ -25,10 +27,12 @@ export class TablesComponent implements OnDestroy {
     protected readonly Tables = Tables;
 
     constructor(private userService: UserService, private destinationService: DestinationsService, private cityService: CityService,
-                private provinceService: ProvinceService, private packagesService: PackagesService, private orderService: OrderService) {
+                private provinceService: ProvinceService, private packagesService: PackagesService, private orderService: OrderService,
+                private formsService: FormsService) {
     }
 
     changeCurrentTable(tableName: Tables): void {
+        this.hiddenForm()
         switch (tableName) {
             case Tables.Users:
                 this.currentTable = Tables.Users
@@ -55,6 +59,14 @@ export class TablesComponent implements OnDestroy {
                 this.getData()
                 break
         }
+    }
+
+    hiddenTable(action: Tables) {
+        this.currentTable = action
+    }
+
+    hiddenForm() {
+        this.formsService.changeForm('update',Forms.AnyForm, false, 0)
     }
 
     getData(): void {
