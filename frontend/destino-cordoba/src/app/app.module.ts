@@ -33,11 +33,12 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {ModalComponent, PackageTravelComponent} from "./pages/travel-package";
 import {SharedModule} from "./shared";
 import {CheckoutStatusComponent} from './pages/checkout-status/checkout-status.component';
-import {UserFormComponent} from './components/forms-content/user-form/user-form.component';
-import {DestinationFormComponent} from './components/forms-content/destination-form/destination-form.component';
+import {UserFormComponent} from './components/forms/user-form/user-form.component';
+import {DestinationFormComponent} from './components/forms/destination-form/destination-form.component';
 import {PackagesFormComponent} from "./components/forms-content/packages-form/packages-form.component";
 import {TablesComponent} from './components/tables/tables.component';
 import {TableDetailsComponent} from './components/tables/table-details/table-details.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +62,7 @@ import {TableDetailsComponent} from './components/tables/table-details/table-det
         DestinationFormComponent,
         TablesComponent,
         TableDetailsComponent,
+        FormsComponent,
 
     ],
     imports: [
