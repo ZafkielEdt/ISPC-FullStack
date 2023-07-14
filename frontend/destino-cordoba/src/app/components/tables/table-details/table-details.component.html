@@ -1,3 +1,25 @@
+<div>
+    <button *ngIf="currentTable === Tables.Users" (click)="showForm('create', Forms.Users, true)"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Destinations"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Cities"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Provinces"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+    <button *ngIf="currentTable === Tables.Packages"
+            class="inline-block m-2 uppercase  shadow bg-cyan-700 hover:bg-cyan-500 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
+        Agregar
+    </button>
+</div>
 <table class="table-auto w-full">
     <thead *ngIf="currentTable === Tables.Users" class="border-b">
     <tr class="bg-gray-100">
