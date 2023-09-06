@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "federico42o",
+      "name": "Federico Silva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50332167?v=4",
+      "profile": "https://github.com/federico42o",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "ISPC-FullStack",
+  "projectOwner": "FrancoGL"
+}
